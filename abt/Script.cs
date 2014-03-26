@@ -8,5 +8,6 @@ namespace abt
 {
     public class Script : SourceFile
     {
+        public Script() : base(null) { }
     }
 }

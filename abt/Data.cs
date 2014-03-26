@@ -8,5 +8,6 @@ namespace abt
 {
     public class Data : SourceFile
     {
+        public Data() : base(null) { }
     }
 }

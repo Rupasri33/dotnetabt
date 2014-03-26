@@ -8,5 +8,10 @@ namespace abt
 {
     public class Interface : SourceFile
     {
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="parser">the file parser</param>
+        public Interface(IFileParser parser) : base(parser) { }
     }
 }
