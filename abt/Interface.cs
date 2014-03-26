@@ -13,5 +13,7 @@ namespace abt
         /// </summary>
         /// <param name="parser">the file parser</param>
         public Interface(IFileParser parser) : base(parser) { }
+
+        public Dictionary<string, string> Properties { get; private set; }
     }
 }
