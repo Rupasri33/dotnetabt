@@ -9,9 +9,23 @@ namespace abt
     public sealed class SourceLine
     {
         /// <summary>
+        /// constructor
+        /// </summary>
+        public SourceLine()
+        {
+            Columns = new List<string>();
+        }
+
+        /// <summary>
         /// number of column in the line
         /// </summary>
-        public int ColumnCount { get; private set; }
+        public int ColumnCount
+        {
+            get
+            {
+                return Columns.Count;
+            }
+        }
 
         /// <summary>
         /// value of a column indicated by "index"

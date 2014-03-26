@@ -39,7 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
+    <Compile Include="ActionLine.cs" />
+    <Compile Include="ActionManager.cs" />
     <Compile Include="Automation.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="IFileParser.cs" />
     <Compile Include="Interface.cs" />

@@ -15,6 +15,7 @@ namespace abt
         public SourceFile(IFileParser parser)
         {
             Parser = parser;
+            Lines = parser.Lines;
         }
 
         /// <summary>
@@ -32,7 +33,7 @@ namespace abt
         /// <summary>
         /// name of the source file
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; protected set; }
 
         /// <summary>
         /// lines of the source file
