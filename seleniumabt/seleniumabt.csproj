@@ -61,6 +61,20 @@
       <Name>abt</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="selenium\Selenium.WebDriverBackedSelenium.dll" />
+    <Content Include="selenium\Selenium.WebDriverBackedSelenium.pdb" />
+    <Content Include="selenium\Selenium.WebDriverBackedSelenium.xml" />
+    <Content Include="selenium\ThoughtWorks.Selenium.Core.dll" />
+    <Content Include="selenium\ThoughtWorks.Selenium.Core.pdb" />
+    <Content Include="selenium\ThoughtWorks.Selenium.Core.xml" />
+    <Content Include="selenium\WebDriver.dll" />
+    <Content Include="selenium\WebDriver.pdb" />
+    <Content Include="selenium\WebDriver.Support.dll" />
+    <Content Include="selenium\WebDriver.Support.pdb" />
+    <Content Include="selenium\WebDriver.Support.xml" />
+    <Content Include="selenium\WebDriver.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
