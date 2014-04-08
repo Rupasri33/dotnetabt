@@ -15,6 +15,7 @@ namespace abt
         public Script(IFileParser parser)
             : base(parser)
         {
+            CurrentLineNumber = 0;
             ActionLines = new List<ActionLine>();
 
             foreach (SourceLine line in Parser.Lines)
@@ -27,7 +28,7 @@ namespace abt
                     {
                         string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
                         if (pairs.Length != 2)
-                            throw new FormatException("Interface file parsing error: invalid action line");
+                            throw new FormatException(Constants.Messsages.ScriptParsingError);
                         if (pairs[0] == Constants.KeywordWindow)
                             actLine.WindowName = pairs[1];
                         else if (pairs[0] == Constants.KeywordControl)
@@ -43,6 +44,33 @@ namespace abt
         /// <summary>
         /// list of action lines
         /// </summary>
-        public List<ActionLine> ActionLines { get; private set; }
+        private List<ActionLine> ActionLines { get; set; }
+
+        /// <summary>
+        /// check if there is any action lines are waiting for executing
+        /// </summary>
+        public bool HasNextLine
+        {
+            get { return CurrentLineNumber < ActionLines.Count; }
+        }
+
+        /// <summary>
+        /// current executing line number
+        /// </summary>
+        public int CurrentLineNumber { get; private set; }
+
+        /// <summary>
+        /// go to next action line
+        /// </summary>
+        /// <returns>null - if no action line left</returns>
+        public ActionLine Next()
+        {
+            if (CurrentLineNumber < ActionLines.Count)
+            {
+                return ActionLines[CurrentLineNumber++];
+            }
+
+            return null;
+        }
     }
 }

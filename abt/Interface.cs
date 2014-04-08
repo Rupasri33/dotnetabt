@@ -29,7 +29,7 @@ namespace abt
                         {
                             string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
                             if (pairs.Length != 2)
-                                throw new FormatException("Interface file parsing error: invalid window line");
+                                throw new FormatException(Constants.Messsages.InterfaceParsingError_Window);
                             Properties[pairs[0]] = pairs[1];
                         }
                     }
@@ -40,7 +40,7 @@ namespace abt
                         {
                             string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
                             if (pairs.Length != 2)
-                                throw new FormatException("Interface file parsing error: invalid control line");
+                                throw new FormatException(Constants.Messsages.InterfaceParsingError_Control);
                             Controls[propName] = new Dictionary<string, string>();
                             Controls[propName][pairs[0]] = pairs[1];
                         }

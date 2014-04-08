@@ -17,7 +17,8 @@ namespace abt
         {
             Interfaces = new Dictionary<string, Interface>();
             ActionManager = new ActionManager();
-            Script = script;
+            Scripts = new Queue<Script>();
+            CurrentScript = script;
             Data = data;
         }
 
@@ -27,26 +28,39 @@ namespace abt
         /// <returns></returns>
         public int Run()
         {
-            for (int i = 0; i < Script.ActionLines.Count; i++)
+            while (Scripts.Count > 0)
             {
-                Action action = ActionManager.createAction(Script.ActionLines[i]);
-                if (action == null)
-                    throw new InvalidOperationException("No action named '" + Script.ActionLines[i].ActionName + "'");
+                CurrentScript = Scripts.Dequeue();
 
-                if (action.Name == "use interface")
+                while (CurrentScript.HasNextLine)
                 {
-                }
-                else
-                    action.Execute();
-            }
+                    ActionLine actLine = CurrentScript.Next();
+                    Action action = ActionManager.createAction(actLine);
+                    if (action == null)
+                        throw new InvalidOperationException("No action named '" + actLine.ActionName + "'");
 
+                    if (action.Name == "use interface")
+                    {
+                    }
+                    else if (action.Name == "run script")
+                    {
+                    }
+                    else
+                        action.Execute();
+                }
+            }
             return 0;
         }
 
         /// <summary>
         /// executing script
         /// </summary>
-        public Script Script { get; set; }
+        public Script CurrentScript { get; protected set; }
+
+        /// <summary>
+        /// executing scripts queue
+        /// </summary>
+        public Queue<Script> Scripts { get; private set; }
 
         /// <summary>
         /// current data table
