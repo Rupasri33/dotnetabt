@@ -5,20 +5,17 @@ using System.Text;
 
 namespace abt
 {
-    public class Automation
+    public abstract class Automation
     {
         /// <summary>
-        /// constructor from a Script and a Data
+        /// construct an Automation Engine
         /// </summary>
-        /// <param name="script">the executing script</param>
-        /// <param name="data">the data-driven data set</param>
-        public Automation(Script script = null, Data data = null)
+        /// <param name="manager">the action manager</param>
+        public Automation(ActionManager manager)
         {
             Interfaces = new Dictionary<string, Interface>();
-            ActionManager = new ActionManager();
             Scripts = new Queue<Script>();
-            CurrentScript = script;
-            Data = data;
+            ActionManager = manager;
         }
 
         /// <summary>
@@ -44,7 +41,7 @@ namespace abt
                     else if (action.Name == "run script")
                     {
                     }
-                    else
+                    else if (action.IsValid())
                         action.Execute();
                 }
             }
@@ -54,7 +51,7 @@ namespace abt
         /// <summary>
         /// executing script
         /// </summary>
-        public Script CurrentScript { get; protected set; }
+        public Script CurrentScript { get; private set; }
 
         /// <summary>
         /// executing scripts queue

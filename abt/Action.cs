@@ -41,5 +41,13 @@ namespace abt
         /// </summary>
         /// <returns>0 - if executing sucessfully</returns>
         public abstract int Execute();
+
+        /// <summary>
+        /// reset action after executing
+        /// </summary>
+        public virtual void Reset()
+        {
+            Params.Clear();
+        }
     }
 }

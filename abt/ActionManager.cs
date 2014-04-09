@@ -3,13 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using System.Reflection;
+
 namespace abt
 {
-    public class ActionManager
+    public abstract class ActionManager
     {
-        public Action createAction(ActionLine actLine)
+        /// <summary>
+        /// the parent - an Automation engine
+        /// </summary>
+        protected Automation Parent { get; set; }
+        
+        /// <summary>
+        /// list of automation actions
+        /// </summary>
+        protected Dictionary<string, Action> Actions { get; set; }
+
+        /// <summary>
+        /// construct an ActionManager
+        /// </summary>
+        /// <param name="parent">the Automation object</param>
+        public ActionManager(Automation parent)
         {
-            return null;
+            Parent = parent;
+            Actions = new Dictionary<string, Action>();
         }
+
+        /// <summary>
+        /// register an action to ActionManager
+        /// </summary>
+        /// <param name="action">the action to be registered</param>
+        public void RegisterAction(Action action)
+        {
+            Actions[action.Name] = action;
+        }
+
+        /// <summary>
+        /// create an action for the line
+        /// </summary>
+        /// <param name="actLine">the action line</param>
+        /// <returns>the action</returns>
+        public abstract Action createAction(ActionLine actLine);
     }
 }

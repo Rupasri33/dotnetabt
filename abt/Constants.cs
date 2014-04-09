@@ -13,9 +13,19 @@ namespace abt
 
         public class Messsages
         {
-            public const string ScriptParsingError = @"Script file parsing error: invalid action line";
-            public const string InterfaceParsingError_Window = @"Interface file parsing error: invalid window line";
-            public const string InterfaceParsingError_Control = @"Interface file parsing error: invalid control line";
+            public const string Error_Parsing_Script = @"Script file parsing error: invalid action line";
+            public const string Error_Parsing_Interface_InvalidWindow = @"Interface file parsing error: invalid window line";
+            public const string Error_Parsing_Interface_InvalidControl = @"Interface file parsing error: invalid control line";
+
+            public const string Error_Matching_Window_NoDefinition = @"";
+            public const string Error_Matching_Window_NotFound = @"";
+            public const string Error_Matching_Window_NoUniqueWindow = @"";
+
+            public const string Error_Matching_Control_NoDefinition = @"";
+            public const string Error_Matching_Control_NotFound = @"";
+            public const string Error_Matching_Control_NoUniqueWindow = @"";
+
+            public const string Error_Executing_NoAction = @"";
         }
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seleniumabt", "seleniumabt\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seleniumtest", "seleniumtest\seleniumtest.csproj", "{D1CC4C0A-5B0E-4C8B-91A8-BC548323D410}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "codeduiabt", "codeduiabt\codeduiabt.csproj", "{C635E61F-38EA-40C1-A55B-2050FDDEB720}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -29,6 +31,10 @@ Global
 		{D1CC4C0A-5B0E-4C8B-91A8-BC548323D410}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1CC4C0A-5B0E-4C8B-91A8-BC548323D410}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1CC4C0A-5B0E-4C8B-91A8-BC548323D410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C635E61F-38EA-40C1-A55B-2050FDDEB720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C635E61F-38EA-40C1-A55B-2050FDDEB720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C635E61F-38EA-40C1-A55B-2050FDDEB720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C635E61F-38EA-40C1-A55B-2050FDDEB720}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -27,7 +27,7 @@ namespace abt
                     {
                         string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
                         if (pairs.Length != 2)
-                            throw new FormatException(Constants.Messsages.ScriptParsingError);
+                            throw new FormatException(Constants.Messsages.Error_Parsing_Script);
                         if (pairs[0] == Constants.KeywordWindow)
                             actLine.WindowName = pairs[1];
                         else if (pairs[0] == Constants.KeywordControl)
