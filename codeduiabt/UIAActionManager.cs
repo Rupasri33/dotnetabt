@@ -16,6 +16,12 @@ namespace codeduiabt
         {
         }
 
+        /// <summary>
+        /// check if a window is matched with given criteria
+        /// </summary>
+        /// <param name="window">the window to be checked</param>
+        /// <param name="criteria">the criteria</param>
+        /// <returns>true - if matched</returns>
         private bool MatchWindow(Window window, Dictionary<string, string> criteria)
         {
             return false;
@@ -48,6 +54,12 @@ namespace codeduiabt
             return foundWindows[0];
         }
 
+        /// <summary>
+        /// given a criteria, find a control within a window
+        /// </summary>
+        /// <param name="window">the containing window</param>
+        /// <param name="criteria">the criteria to find the control</param>
+        /// <returns>the found control. null - if not found</returns>
         private UIItem FindControl(Window window, Dictionary<string, string> criteria)
         {
             return null;
