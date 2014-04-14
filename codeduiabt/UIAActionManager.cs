@@ -11,6 +11,10 @@ namespace codeduiabt
 {
     class UIAActionManager : abt.ActionManager
     {
+        /// <summary>
+        /// construct an ActionManager with an Automation engine
+        /// </summary>
+        /// <param name="automation">the Automation engine</param>
         public UIAActionManager(abt.Automation automation)
             : base(automation)
         {
@@ -70,12 +74,12 @@ namespace codeduiabt
         /// </summary>
         /// <param name="actLine">the action line</param>
         /// <returns>the UIA action</returns>
-        public override abt.Action createAction(abt.ActionLine actLine)
+        public override abt.Action getAction(abt.ActionLine actLine)
         {
             Window targetWindow = null;
             UIItem targetControl = null;
 
-            if (Actions[actLine.ActionName] == null)
+            if (Actions[actLine.ActionName] == null || !(Actions[actLine.ActionName] is UIAAction))
                 throw new Exception(abt.Constants.Messsages.Error_Executing_NoAction);
             if (actLine.WindowName != null && Parent.Interfaces[actLine.WindowName] == null)
                 throw new Exception(abt.Constants.Messsages.Error_Matching_Window_NoDefinition);
@@ -89,9 +93,8 @@ namespace codeduiabt
             // prepare the action
             UIAAction action = Actions[actLine.ActionName] as UIAAction;
             action.Control = targetControl;
-            foreach (string key in actLine.Arguments.Keys)
-                action.Params[key] = actLine.Arguments[key];
-
+            action.Params = actLine.Arguments;
+            
             return action;
         }
     }

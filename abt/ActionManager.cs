@@ -43,6 +43,6 @@ namespace abt
         /// </summary>
         /// <param name="actLine">the action line</param>
         /// <returns>the action</returns>
-        public abstract Action createAction(ActionLine actLine);
+        public abstract Action getAction(ActionLine actLine);
     }
 }

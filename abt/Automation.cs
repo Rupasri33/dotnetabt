@@ -5,17 +5,41 @@ using System.Text;
 
 namespace abt
 {
-    public abstract class Automation
+    public class Automation
     {
+        /// <summary>
+        /// construct a default Automation engine
+        /// </summary>
+        public Automation()
+        {
+            Interfaces = new Dictionary<string, Interface>();
+            Scripts = new Queue<Script>();
+            ActionManagers = new List<ActionManager>();
+        }
+
         /// <summary>
         /// construct an Automation Engine
         /// </summary>
         /// <param name="manager">the action manager</param>
         public Automation(ActionManager manager)
+            : this()
         {
-            Interfaces = new Dictionary<string, Interface>();
-            Scripts = new Queue<Script>();
-            ActionManager = manager;
+            ActionManagers.Add(manager);
+        }
+
+        /// <summary>
+        /// get corresponding Action object from all Action Managers
+        /// </summary>
+        /// <param name="actLine">the action line</param>
+        /// <returns>the found action</returns>
+        private Action getAction(ActionLine actLine)
+        {
+            int i = 0;
+            Action action = null;
+            while (action == null && i < ActionManagers.Count)
+                action = ActionManagers[i++].getAction(actLine);
+
+            return action;
         }
 
         /// <summary>
@@ -31,7 +55,7 @@ namespace abt
                 while (CurrentScript.HasNextLine)
                 {
                     ActionLine actLine = CurrentScript.Next();
-                    Action action = ActionManager.createAction(actLine);
+                    Action action = getAction(actLine);
                     if (action == null)
                         throw new InvalidOperationException("No action named '" + actLine.ActionName + "'");
 
@@ -42,7 +66,10 @@ namespace abt
                     {
                     }
                     else if (action.IsValid())
+                    {
                         action.Execute();
+                        action.Reset();
+                    }
                 }
             }
             return 0;
@@ -66,7 +93,7 @@ namespace abt
         /// <summary>
         /// the action manager
         /// </summary>
-        public ActionManager ActionManager { get; private set; }
+        public List<ActionManager> ActionManagers { get; private set; }
 
         /// <summary>
         /// current list of loaded interfaces

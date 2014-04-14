@@ -34,33 +34,41 @@ namespace codeduiabt.actions
         /// <summary>
         /// construct a 'click' action
         /// </summary>
-        /// <param name="control">the UIA control</param>
-        /// <param name="_params">other parameters</param>
-        public ActionClick(UIItem control, Dictionary<string, string> _params)
-            : base(control, _params)
+        public ActionClick()
         {
             Name = "click";
+        }
 
-            try
+        /// <summary>
+        /// set parameters to action
+        /// </summary>
+        public override Dictionary<string, string> Params
+        {
+            set
             {
-                if (Params["x"] != null)
-                    X = int.Parse(Params["x"]);
-                if (Params["y"] != null)
-                    Y = int.Parse(Params["y"]);
+                base.Params = value;
 
-                if (Params["left"] != null)
-                    LeftClick = bool.Parse(Params["left"]);
-                else
-                    LeftClick = true;
+                try
+                {
+                    if (Params["x"] != null)
+                        X = int.Parse(Params["x"]);
+                    if (Params["y"] != null)
+                        Y = int.Parse(Params["y"]);
 
-                if (Params["double"] != null)
-                    DoubleClick = bool.Parse(Params["double"]);
-                else
-                    DoubleClick = false;
-            }
-            catch (FormatException e)
-            {
-                throw new Exception("Invalid action params: " + e.Message);
+                    if (Params["left"] != null)
+                        LeftClick = bool.Parse(Params["left"]);
+                    else
+                        LeftClick = true;
+
+                    if (Params["double"] != null)
+                        DoubleClick = bool.Parse(Params["double"]);
+                    else
+                        DoubleClick = false;
+                }
+                catch (FormatException e)
+                {
+                    throw new Exception("Invalid action params: " + e.Message);
+                }
             }
         }
 

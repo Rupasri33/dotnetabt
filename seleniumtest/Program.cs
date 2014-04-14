@@ -9,6 +9,7 @@ namespace seleniumtest
     {
         static void Main(string[] args)
         {
+            abt.Automation auto = new abt.Automation();
         }
     }
 }

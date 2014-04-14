@@ -7,6 +7,8 @@ namespace abt
 {
     public abstract class Action
     {
+        Dictionary<string, string> m_Params;
+
         /// <summary>
         /// name of the action
         /// </summary>
@@ -15,14 +17,22 @@ namespace abt
         /// <summary>
         /// parameters of the action
         /// </summary>
-        public Dictionary<string, string> Params { get; private set; }
+        public virtual Dictionary<string, string> Params
+        {
+            get { return m_Params; }
+            set
+            {
+                foreach (string key in value.Keys)
+                    Params.Add(key, value[key]);
+            }
+        }
 
         /// <summary>
         /// constructor
         /// </summary>
         public Action()
         {
-            Params = new Dictionary<string, string>();
+            m_Params = new Dictionary<string, string>();
         }
 
         /// <summary>

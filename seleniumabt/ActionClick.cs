@@ -17,7 +17,6 @@ namespace seleniumabt
         /// </summary>
         /// <param name="line">the action line in raw text</param>
         public ActionClick(ActionLine line)
-            : base(line)
         {
             Name = @"click";
         }
@@ -28,8 +27,10 @@ namespace seleniumabt
         /// <returns></returns>
         public override bool IsValid()
         {
-            
-            return base.IsValid();
+            if (Control != null)
+                return true;
+
+            return false;
         }
 
         /// <summary>
@@ -38,6 +39,8 @@ namespace seleniumabt
         /// <returns>0 if sucessful</returns>
         public override int Execute()
         {
+            Control.Click();
+
             return 0;
         }
     }

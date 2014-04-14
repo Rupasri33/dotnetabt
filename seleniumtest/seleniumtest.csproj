@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Selenium.WebDriverBackedSelenium">
+      <HintPath>D:\Downloads\selenium-dotnet-2.41.0\net35\Selenium.WebDriverBackedSelenium.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,6 +43,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.Selenium.Core">
+      <HintPath>D:\Downloads\selenium-dotnet-2.41.0\net35\ThoughtWorks.Selenium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver">
+      <HintPath>D:\Downloads\selenium-dotnet-2.41.0\net35\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support">
+      <HintPath>D:\Downloads\selenium-dotnet-2.41.0\net35\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -47,6 +59,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\abt\abt.csproj">
+      <Project>{fce61c59-28c2-42d3-a473-6acfe1e95ae2}</Project>
+      <Name>abt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\seleniumabt\seleniumabt.csproj">
+      <Project>{cc2930ea-bac6-44f3-b3db-a3f54e2030f4}</Project>
+      <Name>seleniumabt</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
