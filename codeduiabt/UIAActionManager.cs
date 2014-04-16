@@ -70,7 +70,7 @@ namespace codeduiabt
         }
 
         /// <summary>
-        /// create an UIA action for the line
+        /// get an UIA action for the line
         /// </summary>
         /// <param name="actLine">the action line</param>
         /// <returns>the UIA action</returns>
@@ -89,6 +89,9 @@ namespace codeduiabt
                 targetControl = targetWindow = FindWindow(Parent.Interfaces[actLine.WindowName].Properties);
             if (actLine.ControlName != null)
                 targetControl = FindControl(targetWindow, Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName]);
+
+            if (targetControl == null)
+                throw new Exception(abt.Constants.Messsages.Error_Matching_Control_NotFound);
 
             // prepare the action
             UIAAction action = Actions[actLine.ActionName] as UIAAction;

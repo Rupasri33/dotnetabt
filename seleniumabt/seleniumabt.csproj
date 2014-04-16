@@ -54,6 +54,7 @@
     <Compile Include="ActionClick.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleniumAction.cs" />
+    <Compile Include="SeleniumActionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abt\abt.csproj">
