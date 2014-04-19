@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seleniumtest", "seleniumtes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "codeduiabt", "codeduiabt\codeduiabt.csproj", "{C635E61F-38EA-40C1-A55B-2050FDDEB720}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gd", "gd\gd.csproj", "{9C2F36ED-15FF-462F-87FF-13557929688D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ung", "ung\ung.csproj", "{3AF6EF16-C5C1-406B-B1B3-36914B6DA097}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -35,6 +39,14 @@ Global
 		{C635E61F-38EA-40C1-A55B-2050FDDEB720}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C635E61F-38EA-40C1-A55B-2050FDDEB720}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C635E61F-38EA-40C1-A55B-2050FDDEB720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C2F36ED-15FF-462F-87FF-13557929688D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C2F36ED-15FF-462F-87FF-13557929688D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C2F36ED-15FF-462F-87FF-13557929688D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C2F36ED-15FF-462F-87FF-13557929688D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF6EF16-C5C1-406B-B1B3-36914B6DA097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF6EF16-C5C1-406B-B1B3-36914B6DA097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF6EF16-C5C1-406B-B1B3-36914B6DA097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF6EF16-C5C1-406B-B1B3-36914B6DA097}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
