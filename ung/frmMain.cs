@@ -702,6 +702,5 @@ namespace WindowsFormsMetro
         }
         #endregion
 
-       
     }
 }
