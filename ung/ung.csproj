@@ -138,6 +138,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ext_lib\Bricks.dll" />
+    <Content Include="ext_lib\Bricks.RuntimeFramework.dll" />
+    <Content Include="ext_lib\Castle.Core.dll" />
+    <Content Include="ext_lib\Castle.DynamicProxy2.dll" />
+    <Content Include="ext_lib\DevComponents.DotNetBar2.dll" />
+    <Content Include="ext_lib\ExcelLibrary.dll" />
+    <Content Include="ext_lib\log4net.dll" />
+    <Content Include="ext_lib\ManagedSpyLib.dll" />
+    <Content Include="ext_lib\White.Core.dll" />
+    <Content Include="ext_lib\xunit.runner.utility.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
