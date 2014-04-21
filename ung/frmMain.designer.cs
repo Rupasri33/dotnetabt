@@ -182,13 +182,13 @@
             this.strDangXuat,
             this._btSave,
             this.exitToolStripMenuItem});
-            this.strmenuHeThong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strmenuHeThong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strmenuHeThong.ForeColor = System.Drawing.Color.White;
             this.strmenuHeThong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.strmenuHeThong.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strmenuHeThong.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.strmenuHeThong.Name = "strmenuHeThong";
-            this.strmenuHeThong.Size = new System.Drawing.Size(49, 25);
+            this.strmenuHeThong.Size = new System.Drawing.Size(37, 20);
             this.strmenuHeThong.Text = "&File";
             // 
             // strDangNhap
@@ -199,7 +199,7 @@
             this.strDangNhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.strDangNhap.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strDangNhap.Name = "strDangNhap";
-            this.strDangNhap.Size = new System.Drawing.Size(173, 26);
+            this.strDangNhap.Size = new System.Drawing.Size(152, 22);
             this.strDangNhap.Text = "New";
             // 
             // projectToolStripNewProject
@@ -208,7 +208,7 @@
             this.projectToolStripNewProject.ForeColor = System.Drawing.Color.White;
             this.projectToolStripNewProject.Image = ((System.Drawing.Image)(resources.GetObject("projectToolStripNewProject.Image")));
             this.projectToolStripNewProject.Name = "projectToolStripNewProject";
-            this.projectToolStripNewProject.Size = new System.Drawing.Size(152, 26);
+            this.projectToolStripNewProject.Size = new System.Drawing.Size(111, 22);
             this.projectToolStripNewProject.Text = "Project";
             this.projectToolStripNewProject.Click += new System.EventHandler(this.projectToolStripNewProject_Click);
             // 
@@ -221,7 +221,7 @@
             this.strDangXuat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.strDangXuat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strDangXuat.Name = "strDangXuat";
-            this.strDangXuat.Size = new System.Drawing.Size(173, 26);
+            this.strDangXuat.Size = new System.Drawing.Size(152, 22);
             this.strDangXuat.Text = "Open";
             // 
             // projectToolStripMenuItem1
@@ -230,7 +230,7 @@
             this.projectToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.projectToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("projectToolStripMenuItem1.Image")));
             this.projectToolStripMenuItem1.Name = "projectToolStripMenuItem1";
-            this.projectToolStripMenuItem1.Size = new System.Drawing.Size(134, 26);
+            this.projectToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.projectToolStripMenuItem1.Text = "Project";
             this.projectToolStripMenuItem1.Click += new System.EventHandler(this.projectToolStripMenuItem1_Click);
             // 
@@ -240,7 +240,7 @@
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileToolStripMenuItem.Image")));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(134, 26);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.fileToolStripMenuItem.Text = "File";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
@@ -251,7 +251,7 @@
             this._btSave.Image = ((System.Drawing.Image)(resources.GetObject("_btSave.Image")));
             this._btSave.Name = "_btSave";
             this._btSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this._btSave.Size = new System.Drawing.Size(173, 26);
+            this._btSave.Size = new System.Drawing.Size(152, 22);
             this._btSave.Text = "Save";
             this._btSave.Click += new System.EventHandler(this._btSave_Click);
             // 
@@ -262,7 +262,7 @@
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -271,12 +271,12 @@
             this.strmenuTroGiup.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.strThongTin,
             this.strLienHe});
-            this.strmenuTroGiup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.strmenuTroGiup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strmenuTroGiup.ForeColor = System.Drawing.Color.White;
             this.strmenuTroGiup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.strmenuTroGiup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strmenuTroGiup.Name = "strmenuTroGiup";
-            this.strmenuTroGiup.Size = new System.Drawing.Size(52, 25);
+            this.strmenuTroGiup.Size = new System.Drawing.Size(39, 20);
             this.strmenuTroGiup.Text = "&Edit";
             // 
             // strThongTin
@@ -287,7 +287,7 @@
             this.strThongTin.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strThongTin.Name = "strThongTin";
             this.strThongTin.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.strThongTin.Size = new System.Drawing.Size(180, 26);
+            this.strThongTin.Size = new System.Drawing.Size(152, 22);
             this.strThongTin.Text = "Undo";
             // 
             // strLienHe
@@ -298,17 +298,17 @@
             this.strLienHe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strLienHe.Name = "strLienHe";
             this.strLienHe.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.strLienHe.Size = new System.Drawing.Size(180, 26);
+            this.strLienHe.Size = new System.Drawing.Size(152, 22);
             this.strLienHe.Text = "Redo";
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projectExploreToolStripMenuItem});
-            this.viewToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(60, 25);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "&View";
             // 
             // projectExploreToolStripMenuItem
@@ -316,7 +316,7 @@
             this.projectExploreToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("projectExploreToolStripMenuItem.BackgroundImage")));
             this.projectExploreToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.projectExploreToolStripMenuItem.Name = "projectExploreToolStripMenuItem";
-            this.projectExploreToolStripMenuItem.Size = new System.Drawing.Size(196, 26);
+            this.projectExploreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.projectExploreToolStripMenuItem.Text = "Project Explore";
             // 
             // execureToolStripMenuItem
@@ -325,10 +325,10 @@
             this.runToolStripMenuItem,
             this.pauseToolStripMenuItem,
             this.stopToolStripMenuItem});
-            this.execureToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.execureToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.execureToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.execureToolStripMenuItem.Name = "execureToolStripMenuItem";
-            this.execureToolStripMenuItem.Size = new System.Drawing.Size(82, 25);
+            this.execureToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.execureToolStripMenuItem.Text = "&Execure";
             // 
             // runToolStripMenuItem
@@ -338,7 +338,7 @@
             this.runToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("runToolStripMenuItem.Image")));
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.runToolStripMenuItem.Text = "Run";
             // 
             // pauseToolStripMenuItem
@@ -347,7 +347,7 @@
             this.pauseToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.pauseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pauseToolStripMenuItem.Image")));
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pauseToolStripMenuItem.Text = "Pause";
             // 
             // stopToolStripMenuItem
@@ -356,7 +356,7 @@
             this.stopToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.stopToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("stopToolStripMenuItem.Image")));
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stopToolStripMenuItem.Text = "Stop";
             // 
             // aboutToolStripMenuItem
@@ -364,10 +364,10 @@
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thoToolStripMenuItem,
             this.tácGiảToolStripMenuItem});
-            this.aboutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "&About";
             // 
             // thoToolStripMenuItem
@@ -376,7 +376,7 @@
             this.thoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.thoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thoToolStripMenuItem.Image")));
             this.thoToolStripMenuItem.Name = "thoToolStripMenuItem";
-            this.thoToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.thoToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.thoToolStripMenuItem.Text = "Thông Tin Phần Mềm";
             // 
             // tácGiảToolStripMenuItem
@@ -385,7 +385,7 @@
             this.tácGiảToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.tácGiảToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tácGiảToolStripMenuItem.Image")));
             this.tácGiảToolStripMenuItem.Name = "tácGiảToolStripMenuItem";
-            this.tácGiảToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
+            this.tácGiảToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.tácGiảToolStripMenuItem.Text = "Tác Giả";
             // 
             // menuStrip1
@@ -401,7 +401,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(5, 25);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(844, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(844, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -424,7 +424,7 @@
             this.pasteToolStripButton,
             this.toolStripSeparator3,
             this.helpToolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(5, 54);
+            this.toolStrip1.Location = new System.Drawing.Point(5, 49);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(844, 25);
             this.toolStrip1.TabIndex = 11;
@@ -600,10 +600,10 @@
             this.dockSite1.Controls.Add(this.bar1);
             this.dockSite1.Dock = System.Windows.Forms.DockStyle.Left;
             this.dockSite1.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer(new DevComponents.DotNetBar.DocumentBaseContainer[] {
-            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar1, 169, 381)))}, DevComponents.DotNetBar.eOrientation.Horizontal);
-            this.dockSite1.Location = new System.Drawing.Point(5, 79);
+            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar1, 169, 386)))}, DevComponents.DotNetBar.eOrientation.Horizontal);
+            this.dockSite1.Location = new System.Drawing.Point(5, 74);
             this.dockSite1.Name = "dockSite1";
-            this.dockSite1.Size = new System.Drawing.Size(172, 381);
+            this.dockSite1.Size = new System.Drawing.Size(172, 386);
             this.dockSite1.TabIndex = 12;
             this.dockSite1.TabStop = false;
             // 
@@ -622,7 +622,7 @@
             this.bar1.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
             this.bar1.Location = new System.Drawing.Point(0, 0);
             this.bar1.Name = "bar1";
-            this.bar1.Size = new System.Drawing.Size(169, 381);
+            this.bar1.Size = new System.Drawing.Size(169, 386);
             this.bar1.Stretch = true;
             this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
             this.bar1.TabIndex = 0;
@@ -635,7 +635,7 @@
             this.panelDockContainer1.Controls.Add(this._treeViewProjectExplore);
             this.panelDockContainer1.Location = new System.Drawing.Point(3, 23);
             this.panelDockContainer1.Name = "panelDockContainer1";
-            this.panelDockContainer1.Size = new System.Drawing.Size(163, 355);
+            this.panelDockContainer1.Size = new System.Drawing.Size(163, 360);
             this.panelDockContainer1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDockContainer1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.panelDockContainer1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
@@ -654,7 +654,7 @@
             this._treeViewProjectExplore.Location = new System.Drawing.Point(0, 0);
             this._treeViewProjectExplore.Name = "_treeViewProjectExplore";
             this._treeViewProjectExplore.SelectedImageIndex = 0;
-            this._treeViewProjectExplore.Size = new System.Drawing.Size(163, 355);
+            this._treeViewProjectExplore.Size = new System.Drawing.Size(163, 360);
             this._treeViewProjectExplore.TabIndex = 0;
             this._treeViewProjectExplore.DoubleClick += new System.EventHandler(this._treeViewProjectExplore_DoubleClick);
             // 
@@ -704,9 +704,9 @@
             this.dockSite2.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite2.Dock = System.Windows.Forms.DockStyle.Right;
             this.dockSite2.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-            this.dockSite2.Location = new System.Drawing.Point(849, 79);
+            this.dockSite2.Location = new System.Drawing.Point(849, 74);
             this.dockSite2.Name = "dockSite2";
-            this.dockSite2.Size = new System.Drawing.Size(0, 381);
+            this.dockSite2.Size = new System.Drawing.Size(0, 386);
             this.dockSite2.TabIndex = 13;
             this.dockSite2.TabStop = false;
             // 
@@ -767,10 +767,10 @@
             this.tabControl1.Controls.Add(this.tabMenu);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabControl1.Location = new System.Drawing.Point(177, 79);
+            this.tabControl1.Location = new System.Drawing.Point(177, 74);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(672, 381);
+            this.tabControl1.Size = new System.Drawing.Size(672, 386);
             this.tabControl1.TabIndex = 20;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
@@ -782,7 +782,7 @@
             this.tabGioiThieu.Location = new System.Drawing.Point(4, 22);
             this.tabGioiThieu.Name = "tabGioiThieu";
             this.tabGioiThieu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGioiThieu.Size = new System.Drawing.Size(664, 355);
+            this.tabGioiThieu.Size = new System.Drawing.Size(664, 360);
             this.tabGioiThieu.TabIndex = 0;
             this.tabGioiThieu.Text = "Giới Thiệu";
             // 
@@ -792,7 +792,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(658, 349);
+            this.pictureBox1.Size = new System.Drawing.Size(658, 354);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
