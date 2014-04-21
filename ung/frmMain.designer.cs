@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsMetro
+﻿namespace ung
 {
     partial class frmMain
     {

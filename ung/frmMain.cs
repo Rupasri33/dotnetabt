@@ -35,7 +35,7 @@ using con = System.Windows.Condition;
 using Excel = Microsoft.Office.Interop.Excel;
 #endregion
 
-namespace WindowsFormsMetro
+namespace ung
 {
     public partial class frmMain : DevComponents.DotNetBar.Office2007RibbonForm
     {
