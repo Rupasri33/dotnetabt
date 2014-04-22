@@ -146,7 +146,7 @@
     <Content Include="ext_lib\DevComponents.DotNetBar2.dll" />
     <Content Include="ext_lib\ExcelLibrary.dll" />
     <Content Include="ext_lib\log4net.dll" />
-    <Content Include="ext_lib\ManagedSpyLib.dll" />
+    <Content Include="ext_lib\x86\ManagedSpyLib.dll" />
     <Content Include="ext_lib\White.Core.dll" />
     <Content Include="ext_lib\xunit.runner.utility.dll" />
   </ItemGroup>

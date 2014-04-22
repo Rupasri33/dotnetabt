@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gd", "gd\gd.csproj", "{9C2F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ung", "ung\ung.csproj", "{3AF6EF16-C5C1-406B-B1B3-36914B6DA097}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "duoc", "duoc\duoc.csproj", "{86979AD2-016A-41DE-BBC0-EA804705A107}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -47,6 +49,10 @@ Global
 		{3AF6EF16-C5C1-406B-B1B3-36914B6DA097}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AF6EF16-C5C1-406B-B1B3-36914B6DA097}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AF6EF16-C5C1-406B-B1B3-36914B6DA097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86979AD2-016A-41DE-BBC0-EA804705A107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86979AD2-016A-41DE-BBC0-EA804705A107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86979AD2-016A-41DE-BBC0-EA804705A107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86979AD2-016A-41DE-BBC0-EA804705A107}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
