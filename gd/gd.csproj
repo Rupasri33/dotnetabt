@@ -155,6 +155,7 @@
     <Content Include="ext_lib\DevComponents.DotNetBar2.dll" />
     <Content Include="ext_lib\ExcelLibrary.dll" />
     <Content Include="ext_lib\log4net.dll" />
+    <Content Include="ext_lib\Microsoft.Office.Tools.Excel.v4.0.Utilities.dll" />
     <Content Include="ext_lib\TestStack.White.dll" />
     <Content Include="ext_lib\White.Core.dll" />
   </ItemGroup>
