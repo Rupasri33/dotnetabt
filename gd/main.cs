@@ -325,7 +325,7 @@ namespace gd
             if (treeViewproject.SelectedNode.Name == "Folder")
             {
                 addNewFileToolStripMenuItem.Enabled = true;
-                addNewFolderToolStripMenuItem.Enabled = true;
+                //.Enabled = true;
                 deleteToolStripMenuItem.Enabled = true;
 
                 treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
@@ -335,7 +335,7 @@ namespace gd
             else if (treeViewproject.SelectedNode.Name == "File")
             {
                 addNewFileToolStripMenuItem.Enabled = false;
-                addNewFolderToolStripMenuItem.Enabled = false;
+               // addNewFolderToolStripMenuItem.Enabled = false;
                 deleteToolStripMenuItem.Enabled = true;
 
                 treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
@@ -345,7 +345,7 @@ namespace gd
             else if (treeViewproject.SelectedNode.Text == "RootDirectory")
             {
                 addNewFileToolStripMenuItem.Enabled = true;
-                addNewFolderToolStripMenuItem.Enabled = true;
+               // addNewFolderToolStripMenuItem.Enabled = true;
                 deleteToolStripMenuItem.Enabled = false;
 
                 //image của node đang chọn 
@@ -512,7 +512,7 @@ namespace gd
                 Window window = new Window
                 {
                     Title = "Spy Interface",
-                    Content = new Spy(),
+                    //Content = new Spy(),
                     Height = 278,
                     Width = 900,
                     
