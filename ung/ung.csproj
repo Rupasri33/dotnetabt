@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="abt">
+      <HintPath>..\abt\bin\Debug\abt.dll</HintPath>
+    </Reference>
     <Reference Include="Bricks">
       <HintPath>D:\ThuVien\dll\dll\Bricks.dll</HintPath>
     </Reference>
@@ -67,6 +70,9 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="seleniumabt">
+      <HintPath>..\seleniumabt\bin\Debug\seleniumabt.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

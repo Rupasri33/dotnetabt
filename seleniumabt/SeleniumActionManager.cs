@@ -8,7 +8,7 @@ using OpenQA.Selenium;
 
 namespace seleniumabt
 {
-    class SeleniumActionManager : abt.ActionManager
+   public class SeleniumActionManager : abt.ActionManager
     {
         /// <summary>
         /// construct a Selenium Action Manager with an Automation Engine

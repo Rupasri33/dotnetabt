@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using abt;
+using seleniumabt;
+
 namespace ung
 {
     public partial class frmRun : DevComponents.DotNetBar.Office2007RibbonForm
@@ -26,12 +29,12 @@ namespace ung
 
         private void _btRun_Click(object sender, EventArgs e)
         {
-            //abt.Automation at = new abt.Automation();
-            //seleniumabt.SeleniumActionManager aM = new seleniumabt.SeleniumActionManager();
-            //aM.RegisterAction(new seleniumabt.ActionClick());
-
-            //at.Scripts = "";
-            //at.Run();
+            Automation at = new Automation();
+            SeleniumActionManager am = new SeleniumActionManager(at);
+            am.RegisterAction(new seleniumabt.ActionClick());
+            at.Scripts = "";
+            at.Run();
+           
         }
 
         private void _btCancel_Click(object sender, EventArgs e)
