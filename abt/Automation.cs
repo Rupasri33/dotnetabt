@@ -13,7 +13,7 @@ namespace abt
         public Automation()
         {
             Interfaces = new Dictionary<string, Interface>();
-            Scripts = new Queue<Script>();
+            Scripts = new Stack<Script>();
             ActionManagers = new List<ActionManager>();
         }
 
@@ -21,10 +21,11 @@ namespace abt
         /// construct an Automation Engine
         /// </summary>
         /// <param name="manager">the action manager</param>
-        public Automation(ActionManager manager)
+        public Automation(ActionManager manager, IFileParser _parser)
             : this()
         {
             ActionManagers.Add(manager);
+            Parser = _parser;
         }
 
         /// <summary>
@@ -50,23 +51,33 @@ namespace abt
         {
             while (Scripts.Count > 0)
             {
-                CurrentScript = Scripts.Dequeue();
+                CurrentScript = Scripts.Pop();
 
                 while (CurrentScript.HasNextLine)
                 {
                     ActionLine actLine = CurrentScript.Next();
-                    Action action = getAction(actLine);
-                    if (action == null)
-                        throw new InvalidOperationException("No action named '" + actLine.ActionName + "'");
 
-                    if (action.Name == "use interface")
+                    if (actLine.ActionName == Constants.ActionUseInterface)
                     {
+                        Interface newInterface = new Interface(Parser.NewInstance);
+                        newInterface.Path = actLine.Arguments[Constants.KeywordInterface];
+                        Interfaces.Add(newInterface.Name, newInterface);
                     }
-                    else if (action.Name == "run script")
+                    else if (actLine.ActionName == Constants.ActionStartScript)
                     {
+                        Script newScript = new Script(Parser.NewInstance);
+                        newScript.Path = actLine.Arguments[Constants.KeywordScript];
+                        Scripts.Push(CurrentScript);
+                        CurrentScript = newScript;
                     }
-                    else if (action.IsValid())
+                    else
                     {
+                        Action action = getAction(actLine);
+                        if (action == null)
+                            throw new InvalidOperationException("No action named '" + actLine.ActionName + "'");
+                        if (!action.IsValid())
+                            throw new InvalidOperationException("Invalid arguments for action named '" + actLine.ActionName + "'");
+
                         action.Execute();
                         action.Reset();
                     }
@@ -81,9 +92,9 @@ namespace abt
         public Script CurrentScript { get; private set; }
 
         /// <summary>
-        /// executing scripts queue
+        /// executing scripts stack
         /// </summary>
-        public Queue<Script> Scripts { get; private set; }
+        public Stack<Script> Scripts { get; private set; }
 
         /// <summary>
         /// current data table
@@ -99,5 +110,7 @@ namespace abt
         /// current list of loaded interfaces
         /// </summary>
         public Dictionary<string, Interface> Interfaces { get; private set; }
+
+        public IFileParser Parser { get; private set; }
     }
 }

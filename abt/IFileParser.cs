@@ -16,5 +16,7 @@ namespace abt
         /// result lines of parsing
         /// </summary>
         List<SourceLine> Lines { get; }
+
+        IFileParser NewInstance { get; }
     }
 }

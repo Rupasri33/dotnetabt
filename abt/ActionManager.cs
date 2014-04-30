@@ -44,5 +44,6 @@ namespace abt
         /// <param name="actLine">the action line</param>
         /// <returns>the action</returns>
         public abstract Action getAction(ActionLine actLine);
+
     }
 }

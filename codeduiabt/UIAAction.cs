@@ -13,7 +13,7 @@ namespace codeduiabt
         /// <summary>
         /// the UIA control to be automated
         /// </summary>
-        public UIItem Control { get; set; }
+        public IUIItem Control { get; set; }
 
         /// <summary>
         /// reset action parameters after executing

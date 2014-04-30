@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ung</RootNamespace>
     <AssemblyName>ung</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -32,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="abt">
-      <HintPath>..\abt\bin\Debug\abt.dll</HintPath>
-    </Reference>
     <Reference Include="Bricks">
       <HintPath>D:\ThuVien\dll\dll\Bricks.dll</HintPath>
     </Reference>
@@ -70,9 +68,6 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="seleniumabt">
-      <HintPath>..\seleniumabt\bin\Debug\seleniumabt.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -137,6 +132,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="_frmNewFile.resx">
       <DependentUpon>_frmNewFile.cs</DependentUpon>
@@ -169,6 +165,16 @@
     <Content Include="ext_lib\x86\ManagedSpyLib.dll" />
     <Content Include="ext_lib\White.Core.dll" />
     <Content Include="ext_lib\xunit.runner.utility.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\abt\abt.csproj">
+      <Project>{fce61c59-28c2-42d3-a473-6acfe1e95ae2}</Project>
+      <Name>abt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\seleniumabt\seleniumabt.csproj">
+      <Project>{cc2930ea-bac6-44f3-b3db-a3f54e2030f4}</Project>
+      <Name>seleniumabt</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

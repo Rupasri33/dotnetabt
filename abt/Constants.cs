@@ -11,6 +11,11 @@ namespace abt
         public const string KeywordWindow = @"window";
         public const string KeywordControl = @"control";
 
+        public const string KeywordInterface = @"interface";
+        public const string KeywordScript = @"script";
+        public const string ActionUseInterface = @"use interface";
+        public const string ActionStartScript = @"start script";
+
         public class Messsages
         {
             public const string Error_Parsing_Script = @"Script file parsing error: invalid action line";
@@ -26,6 +31,12 @@ namespace abt
             public const string Error_Matching_Control_NoUniqueWindow = @"";
 
             public const string Error_Executing_NoAction = @"";
+        }
+
+        public class ControlTypeNames
+        {
+            public const string ControlTypeButton = @"button";
+            public const string ControlTypeTextBox = @"textbox";
         }
     }
 }

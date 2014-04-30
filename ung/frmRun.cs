@@ -32,7 +32,9 @@ namespace ung
             Automation at = new Automation();
             SeleniumActionManager am = new SeleniumActionManager(at);
             am.RegisterAction(new seleniumabt.ActionClick());
-            at.Scripts = "";
+            Script startScript = new Script(null);
+            startScript.Path = "test.xls";
+            at.Scripts.Push(startScript);
             at.Run();
            
         }

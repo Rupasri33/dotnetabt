@@ -6,6 +6,9 @@ using System.Text;
 using TestStack.White.Factory;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.WindowItems;
+using TestStack.White.UIItems.Finders;
+
+using System.Windows.Automation;
 
 namespace codeduiabt
 {
@@ -18,6 +21,21 @@ namespace codeduiabt
         public UIAActionManager(abt.Automation automation)
             : base(automation)
         {
+        }
+
+        /// <summary>
+        /// get control type from a string name
+        /// </summary>
+        /// <param name="typeName">the type name</param>
+        /// <returns>the control type</returns>
+        private ControlType GetTypeByName(string typeName)
+        {
+            if (typeName == Constants.ControlTypeNames.ControlTypeButton)
+                return ControlType.Button;
+            else if (typeName == Constants.ControlTypeNames.ControlTypeTextBox)
+                return ControlType.Text;
+
+            return null;
         }
 
         /// <summary>
@@ -64,9 +82,19 @@ namespace codeduiabt
         /// <param name="window">the containing window</param>
         /// <param name="criteria">the criteria to find the control</param>
         /// <returns>the found control. null - if not found</returns>
-        private UIItem FindControl(Window window, Dictionary<string, string> criteria)
+        private IUIItem FindControl(Window window, Dictionary<string, string> criteria)
         {
-            return null;
+            string typeName = criteria[Constants.KeywordControlType];
+            ControlType type = GetTypeByName(typeName);
+            SearchCriteria crit = SearchCriteria.ByControlType(type);
+
+            if (criteria[Constants.PropertyNames.AutomationId] != null)
+                crit = crit.AndAutomationId(criteria[Constants.PropertyNames.AutomationId]);
+            if (criteria[Constants.PropertyNames.Text] != null)
+                crit = crit.AndByText(criteria[Constants.PropertyNames.Text]);
+
+            IUIItem item = window.Get(crit);
+            return item;
         }
 
         /// <summary>
@@ -77,7 +105,7 @@ namespace codeduiabt
         public override abt.Action getAction(abt.ActionLine actLine)
         {
             Window targetWindow = null;
-            UIItem targetControl = null;
+            IUIItem targetControl = null;
 
             if (Actions[actLine.ActionName] == null || !(Actions[actLine.ActionName] is UIAAction))
                 throw new Exception(abt.Constants.Messsages.Error_Executing_NoAction);

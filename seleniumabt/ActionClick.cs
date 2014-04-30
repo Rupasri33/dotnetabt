@@ -16,7 +16,7 @@ namespace seleniumabt
         /// constructor
         /// </summary>
         /// <param name="line">the action line in raw text</param>
-        public ActionClick(ActionLine line)
+        public ActionClick()
         {
             Name = @"click";
         }
