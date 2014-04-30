@@ -16,7 +16,7 @@ namespace abt
         public const string ActionUseInterface = @"use interface";
         public const string ActionStartScript = @"start script";
 
-        public class Messsages
+        public partial class Messages
         {
             public const string Error_Parsing_Script = @"Script file parsing error: invalid action line";
             public const string Error_Parsing_Interface_InvalidWindow = @"Interface file parsing error: invalid window line";

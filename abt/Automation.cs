@@ -20,12 +20,11 @@ namespace abt
         /// <summary>
         /// construct an Automation Engine
         /// </summary>
-        /// <param name="manager">the action manager</param>
-        public Automation(ActionManager manager, IFileParser _parser)
+        /// <param name="parser">the file parser</param>
+        public Automation(IFileParser parser)
             : this()
         {
-            ActionManagers.Add(manager);
-            Parser = _parser;
+            Parser = parser;
         }
 
         /// <summary>

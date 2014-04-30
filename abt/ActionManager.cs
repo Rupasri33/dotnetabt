@@ -26,6 +26,7 @@ namespace abt
         public ActionManager(Automation parent)
         {
             Parent = parent;
+            parent.ActionManagers.Add(this);
             Actions = new Dictionary<string, Action>();
         }
 

@@ -39,14 +39,14 @@ namespace seleniumabt
             IWebElement targetControl = null;
 
             if (Actions[actLine.ActionName] == null || !(Actions[actLine.ActionName] is SeleniumAction))
-                throw new Exception(abt.Constants.Messsages.Error_Executing_NoAction);
+                throw new Exception(abt.Constants.Messages.Error_Executing_NoAction);
             if (actLine.WindowName == null || Parent.Interfaces[actLine.WindowName] == null || 
                 actLine.ControlName == null || Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName] == null)
-                throw new Exception(abt.Constants.Messsages.Error_Matching_Control_NoDefinition);
+                throw new Exception(abt.Constants.Messages.Error_Matching_Control_NoDefinition);
 
             targetControl = FindControl(Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName]);
             if (targetControl == null)
-                throw new Exception(abt.Constants.Messsages.Error_Matching_Control_NotFound);
+                throw new Exception(abt.Constants.Messages.Error_Matching_Control_NotFound);
 
             // prepare the action
             SeleniumAction action = Actions[actLine.ActionName] as SeleniumAction;

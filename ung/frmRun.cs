@@ -29,7 +29,7 @@ namespace ung
 
         private void _btRun_Click(object sender, EventArgs e)
         {
-            Automation at = new Automation();
+            Automation at = new Automation(new ExcelFileParser());
             SeleniumActionManager am = new SeleniumActionManager(at);
             am.RegisterAction(new seleniumabt.ActionClick());
             Script startScript = new Script(null);

@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>excel\ExcelLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Selenium.WebDriverBackedSelenium">
       <HintPath>D:\Downloads\selenium-dotnet-2.41.0\net35\Selenium.WebDriverBackedSelenium.dll</HintPath>
     </Reference>
@@ -52,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionClick.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="ExcelFileParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleniumAction.cs" />
     <Compile Include="SeleniumActionManager.cs" />
@@ -63,6 +69,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="excel\ExcelLibrary.dll" />
     <Content Include="selenium\Selenium.WebDriverBackedSelenium.dll" />
     <Content Include="selenium\Selenium.WebDriverBackedSelenium.pdb" />
     <Content Include="selenium\Selenium.WebDriverBackedSelenium.xml" />

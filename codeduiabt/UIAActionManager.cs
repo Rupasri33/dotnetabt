@@ -68,9 +68,9 @@ namespace codeduiabt
 
             // check for error
             if (foundWindows.Count > 1)
-                throw new Exception(abt.Constants.Messsages.Error_Matching_Window_NoUniqueWindow);
+                throw new Exception(abt.Constants.Messages.Error_Matching_Window_NoUniqueWindow);
             else if (foundWindows.Count == 0)
-                throw new Exception(abt.Constants.Messsages.Error_Matching_Window_NotFound);
+                throw new Exception(abt.Constants.Messages.Error_Matching_Window_NotFound);
 
             // found the window
             return foundWindows[0];
@@ -108,9 +108,9 @@ namespace codeduiabt
             IUIItem targetControl = null;
 
             if (Actions[actLine.ActionName] == null || !(Actions[actLine.ActionName] is UIAAction))
-                throw new Exception(abt.Constants.Messsages.Error_Executing_NoAction);
+                throw new Exception(abt.Constants.Messages.Error_Executing_NoAction);
             if (actLine.WindowName != null && Parent.Interfaces[actLine.WindowName] == null)
-                throw new Exception(abt.Constants.Messsages.Error_Matching_Window_NoDefinition);
+                throw new Exception(abt.Constants.Messages.Error_Matching_Window_NoDefinition);
 
             // search for the target control
             if (actLine.WindowName != null)
@@ -119,7 +119,7 @@ namespace codeduiabt
                 targetControl = FindControl(targetWindow, Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName]);
 
             if (targetControl == null)
-                throw new Exception(abt.Constants.Messsages.Error_Matching_Control_NotFound);
+                throw new Exception(abt.Constants.Messages.Error_Matching_Control_NotFound);
 
             // prepare the action
             UIAAction action = Actions[actLine.ActionName] as UIAAction;

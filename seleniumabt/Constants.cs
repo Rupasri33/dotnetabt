@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace codeduiabt
+namespace seleniumabt
 {
     class Constants : abt.Constants
     {

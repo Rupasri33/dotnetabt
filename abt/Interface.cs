@@ -28,7 +28,7 @@ namespace abt
                         {
                             string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
                             if (pairs.Length != 2)
-                                throw new FormatException(Constants.Messsages.Error_Parsing_Interface_InvalidWindow);
+                                throw new FormatException(Constants.Messages.Error_Parsing_Interface_InvalidWindow);
                             Properties[pairs[0]] = pairs[1];
                         }
                     }
@@ -39,7 +39,7 @@ namespace abt
                         {
                             string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
                             if (pairs.Length != 2)
-                                throw new FormatException(Constants.Messsages.Error_Parsing_Interface_InvalidControl);
+                                throw new FormatException(Constants.Messages.Error_Parsing_Interface_InvalidControl);
                             Controls[propName] = new Dictionary<string, string>();
                             Controls[propName][pairs[0]] = pairs[1];
                         }
