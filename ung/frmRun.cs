@@ -32,8 +32,10 @@ namespace ung
             Automation at = new Automation(new ExcelFileParser());
             SeleniumActionManager am = new SeleniumActionManager(at);
             am.RegisterAction(new seleniumabt.ActionClick());
-            Script startScript = new Script(null);
-            startScript.Path = "test.xls";
+
+            Script startScript = new Script(at.Parser.NewInstance);
+            startScript.FileName = "test.xls";
+
             at.Scripts.Push(startScript);
             at.Run();
            

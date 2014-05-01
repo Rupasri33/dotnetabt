@@ -5,26 +5,36 @@ using System.Text;
 
 namespace abt
 {
+    public delegate void StartedHandler(Automation at);
+    public delegate void EndedHandler(Automation at);
+    public delegate void InteruptedHandler(Automation at);
+    public delegate void PausedHandler(Automation at);
+    public delegate void ResumedHandler(Automation at);
+
     public class Automation
     {
         /// <summary>
         /// construct a default Automation engine
         /// </summary>
-        public Automation()
+        /// <param name="workingDir">the working directory</param>
+        public Automation(string workingDir = "")
         {
             Interfaces = new Dictionary<string, Interface>();
             Scripts = new Stack<Script>();
             ActionManagers = new List<ActionManager>();
+            WorkingDir = workingDir;
         }
 
         /// <summary>
         /// construct an Automation Engine
         /// </summary>
         /// <param name="parser">the file parser</param>
-        public Automation(IFileParser parser)
-            : this()
+        /// <param name="workingDir">the working directory</param>
+        public Automation(IFileParser parser, string workingDir = "")
+            : this(workingDir)
         {
             Parser = parser;
+            Parser.WorkingDir = WorkingDir;
         }
 
         /// <summary>
@@ -59,13 +69,13 @@ namespace abt
                     if (actLine.ActionName == Constants.ActionUseInterface)
                     {
                         Interface newInterface = new Interface(Parser.NewInstance);
-                        newInterface.Path = actLine.Arguments[Constants.KeywordInterface];
+                        newInterface.FileName = actLine.Arguments[Constants.KeywordInterface] + Parser.FileExtension;
                         Interfaces.Add(newInterface.Name, newInterface);
                     }
                     else if (actLine.ActionName == Constants.ActionStartScript)
                     {
                         Script newScript = new Script(Parser.NewInstance);
-                        newScript.Path = actLine.Arguments[Constants.KeywordScript];
+                        newScript.FileName = actLine.Arguments[Constants.KeywordScript] + Parser.FileExtension;
                         Scripts.Push(CurrentScript);
                         CurrentScript = newScript;
                     }
@@ -110,6 +120,55 @@ namespace abt
         /// </summary>
         public Dictionary<string, Interface> Interfaces { get; private set; }
 
+        /// <summary>
+        /// the file parser use for all source file
+        /// </summary>
         public IFileParser Parser { get; private set; }
+
+        /// <summary>
+        /// the working directory
+        /// </summary>
+        public string WorkingDir { get; set; }
+
+        /// <summary>
+        /// the automation has just started
+        /// </summary>
+        public event StartedHandler Started;
+
+        /// <summary>
+        /// the automation has just ended
+        /// </summary>
+        public event EndedHandler Ended;
+
+        /// <summary>
+        /// the automation has just interupted
+        /// </summary>
+        public event InteruptedHandler Interupted;
+
+        /// <summary>
+        /// the automation has just paused
+        /// </summary>
+        public event PausedHandler Paused;
+
+        /// <summary>
+        /// the automation has just resumed
+        /// </summary>
+        public event ResolveEventHandler Resumed;
+
+        public void Start()
+        {
+        }
+
+        public void Interupt()
+        {
+        }
+
+        public void Pause()
+        {
+        }
+
+        public void Resume()
+        {
+        }
     }
 }

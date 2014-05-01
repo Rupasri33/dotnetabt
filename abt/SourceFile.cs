@@ -14,18 +14,17 @@ namespace abt
         public SourceFile(IFileParser parser)
         {
             Parser = parser;
-            Lines = parser.Lines;
+            parser.FileParsed += ProcessData;
         }
 
         /// <summary>
         /// path to the source file
         /// </summary>
-        public string Path {
-            get { return Parser.Path; }
+        public string FileName {
+            get { return Parser.Name; }
             set
             {
-                Parser.Path = value;
-                Lines = Parser.Lines;
+                Parser.Name = value;
             }
         }
 
@@ -43,5 +42,13 @@ namespace abt
         /// the file parser
         /// </summary>
         public IFileParser Parser { get; private set; }
+
+        /// <summary>
+        /// process data from parser
+        /// </summary>
+        protected virtual void ProcessData()
+        {
+            Lines = Parser.Lines;
+        }
     }
 }

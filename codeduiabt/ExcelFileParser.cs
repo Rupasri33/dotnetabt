@@ -14,30 +14,41 @@ namespace codeduiabt
 {
     public class ExcelFileParser : IFileParser
     {
-        private string m_Path;
+        private string m_Name;
         public ExcelFileParser()
         {
             Lines = new List<SourceLine>();
         }
 
-        public string Path
+        /// <summary>
+        /// name of the file
+        /// </summary>
+        public string Name
         {
-            get
-            {
-                return m_Path;
-            }
+            get { return m_Name; }
             set
             {
-                if (Parse(value))
-                    m_Path = value;
+                if (Parse(WorkingDir + value))
+                    m_Name = value;
             }
         }
 
+        /// <summary>
+        /// parsed source line
+        /// </summary>
         public List<SourceLine> Lines { get; private set; }
 
+        /// <summary>
+        /// new instance copied
+        /// </summary>
         public IFileParser NewInstance
         {
-            get { return new ExcelFileParser(); }
+            get
+            { 
+                IFileParser newInt = new ExcelFileParser();
+                newInt.WorkingDir = WorkingDir;
+                return newInt;
+            }
         }
 
         private bool Parse(string path)
@@ -69,8 +80,26 @@ namespace codeduiabt
             }
 
             doc.Close();
+            if (this.FileParsed != null)
+                this.FileParsed();
 
-            return false;
+            return true;
+        }
+
+        /// <summary>
+        /// file parsed successfully
+        /// </summary>
+        public event FileParsed FileParsed;
+
+        /// <summary>
+        /// the working dir of the parser
+        /// </summary>
+        public string WorkingDir { get; set; }
+
+
+        public string FileExtension
+        {
+            get { return @".xls"; }
         }
     }
 }

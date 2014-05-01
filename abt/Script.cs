@@ -16,24 +16,33 @@ namespace abt
         {
             CurrentLineNumber = 0;
             ActionLines = new List<ActionLine>();
+            Parser.WorkingDir = Parser.WorkingDir + Constants.Directory.ScriptDir;
+        }
+
+        /// <summary>
+        /// process script data from parser
+        /// </summary>
+        protected override void ProcessData()
+        {
+            base.ProcessData();
 
             foreach (SourceLine line in Parser.Lines)
             {
                 if (line.ColumnCount > 0)
                 {
                     ActionLine actLine = new ActionLine();
-                    actLine.ActionName = line.Columns[0];
+                    actLine.ActionName = line.Columns[0].ToLower();
                     for (int i = 1; i < line.ColumnCount; i++)
                     {
                         string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
                         if (pairs.Length != 2)
                             throw new FormatException(Constants.Messages.Error_Parsing_Script);
-                        if (pairs[0] == Constants.KeywordWindow)
-                            actLine.WindowName = pairs[1];
-                        else if (pairs[0] == Constants.KeywordControl)
-                            actLine.ControlName = pairs[1];
+                        if (Constants.KeywordWindow.Equals(pairs[0], StringComparison.CurrentCultureIgnoreCase))
+                            actLine.WindowName = pairs[1].ToLower();
+                        else if (Constants.KeywordControl.Equals(pairs[0], StringComparison.CurrentCultureIgnoreCase))
+                            actLine.ControlName = pairs[1].ToLower();
                         else
-                            actLine.Arguments[pairs[0]] = pairs[1];
+                            actLine.Arguments[pairs[0].ToLower()] = pairs[1];
                     }
                     ActionLines.Add(actLine);
                 }

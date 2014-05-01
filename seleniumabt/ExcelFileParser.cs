@@ -20,7 +20,7 @@ namespace seleniumabt
             Lines = new List<SourceLine>();
         }
 
-        public string Path
+        public string Name
         {
             get
             {

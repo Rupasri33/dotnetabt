@@ -50,18 +50,18 @@ namespace codeduiabt.actions
 
                 try
                 {
-                    if (Params["x"] != null)
-                        X = int.Parse(Params["x"]);
-                    if (Params["y"] != null)
-                        Y = int.Parse(Params["y"]);
+                    if (Params.ContainsKey(@"x"))
+                        X = int.Parse(Params[@"x"]);
+                    if (Params.ContainsKey(@"y"))
+                        Y = int.Parse(Params[@"y"]);
 
-                    if (Params["left"] != null)
-                        LeftClick = bool.Parse(Params["left"]);
+                    if (Params.ContainsKey(@"left"))
+                        LeftClick = bool.Parse(Params[@"left"]);
                     else
                         LeftClick = true;
 
-                    if (Params["double"] != null)
-                        DoubleClick = bool.Parse(Params["double"]);
+                    if (Params.ContainsKey(@"double"))
+                        DoubleClick = bool.Parse(Params[@"double"]);
                     else
                         DoubleClick = false;
                 }

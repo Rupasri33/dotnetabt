@@ -38,5 +38,12 @@ namespace abt
             public const string ControlTypeButton = @"button";
             public const string ControlTypeTextBox = @"textbox";
         }
+
+        public class Directory
+        {
+            public const string InterfaceDir = @"\Interface\";
+            public const string ScriptDir = @"\Script\";
+            public const string DataDir = @"\Data\";
+        }
     }
 }

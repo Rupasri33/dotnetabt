@@ -9,10 +9,11 @@ using TestStack.White.UIItems.WindowItems;
 using TestStack.White.UIItems.Finders;
 
 using System.Windows.Automation;
+using codeduiabt.actions;
 
 namespace codeduiabt
 {
-    class UIAActionManager : abt.ActionManager
+    public class UIAActionManager : abt.ActionManager
     {
         /// <summary>
         /// construct an ActionManager with an Automation engine
@@ -21,6 +22,7 @@ namespace codeduiabt
         public UIAActionManager(abt.Automation automation)
             : base(automation)
         {
+            RegisterAction(new ActionClick());
         }
 
         /// <summary>
@@ -46,7 +48,20 @@ namespace codeduiabt
         /// <returns>true - if matched</returns>
         private bool MatchWindow(Window window, Dictionary<string, string> criteria)
         {
-            return false;
+            foreach (string key in criteria.Keys)
+            {
+                if (key.Equals(@"title", StringComparison.CurrentCultureIgnoreCase) &&
+                    window.Title != criteria[key])
+                    return false;
+                if (key.Equals(@"name", StringComparison.CurrentCultureIgnoreCase) &&
+                    window.Name != criteria[key])
+                    return false;
+                if (key.Equals(@"id", StringComparison.CurrentCultureIgnoreCase) &&
+                    window.Id != criteria[key])
+                    return false;
+            }
+            //window.Title
+            return true;
         }
 
         /// <summary>
@@ -84,13 +99,15 @@ namespace codeduiabt
         /// <returns>the found control. null - if not found</returns>
         private IUIItem FindControl(Window window, Dictionary<string, string> criteria)
         {
-            string typeName = criteria[Constants.KeywordControlType];
-            ControlType type = GetTypeByName(typeName);
-            SearchCriteria crit = SearchCriteria.ByControlType(type);
+            //string typeName = criteria[Constants.KeywordControlType];
+            //ControlType type = GetTypeByName(typeName);
+            SearchCriteria crit = SearchCriteria.All;
 
-            if (criteria[Constants.PropertyNames.AutomationId] != null)
+            if (criteria.ContainsKey(Constants.PropertyNames.ControlType))
+                crit = crit.AndControlType(GetTypeByName(criteria[Constants.PropertyNames.ControlType]));
+            if (criteria.ContainsKey(Constants.PropertyNames.AutomationId))
                 crit = crit.AndAutomationId(criteria[Constants.PropertyNames.AutomationId]);
-            if (criteria[Constants.PropertyNames.Text] != null)
+            if (criteria.ContainsKey(Constants.PropertyNames.Text))
                 crit = crit.AndByText(criteria[Constants.PropertyNames.Text]);
 
             IUIItem item = window.Get(crit);
