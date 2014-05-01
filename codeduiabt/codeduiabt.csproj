@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="actions\ActionClick.cs" />
+    <Compile Include="actions\ActionCloseWindow.cs" />
+    <Compile Include="actions\ActionStartProgram.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ExcelFileParser.cs" />
     <Compile Include="UIAAction.cs" />
@@ -67,7 +69,10 @@
       <Name>abt</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="sample\interface\Calculator.xls" />
+    <None Include="sample\script\Script.xls" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="excel\ExcelLibrary.dll" />
     <Content Include="white-0.12.0\Castle.Core.dll" />

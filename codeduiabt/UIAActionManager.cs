@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 
 using TestStack.White.Factory;
 using TestStack.White.UIItems;
@@ -16,6 +17,11 @@ namespace codeduiabt
     public class UIAActionManager : abt.ActionManager
     {
         /// <summary>
+        /// wait time of finding windows and controls
+        /// </summary>
+        public TimeSpan WaitTime { get; set; }
+
+        /// <summary>
         /// construct an ActionManager with an Automation engine
         /// </summary>
         /// <param name="automation">the Automation engine</param>
@@ -23,6 +29,10 @@ namespace codeduiabt
             : base(automation)
         {
             RegisterAction(new ActionClick());
+            RegisterAction(new ActionStartProgram());
+            RegisterAction(new ActionCloseWindow());
+
+            WaitTime = new TimeSpan(0, 0, 30);
         }
 
         /// <summary>
@@ -32,12 +42,15 @@ namespace codeduiabt
         /// <returns>the control type</returns>
         private ControlType GetTypeByName(string typeName)
         {
-            if (typeName == Constants.ControlTypeNames.ControlTypeButton)
-                return ControlType.Button;
-            else if (typeName == Constants.ControlTypeNames.ControlTypeTextBox)
-                return ControlType.Text;
-
-            return null;
+            switch (typeName)
+            {
+                case Constants.ControlTypeNames.ControlTypeButton:
+                    return ControlType.Button;
+                case Constants.ControlTypeNames.ControlTypeTextBox:
+                    return ControlType.Text;
+                default:
+                    return null;
+            };
         }
 
         /// <summary>
@@ -48,19 +61,29 @@ namespace codeduiabt
         /// <returns>true - if matched</returns>
         private bool MatchWindow(Window window, Dictionary<string, string> criteria)
         {
+            // for each critera, check the property of window
             foreach (string key in criteria.Keys)
             {
-                if (key.Equals(@"title", StringComparison.CurrentCultureIgnoreCase) &&
-                    window.Title != criteria[key])
-                    return false;
-                if (key.Equals(@"name", StringComparison.CurrentCultureIgnoreCase) &&
-                    window.Name != criteria[key])
-                    return false;
-                if (key.Equals(@"id", StringComparison.CurrentCultureIgnoreCase) &&
-                    window.Id != criteria[key])
-                    return false;
+                switch (key.ToLower())
+                {
+                    case Constants.PropertyNames.Title:
+                        if (window.Title != criteria[key])
+                            return false;
+                        break;
+                    case Constants.PropertyNames.Name:
+                        if (window.Name != criteria[key])
+                            return false;
+                        break;
+                    case Constants.PropertyNames.Id:
+                        if (window.Id != criteria[key])
+                            return false;
+                        break;
+                    default:
+                        return false;
+                };
             }
-            //window.Title
+
+            // all criteria are matched
             return true;
         }
 
@@ -71,14 +94,27 @@ namespace codeduiabt
         /// <returns>the found window</returns>
         private Window FindWindow(Dictionary<string, string> criteria)
         {
-            List<Window> windows = WindowFactory.Desktop.DesktopWindows();
             List<Window> foundWindows = new List<Window>();
 
-            // loop all windows on the desktop
-            foreach (Window window in windows)
+            TimeSpan wait = WaitTime;
+            while (wait.TotalMilliseconds > 0)
             {
-                if (MatchWindow(window, criteria))
-                    foundWindows.Add(window);
+                Stopwatch sw = Stopwatch.StartNew();
+
+                List<Window> windows = WindowFactory.Desktop.DesktopWindows();
+
+                // loop all windows on the desktop
+                foreach (Window window in windows)
+                {
+                    if (MatchWindow(window, criteria))
+                        foundWindows.Add(window);
+                }
+
+                if (foundWindows.Count > 0)
+                    break;
+
+                sw.Stop();
+                wait.Subtract(sw.Elapsed);
             }
 
             // check for error
@@ -99,18 +135,32 @@ namespace codeduiabt
         /// <returns>the found control. null - if not found</returns>
         private IUIItem FindControl(Window window, Dictionary<string, string> criteria)
         {
-            //string typeName = criteria[Constants.KeywordControlType];
-            //ControlType type = GetTypeByName(typeName);
+            // the "all" condition
             SearchCriteria crit = SearchCriteria.All;
 
-            if (criteria.ContainsKey(Constants.PropertyNames.ControlType))
-                crit = crit.AndControlType(GetTypeByName(criteria[Constants.PropertyNames.ControlType]));
-            if (criteria.ContainsKey(Constants.PropertyNames.AutomationId))
-                crit = crit.AndAutomationId(criteria[Constants.PropertyNames.AutomationId]);
-            if (criteria.ContainsKey(Constants.PropertyNames.Text))
-                crit = crit.AndByText(criteria[Constants.PropertyNames.Text]);
+            // for each criteria, AND with a new condition
+            foreach (string key in criteria.Keys)
+            {
+                switch (key.ToLower())
+                {
+                    case Constants.PropertyNames.ControlType:
+                        crit = crit.AndControlType(GetTypeByName(criteria[key]));
+                        break;
+                    case Constants.PropertyNames.AutomationId:
+                        crit = crit.AndAutomationId(criteria[key]);
+                        break;
+                    case Constants.PropertyNames.Text:
+                        crit = crit.AndByText(criteria[key]);
+                        break;
+                    default:
+                        return null;
+                };
+            }
 
-            IUIItem item = window.Get(crit);
+            // search for control with 'crit'
+            IUIItem item = window.Get(crit, WaitTime);
+
+            // return the found control
             return item;
         }
 
@@ -124,25 +174,23 @@ namespace codeduiabt
             Window targetWindow = null;
             IUIItem targetControl = null;
 
-            if (Actions[actLine.ActionName] == null || !(Actions[actLine.ActionName] is UIAAction))
+            if (!Actions.ContainsKey(actLine.ActionName) || !(Actions[actLine.ActionName] is UIAAction))
                 throw new Exception(abt.Constants.Messages.Error_Executing_NoAction);
-            if (actLine.WindowName != null && Parent.Interfaces[actLine.WindowName] == null)
+            if (actLine.WindowName != null && !Parent.Interfaces.ContainsKey(actLine.WindowName))
                 throw new Exception(abt.Constants.Messages.Error_Matching_Window_NoDefinition);
 
             // search for the target control
             if (actLine.WindowName != null)
-                targetControl = targetWindow = FindWindow(Parent.Interfaces[actLine.WindowName].Properties);
+                targetWindow = FindWindow(Parent.Interfaces[actLine.WindowName].Properties);
             if (actLine.ControlName != null)
                 targetControl = FindControl(targetWindow, Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName]);
 
-            if (targetControl == null)
-                throw new Exception(abt.Constants.Messages.Error_Matching_Control_NotFound);
-
             // prepare the action
             UIAAction action = Actions[actLine.ActionName] as UIAAction;
+            action.Window = targetWindow;
             action.Control = targetControl;
             action.Params = actLine.Arguments;
-            
+
             return action;
         }
     }

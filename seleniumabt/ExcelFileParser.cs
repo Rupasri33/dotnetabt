@@ -72,5 +72,15 @@ namespace seleniumabt
             
             return false;
         }
+
+
+        public event FileParsed FileParsed;
+
+        public string WorkingDir { get; set; }
+
+        public string FileExtension
+        {
+            get { return @".xls"; }
+        }
     }
 }

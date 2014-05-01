@@ -38,10 +38,10 @@ namespace seleniumabt
         {
             IWebElement targetControl = null;
 
-            if (Actions[actLine.ActionName] == null || !(Actions[actLine.ActionName] is SeleniumAction))
+            if (!Actions.ContainsKey(actLine.ActionName || !(Actions[actLine.ActionName] is SeleniumAction))
                 throw new Exception(abt.Constants.Messages.Error_Executing_NoAction);
-            if (actLine.WindowName == null || Parent.Interfaces[actLine.WindowName] == null || 
-                actLine.ControlName == null || Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName] == null)
+            if (actLine.WindowName == null || !Parent.Interfaces.ContainsKey(actLine.WindowName) || 
+                actLine.ControlName == null || !Parent.Interfaces[actLine.WindowName].Controls.ContainsKey(actLine.ControlName))
                 throw new Exception(abt.Constants.Messages.Error_Matching_Control_NoDefinition);
 
             targetControl = FindControl(Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName]);
