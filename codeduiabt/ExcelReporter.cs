@@ -7,7 +7,7 @@ using abt;
 
 namespace codeduiabt
 {
-    class ExcelReporter : IReporter
+    public class ExcelReporter : IReporter
     {
         public void BeginReport(string path)
         {

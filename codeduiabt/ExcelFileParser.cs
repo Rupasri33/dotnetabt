@@ -12,7 +12,7 @@ using ExcelLibrary.SpreadSheet;
 
 namespace codeduiabt
 {
-    class ExcelFileParser : IFileParser
+    public class ExcelFileParser : IFileParser
     {
         private string m_FileName;
 
