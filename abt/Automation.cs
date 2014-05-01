@@ -30,11 +30,14 @@ namespace abt
         /// </summary>
         /// <param name="parser">the file parser</param>
         /// <param name="workingDir">the working directory</param>
-        public Automation(IFileParser parser, string workingDir = "")
+        public Automation(IFileParser parser, IReporter reporter, string workingDir = "")
             : this(workingDir)
         {
             Parser = parser;
             Parser.WorkingDir = WorkingDir;
+
+            Reporter = reporter;
+            Reporter.WorkingDir = WorkingDir;
         }
 
         /// <summary>
@@ -124,6 +127,11 @@ namespace abt
         /// the file parser use for all source file
         /// </summary>
         public IFileParser Parser { get; private set; }
+
+        /// <summary>
+        /// the reporter of the automation
+        /// </summary>
+        public IReporter Reporter { get; private set; }
 
         /// <summary>
         /// the working directory

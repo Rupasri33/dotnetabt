@@ -12,9 +12,13 @@ using ExcelLibrary.SpreadSheet;
 
 namespace codeduiabt
 {
-    public class ExcelFileParser : IFileParser
+    class ExcelFileParser : IFileParser
     {
-        private string m_Name;
+        private string m_FileName;
+
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public ExcelFileParser()
         {
             Lines = new List<SourceLine>();
@@ -23,13 +27,13 @@ namespace codeduiabt
         /// <summary>
         /// name of the file
         /// </summary>
-        public string Name
+        public string FileName
         {
-            get { return m_Name; }
+            get { return m_FileName; }
             set
             {
                 if (Parse(WorkingDir + value))
-                    m_Name = value;
+                    m_FileName = value;
             }
         }
 
@@ -51,6 +55,11 @@ namespace codeduiabt
             }
         }
 
+        /// <summary>
+        /// parse the source file
+        /// </summary>
+        /// <param name="path">the file path</param>
+        /// <returns>return true if parse successfully</returns>
         private bool Parse(string path)
         {
             CompoundDocument doc = CompoundDocument.Load(path);
@@ -96,7 +105,9 @@ namespace codeduiabt
         /// </summary>
         public string WorkingDir { get; set; }
 
-
+        /// <summary>
+        /// default extension of the file parser
+        /// </summary>
         public string FileExtension
         {
             get { return @".xls"; }

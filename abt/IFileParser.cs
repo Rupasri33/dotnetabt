@@ -12,7 +12,7 @@ namespace abt
         /// <summary>
         /// path to the parsing file
         /// </summary>
-        string Name { get; set; }
+        string FileName { get; set; }
 
         /// <summary>
         /// result lines of parsing

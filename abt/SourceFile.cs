@@ -21,10 +21,10 @@ namespace abt
         /// path to the source file
         /// </summary>
         public string FileName {
-            get { return Parser.Name; }
+            get { return Parser.FileName; }
             set
             {
-                Parser.Name = value;
+                Parser.FileName = value;
             }
         }
 

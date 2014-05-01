@@ -41,9 +41,11 @@ namespace codeduiabt.actions
         /// <returns>true - if params are valid</returns>
         public override bool IsValid()
         {
+            // check the program path is valid
             if (ProgramPath == null || ProgramPath.Length == 0)
                 return false;
 
+            // check the program file exist
             FileInfo file = new FileInfo(ProgramPath);
             if (!file.Exists)
                 return false;
@@ -57,6 +59,7 @@ namespace codeduiabt.actions
         /// <returns>true - if start program successfully</returns>
         public override int Execute()
         {
+            // launch the program
             Application.Launch(ProgramPath);
 
             return 0;
