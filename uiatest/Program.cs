@@ -21,16 +21,16 @@ namespace uiatest
             startScript.FileName = "Script.xls";
 
             at.Scripts.Push(startScript);
-            at.Run();
+            at.Start();
 
             //Interface inter = new Interface(new ExcelFileParser());
             //Script scr = new Script(new ExcelFileParser());
 
             //inter.Path = @"C:\Users\ndthong\Desktop\DemoExcel\DemoExcel\Interface\Interface.xls";
             //scr.Path = @"C:\Users\ndthong\Desktop\DemoExcel\DemoExcel\Script\Script.xls";
-            int x = 0;
+            //int x = 0;
 
-            x++;
+            //x++;
         }
     }
 }

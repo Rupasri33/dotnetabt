@@ -18,5 +18,7 @@ namespace abt
         string WorkingDir { get; set; }
 
         string FileExtension { get; }
+
+        IReporter NewInstance { get; }
     }
 }

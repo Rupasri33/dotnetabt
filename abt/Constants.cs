@@ -44,6 +44,7 @@ namespace abt
             public const string InterfaceDir = @"\Interface\";
             public const string ScriptDir = @"\Script\";
             public const string DataDir = @"\Data\";
+            public const string ReportDir = @"\Report\";
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace abt
 {
@@ -58,13 +59,20 @@ namespace abt
         /// <summary>
         /// execute the script
         /// </summary>
-        /// <returns></returns>
-        public int Run()
+        private void Run()
         {
+            IReporter reporter = Reporter.NewInstance;
+
+            reporter.BeginReport("path");
             while (Scripts.Count > 0)
             {
                 CurrentScript = Scripts.Pop();
+                
+                // begin new section in report
+                if (CurrentScript.CurrentLineNumber == 0)
+                    reporter.BeginScript(CurrentScript.Name);
 
+                // loop for each line of current script
                 while (CurrentScript.HasNextLine)
                 {
                     ActionLine actLine = CurrentScript.Next();
@@ -81,6 +89,9 @@ namespace abt
                         newScript.FileName = actLine.Arguments[Constants.KeywordScript] + Parser.FileExtension;
                         Scripts.Push(CurrentScript);
                         CurrentScript = newScript;
+
+                        // begin new section in report
+                        reporter.BeginScript(CurrentScript.Name);
                     }
                     else
                     {
@@ -90,12 +101,18 @@ namespace abt
                         if (!action.IsValid())
                             throw new InvalidOperationException("Invalid arguments for action named '" + actLine.ActionName + "'");
 
-                        action.Execute();
+                        int ret = action.Execute();
                         action.Reset();
+
+                        // write result of executing to report
+                        reporter.WriteLine();
                     }
                 }
+
+                // end section in report
+                if (CurrentScript.CurrentLineNumber > 0)
+                    reporter.EndScript();
             }
-            return 0;
         }
 
         /// <summary>
@@ -163,16 +180,28 @@ namespace abt
         /// </summary>
         public event ResolveEventHandler Resumed;
 
+        /// <summary>
+        /// current automation thread
+        /// </summary>
+        protected Thread CurrentThread { get; set; }
+
         public void Start()
         {
+            if (CurrentThread != null && CurrentThread.IsAlive)
+                return;
+
+            CurrentThread = new Thread(Run);
+            CurrentThread.Start();
         }
 
         public void Interupt()
         {
+            CurrentThread.Interrupt();
         }
 
         public void Pause()
         {
+            
         }
 
         public void Resume()
