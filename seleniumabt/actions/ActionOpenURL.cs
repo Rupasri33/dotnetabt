@@ -61,7 +61,7 @@ namespace seleniumabt.actions
         /// <returns>true - if start program successfully</returns>
         public override int Execute()
         {
-            WebDriver.Url = URL;
+            WebDriver.Navigate().GoToUrl(URL);
 
             return 0;
         }

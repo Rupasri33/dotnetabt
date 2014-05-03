@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="driver\chromedriver.exe" />
+    <Content Include="driver\IEDriverServer.exe" />
     <Content Include="excel\ExcelLibrary.dll" />
     <Content Include="selenium\Selenium.WebDriverBackedSelenium.dll" />
     <Content Include="selenium\Selenium.WebDriverBackedSelenium.pdb" />

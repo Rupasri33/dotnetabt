@@ -56,6 +56,7 @@ namespace seleniumabt
                     WebDriver = new OpenQA.Selenium.IE.InternetExplorerDriver();
                     break;
             };
+            WebDriver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 30));
 
             RegisterAction(new ActionClick(WebDriver));
             RegisterAction(new ActionOpenURL(WebDriver));
