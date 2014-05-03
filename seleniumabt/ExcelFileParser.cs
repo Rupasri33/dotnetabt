@@ -14,32 +14,52 @@ namespace seleniumabt
 {
     public class ExcelFileParser : IFileParser
     {
-        private string m_Path;
+        private string m_FileName;
+
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public ExcelFileParser()
         {
             Lines = new List<SourceLine>();
         }
 
-        public string Name
+        /// <summary>
+        /// name of the file
+        /// </summary>
+        public string FileName
+        {
+            get { return m_FileName; }
+            set
+            {
+                if (Parse(WorkingDir + value))
+                    m_FileName = value;
+            }
+        }
+
+        /// <summary>
+        /// parsed source line
+        /// </summary>
+        public List<SourceLine> Lines { get; private set; }
+
+        /// <summary>
+        /// new instance copied
+        /// </summary>
+        public IFileParser NewInstance
         {
             get
             {
-                return m_Path;
-            }
-            set
-            {
-                if (Parse(value))
-                    m_Path = value;
+                IFileParser newInt = new ExcelFileParser();
+                newInt.WorkingDir = WorkingDir;
+                return newInt;
             }
         }
 
-        public List<SourceLine> Lines { get; private set; }
-
-        public IFileParser NewInstance
-        {
-            get { return new ExcelFileParser(); }
-        }
-
+        /// <summary>
+        /// parse the source file
+        /// </summary>
+        /// <param name="path">the file path</param>
+        /// <returns>return true if parse successfully</returns>
         private bool Parse(string path)
         {
             CompoundDocument doc = CompoundDocument.Load(path);
@@ -69,15 +89,25 @@ namespace seleniumabt
             }
 
             doc.Close();
-            
-            return false;
+            if (this.FileParsed != null)
+                this.FileParsed();
+
+            return true;
         }
 
-
+        /// <summary>
+        /// file parsed successfully
+        /// </summary>
         public event FileParsed FileParsed;
 
+        /// <summary>
+        /// the working dir of the parser
+        /// </summary>
         public string WorkingDir { get; set; }
 
+        /// <summary>
+        /// default extension of the file parser
+        /// </summary>
         public string FileExtension
         {
             get { return @".xls"; }

@@ -11,6 +11,9 @@ namespace codeduiabt.actions
 {
     internal class ActionStartProgram : UIAAction
     {
+        /// <summary>
+        /// the path to the launching program
+        /// </summary>
         private string ProgramPath { get; set; }
 
         /// <summary>
@@ -63,6 +66,15 @@ namespace codeduiabt.actions
             Application.Launch(ProgramPath);
 
             return 0;
+        }
+
+        /// <summary>
+        /// override the reset from base class
+        /// </summary>
+        public override void Reset()
+        {
+            base.Reset();
+            ProgramPath = null;
         }
     }
 }

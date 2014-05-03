@@ -55,9 +55,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionClick.cs" />
+    <Compile Include="actions\ActionClick.cs" />
+    <Compile Include="actions\ActionGoBack.cs" />
+    <Compile Include="actions\ActionOpenURL.cs" />
+    <Compile Include="actions\ActionRefresh.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ExcelFileParser.cs" />
+    <Compile Include="ExcelReporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleniumAction.cs" />
     <Compile Include="SeleniumActionManager.cs" />
@@ -69,6 +73,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="driver\chromedriver.exe" />
     <Content Include="excel\ExcelLibrary.dll" />
     <Content Include="selenium\Selenium.WebDriverBackedSelenium.dll" />
     <Content Include="selenium\Selenium.WebDriverBackedSelenium.pdb" />
@@ -82,6 +87,9 @@
     <Content Include="selenium\WebDriver.Support.pdb" />
     <Content Include="selenium\WebDriver.Support.xml" />
     <Content Include="selenium\WebDriver.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sample\script\Script.xls" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

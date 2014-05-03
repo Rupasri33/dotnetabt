@@ -174,7 +174,7 @@ namespace codeduiabt
             Window targetWindow = null;
             IUIItem targetControl = null;
 
-            if (!Actions.ContainsKey(actLine.ActionName) || !(Actions[actLine.ActionName] is UIAAction))
+            if (!Actions.ContainsKey(actLine.ActionName))
                 throw new Exception(abt.Constants.Messages.Error_Executing_NoAction);
             if (actLine.WindowName != null && !Parent.Interfaces.ContainsKey(actLine.WindowName))
                 throw new Exception(abt.Constants.Messages.Error_Matching_Window_NoDefinition);

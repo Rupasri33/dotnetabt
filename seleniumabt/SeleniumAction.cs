@@ -11,9 +11,23 @@ namespace seleniumabt
     public abstract class SeleniumAction : abt.Action
     {
         /// <summary>
+        /// default constructor
+        /// </summary>
+        /// <param name="webDriver"></param>
+        public SeleniumAction(IWebDriver webDriver)
+        {
+            WebDriver = webDriver;
+        }
+
+        /// <summary>
+        /// the web driver
+        /// </summary>
+        public IWebDriver WebDriver { get; private set; }
+
+        /// <summary>
         /// the web control to be automated
         /// </summary>
-        public IWebElement  Control { get; set; }
+        public IWebElement Control { get; set; }
 
         /// <summary>
         /// reset action parameters after executing

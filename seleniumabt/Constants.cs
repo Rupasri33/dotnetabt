@@ -7,12 +7,16 @@ namespace seleniumabt
 {
     class Constants : abt.Constants
     {
-        public const string KeywordControlType = @"type";
-
         public class PropertyNames
         {
-            public const string AutomationId = @"automationid";
+            public const string Name = @"name";
+            public const string Id = @"id";
+            public const string Title = @"title";
+            public const string ControlType = @"type";
             public const string Text = @"text";
+            public const string XPath = @"xpath";
+            public const string LinkText = @"link";
+            public const string Css = @"css";
         }
 
         public new class Messages : abt.Constants.Messages
