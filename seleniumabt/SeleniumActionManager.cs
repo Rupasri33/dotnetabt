@@ -40,8 +40,12 @@ namespace seleniumabt
             switch (browser)
             {
                 case Browser.Chrome:
-                    WebDriver = new OpenQA.Selenium.Chrome.ChromeDriver();
-                    break;
+                    {
+                        OpenQA.Selenium.Chrome.ChromeDriverService service = OpenQA.Selenium.Chrome.ChromeDriverService.CreateDefaultService();
+                        service.HideCommandPromptWindow = true;
+                        WebDriver = new OpenQA.Selenium.Chrome.ChromeDriver(service, new OpenQA.Selenium.Chrome.ChromeOptions());
+                        break;
+                    }
                 case Browser.FireFox:
                     WebDriver = new OpenQA.Selenium.Firefox.FirefoxDriver();
                     break;
