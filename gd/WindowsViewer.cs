@@ -32,18 +32,34 @@ namespace gd
         private void ShowWindow()
         {
             List<Window> windows = WindowFactory.Desktop.DesktopWindows();
+            System.Diagnostics.ProcessStartInfo si = new System.Diagnostics.ProcessStartInfo();
+            si.FileName = @"C:\Windows\explorer.exe";
+            TestStack.White.Application app = TestStack.White.Application.AttachOrLaunch(si);
+            List<Window> wins = app.GetWindows();
 
             foreach (Window window in windows)
             {
-                if (window.IsOffScreen || !window.Visible || window.Title.Length == 0)
+                if (window.IsOffScreen || !window.Visible || window.Name.Length == 0)
                     continue;
 
-                treeView.Nodes.Add(window.Title);
+                if (window.Title == @"Program Manager" && window.AutomationElement.Current.ProcessId == app.Process.Id)
+                    continue;
+
+                TreeNode node = treeView.Nodes.Add(window.Name);
+                node.Tag = window;
+                node.Nodes.Add("Scanning...");
             }
         }
 
-        private void ShowControl(Window window)
+        private void ShowControl(TreeNode node)
         {
+            Window window = node.Tag as Window;
+            //window.Get<Window>
+            //window.
+            foreach (UIItem item in window.Items)
+            {
+                node.Nodes.Add(item.Name);
+            }
         }
     }
 }
