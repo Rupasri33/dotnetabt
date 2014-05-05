@@ -59,7 +59,7 @@ namespace codeduiabt
         /// <param name="window">the window to be checked</param>
         /// <param name="criteria">the criteria</param>
         /// <returns>true - if matched</returns>
-        private bool MatchWindow(Window window, Dictionary<string, string> criteria)
+        public bool MatchWindow(Window window, Dictionary<string, string> criteria)
         {
             // for each critera, check the property of window
             foreach (string key in criteria.Keys)
@@ -133,7 +133,7 @@ namespace codeduiabt
         /// <param name="window">the containing window</param>
         /// <param name="criteria">the criteria to find the control</param>
         /// <returns>the found control. null - if not found</returns>
-        private IUIItem FindControl(Window window, Dictionary<string, string> criteria)
+        public IUIItem FindControl(Window window, Dictionary<string, string> criteria)
         {
             // the "all" condition
             SearchCriteria crit = SearchCriteria.All;

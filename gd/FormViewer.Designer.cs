@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
+            this.windowsViewer1 = new gd.WindowsViewer();
             this.splitContainerSub = new System.Windows.Forms.SplitContainer();
+            this.propertiesViewer1 = new gd.PropertiesViewer();
+            this.matchesViewer1 = new gd.MatchesViewer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.windowsViewer1 = new gd.WindowsViewer();
-            this.propertiesViewer1 = new gd.PropertiesViewer();
-            this.matchesViewer1 = new gd.MatchesViewer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -65,6 +65,17 @@
             this.splitContainerMain.SplitterDistance = 245;
             this.splitContainerMain.TabIndex = 0;
             // 
+            // windowsViewer1
+            // 
+            this.windowsViewer1.CurrentInterface = null;
+            this.windowsViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.windowsViewer1.Location = new System.Drawing.Point(0, 0);
+            this.windowsViewer1.Margin = new System.Windows.Forms.Padding(5);
+            this.windowsViewer1.Name = "windowsViewer1";
+            this.windowsViewer1.Padding = new System.Windows.Forms.Padding(5);
+            this.windowsViewer1.Size = new System.Drawing.Size(245, 422);
+            this.windowsViewer1.TabIndex = 0;
+            // 
             // splitContainerSub
             // 
             this.splitContainerSub.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,6 +92,24 @@
             this.splitContainerSub.Size = new System.Drawing.Size(555, 422);
             this.splitContainerSub.SplitterDistance = 354;
             this.splitContainerSub.TabIndex = 0;
+            // 
+            // propertiesViewer1
+            // 
+            this.propertiesViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertiesViewer1.Location = new System.Drawing.Point(0, 0);
+            this.propertiesViewer1.Name = "propertiesViewer1";
+            this.propertiesViewer1.Padding = new System.Windows.Forms.Padding(5);
+            this.propertiesViewer1.Size = new System.Drawing.Size(354, 422);
+            this.propertiesViewer1.TabIndex = 0;
+            // 
+            // matchesViewer1
+            // 
+            this.matchesViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.matchesViewer1.Location = new System.Drawing.Point(0, 0);
+            this.matchesViewer1.Name = "matchesViewer1";
+            this.matchesViewer1.Padding = new System.Windows.Forms.Padding(5);
+            this.matchesViewer1.Size = new System.Drawing.Size(197, 422);
+            this.matchesViewer1.TabIndex = 0;
             // 
             // statusStrip1
             // 
@@ -114,34 +143,6 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // windowsViewer1
-            // 
-            this.windowsViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windowsViewer1.Location = new System.Drawing.Point(0, 0);
-            this.windowsViewer1.Margin = new System.Windows.Forms.Padding(5);
-            this.windowsViewer1.Name = "windowsViewer1";
-            this.windowsViewer1.Padding = new System.Windows.Forms.Padding(5);
-            this.windowsViewer1.Size = new System.Drawing.Size(245, 422);
-            this.windowsViewer1.TabIndex = 0;
-            // 
-            // propertiesViewer1
-            // 
-            this.propertiesViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertiesViewer1.Location = new System.Drawing.Point(0, 0);
-            this.propertiesViewer1.Name = "propertiesViewer1";
-            this.propertiesViewer1.Padding = new System.Windows.Forms.Padding(5);
-            this.propertiesViewer1.Size = new System.Drawing.Size(354, 422);
-            this.propertiesViewer1.TabIndex = 0;
-            // 
-            // matchesViewer1
-            // 
-            this.matchesViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.matchesViewer1.Location = new System.Drawing.Point(0, 0);
-            this.matchesViewer1.Name = "matchesViewer1";
-            this.matchesViewer1.Padding = new System.Windows.Forms.Padding(5);
-            this.matchesViewer1.Size = new System.Drawing.Size(197, 422);
-            this.matchesViewer1.TabIndex = 0;
-            // 
             // FormViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +156,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Viewer";
+            this.Load += new System.EventHandler(this.FormViewer_Load);
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();

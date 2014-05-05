@@ -16,5 +16,10 @@ namespace gd
         {
             InitializeComponent();
         }
+
+        private void FormViewer_Load(object sender, EventArgs e)
+        {
+            windowsViewer1.RefreshWindows();
+        }
     }
 }
