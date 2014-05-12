@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="abt.Action">
+    <Position X="2" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAABAQAAAgAAAQAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Action.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="abt.ActionLine">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAgAAAAAAAAAAAAAAAIAAEAAAAAAA=</HashCode>
+      <FileName>ActionLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="abt.ActionManager" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ActionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="abt.Automation">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAGAAAAGAQAAAAEgAAAIIABAAgAQABAiAAgI=</HashCode>
+      <FileName>Automation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="abt.Constants" Collapsed="true">
+    <Position X="8.75" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="abt.Constants.Messages" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Constants.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="abt.Constants.ControlTypeNames" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Constants.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="abt.Constants.Directory" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Constants.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ARQAAAAABAAAAAAAAAAAAAAAEAAAAAAQAAAAAAAAAQA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="abt.Data">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="abt.Interface">
+    <Position X="5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAACAAA=</HashCode>
+      <FileName>Interface.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="abt.Script">
+    <Position X="3" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAgACAA=</HashCode>
+      <FileName>Script.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="abt.SourceFile">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAgAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAABAAAA=</HashCode>
+      <FileName>SourceFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="abt.SourceLine" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>SourceLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="abt.IFileParser">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAACAAEAAADAAAI=</HashCode>
+      <FileName>IFileParser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="abt.IReporter">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAIAECAAAAAAAgAAAAAAAEAAACAAAI=</HashCode>
+      <FileName>IReporter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Delegate Name="abt.StartedHandler" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Automation.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="abt.EndedHandler" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Automation.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="abt.InteruptedHandler" Collapsed="true">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Automation.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="abt.PausedHandler" Collapsed="true">
+    <Position X="6.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Automation.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="abt.ResumedHandler" Collapsed="true">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Automation.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="abt.FileParsed" Collapsed="true">
+    <Position X="6.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IFileParser.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
