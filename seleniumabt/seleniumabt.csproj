@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="actions\ActionClick.cs" />
+    <Compile Include="actions\ActionEnter.cs" />
     <Compile Include="actions\ActionGoBack.cs" />
     <Compile Include="actions\ActionOpenURL.cs" />
     <Compile Include="actions\ActionRefresh.cs" />
