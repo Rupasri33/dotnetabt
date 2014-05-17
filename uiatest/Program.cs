@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using abt;
-using codeduiabt;
+//using abt;
+//using codeduiabt;
 //using seleniumabt;
+
+using uia_auto.model;
+using uia_auto.auto;
+using uia_auto.file_parser;
 
 namespace uiatest
 {
@@ -14,14 +18,21 @@ namespace uiatest
     {
         static void Main(string[] args)
         {
-            Automation at = new Automation(new ExcelFileParser(), new ExcelReporter(), @"D:\codes\dotnetabt\codeduiabt\sample");
+            IAutomation at = new UIAAutomation(new ExcelFileParser(), new ExcelReporter(), @"D:\codes\dotnetabt\codeduiabt\sample");
             UIAActionManager am = new UIAActionManager(at);
 
             Script startScript = new Script(at.Parser.NewInstance);
             startScript.FileName = "Script.xls";
 
-            at.Scripts.Push(startScript);
+            at.Speed = 5;
+            at.StartScript = startScript;
             at.Start();
+
+            System.Threading.Thread.Sleep(3000);
+            at.Pause();
+
+            System.Threading.Thread.Sleep(10000);
+            at.Resume();
 
             //Automation at = new Automation(new ExcelFileParser(), new ExcelReporter(), @"D:\codes\dotnetabt\seleniumabt\sample");
             //SeleniumActionManager am = new SeleniumActionManager(at, SeleniumActionManager.Browser.Chrome);

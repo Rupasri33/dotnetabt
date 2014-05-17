@@ -82,5 +82,13 @@ namespace uia_auto.file_parser
 
             return null;
         }
+
+        /// <summary>
+        /// restart the script
+        /// </summary>
+        public void Restart()
+        {
+            CurrentLineNumber = 0;
+        }
     }
 }

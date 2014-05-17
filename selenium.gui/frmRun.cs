@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 using selenium_auto;
 using selenium_auto.model;
+using selenium_auto.auto;
+using selenium_auto.file_parser;
 
 namespace ung
 {
@@ -29,15 +31,14 @@ namespace ung
 
         private void _btRun_Click(object sender, EventArgs e)
         {
-            //Automation at = new Automation(new ExcelFileParser());
+            //IAutomation at = new Automation(new ExcelFileParser());
             //SeleniumActionManager am = new SeleniumActionManager(at);
-            //am.RegisterAction(new seleniumabt.ActionClick());
 
             //Script startScript = new Script(at.Parser.NewInstance);
             //startScript.FileName = "test.xls";
 
             //at.Scripts.Push(startScript);
-            //at.Run();
+            //at.Start();
            
         }
 

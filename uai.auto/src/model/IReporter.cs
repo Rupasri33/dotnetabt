@@ -10,6 +10,9 @@ namespace uia_auto.model
         void BeginReport(string path);
         void EndReport();
 
+        void BeginDataRow(int id);
+        void EndDataRow();
+
         void BeginScript(string scriptName);
         void EndScript();
 

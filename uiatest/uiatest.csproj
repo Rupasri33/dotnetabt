@@ -64,6 +64,10 @@
       <Project>{cc2930ea-bac6-44f3-b3db-a3f54e2030f4}</Project>
       <Name>seleniumabt</Name>
     </ProjectReference>
+    <ProjectReference Include="..\uai.auto\uai.auto.csproj">
+      <Project>{a83a88ed-dde3-4e26-be75-9638334fdd15}</Project>
+      <Name>uai.auto</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

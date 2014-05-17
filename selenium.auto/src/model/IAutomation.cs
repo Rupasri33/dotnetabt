@@ -12,14 +12,14 @@ namespace selenium_auto.model
     public interface IAutomation
     {
         /// <summary>
+        /// starting script
+        /// </summary>
+        IScript StartScript { get; set; }
+
+        /// <summary>
         /// executing script
         /// </summary>
         IScript CurrentScript { get; }
-
-        /// <summary>
-        /// executing scripts stack
-        /// </summary>
-        Stack<IScript> Scripts { get; }
 
         /// <summary>
         /// current data table
@@ -52,6 +52,11 @@ namespace selenium_auto.model
         string WorkingDir { get; set; }
 
         /// <summary>
+        /// speed of running automation, from 0 to 10
+        /// </summary>
+        int Speed { get; set; }
+
+        /// <summary>
         /// the automation has just started
         /// </summary>
         event StartedHandler Started;
@@ -74,7 +79,7 @@ namespace selenium_auto.model
         /// <summary>
         /// the automation has just resumed
         /// </summary>
-        event ResolveEventHandler Resumed;
+        event ResumedHandler Resumed;
 
         /// <summary>
         /// start running automation

@@ -59,5 +59,16 @@ namespace selenium_auto.file_parser
                 return newInt;
             }
         }
+
+
+        public void BeginDataRow(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EndDataRow()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

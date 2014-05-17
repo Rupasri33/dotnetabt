@@ -20,5 +20,10 @@ namespace selenium_auto.model
         /// </summary>
         /// <returns>null - if no action line left</returns>
         ActionLine Next();
+
+        /// <summary>
+        /// restart the script
+        /// </summary>
+        void Restart();
     }
 }

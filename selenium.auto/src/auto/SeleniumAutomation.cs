@@ -52,16 +52,94 @@ namespace selenium_auto.auto
             return action;
         }
 
+        private void CheckPaused()
+        {
+            if (IsPausing)
+            {
+                IsPausing = false;
+                IsPaused = true;
+                if (Paused != null)
+                    Paused(this);
+            }
+            while (IsPaused)
+                Thread.Sleep(100);
+
+            CheckResumed();
+        }
+
+        private void CheckResumed()
+        {
+            if (IsResuming)
+            {
+                IsResuming = false;
+                IsResumed = true;
+
+                if (Resumed != null)
+                    Resumed(this);
+            }
+        }
+
+        private void CheckStopped()
+        {
+            if (IsStopping)
+            {
+                IsStopping = false;
+                IsStopped = true;
+
+                if (Interupted != null)
+                    Interupted(this);
+            }
+        }
+
+        private void RunAll()
+        {
+            if (Data != null)
+            {
+                // create new report
+                IReporter reporter = Reporter.NewInstance;
+                reporter.BeginReport(@"No name");
+
+                while (Data.MoveNext())
+                {
+                    reporter.BeginDataRow(Data.CurrentRowId);
+
+                    StartScript.Restart();
+                    Scripts.Push(StartScript);
+                    Run(reporter);
+
+                    reporter.EndDataRow();
+                }
+            }
+            else
+            {
+                // create new report
+                IReporter reporter = Reporter.NewInstance;
+                reporter.BeginReport(@"No data set");
+                reporter.BeginDataRow(0);
+
+                StartScript.Restart();
+                Scripts.Push(StartScript);
+                Run(reporter);
+
+                reporter.EndDataRow();
+                reporter.EndReport();
+            }
+
+            if (Ended != null)
+                Ended(this);
+        }
+
         /// <summary>
         /// execute the script
         /// </summary>
-        private void Run()
+        private void Run(IReporter reporter)
         {
-            IReporter reporter = Reporter.NewInstance;
-
-            reporter.BeginReport("path");
-            while (Scripts.Count > 0)
+            while (Scripts.Count > 0 && !IsStopping)
             {
+                // if the automation is paused, just sleep
+                CheckPaused();
+
+                // pop a script from stack
                 CurrentScript = Scripts.Pop();
                 
                 // begin new section in report
@@ -69,20 +147,28 @@ namespace selenium_auto.auto
                     reporter.BeginScript(CurrentScript.Name);
 
                 // loop for each line of current script
-                while (CurrentScript.HasNextLine)
+                while (CurrentScript.HasNextLine && !IsStopping)
                 {
+                    // if the automation is paused, just sleep
+                    CheckPaused();
+
+                    // get a action line from script
                     ActionLine actLine = CurrentScript.Next();
 
+                    // the action is 'use interface'
                     if (actLine.ActionName == Constants.ActionUseInterface)
                     {
                         IInterface newInterface = new Interface(Parser.NewInstance);
                         newInterface.FileName = actLine.Arguments[Constants.KeywordInterface] + Parser.FileExtension;
                         Interfaces.Add(newInterface.Name, newInterface);
                     }
+                    // the action is 'run script'
                     else if (actLine.ActionName == Constants.ActionStartScript)
                     {
                         Script newScript = new Script(Parser.NewInstance);
                         newScript.FileName = actLine.Arguments[Constants.KeywordScript] + Parser.FileExtension;
+
+                        // push current script to stack and run new script
                         Scripts.Push(CurrentScript);
                         CurrentScript = newScript;
 
@@ -97,19 +183,68 @@ namespace selenium_auto.auto
                         if (!action.IsValid())
                             throw new InvalidOperationException("Invalid arguments for action named '" + actLine.ActionName + "'");
 
+                        // execute the action
                         int ret = action.Execute();
                         action.Reset();
 
                         // write result of executing to report
                         reporter.WriteLine();
                     }
+
+                    ProcessSpeed();
                 }
+
+                // check if user interupt the automation
+                CheckStopped();
 
                 // end section in report
                 if (CurrentScript.CurrentLineNumber > 0)
                     reporter.EndScript();
             }
+
+            // check if user interupt the automation
+            CheckStopped();
         }
+
+        private void ProcessSpeed()
+        {
+            if (Speed < 0) Speed = 0;
+            if (Speed > 10) Speed = 10;
+
+            Thread.Sleep((10 - Speed) * 200);
+        }
+
+        public void Start()
+        {
+            if (CurrentThread != null && CurrentThread.IsAlive)
+                return;
+
+            CurrentThread = new Thread(RunAll);
+            CurrentThread.Start();
+
+            if (Started != null)
+                Started(this);
+        }
+
+        public void Interupt()
+        {
+            IsStopped = true;
+        }
+
+        public void Pause()
+        {
+            IsPaused = true;
+        }
+
+        public void Resume()
+        {
+            IsPaused = false;
+        }
+
+        /// <summary>
+        /// the starting script, used with data set
+        /// </summary>
+        public IScript StartScript { get; set; }
 
         /// <summary>
         /// executing script
@@ -152,6 +287,11 @@ namespace selenium_auto.auto
         public string WorkingDir { get; set; }
 
         /// <summary>
+        /// speed of running automation, from 1 to 10
+        /// </summary>
+        public int Speed { get; set; }
+
+        /// <summary>
         /// the automation has just started
         /// </summary>
         public event StartedHandler Started;
@@ -174,34 +314,41 @@ namespace selenium_auto.auto
         /// <summary>
         /// the automation has just resumed
         /// </summary>
-        public event ResolveEventHandler Resumed;
+        public event ResumedHandler Resumed;
 
         /// <summary>
         /// current automation thread
         /// </summary>
         protected Thread CurrentThread { get; set; }
 
-        public void Start()
-        {
-            if (CurrentThread != null && CurrentThread.IsAlive)
-                return;
+        /// <summary>
+        /// the paused state of the automation
+        /// </summary>
+        private bool IsPaused { get; set; }
 
-            CurrentThread = new Thread(Run);
-            CurrentThread.Start();
-        }
+        /// <summary>
+        /// the automation is being paused
+        /// </summary>
+        private bool IsPausing { get; set; }
 
-        public void Interupt()
-        {
-            CurrentThread.Interrupt();
-        }
+        /// <summary>
+        /// the resumed state of the automation
+        /// </summary>
+        private bool IsResumed { get; set; }
 
-        public void Pause()
-        {
-            
-        }
+        /// <summary>
+        /// the automation is being resumed
+        /// </summary>
+        private bool IsResuming { get; set; }
 
-        public void Resume()
-        {
-        }
+        /// <summary>
+        /// the ended state of the automation
+        /// </summary>
+        private bool IsStopped { get; set; }
+
+        /// <summary>
+        /// the automation is being stopped
+        /// </summary>
+        private bool IsStopping { get; set; }
     }
 }

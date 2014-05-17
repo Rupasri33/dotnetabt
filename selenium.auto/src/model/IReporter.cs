@@ -7,8 +7,11 @@ namespace selenium_auto.model
 {
     public interface IReporter
     {
-        void BeginReport(string path);
+        void BeginReport(string name);
         void EndReport();
+
+        void BeginDataRow(int id);
+        void EndDataRow();
 
         void BeginScript(string scriptName);
         void EndScript();

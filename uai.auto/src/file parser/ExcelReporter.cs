@@ -59,5 +59,16 @@ namespace uia_auto.file_parser
                 return newInt;
             }
         }
+
+
+        public void BeginDataRow(int id)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void EndDataRow()
+        {
+            //Sthrow new NotImplementedException();
+        }
     }
 }
