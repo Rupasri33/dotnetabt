@@ -60,7 +60,7 @@
     <Compile Include="src\actions\ActionOpenURL.cs" />
     <Compile Include="src\actions\ActionRefresh.cs" />
     <Compile Include="src\auto\SeleniumActionManager.cs" />
-    <Compile Include="src\auto\Automation.cs" />
+    <Compile Include="src\auto\SeleniumAutomation.cs" />
     <Compile Include="src\Constants.cs" />
     <Compile Include="src\file parser\ExcelFileParser.cs" />
     <Compile Include="src\file parser\ExcelReporter.cs" />

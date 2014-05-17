@@ -7,13 +7,13 @@ using selenium_auto.file_parser;
 
 namespace selenium_auto.auto
 {
-    public class Automation : IAutomation
+    public class SeleniumAutomation : IAutomation
     {
         /// <summary>
         /// construct a default Automation engine
         /// </summary>
         /// <param name="workingDir">the working directory</param>
-        public Automation(string workingDir = "")
+        public SeleniumAutomation(string workingDir = "")
         {
             Interfaces = new Dictionary<string, IInterface>();
             Scripts = new Stack<IScript>();
@@ -27,7 +27,7 @@ namespace selenium_auto.auto
         /// </summary>
         /// <param name="parser">the file parser</param>
         /// <param name="workingDir">the working directory</param>
-        public Automation(IFileParser parser, IReporter reporter, string workingDir = "")
+        public SeleniumAutomation(IFileParser parser, IReporter reporter, string workingDir = "")
             : this(workingDir)
         {
             Parser = parser;
