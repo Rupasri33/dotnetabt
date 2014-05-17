@@ -17,6 +17,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "duoc", "duoc\duoc.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uiatest", "uiatest\uiatest.csproj", "{5D955004-0CDE-4A26-94BF-F44919EFDBD3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ung.ngoc", "ung.ngoc", "{CE073CD7-3AC2-4927-9BC3-EB1FB9BDB636}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "trinh.tu", "trinh.tu", "{B9166908-D52A-41C0-BA5B-309E10BFE3D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "selenium.auto", "selenium.auto\selenium.auto.csproj", "{362F151B-D4A0-4989-97A5-22782A225035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "selenium.gui", "selenium.gui\selenium.gui.csproj", "{12726237-D691-4D8B-9429-744799AC05F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uai.auto", "uai.auto\uai.auto.csproj", "{A83A88ED-DDE3-4E26-BE75-9638334FDD15}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -59,8 +69,25 @@ Global
 		{5D955004-0CDE-4A26-94BF-F44919EFDBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D955004-0CDE-4A26-94BF-F44919EFDBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D955004-0CDE-4A26-94BF-F44919EFDBD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{362F151B-D4A0-4989-97A5-22782A225035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{362F151B-D4A0-4989-97A5-22782A225035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{362F151B-D4A0-4989-97A5-22782A225035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{362F151B-D4A0-4989-97A5-22782A225035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12726237-D691-4D8B-9429-744799AC05F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12726237-D691-4D8B-9429-744799AC05F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12726237-D691-4D8B-9429-744799AC05F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12726237-D691-4D8B-9429-744799AC05F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A83A88ED-DDE3-4E26-BE75-9638334FDD15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A83A88ED-DDE3-4E26-BE75-9638334FDD15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A83A88ED-DDE3-4E26-BE75-9638334FDD15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A83A88ED-DDE3-4E26-BE75-9638334FDD15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{362F151B-D4A0-4989-97A5-22782A225035} = {CE073CD7-3AC2-4927-9BC3-EB1FB9BDB636}
+		{12726237-D691-4D8B-9429-744799AC05F8} = {CE073CD7-3AC2-4927-9BC3-EB1FB9BDB636}
+		{A83A88ED-DDE3-4E26-BE75-9638334FDD15} = {B9166908-D52A-41C0-BA5B-309E10BFE3D6}
 	EndGlobalSection
 EndGlobal
