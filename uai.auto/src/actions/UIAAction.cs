@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using TestStack.White.UIItems.WindowItems;
+using TestStack.White.UIItems;
+
 using uia_auto.model;
 
 namespace uia_auto.actions
 {
-    public abstract class Action : IAction
+    public abstract class UIAAction : IAction
     {
         Dictionary<string, string> m_Params;
 
@@ -30,7 +33,7 @@ namespace uia_auto.actions
         /// <summary>
         /// constructor
         /// </summary>
-        public Action()
+        public UIAAction()
         {
             m_Params = new Dictionary<string, string>();
         }
@@ -46,6 +49,16 @@ namespace uia_auto.actions
         }
 
         /// <summary>
+        /// the UIA control to be automated
+        /// </summary>
+        public Window Window { get; set; }
+
+        /// <summary>
+        /// the UIA control to be automated
+        /// </summary>
+        public IUIItem Control { get; set; }
+
+        /// <summary>
         /// execute the action
         /// derived class should re-implement this function for actual executing
         /// </summary>
@@ -58,6 +71,9 @@ namespace uia_auto.actions
         public virtual void Reset()
         {
             Params.Clear();
+
+            Window = null;
+            Control = null;
         }
     }
 }
