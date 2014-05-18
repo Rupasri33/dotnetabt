@@ -8,48 +8,26 @@ using TestStack.White.UIItems;
 using TestStack.White.UIItems.WindowItems;
 using TestStack.White.UIItems.Finders;
 
-using uia_auto.model;
-using uia_auto.auto;
+using abt.model;
+using abt.auto;
 using uia_auto.actions;
 
 namespace uia_auto.auto
 {
-    public class UIAActionManager : IActionManager
+    public class UIAActionManager : ActionManager
     {
-        /// <summary>
-        /// the parent - an Automation engine
-        /// </summary>
-        protected IAutomation Parent { get; set; }
-
-        /// <summary>
-        /// list of automation actions
-        /// </summary>
-        protected Dictionary<string, IAction> Actions { get; set; }
-
         /// <summary>
         /// construct an ActionManager
         /// </summary>
         /// <param name="parent">the Automation object</param>
         public UIAActionManager(IAutomation parent)
+            : base(parent)
         {
-            Parent = parent;
-            parent.ActionManagers.Add(this);
-            Actions = new Dictionary<string, IAction>();
-
             RegisterAction(new ActionClick());
             RegisterAction(new ActionStartProgram());
             RegisterAction(new ActionCloseWindow());
-
-            WaitTime = new TimeSpan(0, 0, 30);
-        }
-
-        /// <summary>
-        /// register an action to ActionManager
-        /// </summary>
-        /// <param name="action">the action to be registered</param>
-        public void RegisterAction(IAction action)
-        {
-            Actions[action.Name] = action;
+            RegisterAction(new ActionCheckProperty());
+            RegisterAction(new ActionCheckControlExist());
         }
 
         /// <summary>
@@ -57,7 +35,7 @@ namespace uia_auto.auto
         /// </summary>
         /// <param name="actLine">the action line</param>
         /// <returns>the action</returns>
-        public IAction getAction(ActionLine actLine)
+        public override IAction getAction(ActionLine actLine)
         {
             Window targetWindow = null;
             IUIItem targetControl = null;
@@ -81,11 +59,6 @@ namespace uia_auto.auto
 
             return action;
         }
-
-        /// <summary>
-        /// wait time of finding windows and controls
-        /// </summary>
-        public TimeSpan WaitTime { get; set; }
 
         /// <summary>
         /// get control type from a string name
@@ -215,6 +188,5 @@ namespace uia_auto.auto
             // return the found control
             return item;
         }
-
     }
 }

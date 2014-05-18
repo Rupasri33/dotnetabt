@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 //using codeduiabt;
 //using seleniumabt;
 
-using uia_auto.model;
+using abt.model;
+using abt.auto;
 using uia_auto.auto;
-using uia_auto.file_parser;
 
 namespace uiatest
 {
@@ -18,21 +18,21 @@ namespace uiatest
     {
         static void Main(string[] args)
         {
-            IAutomation at = new UIAAutomation(new ExcelFileParser(), new ExcelReporter(), @"D:\codes\dotnetabt\codeduiabt\sample");
+            IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(), @"D:\codes\dotnetabt\codeduiabt\sample");
             UIAActionManager am = new UIAActionManager(at);
 
             Script startScript = new Script(at.Parser.NewInstance);
             startScript.FileName = "Script.xls";
 
-            at.Speed = 5;
+            at.Speed = 10;
             at.StartScript = startScript;
             at.Start();
 
-            System.Threading.Thread.Sleep(3000);
-            at.Pause();
+            //System.Threading.Thread.Sleep(3000);
+            //at.Pause();
 
-            System.Threading.Thread.Sleep(10000);
-            at.Resume();
+            //System.Threading.Thread.Sleep(10000);
+            //at.Resume();
 
             //Automation at = new Automation(new ExcelFileParser(), new ExcelReporter(), @"D:\codes\dotnetabt\seleniumabt\sample");
             //SeleniumActionManager am = new SeleniumActionManager(at, SeleniumActionManager.Browser.Chrome);

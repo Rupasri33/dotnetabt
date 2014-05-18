@@ -34,10 +34,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ext.lib\white-0.12.0\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="ExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>ext.lib\excel\ExcelLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,44 +45,38 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ext.lib\white-0.12.0\TestStack.White.dll</HintPath>
     </Reference>
+    <Reference Include="UIAutomationClient" />
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\actions\ActionCheckControlExist.cs" />
+    <Compile Include="src\actions\ActionCheckProperty.cs" />
     <Compile Include="src\actions\ActionClick.cs" />
     <Compile Include="src\actions\ActionCloseWindow.cs" />
     <Compile Include="src\actions\ActionStartProgram.cs" />
     <Compile Include="src\actions\UIAAction.cs" />
     <Compile Include="src\auto\UIAActionManager.cs" />
-    <Compile Include="src\auto\UIAAutomation.cs" />
     <Compile Include="src\Constants.cs" />
-    <Compile Include="src\file parser\Data.cs" />
-    <Compile Include="src\file parser\ExcelFileParser.cs" />
-    <Compile Include="src\file parser\ExcelReporter.cs" />
-    <Compile Include="src\file parser\Interface.cs" />
-    <Compile Include="src\file parser\Script.cs" />
-    <Compile Include="src\file parser\SourceFile.cs" />
-    <Compile Include="src\model\ActionLine.cs" />
-    <Compile Include="src\model\IAction.cs" />
-    <Compile Include="src\model\IActionManager.cs" />
-    <Compile Include="src\model\IAutomation.cs" />
-    <Compile Include="src\model\IData.cs" />
-    <Compile Include="src\model\IFileParser.cs" />
-    <Compile Include="src\model\IInterface.cs" />
-    <Compile Include="src\model\IReporter.cs" />
-    <Compile Include="src\model\IScript.cs" />
-    <Compile Include="src\model\ISourceFile.cs" />
-    <Compile Include="src\model\SourceLine.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ext.lib\excel\ExcelLibrary.dll" />
     <Content Include="ext.lib\white-0.12.0\Castle.Core.dll" />
     <Content Include="ext.lib\white-0.12.0\TestStack.White.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sample\interface\Calculator.xls" />
     <None Include="sample\script\Script.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\abt.auto\abt.auto.csproj">
+      <Project>{266518fb-d954-4d7b-9f09-b80578b10614}</Project>
+      <Name>abt.auto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abt.model\abt.model.csproj">
+      <Project>{c89bbc50-6fb7-4398-bb93-9f7e5310b04e}</Project>
+      <Name>abt.model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

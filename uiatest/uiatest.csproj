@@ -52,17 +52,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\abt\abt.csproj">
-      <Project>{fce61c59-28c2-42d3-a473-6acfe1e95ae2}</Project>
-      <Name>abt</Name>
+    <ProjectReference Include="..\abt.auto\abt.auto.csproj">
+      <Project>{266518fb-d954-4d7b-9f09-b80578b10614}</Project>
+      <Name>abt.auto</Name>
     </ProjectReference>
-    <ProjectReference Include="..\codeduiabt\codeduiabt.csproj">
-      <Project>{c635e61f-38ea-40c1-a55b-2050fddeb720}</Project>
-      <Name>codeduiabt</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\seleniumabt\seleniumabt.csproj">
-      <Project>{cc2930ea-bac6-44f3-b3db-a3f54e2030f4}</Project>
-      <Name>seleniumabt</Name>
+    <ProjectReference Include="..\abt.model\abt.model.csproj">
+      <Project>{c89bbc50-6fb7-4398-bb93-9f7e5310b04e}</Project>
+      <Name>abt.model</Name>
     </ProjectReference>
     <ProjectReference Include="..\uai.auto\uai.auto.csproj">
       <Project>{a83a88ed-dde3-4e26-be75-9638334fdd15}</Project>
