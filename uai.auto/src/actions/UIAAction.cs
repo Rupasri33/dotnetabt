@@ -26,7 +26,7 @@ namespace uia_auto.actions
         /// </summary>
         public override void Reset()
         {
-            Params.Clear();
+            base.Reset();
 
             Window = null;
             Control = null;

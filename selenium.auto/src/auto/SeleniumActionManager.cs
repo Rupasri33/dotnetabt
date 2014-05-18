@@ -6,12 +6,13 @@ using Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 
-using selenium_auto.model;
+using abt.model;
+using abt.auto;
 using selenium_auto.actions;
 
 namespace selenium_auto.auto
 {
-    public class SeleniumActionManager : IActionManager
+    public class SeleniumActionManager : ActionManager
     {
         /// <summary>
         /// supported browser
@@ -30,25 +31,11 @@ namespace selenium_auto.auto
         public IWebDriver WebDriver { get; private set; }
 
         /// <summary>
-        /// the parent - an Automation engine
-        /// </summary>
-        protected IAutomation Parent { get; set; }
-
-        /// <summary>
-        /// list of automation actions
-        /// </summary>
-        protected Dictionary<string, IAction> Actions { get; set; }
-
-        /// <summary>
         /// construct an ActionManager
         /// </summary>
         /// <param name="parent">the Automation object</param>
-        public SeleniumActionManager(IAutomation parent, Browser browser)
+        public SeleniumActionManager(IAutomation parent, Browser browser):base(parent)
         {
-            Parent = parent;
-            parent.ActionManagers.Add(this);
-            Actions = new Dictionary<string, IAction>();
-
             switch (browser)
             {
                 case Browser.Chrome:
@@ -74,15 +61,6 @@ namespace selenium_auto.auto
             RegisterAction(new ActionOpenURL(WebDriver));
             RegisterAction(new ActionRefresh(WebDriver));
             RegisterAction(new ActionGoBack(WebDriver));
-        }
-
-        /// <summary>
-        /// register an action to ActionManager
-        /// </summary>
-        /// <param name="action">the action to be registered</param>
-        public void RegisterAction(IAction action)
-        {
-            Actions[action.Name] = action;
         }
 
         /// <summary>
@@ -151,7 +129,7 @@ namespace selenium_auto.auto
         /// </summary>
         /// <param name="actLine">the action line</param>
         /// <returns>the Selenium Action</returns>
-        public IAction getAction(ActionLine actLine)
+        public override IAction getAction(ActionLine actLine)
         {
             IWebElement targetControl = null;
 

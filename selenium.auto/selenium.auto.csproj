@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>ext.libs\excel\ExcelLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -60,37 +56,24 @@
     <Compile Include="src\actions\ActionOpenURL.cs" />
     <Compile Include="src\actions\ActionRefresh.cs" />
     <Compile Include="src\auto\SeleniumActionManager.cs" />
-    <Compile Include="src\auto\SeleniumAutomation.cs" />
     <Compile Include="src\Constants.cs" />
-    <Compile Include="src\file parser\ExcelFileParser.cs" />
-    <Compile Include="src\file parser\ExcelReporter.cs" />
-    <Compile Include="src\model\IAction.cs" />
-    <Compile Include="src\model\IActionManager.cs" />
-    <Compile Include="src\model\IAutomation.cs" />
-    <Compile Include="src\model\IData.cs" />
-    <Compile Include="src\model\IFileParser.cs" />
-    <Compile Include="src\model\ActionLine.cs" />
-    <Compile Include="src\file parser\Data.cs" />
-    <Compile Include="src\file parser\Interface.cs" />
-    <Compile Include="src\file parser\Script.cs" />
-    <Compile Include="src\file parser\SourceFile.cs" />
-    <Compile Include="src\model\IInterface.cs" />
-    <Compile Include="src\model\IReporter.cs" />
-    <Compile Include="src\model\IScript.cs" />
-    <Compile Include="src\model\ISourceFile.cs" />
-    <Compile Include="src\model\SourceLine.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\abt.auto\abt.auto.csproj">
+      <Project>{266518fb-d954-4d7b-9f09-b80578b10614}</Project>
+      <Name>abt.auto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abt.model\abt.model.csproj">
+      <Project>{c89bbc50-6fb7-4398-bb93-9f7e5310b04e}</Project>
+      <Name>abt.model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="sample\script\Script.xls" />
-    <None Include="src\auto\AutomationDiagram.cd" />
-    <None Include="src\file parser\FileParserDiagram.cd" />
-    <None Include="src\model\ModelDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ext.libs\driver\chromedriver.exe" />
     <Content Include="ext.libs\driver\IEDriverServer.exe" />
-    <Content Include="ext.libs\excel\ExcelLibrary.dll" />
     <Content Include="ext.libs\selenium\Selenium.WebDriverBackedSelenium.dll" />
     <Content Include="ext.libs\selenium\Selenium.WebDriverBackedSelenium.pdb" />
     <Content Include="ext.libs\selenium\Selenium.WebDriverBackedSelenium.xml" />
