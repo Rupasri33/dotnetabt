@@ -197,10 +197,12 @@ namespace abt.auto
 
                         // execute the action
                         int ret = action.Execute();
-                        action.Reset();
 
                         // write result of executing to report
-                        reporter.WriteLine();
+                        reporter.WriteLine(actLine, action.Result);
+
+                        // reset the action state
+                        action.Reset();
                     }
 
                     ProcessSpeed();

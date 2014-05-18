@@ -29,7 +29,7 @@ namespace abt.auto
             //throw new NotImplementedException();
         }
 
-        public void WriteLine()
+        public void WriteLine(ActionLine actLine, ActionResult result)
         {
             //throw new NotImplementedException();
         }

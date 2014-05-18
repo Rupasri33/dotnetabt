@@ -67,6 +67,7 @@ namespace abt.auto
         public virtual void Reset()
         {
             Params.Clear();
+            Result = ActionResult.NORET;
         }
     }
 }

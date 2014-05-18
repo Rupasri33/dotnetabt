@@ -14,7 +14,7 @@ namespace abt.model
         void BeginScript(string scriptName);
         void EndScript();
 
-        void WriteLine();
+        void WriteLine(ActionLine actLine, ActionResult result);
 
         string WorkingDir { get; set; }
 
