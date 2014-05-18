@@ -117,6 +117,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\abt.auto\abt.auto.csproj">
+      <Project>{266518fb-d954-4d7b-9f09-b80578b10614}</Project>
+      <Name>abt.auto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abt.model\abt.model.csproj">
+      <Project>{c89bbc50-6fb7-4398-bb93-9f7e5310b04e}</Project>
+      <Name>abt.model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\uai.auto\uai.auto.csproj">
       <Project>{a83a88ed-dde3-4e26-be75-9638334fdd15}</Project>
       <Name>uai.auto</Name>

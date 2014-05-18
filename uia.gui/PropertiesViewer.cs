@@ -12,17 +12,21 @@ using TestStack.White.UIItems;
 using System.Reflection;
 using System.Windows.Automation;
 
-using uia_auto.model;
+using abt.model;
 using uia_auto.auto;
 
 namespace uia_gui.components
 {
+    public delegate void InvalidItemHandler();
+
     public partial class PropertiesViewer : UserControl
     {
         public PropertiesViewer()
         {
             InitializeComponent();
         }
+
+        public event InvalidItemHandler InvalidItemSelected;
 
         public string CurrentName { get; set; }
         public UIAActionManager ActionManager { get; set; }
@@ -38,31 +42,48 @@ namespace uia_gui.components
                 listView.Items.Clear();
 
                 if (m_Object != null)
-                    ShowProperties();
+                {
+                    if (ShowProperties() == false)
+                    {
+                        if (InvalidItemSelected != null)
+                            InvalidItemSelected();
+                    }
+                }
             }
         }
 
-        private void ShowProperties()
+        private bool ShowProperties()
         {
             AutomationElement.AutomationElementInformation source = Object.AutomationElement.Current;
             PropertyInfo [] properties = source.GetType().GetProperties();
+            bool ret = true;
+
             listView.BeginUpdate();
-            foreach (PropertyInfo prop in properties)
+            try
             {
-                string strName = prop.Name;
-                object strVal = prop.GetValue(source);
-
-                ListViewItem item = listView.Items.Add(strName);
-                item.SubItems.Add(strVal != null ? strVal.ToString() : @"{null}");
-
-                if (CurrentInterface != null && CurrentName != null)
+                foreach (PropertyInfo prop in properties)
                 {
-                    if (CurrentInterface.Controls.ContainsKey(CurrentName) &&
-                        CurrentInterface.Controls[CurrentName].ContainsKey(strName.ToLower()))
-                        item.Checked = true;
+                    string strName = prop.Name;
+                    object strVal = prop.GetValue(source);
+
+                    ListViewItem item = listView.Items.Add(strName);
+                    item.SubItems.Add(strVal != null ? strVal.ToString() : @"{null}");
+
+                    if (CurrentInterface != null && CurrentName != null)
+                    {
+                        if (CurrentInterface.Controls.ContainsKey(CurrentName) &&
+                            CurrentInterface.Controls[CurrentName].ContainsKey(strName.ToLower()))
+                            item.Checked = true;
+                    }
                 }
             }
+            catch (Exception)
+            {
+                ret = false;
+            }
+
             listView.EndUpdate();
+            return ret;
         }
     }
 }

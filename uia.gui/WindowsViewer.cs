@@ -15,7 +15,7 @@ using TestStack.White.UIItems.WindowItems;
 using TestStack.White.UIItems.Finders;
 
 using uia_auto;
-using uia_auto.model;
+using abt.model;
 using uia_auto.auto;
 
 namespace uia_gui.components
@@ -151,7 +151,7 @@ namespace uia_gui.components
                 string name = item.Name.Trim();
                 if (name.Length == 0) name = "{No name}";
                 TreeNode itemnode = group.Nodes.Add(name);
-                node.Tag = item;
+                itemnode.Tag = item;
 
                 if (matchedControls.Contains(item))
                 {
