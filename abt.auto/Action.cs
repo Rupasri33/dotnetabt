@@ -15,6 +15,11 @@ namespace abt.auto
         public string Name { get; protected set; }
 
         /// <summary>
+        /// result of the action
+        /// </summary>
+        public ActionResult Result { get; protected set; }
+
+        /// <summary>
         /// parameters of the action
         /// </summary>
         public virtual Dictionary<string, string> Params
@@ -33,6 +38,7 @@ namespace abt.auto
         public Action()
         {
             m_Params = new Dictionary<string, string>();
+            Result = ActionResult.NORET;
         }
 
         /// <summary>
