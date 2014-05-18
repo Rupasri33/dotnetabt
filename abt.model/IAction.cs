@@ -3,12 +3,26 @@ using System.Collections.Generic;
 
 namespace abt.model
 {
+    public enum ActionResult
+    {
+        NORET,
+        PASSED,
+        FAILED,
+        ERROR,
+        WARNING
+    }
+
     public interface IAction
     {
         /// <summary>
         /// name of the action
         /// </summary>
         string Name { get; }
+
+        /// <summary>
+        /// result of the action: NORET, PASSES, FAILED, ERROR
+        /// </summary>
+        ActionResult Result { get; }
 
         /// <summary>
         /// parameters of the action
