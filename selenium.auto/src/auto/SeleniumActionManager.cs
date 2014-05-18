@@ -34,7 +34,8 @@ namespace selenium_auto.auto
         /// construct an ActionManager
         /// </summary>
         /// <param name="parent">the Automation object</param>
-        public SeleniumActionManager(IAutomation parent, Browser browser):base(parent)
+        public SeleniumActionManager(IAutomation parent, Browser browser)
+            : base(parent)
         {
             switch (browser)
             {
@@ -55,12 +56,13 @@ namespace selenium_auto.auto
                     WebDriver = new OpenQA.Selenium.IE.InternetExplorerDriver();
                     break;
             };
-            WebDriver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 30));
+            WebDriver.Manage().Timeouts().ImplicitlyWait(WaitTime);
 
             RegisterAction(new ActionClick(WebDriver));
             RegisterAction(new ActionOpenURL(WebDriver));
             RegisterAction(new ActionRefresh(WebDriver));
             RegisterAction(new ActionGoBack(WebDriver));
+            RegisterAction(new ActionEnter(WebDriver));
         }
 
         /// <summary>

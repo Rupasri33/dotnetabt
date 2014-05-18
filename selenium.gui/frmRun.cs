@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using selenium_auto;
-using selenium_auto.model;
 using selenium_auto.auto;
-using selenium_auto.file_parser;
 
 namespace ung
 {

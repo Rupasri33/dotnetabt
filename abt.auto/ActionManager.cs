@@ -52,7 +52,7 @@ namespace abt.auto
         /// <summary>
         /// wait time of finding windows and controls
         /// </summary>
-        public TimeSpan WaitTime { get; set; }
+        public virtual TimeSpan WaitTime { get; set; }
 
     }
 }
