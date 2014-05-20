@@ -20,7 +20,8 @@ using uia_auto.auto;
 
 namespace uia_gui.components
 {
-    public delegate void SelectedItemChangedHandler(UIItem item);
+    public delegate void SelectedItemChangedHandler(IUIItem item, string name);
+    public delegate void WindowsRefreshedHandler(Dictionary<string, IUIItem> matchedControls);
 
     public partial class WindowsViewer : UserControl
     {
@@ -37,6 +38,7 @@ namespace uia_gui.components
         }
 
         public event SelectedItemChangedHandler SelectedItemChanged;
+        public event WindowsRefreshedHandler WindowsRefreshed;
 
         public WindowsViewer()
         {
@@ -69,28 +71,54 @@ namespace uia_gui.components
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (SelectedItemChanged != null)
-                SelectedItemChanged(e.Node.Tag as UIItem);
+                SelectedItemChanged(e.Node.Tag as UIItem, e.Node.ToolTipText);
         }
 
         public UIAActionManager ActionManager { get; set; }
         public IInterface CurrentInterface { get; set; }
-        List<IUIItem> matchedControls = new List<IUIItem>();
+        Dictionary<string, IUIItem> matchedControls = new Dictionary<string, IUIItem>();
+
+        TreeNode MatchedWindowNode { get; set; }
 
         public void RefreshWindows()
         {
-            ShowWindow();
-            ShowMatchControls();
+            MatchedWindowNode = ShowWindow();
+            bool bFound = FindMatchControls(MatchedWindowNode);
+            if (bFound && MatchedWindowNode != null)
+                MatchedWindowNode.Expand();
+
+            if (WindowsRefreshed != null)
+                WindowsRefreshed(matchedControls);
         }
 
-        private void ShowMatchControls()
+        private bool FindMatchControls(TreeNode matchedWindowNode)
         {
-            if (CurrentInterface == null)
-                return;
+            matchedControls.Clear();
 
-            //CurrentInterface.
+            if (CurrentInterface == null)
+                return false;
+
+            bool bFound = false;
+            if (matchedWindowNode != null)
+            {
+                Window window = matchedWindowNode.Tag as Window;
+                foreach (string name in CurrentInterface.Controls.Keys)
+                {
+                    IUIItem item = ActionManager.FindControl(window, CurrentInterface.Controls[name]);
+                    if (item != null)
+                    {
+                        matchedControls[name] = item;
+                        bFound = true;
+                    }
+                    else
+                        matchedControls[name] = null;
+                }
+            }
+
+            return bFound;
         }
 
-        private void ShowWindow()
+        private TreeNode ShowWindow()
         {
             treeView.Nodes.Clear();
 
@@ -118,22 +146,40 @@ namespace uia_gui.components
                 if (matchedWindowNode == null && CurrentInterface != null && ActionManager.MatchWindow(window, CurrentInterface.Properties))
                 {
                     matchedWindowNode = node;
+                    treeView.SelectedNode = node;
                     node.ForeColor = Color.Green;
                     node.NodeFont = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
                     node.Text = node.Text;
+                    node.ToolTipText = CurrentInterface.Name;
                 }
             }
+            return matchedWindowNode;
+        }
 
-            if (matchedWindowNode != null)
+        private bool SelectControlByName(TreeNode parent, string name)
+        {
+            foreach (TreeNode node in parent.Nodes)
             {
-                foreach (string name in CurrentInterface.Controls.Keys)
+                if (node.ToolTipText == name)
                 {
-                    IUIItem item = ActionManager.FindControl(matchedWindowNode.Tag as Window, CurrentInterface.Controls[name]);
-                    if (item != null)
-                        matchedControls.Add(item);
+                    treeView.Focus();
+                    node.EnsureVisible();
+                    treeView.SelectedNode = node;
+                    return true;
                 }
-                matchedWindowNode.Expand();
+                else if (SelectControlByName(node, name))
+                    return true;
             }
+            return false;
+        }
+        public void SelectControlByName(string name)
+        {
+            SelectControlByName(MatchedWindowNode, name);
+        }
+
+        private int CompareItem(IUIItem item1, IUIItem item2)
+        {
+            return item1.AutomationElement.Current.AutomationId.CompareTo(item2.AutomationElement.Current.AutomationId);
         }
 
         private void ShowGroupControl(TreeNode node, string groupName, IUIItem[] items)
@@ -153,18 +199,14 @@ namespace uia_gui.components
                 TreeNode itemnode = group.Nodes.Add(name);
                 itemnode.Tag = item;
 
-                if (matchedControls.Contains(item))
+                foreach (string ctrlName in matchedControls.Keys)
                 {
-                    itemnode.NodeFont = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
-                }
-                foreach (IUIItem matchedItem in matchedControls)
-                {
-                    //if (Object.ReferenceEquals(item, matchedItem))
-                    if (item == matchedItem)
+                    if (CompareItem(matchedControls[ctrlName], item) == 0)
                     {
                         itemnode.NodeFont = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
-                        //    itemnode.ForeColor = Color.Green;
-                        //    itemnode.Text = node.Text;
+                        itemnode.ForeColor = Color.Green;
+                        itemnode.Text = itemnode.Text;
+                        itemnode.ToolTipText = ctrlName;
                     }
                 }
             }

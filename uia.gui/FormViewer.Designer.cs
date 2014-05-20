@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormViewer));
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.splitContainerSub = new System.Windows.Forms.SplitContainer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolstripBtnRefresh = new System.Windows.Forms.ToolStripButton();
             this.windowsViewer1 = new uia_gui.components.WindowsViewer();
             this.propertiesViewer1 = new uia_gui.components.PropertiesViewer();
             this.matchesViewer1 = new uia_gui.components.MatchesViewer();
@@ -46,7 +47,7 @@
             this.splitContainerSub.Panel2.SuspendLayout();
             this.splitContainerSub.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerMain
@@ -98,21 +99,24 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel1.Text = "Ready";
             // 
-            // menuStrip1
+            // toolStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(804, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolstripBtnRefresh});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(804, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // fileToolStripMenuItem
+            // toolstripBtnRefresh
             // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.toolstripBtnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("toolstripBtnRefresh.Image")));
+            this.toolstripBtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolstripBtnRefresh.Name = "toolstripBtnRefresh";
+            this.toolstripBtnRefresh.Size = new System.Drawing.Size(66, 22);
+            this.toolstripBtnRefresh.Text = "Refresh";
+            this.toolstripBtnRefresh.Click += new System.EventHandler(this.toolstripBtnRefresh_Click);
             // 
             // windowsViewer1
             // 
@@ -149,16 +153,16 @@
             this.matchesViewer1.Padding = new System.Windows.Forms.Padding(5);
             this.matchesViewer1.Size = new System.Drawing.Size(197, 422);
             this.matchesViewer1.TabIndex = 0;
+            this.matchesViewer1.ControlSelected += new uia_gui.components.ControlSelectedHandler(this.matchesViewer1_ControlSelected);
             // 
             // FormViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 474);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitContainerMain);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormViewer";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -174,8 +178,8 @@
             this.splitContainerSub.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,7 +194,7 @@
         private uia_gui.components.MatchesViewer matchesViewer1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolstripBtnRefresh;
     }
 }

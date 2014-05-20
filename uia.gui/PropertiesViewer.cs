@@ -32,8 +32,8 @@ namespace uia_gui.components
         public UIAActionManager ActionManager { get; set; }
         public IInterface CurrentInterface { get; set; }
 
-        private UIItem m_Object;
-        public UIItem Object
+        private IUIItem m_Object;
+        public IUIItem Object
         {
             get { return m_Object; }
             set
@@ -52,28 +52,39 @@ namespace uia_gui.components
             }
         }
 
+        public void Reset()
+        {
+            listView.Items.Clear();
+        }
+
         private bool ShowProperties()
         {
             AutomationElement.AutomationElementInformation source = Object.AutomationElement.Current;
             PropertyInfo [] properties = source.GetType().GetProperties();
             bool ret = true;
 
-            listView.BeginUpdate();
             try
             {
+                listView.BeginUpdate();
                 foreach (PropertyInfo prop in properties)
                 {
                     string strName = prop.Name;
                     object strVal = prop.GetValue(source);
 
-                    ListViewItem item = listView.Items.Add(strName);
+                    ListViewItem item = new ListViewItem(strName);
                     item.SubItems.Add(strVal != null ? strVal.ToString() : @"{null}");
 
                     if (CurrentInterface != null && CurrentName != null)
                     {
                         if (CurrentInterface.Controls.ContainsKey(CurrentName) &&
                             CurrentInterface.Controls[CurrentName].ContainsKey(strName.ToLower()))
+                        {
                             item.Checked = true;
+                            item.Font = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
+                            listView.Items.Insert(0, item);
+                        }
+                        else
+                            listView.Items.Add(item);
                     }
                 }
             }
@@ -81,8 +92,10 @@ namespace uia_gui.components
             {
                 ret = false;
             }
-
-            listView.EndUpdate();
+            finally
+            {
+                listView.EndUpdate();
+            }
             return ret;
         }
     }

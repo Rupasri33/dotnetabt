@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.listView = new System.Windows.Forms.ListView();
-            this.groupBox = new System.Windows.Forms.GroupBox();
             this.columnItem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox = new System.Windows.Forms.GroupBox();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView
             // 
-            this.listView.CheckBoxes = true;
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnItem});
             this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -46,6 +45,12 @@
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView_MouseDoubleClick);
+            // 
+            // columnItem
+            // 
+            this.columnItem.Text = "Control";
+            this.columnItem.Width = 120;
             // 
             // groupBox
             // 
@@ -59,11 +64,6 @@
             this.groupBox.TabIndex = 1;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Matching";
-            // 
-            // columnItem
-            // 
-            this.columnItem.Text = "Control";
-            this.columnItem.Width = 120;
             // 
             // MatchesViewer
             // 
