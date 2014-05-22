@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.breezeTheme1 = new Telerik.WinControls.Themes.BreezeTheme();
             this.desertTheme1 = new Telerik.WinControls.Themes.DesertTheme();
@@ -90,13 +91,14 @@
             this.radDock3 = new Telerik.WinControls.UI.Docking.RadDock();
             this.documentContainer3 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.radDock = new Telerik.WinControls.UI.Docking.RadDock();
+            this.Solution_Explorer = new Telerik.WinControls.UI.Docking.ToolWindow();
+            this.panelsolution = new System.Windows.Forms.Panel();
+            this.treeView = new AUI_Test.DirectoryTreeview();
             this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.Document = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             this.document_window = new Telerik.WinControls.UI.Docking.DocumentWindow();
-            this.Solution_Explorer = new Telerik.WinControls.UI.Docking.ToolWindow();
-            this.panelsolution = new System.Windows.Forms.Panel();
-            this.treeView = new AUI_Test.DirectoryTreeview();
+            this.myImageList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.radDock2)).BeginInit();
             this.radDock2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer2)).BeginInit();
@@ -107,14 +109,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDock)).BeginInit();
             this.radDock.SuspendLayout();
+            this.Solution_Explorer.SuspendLayout();
+            this.panelsolution.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
             this.toolTabStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Document)).BeginInit();
             this.Document.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
-            this.Solution_Explorer.SuspendLayout();
-            this.panelsolution.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -648,6 +650,39 @@
             this.radDock.Text = "radDock1";
             this.radDock.ThemeName = "Aqua";
             // 
+            // Solution_Explorer
+            // 
+            this.Solution_Explorer.AccessibleDescription = "Hiện Thị Solution";
+            this.Solution_Explorer.AccessibleName = "Solution Explorer";
+            this.Solution_Explorer.Caption = null;
+            this.Solution_Explorer.Controls.Add(this.panelsolution);
+            this.Solution_Explorer.Location = new System.Drawing.Point(4, 23);
+            this.Solution_Explorer.Name = "Solution_Explorer";
+            this.Solution_Explorer.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            this.Solution_Explorer.Size = new System.Drawing.Size(232, 391);
+            this.Solution_Explorer.Text = "Solution Explorer";
+            // 
+            // panelsolution
+            // 
+            this.panelsolution.Controls.Add(this.treeView);
+            this.panelsolution.Location = new System.Drawing.Point(-4, -2);
+            this.panelsolution.Name = "panelsolution";
+            this.panelsolution.Size = new System.Drawing.Size(243, 395);
+            this.panelsolution.TabIndex = 0;
+            // 
+            // treeView
+            // 
+            this.treeView.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.treeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeView.Location = new System.Drawing.Point(-1, 2);
+            this.treeView.Name = "treeView";
+            this.treeView.PathTree = ".\\";
+            this.treeView.Size = new System.Drawing.Size(241, 394);
+            this.treeView.TabIndex = 0;
+           
+
+
+            // 
             // toolTabStrip1
             // 
             this.toolTabStrip1.CanUpdateChildIndex = true;
@@ -704,54 +739,17 @@
             // document_window
             // 
             this.document_window.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.document_window.Location = new System.Drawing.Point(4, 27);
+            this.document_window.Location = new System.Drawing.Point(4, 29);
             this.document_window.Name = "document_window";
             this.document_window.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.document_window.Size = new System.Drawing.Size(693, 387);
+            this.document_window.Size = new System.Drawing.Size(693, 385);
             this.document_window.Text = "Document";
             // 
-            // Solution_Explorer
+            // myImageList
             // 
-            this.Solution_Explorer.AccessibleDescription = "Hiện Thị Solution";
-            this.Solution_Explorer.AccessibleName = "Solution Explorer";
-            this.Solution_Explorer.Caption = null;
-            this.Solution_Explorer.Controls.Add(this.panelsolution);
-            this.Solution_Explorer.Location = new System.Drawing.Point(4, 23);
-            this.Solution_Explorer.Name = "Solution_Explorer";
-            this.Solution_Explorer.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.Solution_Explorer.Size = new System.Drawing.Size(232, 391);
-            this.Solution_Explorer.Text = "Solution Explorer";
-            // 
-            // panelsolution
-            // 
-            this.panelsolution.Controls.Add(this.treeView);
-            this.panelsolution.Location = new System.Drawing.Point(-4, -2);
-            this.panelsolution.Name = "panelsolution";
-            this.panelsolution.Size = new System.Drawing.Size(243, 395);
-            this.panelsolution.TabIndex = 0;
-            // 
-            // treeView
-            // 
-            this.treeView.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.treeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView.Location = new System.Drawing.Point(-1, 2);
-            this.treeView.Name = "treeView";
-            this.treeView.PathTree = ".\\";
-            this.treeView.Size = new System.Drawing.Size(241, 394);
-            this.treeView.TabIndex = 0;
-
-            System.Windows.Forms.ImageList myImageList = new System.Windows.Forms.ImageList();
-            myImageList.Images.Add(System.Drawing.Image.FromFile("1.gif"));
-            myImageList.Images.Add(System.Drawing.Image.FromFile("2.gif"));
-
-           
-
-            // Assign the ImageList to the TreeView.
-            ImageList = myImageList;
-
-            // Set the TreeView control's default image and selected image indexes.
-            this.treeView.ImageIndex = 0;
-            this.treeView.SelectedImageIndex = 1;
+            this.myImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.myImageList.ImageSize = new System.Drawing.Size(16, 16);
+            this.myImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // MainForm
             // 
@@ -764,6 +762,7 @@
             this.Controls.Add(this.radMenu1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImageList = this.myImageList;
             this.Name = "MainForm";
             // 
             // 
@@ -783,14 +782,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDock)).EndInit();
             this.radDock.ResumeLayout(false);
+            this.Solution_Explorer.ResumeLayout(false);
+            this.panelsolution.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
             this.toolTabStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Document)).EndInit();
             this.Document.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
-            this.Solution_Explorer.ResumeLayout(false);
-            this.panelsolution.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -868,5 +867,6 @@
         private Telerik.WinControls.UI.Docking.DocumentWindow document_window;
         private System.Windows.Forms.Panel panelsolution;
         private DirectoryTreeview treeView;
+        private System.Windows.Forms.ImageList myImageList;
     }
 }
