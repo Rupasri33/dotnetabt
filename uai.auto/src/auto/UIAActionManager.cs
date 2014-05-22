@@ -126,14 +126,18 @@ namespace uia_auto.auto
             {
                 Stopwatch sw = Stopwatch.StartNew();
 
-                List<Window> windows = WindowFactory.Desktop.DesktopWindows();
-
-                // loop all windows on the desktop
-                foreach (Window window in windows)
+                try
                 {
-                    if (MatchWindow(window, criteria))
-                        foundWindows.Add(window);
+                    List<Window> windows = WindowFactory.Desktop.DesktopWindows();
+
+                    // loop all windows on the desktop
+                    foreach (Window window in windows)
+                    {
+                        if (MatchWindow(window, criteria))
+                            foundWindows.Add(window);
+                    }
                 }
+                catch { }
 
                 if (foundWindows.Count > 0)
                     break;

@@ -24,6 +24,11 @@ namespace abt.auto
             get { return Parser.FileName; }
             set
             {
+                int idx = value.LastIndexOf(@".");
+                if (idx > 0)
+                    Name = value.Substring(0, idx);
+                else
+                    Name = value;
                 Parser.FileName = value;
             }
         }

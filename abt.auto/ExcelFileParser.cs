@@ -32,8 +32,8 @@ namespace abt.auto
             get { return m_FileName; }
             set
             {
-                if (Parse(WorkingDir + value))
-                    m_FileName = value;
+                m_FileName = value;
+                Parse(WorkingDir + value);
             }
         }
 
@@ -62,37 +62,47 @@ namespace abt.auto
         /// <returns>return true if parse successfully</returns>
         private bool Parse(string path)
         {
-            CompoundDocument doc = CompoundDocument.Load(path);
-            if (doc == null)
-                throw new InvalidOperationException(Constants.Messages.Error_ExcelFileNotFound);
-
-            Lines.Clear();
-            byte[] bookdata = doc.GetStreamData("Workbook");
-            if (bookdata == null)
-                throw new InvalidOperationException(Constants.Messages.Error_ExcelFileNoWorkbook);
-
-            Workbook workbook = WorkbookDecoder.Decode(new MemoryStream(bookdata));
-            if (workbook.Worksheets.Count == 0)
-                throw new InvalidOperationException(Constants.Messages.Error_ExcelFileNoWorksheet);
-
-            Worksheet sheet = workbook.Worksheets[0];
-            for (int rowIndex = sheet.Cells.FirstRowIndex; rowIndex <= sheet.Cells.LastRowIndex; rowIndex++)
+            try
             {
-                SourceLine line = new SourceLine();
-                Row row = sheet.Cells.GetRow(rowIndex);
-                for (int colIndex = row.FirstColIndex; colIndex <= row.LastColIndex; colIndex++)
+                CompoundDocument doc = CompoundDocument.Load(path);
+                if (doc == null)
+                    throw new InvalidOperationException(Constants.Messages.Error_ExcelFileNotFound);
+
+                Lines.Clear();
+                byte[] bookdata = doc.GetStreamData("Workbook");
+                if (bookdata == null)
+                    throw new InvalidOperationException(Constants.Messages.Error_ExcelFileNoWorkbook);
+
+                Workbook workbook = WorkbookDecoder.Decode(new MemoryStream(bookdata));
+                if (workbook.Worksheets.Count == 0)
+                    throw new InvalidOperationException(Constants.Messages.Error_ExcelFileNoWorksheet);
+
+                Worksheet sheet = workbook.Worksheets[0];
+                for (int rowIndex = sheet.Cells.FirstRowIndex; rowIndex <= sheet.Cells.LastRowIndex; rowIndex++)
                 {
-                    Cell cell = row.GetCell(colIndex);
-                    line.Columns.Add(cell.StringValue);
+                    SourceLine line = new SourceLine();
+                    Row row = sheet.Cells.GetRow(rowIndex);
+                    for (int colIndex = row.FirstColIndex; colIndex <= row.LastColIndex; colIndex++)
+                    {
+                        Cell cell = row.GetCell(colIndex);
+                        line.Columns.Add(cell.StringValue);
+                    }
+                    Lines.Add(line);
                 }
-                Lines.Add(line);
+
+                doc.Close();
+                return true;
             }
-
-            doc.Close();
-            if (this.FileParsed != null)
-                this.FileParsed();
-
-            return true;
+            catch
+            {
+                Lines.Clear();
+                return false;
+            }
+            finally
+            {
+                if (this.FileParsed != null)
+                    this.FileParsed();
+            }
         }
 
         /// <summary>
@@ -118,6 +128,29 @@ namespace abt.auto
         /// </summary>
         public void Save()
         {
+            try
+            {
+                //CompoundDocument doc = CompoundDocument.Create(WorkingDir + FileName + FileExtension);
+
+                Workbook workbook = new Workbook();
+                Worksheet worksheet = new Worksheet(@"report");
+
+                for (int i = 0; i < Lines.Count; i++)
+                {
+                    for (int j = 0; j < Lines[i].ColumnCount; j++)
+                        worksheet.Cells[i, j] = new Cell(Lines[i].Columns[j]);
+                }
+
+                int workaround = 100 - Lines.Count;
+                for (int i = 0; i < workaround; i++)
+                    worksheet.Cells[Lines.Count + i, 0] = new Cell(@"");
+
+                workbook.Worksheets.Add(worksheet);
+                workbook.Save(WorkingDir + FileName + FileExtension);
+            }
+            catch (Exception e)
+            {
+            }
         }
     }
 }

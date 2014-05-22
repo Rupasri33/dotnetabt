@@ -9,7 +9,8 @@ namespace abt.model
         /// create new report
         /// </summary>
         /// <param name="name">name of the report</param>
-        void BeginReport(string name);
+        /// <param name="datasetName">name of the dataset</param>
+        void BeginReport(string name, string datasetName);
 
         /// <summary>
         /// close current report and save to file
@@ -25,7 +26,8 @@ namespace abt.model
         /// <summary>
         /// end current 'data row' section
         /// </summary>
-        void EndDataRow();
+        /// <param name="id">row id</param>
+        void EndDataRow(int id);
 
         /// <summary>
         /// begin new section 'script' in current report
@@ -36,7 +38,8 @@ namespace abt.model
         /// <summary>
         /// end current 'script' section
         /// </summary>
-        void EndScript();
+        /// <param name="scriptName">name of the script</param>
+        void EndScript(string scriptName);
 
         /// <summary>
         /// write a line to the report
@@ -46,7 +49,14 @@ namespace abt.model
         void WriteLine(ActionLine actLine, ActionResult result);
 
         /// <summary>
-        /// the working to create new report
+        /// write an error to the report
+        /// </summary>
+        /// <param name="actLine">the error action line</param>
+        /// <param name="why">the reason</param>
+        void WriteError(ActionLine actLine, string why);
+
+        /// <summary>
+        /// the working directory
         /// </summary>
         string WorkingDir { get; set; }
 

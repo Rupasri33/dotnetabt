@@ -109,7 +109,7 @@ namespace abt.auto
             {
                 // create new report
                 IReporter reporter = Reporter.NewInstance;
-                reporter.BeginReport(@"runName");
+                reporter.BeginReport(@"runName", Data.Name);
 
                 while (Data.MoveNext())
                 {
@@ -119,21 +119,19 @@ namespace abt.auto
                     Scripts.Push(StartScript);
                     Run(reporter);
 
-                    reporter.EndDataRow();
+                    reporter.EndDataRow(Data.CurrentRowId);
                 }
             }
             else
             {
                 // create new report
                 IReporter reporter = Reporter.NewInstance;
-                reporter.BeginReport(@"runName" + @" - No data set");
-                reporter.BeginDataRow(0);
+                reporter.BeginReport(@"runName" + @" - No data set", null);
 
                 StartScript.Restart();
                 Scripts.Push(StartScript);
                 Run(reporter);
 
-                reporter.EndDataRow();
                 reporter.EndReport();
             }
 
@@ -191,9 +189,17 @@ namespace abt.auto
                     {
                         IAction action = getAction(actLine);
                         if (action == null)
-                            throw new InvalidOperationException("No action named '" + actLine.ActionName + "'");
+                        {
+                            reporter.WriteError(actLine, @"Action not found");
+                            Interupt();
+                            continue;
+                        }
                         if (!action.IsValid())
-                            throw new InvalidOperationException("Invalid arguments for action named '" + actLine.ActionName + "'");
+                        {
+                            reporter.WriteError(actLine, @"Invalid action arguments");
+                            Interupt();
+                            continue;
+                        }
 
                         // execute the action
                         int ret = action.Execute();
@@ -213,7 +219,7 @@ namespace abt.auto
 
                 // end section in report
                 if (CurrentScript.CurrentLineNumber > 0)
-                    reporter.EndScript();
+                    reporter.EndScript(CurrentScript.Name);
             }
 
             // check if user interupt the automation

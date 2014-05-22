@@ -18,7 +18,8 @@ namespace uiatest
     {
         static void Main(string[] args)
         {
-            IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(), @"D:\codes\dotnetabt\codeduiabt\sample");
+            IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
+                @"D:\codes\dotnetabt\codeduiabt\sample");
             UIAActionManager am = new UIAActionManager(at);
 
             Script startScript = new Script(at.Parser.NewInstance);
