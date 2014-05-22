@@ -44,7 +44,7 @@ namespace ung
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowNewFolderButton = false;
-            fbd.Description = "Mời bạn chọn thư mục lưu";
+            fbd.Description = "Chọn thư mục lưu";
             fbd.RootFolder = Environment.SpecialFolder.MyComputer;
             if (fbd.ShowDialog() == DialogResult.OK)
             {

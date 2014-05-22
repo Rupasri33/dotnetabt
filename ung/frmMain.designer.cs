@@ -71,31 +71,38 @@
             this.dotNetBarManager1 = new DevComponents.DotNetBar.DotNetBarManager(this.components);
             this.dockSite4 = new DevComponents.DotNetBar.DockSite();
             this.dockSite1 = new DevComponents.DotNetBar.DockSite();
-            this.bar1 = new DevComponents.DotNetBar.Bar();
-            this.panelDockContainer1 = new DevComponents.DotNetBar.PanelDockContainer();
-            this._treeViewProjectExplore = new System.Windows.Forms.TreeView();
-            this.contextMenuStripTreeView = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.runToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageListTrV = new System.Windows.Forms.ImageList(this.components);
-            this.dockContainerItem1 = new DevComponents.DotNetBar.DockContainerItem();
             this.dockSite2 = new DevComponents.DotNetBar.DockSite();
             this.dockSite8 = new DevComponents.DotNetBar.DockSite();
             this.dockSite5 = new DevComponents.DotNetBar.DockSite();
             this.dockSite6 = new DevComponents.DotNetBar.DockSite();
             this.dockSite7 = new DevComponents.DotNetBar.DockSite();
             this.dockSite3 = new DevComponents.DotNetBar.DockSite();
+            this.contextMenuStripTreeView = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.runToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageListTrV = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.tabPage23 = new System.Windows.Forms.TabPage();
+            this.tabPage21 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.bar1 = new DevComponents.DotNetBar.Bar();
+            this.panelDockContainer1 = new DevComponents.DotNetBar.PanelDockContainer();
+            this._treeViewProjectExplore = new System.Windows.Forms.TreeView();
+            this.dockContainerItem1 = new DevComponents.DotNetBar.DockContainerItem();
             this.tabControl1X = new System.Windows.Forms.TabControl();
             this.tabPageHex = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPageText = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabMenu = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.itemPanel4 = new DevComponents.DotNetBar.ItemPanel();
             this.itemContainer4 = new DevComponents.DotNetBar.ItemContainer();
             this.metroTileItem4 = new DevComponents.DotNetBar.Metro.MetroTileItem();
@@ -111,7 +118,7 @@
             this.itemPanel3 = new DevComponents.DotNetBar.ItemPanel();
             this.itemContainer3 = new DevComponents.DotNetBar.ItemContainer();
             this.metroTileItem3 = new DevComponents.DotNetBar.Metro.MetroTileItem();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.itemPanel1 = new DevComponents.DotNetBar.ItemPanel();
             this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
             this.metroTileItem1 = new DevComponents.DotNetBar.Metro.MetroTileItem();
@@ -121,33 +128,32 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.tabPageExcell = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.CustomTabControl();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.tabPage23 = new System.Windows.Forms.TabPage();
-            this.tabPage21 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.dockSite1.SuspendLayout();
+            this.contextMenuStripTreeView.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.bar1.SuspendLayout();
             this.panelDockContainer1.SuspendLayout();
-            this.contextMenuStripTreeView.SuspendLayout();
             this.tabControl1X.SuspendLayout();
             this.tabPageHex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPageText.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabMenu.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.tabPageExcell.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.menuStrip1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -156,7 +162,7 @@
             this.viewToolStripMenuItem,
             this.execureToolStripMenuItem,
             this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(5, 25);
+            this.menuStrip1.Location = new System.Drawing.Point(5, 26);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(851, 24);
             this.menuStrip1.TabIndex = 12;
@@ -170,7 +176,7 @@
             this._btSave,
             this.exitToolStripMenuItem});
             this.strmenuHeThong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strmenuHeThong.ForeColor = System.Drawing.Color.White;
+            this.strmenuHeThong.ForeColor = System.Drawing.Color.Black;
             this.strmenuHeThong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.strmenuHeThong.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strmenuHeThong.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -180,10 +186,9 @@
             // 
             // strDangNhap
             // 
-            this.strDangNhap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("strDangNhap.BackgroundImage")));
             this.strDangNhap.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projectToolStripNewProject});
-            this.strDangNhap.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.strDangNhap.ForeColor = System.Drawing.Color.Black;
             this.strDangNhap.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strDangNhap.Name = "strDangNhap";
             this.strDangNhap.Size = new System.Drawing.Size(138, 22);
@@ -191,8 +196,7 @@
             // 
             // projectToolStripNewProject
             // 
-            this.projectToolStripNewProject.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("projectToolStripNewProject.BackgroundImage")));
-            this.projectToolStripNewProject.ForeColor = System.Drawing.Color.White;
+            this.projectToolStripNewProject.ForeColor = System.Drawing.Color.Black;
             this.projectToolStripNewProject.Image = ((System.Drawing.Image)(resources.GetObject("projectToolStripNewProject.Image")));
             this.projectToolStripNewProject.Name = "projectToolStripNewProject";
             this.projectToolStripNewProject.Size = new System.Drawing.Size(111, 22);
@@ -201,10 +205,9 @@
             // 
             // strDangXuat
             // 
-            this.strDangXuat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("strDangXuat.BackgroundImage")));
             this.strDangXuat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projectToolStripMenuItem1});
-            this.strDangXuat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.strDangXuat.ForeColor = System.Drawing.Color.Black;
             this.strDangXuat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strDangXuat.Name = "strDangXuat";
             this.strDangXuat.Size = new System.Drawing.Size(138, 22);
@@ -212,8 +215,7 @@
             // 
             // projectToolStripMenuItem1
             // 
-            this.projectToolStripMenuItem1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("projectToolStripMenuItem1.BackgroundImage")));
-            this.projectToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.projectToolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             this.projectToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("projectToolStripMenuItem1.Image")));
             this.projectToolStripMenuItem1.Name = "projectToolStripMenuItem1";
             this.projectToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
@@ -222,8 +224,7 @@
             // 
             // _btSave
             // 
-            this._btSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_btSave.BackgroundImage")));
-            this._btSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this._btSave.ForeColor = System.Drawing.Color.Black;
             this._btSave.Image = ((System.Drawing.Image)(resources.GetObject("_btSave.Image")));
             this._btSave.Name = "_btSave";
             this._btSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
@@ -233,8 +234,7 @@
             // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.BackgroundImage")));
-            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.exitToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
@@ -248,7 +248,7 @@
             this.strThongTin,
             this.strLienHe});
             this.strmenuTroGiup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.strmenuTroGiup.ForeColor = System.Drawing.Color.White;
+            this.strmenuTroGiup.ForeColor = System.Drawing.Color.Black;
             this.strmenuTroGiup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.strmenuTroGiup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strmenuTroGiup.Name = "strmenuTroGiup";
@@ -257,24 +257,22 @@
             // 
             // strThongTin
             // 
-            this.strThongTin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("strThongTin.BackgroundImage")));
-            this.strThongTin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.strThongTin.ForeColor = System.Drawing.Color.Black;
             this.strThongTin.Image = ((System.Drawing.Image)(resources.GetObject("strThongTin.Image")));
             this.strThongTin.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strThongTin.Name = "strThongTin";
             this.strThongTin.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.strThongTin.Size = new System.Drawing.Size(144, 22);
+            this.strThongTin.Size = new System.Drawing.Size(154, 32);
             this.strThongTin.Text = "Undo";
             // 
             // strLienHe
             // 
-            this.strLienHe.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("strLienHe.BackgroundImage")));
-            this.strLienHe.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.strLienHe.ForeColor = System.Drawing.Color.Black;
             this.strLienHe.Image = ((System.Drawing.Image)(resources.GetObject("strLienHe.Image")));
             this.strLienHe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.strLienHe.Name = "strLienHe";
             this.strLienHe.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.strLienHe.Size = new System.Drawing.Size(144, 22);
+            this.strLienHe.Size = new System.Drawing.Size(154, 32);
             this.strLienHe.Text = "Redo";
             // 
             // viewToolStripMenuItem
@@ -282,15 +280,14 @@
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projectExploreToolStripMenuItem});
             this.viewToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.viewToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "&View";
             // 
             // projectExploreToolStripMenuItem
             // 
-            this.projectExploreToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("projectExploreToolStripMenuItem.BackgroundImage")));
-            this.projectExploreToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.projectExploreToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.projectExploreToolStripMenuItem.Name = "projectExploreToolStripMenuItem";
             this.projectExploreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.projectExploreToolStripMenuItem.Text = "Project Explore";
@@ -302,15 +299,14 @@
             this.pauseToolStripMenuItem,
             this.stopToolStripMenuItem});
             this.execureToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.execureToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.execureToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.execureToolStripMenuItem.Name = "execureToolStripMenuItem";
             this.execureToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.execureToolStripMenuItem.Text = "&Execure";
             // 
             // runToolStripMenuItem
             // 
-            this.runToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("runToolStripMenuItem.BackgroundImage")));
-            this.runToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.runToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.runToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("runToolStripMenuItem.Image")));
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
@@ -319,8 +315,7 @@
             // 
             // pauseToolStripMenuItem
             // 
-            this.pauseToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pauseToolStripMenuItem.BackgroundImage")));
-            this.pauseToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.pauseToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.pauseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pauseToolStripMenuItem.Image")));
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
             this.pauseToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
@@ -328,8 +323,7 @@
             // 
             // stopToolStripMenuItem
             // 
-            this.stopToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("stopToolStripMenuItem.BackgroundImage")));
-            this.stopToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.stopToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.stopToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("stopToolStripMenuItem.Image")));
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
             this.stopToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
@@ -341,15 +335,14 @@
             this.thoToolStripMenuItem,
             this.tácGiảToolStripMenuItem});
             this.aboutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "&About";
             // 
             // thoToolStripMenuItem
             // 
-            this.thoToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("thoToolStripMenuItem.BackgroundImage")));
-            this.thoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.thoToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.thoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thoToolStripMenuItem.Image")));
             this.thoToolStripMenuItem.Name = "thoToolStripMenuItem";
             this.thoToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
@@ -357,8 +350,7 @@
             // 
             // tácGiảToolStripMenuItem
             // 
-            this.tácGiảToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tácGiảToolStripMenuItem.BackgroundImage")));
-            this.tácGiảToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.tácGiảToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.tácGiảToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tácGiảToolStripMenuItem.Image")));
             this.tácGiảToolStripMenuItem.Name = "tácGiảToolStripMenuItem";
             this.tácGiảToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
@@ -366,7 +358,7 @@
             // 
             // metroShell1
             // 
-            this.metroShell1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.metroShell1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.metroShell1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("metroShell1.BackgroundImage")));
             this.metroShell1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             // 
@@ -381,7 +373,7 @@
             this.metroShell1.KeyTipsFont = new System.Drawing.Font("Tahoma", 7F);
             this.metroShell1.Location = new System.Drawing.Point(5, 1);
             this.metroShell1.Name = "metroShell1";
-            this.metroShell1.Size = new System.Drawing.Size(851, 24);
+            this.metroShell1.Size = new System.Drawing.Size(851, 25);
             this.metroShell1.SystemText.MaximizeRibbonText = "&Maximize the Ribbon";
             this.metroShell1.SystemText.MinimizeRibbonText = "Mi&nimize the Ribbon";
             this.metroShell1.SystemText.QatAddItemText = "&Add to Quick Access Toolbar";
@@ -420,7 +412,7 @@
             this.pasteToolStripButton,
             this.toolStripSeparator3,
             this.helpToolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(5, 49);
+            this.toolStrip1.Location = new System.Drawing.Point(5, 50);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(851, 25);
             this.toolStrip1.TabIndex = 13;
@@ -434,6 +426,7 @@
             this.newToolStripButton.Name = "newToolStripButton";
             this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.newToolStripButton.Text = "&New";
+            this.newToolStripButton.Click += new System.EventHandler(this.newToolStripButton_Click);
             // 
             // openToolStripButton
             // 
@@ -443,6 +436,7 @@
             this.openToolStripButton.Name = "openToolStripButton";
             this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.openToolStripButton.Text = "&Open";
+            this.openToolStripButton.Click += new System.EventHandler(this.openToolStripButton_Click);
             // 
             // saveToolStripButton
             // 
@@ -591,119 +585,22 @@
             // dockSite1
             // 
             this.dockSite1.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-            this.dockSite1.Controls.Add(this.bar1);
             this.dockSite1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dockSite1.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer(new DevComponents.DotNetBar.DocumentBaseContainer[] {
-            ((DevComponents.DotNetBar.DocumentBaseContainer)(new DevComponents.DotNetBar.DocumentBarContainer(this.bar1, 169, 405)))}, DevComponents.DotNetBar.eOrientation.Horizontal);
-            this.dockSite1.Location = new System.Drawing.Point(5, 74);
+            this.dockSite1.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
+            this.dockSite1.Location = new System.Drawing.Point(5, 75);
             this.dockSite1.Name = "dockSite1";
-            this.dockSite1.Size = new System.Drawing.Size(172, 405);
+            this.dockSite1.Size = new System.Drawing.Size(0, 404);
             this.dockSite1.TabIndex = 14;
             this.dockSite1.TabStop = false;
-            // 
-            // bar1
-            // 
-            this.bar1.AccessibleDescription = "DotNetBar Bar (bar1)";
-            this.bar1.AccessibleName = "DotNetBar Bar";
-            this.bar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-            this.bar1.CloseSingleTab = true;
-            this.bar1.Controls.Add(this.panelDockContainer1);
-            this.bar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bar1.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.Caption;
-            this.bar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.dockContainerItem1});
-            this.bar1.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
-            this.bar1.Location = new System.Drawing.Point(0, 0);
-            this.bar1.Name = "bar1";
-            this.bar1.Size = new System.Drawing.Size(169, 405);
-            this.bar1.Stretch = true;
-            this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
-            this.bar1.TabIndex = 0;
-            this.bar1.TabStop = false;
-            this.bar1.Text = "Solution Explore";
-            // 
-            // panelDockContainer1
-            // 
-            this.panelDockContainer1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
-            this.panelDockContainer1.Controls.Add(this._treeViewProjectExplore);
-            this.panelDockContainer1.Location = new System.Drawing.Point(3, 23);
-            this.panelDockContainer1.Name = "panelDockContainer1";
-            this.panelDockContainer1.Size = new System.Drawing.Size(163, 379);
-            this.panelDockContainer1.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelDockContainer1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.panelDockContainer1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.panelDockContainer1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.panelDockContainer1.Style.GradientAngle = 90;
-            this.panelDockContainer1.TabIndex = 0;
-            // 
-            // _treeViewProjectExplore
-            // 
-            this._treeViewProjectExplore.ContextMenuStrip = this.contextMenuStripTreeView;
-            this._treeViewProjectExplore.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._treeViewProjectExplore.ImageIndex = 0;
-            this._treeViewProjectExplore.ImageList = this.imageListTrV;
-            this._treeViewProjectExplore.Location = new System.Drawing.Point(0, 0);
-            this._treeViewProjectExplore.Name = "_treeViewProjectExplore";
-            this._treeViewProjectExplore.SelectedImageIndex = 0;
-            this._treeViewProjectExplore.Size = new System.Drawing.Size(163, 379);
-            this._treeViewProjectExplore.TabIndex = 0;
-            this._treeViewProjectExplore.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this._treeViewProjectExplore_AfterSelect);
-            this._treeViewProjectExplore.DoubleClick += new System.EventHandler(this._treeViewProjectExplore_DoubleClick);
-            // 
-            // contextMenuStripTreeView
-            // 
-            this.contextMenuStripTreeView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.runToolStripMenuItem1,
-            this.addFileToolStripMenuItem,
-            this.deleteToolStripMenuItem});
-            this.contextMenuStripTreeView.Name = "contextMenuStripTreeView";
-            this.contextMenuStripTreeView.Size = new System.Drawing.Size(118, 70);
-            // 
-            // runToolStripMenuItem1
-            // 
-            this.runToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("runToolStripMenuItem1.Image")));
-            this.runToolStripMenuItem1.Name = "runToolStripMenuItem1";
-            this.runToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
-            this.runToolStripMenuItem1.Text = "Run";
-            this.runToolStripMenuItem1.Click += new System.EventHandler(this.runToolStripMenuItem1_Click);
-            // 
-            // addFileToolStripMenuItem
-            // 
-            this.addFileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addFileToolStripMenuItem.Image")));
-            this.addFileToolStripMenuItem.Name = "addFileToolStripMenuItem";
-            this.addFileToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.addFileToolStripMenuItem.Text = "Add File";
-            this.addFileToolStripMenuItem.Click += new System.EventHandler(this.addFileToolStripMenuItem_Click);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            // 
-            // imageListTrV
-            // 
-            this.imageListTrV.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTrV.ImageStream")));
-            this.imageListTrV.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListTrV.Images.SetKeyName(0, "1.png");
-            this.imageListTrV.Images.SetKeyName(1, "2.png");
-            this.imageListTrV.Images.SetKeyName(2, "Folder.png");
-            // 
-            // dockContainerItem1
-            // 
-            this.dockContainerItem1.Control = this.panelDockContainer1;
-            this.dockContainerItem1.Name = "dockContainerItem1";
-            this.dockContainerItem1.Text = "dockContainerItem1";
             // 
             // dockSite2
             // 
             this.dockSite2.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite2.Dock = System.Windows.Forms.DockStyle.Right;
             this.dockSite2.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-            this.dockSite2.Location = new System.Drawing.Point(856, 74);
+            this.dockSite2.Location = new System.Drawing.Point(856, 75);
             this.dockSite2.Name = "dockSite2";
-            this.dockSite2.Size = new System.Drawing.Size(0, 405);
+            this.dockSite2.Size = new System.Drawing.Size(0, 404);
             this.dockSite2.TabIndex = 15;
             this.dockSite2.TabStop = false;
             // 
@@ -758,6 +655,183 @@
             this.dockSite3.TabIndex = 16;
             this.dockSite3.TabStop = false;
             // 
+            // contextMenuStripTreeView
+            // 
+            this.contextMenuStripTreeView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.runToolStripMenuItem1,
+            this.addFileToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuStripTreeView.Name = "contextMenuStripTreeView";
+            this.contextMenuStripTreeView.Size = new System.Drawing.Size(118, 70);
+            // 
+            // runToolStripMenuItem1
+            // 
+            this.runToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("runToolStripMenuItem1.Image")));
+            this.runToolStripMenuItem1.Name = "runToolStripMenuItem1";
+            this.runToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
+            this.runToolStripMenuItem1.Text = "Run";
+            this.runToolStripMenuItem1.Click += new System.EventHandler(this.runToolStripMenuItem1_Click);
+            // 
+            // addFileToolStripMenuItem
+            // 
+            this.addFileToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addFileToolStripMenuItem.Image")));
+            this.addFileToolStripMenuItem.Name = "addFileToolStripMenuItem";
+            this.addFileToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.addFileToolStripMenuItem.Text = "Add File";
+            this.addFileToolStripMenuItem.Click += new System.EventHandler(this.addFileToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // imageListTrV
+            // 
+            this.imageListTrV.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTrV.ImageStream")));
+            this.imageListTrV.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListTrV.Images.SetKeyName(0, "Folder_3.png");
+            this.imageListTrV.Images.SetKeyName(1, "excel-26.png");
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "battery.png");
+            this.imageList1.Images.SetKeyName(1, "book_open.png");
+            this.imageList1.Images.SetKeyName(2, "brush3.png");
+            this.imageList1.Images.SetKeyName(3, "calculator.png");
+            this.imageList1.Images.SetKeyName(4, "cd_music.png");
+            this.imageList1.Images.SetKeyName(5, "Close");
+            this.imageList1.Images.SetKeyName(6, "google_favicon.png");
+            // 
+            // tabPage23
+            // 
+            this.tabPage23.ImageKey = "(none)";
+            this.tabPage23.Location = new System.Drawing.Point(4, 27);
+            this.tabPage23.Name = "tabPage23";
+            this.tabPage23.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage23.Size = new System.Drawing.Size(657, 339);
+            this.tabPage23.TabIndex = 2;
+            this.tabPage23.Text = "tabPage23";
+            this.tabPage23.UseVisualStyleBackColor = true;
+            // 
+            // tabPage21
+            // 
+            this.tabPage21.ImageKey = "(none)";
+            this.tabPage21.Location = new System.Drawing.Point(4, 27);
+            this.tabPage21.Name = "tabPage21";
+            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage21.Size = new System.Drawing.Size(657, 339);
+            this.tabPage21.TabIndex = 0;
+            this.tabPage21.Text = "Allgemein";
+            this.tabPage21.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 75);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(851, 404);
+            this.tableLayoutPanel1.TabIndex = 22;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 384);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(851, 20);
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(39, 15);
+            this.toolStripStatusLabel1.Text = "Ready";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel2.Controls.Add(this.bar1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tabControl1X, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(845, 378);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // bar1
+            // 
+            this.bar1.AccessibleDescription = "DotNetBar Bar (bar1)";
+            this.bar1.AccessibleName = "DotNetBar Bar";
+            this.bar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
+            this.bar1.CloseSingleTab = true;
+            this.bar1.Controls.Add(this.panelDockContainer1);
+            this.bar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bar1.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar1.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.Caption;
+            this.bar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.dockContainerItem1});
+            this.bar1.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
+            this.bar1.Location = new System.Drawing.Point(3, 3);
+            this.bar1.Name = "bar1";
+            this.bar1.Size = new System.Drawing.Size(163, 372);
+            this.bar1.Stretch = true;
+            this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
+            this.bar1.TabIndex = 26;
+            this.bar1.TabStop = false;
+            this.bar1.Text = "Solution Explore";
+            // 
+            // panelDockContainer1
+            // 
+            this.panelDockContainer1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
+            this.panelDockContainer1.Controls.Add(this._treeViewProjectExplore);
+            this.panelDockContainer1.Location = new System.Drawing.Point(3, 23);
+            this.panelDockContainer1.Name = "panelDockContainer1";
+            this.panelDockContainer1.Size = new System.Drawing.Size(157, 346);
+            this.panelDockContainer1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelDockContainer1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.panelDockContainer1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.panelDockContainer1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.panelDockContainer1.Style.GradientAngle = 90;
+            this.panelDockContainer1.TabIndex = 0;
+            // 
+            // _treeViewProjectExplore
+            // 
+            this._treeViewProjectExplore.ContextMenuStrip = this.contextMenuStripTreeView;
+            this._treeViewProjectExplore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._treeViewProjectExplore.ImageIndex = 0;
+            this._treeViewProjectExplore.ImageList = this.imageListTrV;
+            this._treeViewProjectExplore.Location = new System.Drawing.Point(0, 0);
+            this._treeViewProjectExplore.Name = "_treeViewProjectExplore";
+            this._treeViewProjectExplore.SelectedImageIndex = 1;
+            this._treeViewProjectExplore.Size = new System.Drawing.Size(157, 346);
+            this._treeViewProjectExplore.TabIndex = 0;
+            this._treeViewProjectExplore.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this._treeViewProjectExplore_AfterSelect);
+            this._treeViewProjectExplore.DoubleClick += new System.EventHandler(this._treeViewProjectExplore_DoubleClick);
+            // 
+            // dockContainerItem1
+            // 
+            this.dockContainerItem1.Control = this.panelDockContainer1;
+            this.dockContainerItem1.Name = "dockContainerItem1";
+            this.dockContainerItem1.Text = "dockContainerItem1";
+            // 
             // tabControl1X
             // 
             this.tabControl1X.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
@@ -765,11 +839,11 @@
             this.tabControl1X.Controls.Add(this.tabPageText);
             this.tabControl1X.Controls.Add(this.tabPageExcell);
             this.tabControl1X.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1X.Location = new System.Drawing.Point(177, 74);
+            this.tabControl1X.Location = new System.Drawing.Point(172, 3);
             this.tabControl1X.Name = "tabControl1X";
             this.tabControl1X.SelectedIndex = 0;
-            this.tabControl1X.Size = new System.Drawing.Size(679, 405);
-            this.tabControl1X.TabIndex = 22;
+            this.tabControl1X.Size = new System.Drawing.Size(670, 372);
+            this.tabControl1X.TabIndex = 25;
             // 
             // tabPageHex
             // 
@@ -778,7 +852,7 @@
             this.tabPageHex.Location = new System.Drawing.Point(4, 25);
             this.tabPageHex.Name = "tabPageHex";
             this.tabPageHex.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHex.Size = new System.Drawing.Size(671, 376);
+            this.tabPageHex.Size = new System.Drawing.Size(662, 343);
             this.tabPageHex.TabIndex = 0;
             this.tabPageHex.Text = "Introduction";
             this.tabPageHex.UseVisualStyleBackColor = true;
@@ -789,7 +863,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(665, 370);
+            this.pictureBox1.Size = new System.Drawing.Size(656, 337);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -801,7 +875,7 @@
             this.tabPageText.Location = new System.Drawing.Point(4, 25);
             this.tabPageText.Name = "tabPageText";
             this.tabPageText.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageText.Size = new System.Drawing.Size(671, 376);
+            this.tabPageText.Size = new System.Drawing.Size(662, 343);
             this.tabPageText.TabIndex = 1;
             this.tabPageText.Text = "Short Menu";
             this.tabPageText.UseVisualStyleBackColor = true;
@@ -814,86 +888,86 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(665, 370);
+            this.tabControl2.Size = new System.Drawing.Size(656, 337);
             this.tabControl2.TabIndex = 21;
             // 
             // tabMenu
             // 
-            this.tabMenu.Controls.Add(this.tableLayoutPanel1);
+            this.tabMenu.Controls.Add(this.tableLayoutPanel3);
             this.tabMenu.Location = new System.Drawing.Point(4, 22);
             this.tabMenu.Name = "tabMenu";
             this.tabMenu.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMenu.Size = new System.Drawing.Size(657, 344);
+            this.tabMenu.Size = new System.Drawing.Size(648, 311);
             this.tabMenu.TabIndex = 1;
             this.tabMenu.Text = "Short Menu";
             this.tabMenu.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 616F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.labelX1, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 338);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.56995F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.43005F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(41, 59);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(610, 294);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.17172F));
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.itemPanel3, 0, 0);
+            this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 616F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.labelX1, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(189, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.69444F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 197F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(418, 288);
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(642, 305);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.56995F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.43005F));
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel7, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(41, 59);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(610, 294);
+            this.tableLayoutPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.itemPanel4, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.itemPanel5, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.itemPanel6, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.itemPanel7, 1, 1);
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.17172F));
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.itemPanel3, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 94);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(189, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(412, 191);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.69444F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 197F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(418, 288);
             this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.itemPanel4, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.itemPanel5, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.itemPanel6, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.itemPanel7, 1, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 94);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(412, 191);
+            this.tableLayoutPanel6.TabIndex = 0;
             // 
             // itemPanel4
             // 
@@ -1140,20 +1214,20 @@
             this.metroTileItem3.TileStyle.PaddingTop = 4;
             this.metroTileItem3.TileStyle.TextColor = System.Drawing.Color.White;
             // 
-            // tableLayoutPanel4
+            // tableLayoutPanel7
             // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.itemPanel1, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.itemPanel2, 0, 1);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 143F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(180, 288);
-            this.tableLayoutPanel4.TabIndex = 1;
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.itemPanel1, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.itemPanel2, 0, 1);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(180, 288);
+            this.tableLayoutPanel7.TabIndex = 1;
             // 
             // itemPanel1
             // 
@@ -1274,7 +1348,7 @@
             this.tabPageExcell.Location = new System.Drawing.Point(4, 25);
             this.tabPageExcell.Name = "tabPageExcell";
             this.tabPageExcell.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageExcell.Size = new System.Drawing.Size(671, 376);
+            this.tabPageExcell.Size = new System.Drawing.Size(662, 343);
             this.tabPageExcell.TabIndex = 2;
             this.tabPageExcell.Text = "Excel";
             this.tabPageExcell.UseVisualStyleBackColor = true;
@@ -1303,55 +1377,19 @@
             this.tabControl1.DisplayStyleProvider.TextColorSelected = System.Drawing.SystemColors.ControlText;
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.HotTrack = true;
-            this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(665, 370);
+            this.tabControl1.Size = new System.Drawing.Size(656, 337);
             this.tabControl1.TabIndex = 6;
-            this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseDown);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "battery.png");
-            this.imageList1.Images.SetKeyName(1, "book_open.png");
-            this.imageList1.Images.SetKeyName(2, "brush3.png");
-            this.imageList1.Images.SetKeyName(3, "calculator.png");
-            this.imageList1.Images.SetKeyName(4, "cd_music.png");
-            this.imageList1.Images.SetKeyName(5, "Close");
-            this.imageList1.Images.SetKeyName(6, "google_favicon.png");
-            // 
-            // tabPage23
-            // 
-            this.tabPage23.ImageKey = "(none)";
-            this.tabPage23.Location = new System.Drawing.Point(4, 27);
-            this.tabPage23.Name = "tabPage23";
-            this.tabPage23.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage23.Size = new System.Drawing.Size(657, 339);
-            this.tabPage23.TabIndex = 2;
-            this.tabPage23.Text = "tabPage23";
-            this.tabPage23.UseVisualStyleBackColor = true;
-            // 
-            // tabPage21
-            // 
-            this.tabPage21.ImageKey = "(none)";
-            this.tabPage21.Location = new System.Drawing.Point(4, 27);
-            this.tabPage21.Name = "tabPage21";
-            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage21.Size = new System.Drawing.Size(657, 339);
-            this.tabPage21.TabIndex = 0;
-            this.tabPage21.Text = "Allgemein";
-            this.tabPage21.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 481);
-            this.Controls.Add(this.tabControl1X);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dockSite2);
             this.Controls.Add(this.dockSite1);
             this.Controls.Add(this.toolStrip1);
@@ -1365,28 +1403,32 @@
             this.Controls.Add(this.dockSite8);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMain";
+            this.Text = "AUTOMATION TEST";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.dockSite1.ResumeLayout(false);
+            this.contextMenuStripTreeView.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             this.bar1.ResumeLayout(false);
             this.panelDockContainer1.ResumeLayout(false);
-            this.contextMenuStripTreeView.ResumeLayout(false);
             this.tabControl1X.ResumeLayout(false);
             this.tabPageHex.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPageText.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabMenu.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.tabPageExcell.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1436,6 +1478,24 @@
         private DevComponents.DotNetBar.DotNetBarManager dotNetBarManager1;
         private DevComponents.DotNetBar.DockSite dockSite4;
         private DevComponents.DotNetBar.DockSite dockSite1;
+        private DevComponents.DotNetBar.DockSite dockSite2;
+        private DevComponents.DotNetBar.DockSite dockSite3;
+        private DevComponents.DotNetBar.DockSite dockSite5;
+        private DevComponents.DotNetBar.DockSite dockSite6;
+        private DevComponents.DotNetBar.DockSite dockSite7;
+        private DevComponents.DotNetBar.DockSite dockSite8;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripTreeView;
+        private System.Windows.Forms.ToolStripMenuItem runToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem addFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ImageList imageListTrV;
+        private System.Windows.Forms.TabPage tabPage23;
+        private System.Windows.Forms.TabPage tabPage21;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private DevComponents.DotNetBar.Bar bar1;
         private DevComponents.DotNetBar.PanelDockContainer panelDockContainer1;
         private System.Windows.Forms.TreeView _treeViewProjectExplore;
@@ -1446,10 +1506,10 @@
         private System.Windows.Forms.TabPage tabPageText;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabMenu;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private DevComponents.DotNetBar.ItemPanel itemPanel4;
         private DevComponents.DotNetBar.ItemContainer itemContainer4;
         private DevComponents.DotNetBar.Metro.MetroTileItem metroTileItem4;
@@ -1465,7 +1525,7 @@
         private DevComponents.DotNetBar.ItemPanel itemPanel3;
         private DevComponents.DotNetBar.ItemContainer itemContainer3;
         private DevComponents.DotNetBar.Metro.MetroTileItem metroTileItem3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private DevComponents.DotNetBar.ItemPanel itemPanel1;
         private DevComponents.DotNetBar.ItemContainer itemContainer1;
         private DevComponents.DotNetBar.Metro.MetroTileItem metroTileItem1;
@@ -1473,21 +1533,7 @@
         private DevComponents.DotNetBar.ItemContainer itemContainer2;
         private DevComponents.DotNetBar.Metro.MetroTileItem metroTileItem2;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.DotNetBar.DockSite dockSite2;
-        private DevComponents.DotNetBar.DockSite dockSite3;
-        private DevComponents.DotNetBar.DockSite dockSite5;
-        private DevComponents.DotNetBar.DockSite dockSite6;
-        private DevComponents.DotNetBar.DockSite dockSite7;
-        private DevComponents.DotNetBar.DockSite dockSite8;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripTreeView;
-        private System.Windows.Forms.ToolStripMenuItem runToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem addFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ImageList imageListTrV;
         private System.Windows.Forms.TabPage tabPageExcell;
         private System.Windows.Forms.CustomTabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage23;
-        private System.Windows.Forms.TabPage tabPage21;
-        private System.Windows.Forms.ImageList imageList1;
     }
 }

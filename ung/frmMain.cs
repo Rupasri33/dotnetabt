@@ -36,21 +36,26 @@ namespace ung
         private void projectToolStripNewProject_Click(object sender, EventArgs e)
         {
             _treeViewProjectExplore.Nodes.Clear();
-            _frmNewProject _frmNewProject = new _frmNewProject();
-            _frmNewProject.ShowDialog();
-            if (_frmNewProject.DialogResult == System.Windows.Forms.DialogResult.Yes)
+            tabControl1.TabPages.Clear();
+            _frmNewProject newpj = new _frmNewProject();
+            newpj.ShowDialog();
+            if (newpj.DialogResult == System.Windows.Forms.DialogResult.Yes)
             {
-                string path = _frmNewProject.ProjectPath;
-                // l?y path ra ? dây...   
+                string path = newpj.ProjectPath;
+                // lấy path ra ở đây... 
                 TreeNode treenode;
+
                 DirectoryInfo dir = new DirectoryInfo(path);
                 if (dir.Exists)
                 {
                     treenode = new TreeNode(dir.Name);
                     treenode.Tag = dir;
                     treenode.Name = "Folder";
-                    treenode.ImageIndex = treenode.SelectedImageIndex = 1;
+                    treenode.ImageIndex = 0;
+                    treenode.SelectedImageIndex = 0;
+                    // GetDirectories(dir.GetDirectories(), treenode);
                     _treeViewProjectExplore.Nodes.Add(treenode);
+
                     try
                     {
                         DirectoryInfo[] directories = dir.GetDirectories();
@@ -60,23 +65,93 @@ namespace ung
                             {
                                 TreeNode node = treenode.Nodes.Add(directory.Name);
                                 node.Tag = directory.Name;
-                                treenode.ImageIndex = treenode.SelectedImageIndex = 2;
+                                node.ImageIndex = node.SelectedImageIndex = 0;
                                 foreach (FileInfo file in directory.GetFiles())
                                 {
                                     treenode = new TreeNode(file.Name);
                                     treenode.Tag = file;
                                     treenode.Name = "File";
+                                    treenode.ImageIndex = treenode.SelectedImageIndex = 0; ;
+                                    treenode.SelectedImageIndex = 0;
                                     _treeViewProjectExplore.Nodes.Add(treenode);
-                                    treenode.ImageIndex = treenode.SelectedImageIndex = 1;
 
                                     if (file.Exists)
                                     {
                                         TreeNode nodes = _treeViewProjectExplore.Nodes[0].Nodes[node.Index].Nodes.Add(file.Name);
-                                        treenode.ImageIndex = treenode.SelectedImageIndex = 1;
+                                        treenode.ImageIndex = 0;
+                                        node.ImageIndex = node.SelectedImageIndex = 0;
                                     }
                                 }
                             }
+                            _treeViewProjectExplore.ExpandAll();
                         }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show(ex.Message);
+
+                    }
+                }
+            }
+        }
+
+        //New Project Phim Tat
+        private void newToolStripButton_Click(object sender, EventArgs e)
+        {
+            _treeViewProjectExplore.Nodes.Clear();
+            tabControl1.TabPages.Clear();
+            _frmNewProject newpj = new _frmNewProject();
+            newpj.ShowDialog();
+            if (newpj.DialogResult == System.Windows.Forms.DialogResult.Yes)
+            {
+                string path = newpj.ProjectPath;
+                // lấy path ra ở đây... 
+                TreeNode treenode;
+
+                DirectoryInfo dir = new DirectoryInfo(path);
+                if (dir.Exists)
+                {
+                    treenode = new TreeNode(dir.Name);
+                    treenode.Tag = dir;
+                    treenode.Name = "Folder";
+                    treenode.ImageIndex = 0;
+                    treenode.SelectedImageIndex = 0;
+                    // GetDirectories(dir.GetDirectories(), treenode);
+                    _treeViewProjectExplore.Nodes.Add(treenode);
+
+                    try
+                    {
+                        DirectoryInfo[] directories = dir.GetDirectories();
+                        if (directories.Length > 0)
+                        {
+                            foreach (DirectoryInfo directory in directories)
+                            {
+                                TreeNode node = treenode.Nodes.Add(directory.Name);
+                                node.Tag = directory.Name;
+                                node.ImageIndex = node.SelectedImageIndex = 0;
+                                foreach (FileInfo file in directory.GetFiles())
+                                {
+                                    treenode = new TreeNode(file.Name);
+                                    treenode.Tag = file;
+                                    treenode.Name = "File";
+                                    treenode.ImageIndex = treenode.SelectedImageIndex = 0; ;
+                                    treenode.SelectedImageIndex = 0;
+                                    _treeViewProjectExplore.Nodes.Add(treenode);
+
+                                    if (file.Exists)
+                                    {
+                                        TreeNode nodes = _treeViewProjectExplore.Nodes[0].Nodes[node.Index].Nodes.Add(file.Name);
+                                        treenode.ImageIndex = 0;
+                                        node.ImageIndex = node.SelectedImageIndex = 0;
+                                    }
+                                }
+                            }
+                            _treeViewProjectExplore.ExpandAll();
+                        }
+
+
                     }
                     catch (Exception ex)
                     {
@@ -110,7 +185,8 @@ namespace ung
                     treenode = new TreeNode(dir.Name);
                     treenode.Tag = dir;
                     treenode.Name = "Folder";
-                    treenode.ImageIndex = treenode.SelectedImageIndex = 0; ;
+                    treenode.ImageIndex =0;
+                    treenode.SelectedImageIndex = 0;
                     _treeViewProjectExplore.Nodes.Add(treenode);
 
                     try
@@ -129,13 +205,78 @@ namespace ung
                                     //treenode.Tag = file;
                                     //treenode.Name = "File";
                                     //treenode.ImageIndex = 0;
-                                    //treenode.SelectedImageIndex = 0;
+                                    //treenode.ImageIndex = treenode.SelectedImageIndex = 1;
                                     // _treeViewProjectExplore.Nodes.Add(treenode);
                                     if (file.Exists)
                                     {
                                         TreeNode nodes = _treeViewProjectExplore.Nodes[0].Nodes[node.Index].Nodes.Add(file.Name);
-                                        //treenode.ImageIndex = 0;
-                                        node.ImageIndex = node.SelectedImageIndex = 2;
+                                        treenode.ImageIndex = 0;
+                                        node.ImageIndex = node.SelectedImageIndex = 0;
+                                    }
+                                }
+                            }
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show(ex.Message);
+
+                    }
+                }
+            }    
+        }
+
+        //Open Phim Tat
+        private void openToolStripButton_Click(object sender, EventArgs e)
+        {
+            _treeViewProjectExplore.Nodes.Clear();
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.ShowNewFolderButton = false;
+            fbd.Description = "Mời bạn chọn thư mục";
+            fbd.RootFolder = Environment.SpecialFolder.MyComputer;
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+
+                TreeNode treenode;
+                string path = fbd.SelectedPath;
+                //doc = CompoundDocument.Open(path);
+                DirectoryInfo dir = new DirectoryInfo(path);
+
+                if (dir.Exists)
+                {
+                    treenode = new TreeNode(dir.Name);
+                    treenode.Tag = dir;
+                    treenode.Name = "Folder";
+                    treenode.ImageIndex = 0;
+                    treenode.SelectedImageIndex = 0;
+                    _treeViewProjectExplore.Nodes.Add(treenode);
+
+                    try
+                    {
+                        DirectoryInfo[] directories = dir.GetDirectories();
+                        if (directories.Length > 0)
+                        {
+                            foreach (DirectoryInfo directory in directories)
+                            {
+                                TreeNode node = treenode.Nodes.Add(directory.Name);
+                                node.Tag = directory.Name;
+                                node.ImageIndex = node.SelectedImageIndex = 0;
+                                foreach (FileInfo file in directory.GetFiles())
+                                {
+                                    //treenode = new TreeNode(file.Name);
+                                    //treenode.Tag = file;
+                                    //treenode.Name = "File";
+                                    //treenode.ImageIndex = 0;
+                                    //treenode.ImageIndex = treenode.SelectedImageIndex = 1;
+                                    // _treeViewProjectExplore.Nodes.Add(treenode);
+                                    if (file.Exists)
+                                    {
+                                        TreeNode nodes = _treeViewProjectExplore.Nodes[0].Nodes[node.Index].Nodes.Add(file.Name);
+                                        treenode.ImageIndex = 0;
+                                        node.ImageIndex = node.SelectedImageIndex = 0;
                                     }
                                 }
                             }
@@ -213,22 +354,22 @@ namespace ung
             }
         }
         #endregion
-
+        
         #region Button Save
         Workbook workbook;
         private void _btSave_Click(object sender, EventArgs e)
         {
             if (doc == null) return;
-            string file = FileSelector.BrowseFileForSave(FileType.All);
+            string file = FileSelector.BrowseFileForSave(FileType.All);   
             if (file == null) return;
 
             using (CompoundDocument newDoc = CompoundDocument.Create(file))
             {
                 foreach (string streamName in doc.RootStorage.Members.Keys)
                 {
+                   
                     newDoc.WriteStreamData(new string[] { streamName }, doc.GetStreamData(streamName));
                 }
-
                 byte[] bookdata = doc.GetStreamData("Workbook");
                 if (bookdata != null)
                 {
@@ -263,12 +404,12 @@ namespace ung
         #region TreeViewProjectExplore_DoubleClick
         private void _treeViewProjectExplore_DoubleClick(object sender, EventArgs e)
         {
-          
+            tabControl1X.SelectedIndex = 2;
             if (_treeViewProjectExplore.SelectedNode.Name == "File")
             {
                 try
-                {          
-                    LoadExcelSheets();               
+                {
+                    LoadExcelSheets();
                 }
                 catch (Exception ex)
                 {
@@ -481,7 +622,9 @@ namespace ung
             run._cboData.Text = _treeViewProjectExplore.Nodes[0].Nodes[0].Nodes[0].Text;
             run.ShowDialog();
         }
-        #endregion
+        #endregion         
+
+       
 
        
     }
