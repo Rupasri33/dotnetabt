@@ -12,6 +12,8 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace AUI_Test
 {
+
+    
     public class DirectoryTreeview  : TreeView
     {
 
@@ -59,6 +61,7 @@ namespace AUI_Test
             SelectedImageIndex = 1;
 
             
+
             
             //---------Dua Con Text Menu Vao -----------------------------------
             myMenu = new myContextMenuStrip();
@@ -106,7 +109,9 @@ namespace AUI_Test
             ADD.Image = Properties.Resources.Add;
             ToolStripMenuItem Del = new ToolStripMenuItem("Delete");
             Del.Image = Properties.Resources.delete;
-            myMenu.Items.AddRange(new ToolStripItem[] { ADD, Del });
+            ToolStripMenuItem Open = new ToolStripMenuItem("Open");
+            Open.Image = Properties.Resources.openfile;
+            myMenu.Items.AddRange(new ToolStripItem[] { Open, ADD, Del });
             ContextMenuStrip = myMenu;
             
         }
@@ -187,35 +192,24 @@ namespace AUI_Test
                     
                     MessageBox.Show("Thanh Cong");
                 }
+
                 if (e.ClickedItem.Text == "Delete")
                 {
                     MessageBox.Show("Del Thanh Cong");
                 }
-            }
-        }
 
-
-        public class ContextMenuStripnew : ContextMenuStrip
-        {
-            public TreeNode tn;
-
-            public ContextMenuStripnew()
-            {
-
-            }
-
-            protected override void OnItemClicked(ToolStripItemClickedEventArgs e)
-            {
-                base.OnItemClicked(e);
-
-                if (e.ClickedItem.Text == "Add")
+                if (e.ClickedItem.Text == "Open")
                 {
 
-                    MessageBox.Show("Thanh Cong");
+                    DirectoryTabcontrol RanString = new DirectoryTabcontrol();
+                    RanString.Dir = @"C:\Users\10110_000\Desktop\Duoc\Script\s1.xls";
+                    RanString.Run(); 
                 }
-               
             }
         }
+
+
+        
 
         // Mình sẽ sử lý sự kiện sau khi select node
 
