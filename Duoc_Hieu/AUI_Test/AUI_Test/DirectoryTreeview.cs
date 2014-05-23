@@ -32,8 +32,8 @@ namespace AUI_Test
 
 
         //---- Tao Mot Context menu
+       
         public myContextMenuStrip myMenu;
-
 
 
         public DirectoryTreeview()
@@ -62,9 +62,15 @@ namespace AUI_Test
             
             //---------Dua Con Text Menu Vao -----------------------------------
             myMenu = new myContextMenuStrip();
-            myMenu.Items.Add("Add");
-            myMenu.Items.Add("Delete");
+            ToolStripMenuItem ADD = new ToolStripMenuItem("Add");
+            ADD.Image = Properties.Resources.Add;
+            ToolStripMenuItem Del = new ToolStripMenuItem("Delete");
+            Del.Image = Properties.Resources.delete;
+            ToolStripMenuItem Open = new ToolStripMenuItem("Open");
+            Open.Image = Properties.Resources.openfile;
+            myMenu.Items.AddRange(new ToolStripItem[] { Open, ADD, Del });          
             ContextMenuStrip = myMenu;
+            
 
             
            
@@ -96,10 +102,18 @@ namespace AUI_Test
 
             //---------Dua Con Text Menu Vao -----------------------------------
             myMenu = new myContextMenuStrip();
-            myMenu.Items.Add("Add");
-            myMenu.Items.Add("Delete");
+            ToolStripMenuItem ADD = new ToolStripMenuItem("Add");
+            ADD.Image = Properties.Resources.Add;
+            ToolStripMenuItem Del = new ToolStripMenuItem("Delete");
+            Del.Image = Properties.Resources.delete;
+            myMenu.Items.AddRange(new ToolStripItem[] { ADD, Del });
             ContextMenuStrip = myMenu;
             
+        }
+
+        private void SetDisplayRed(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         public void FillDirectory(string drv, TreeNode parent, int level)
@@ -145,8 +159,11 @@ namespace AUI_Test
            
             if (e.Button == MouseButtons.Right)
             {
-                TreeNode tn = GetNodeAt(e.Location);
-                myMenu.tn = tn;
+               
+                             
+                    TreeNode tn = GetNodeAt(e.Location);
+                    myMenu.tn = tn;
+                
             }
         }
 
@@ -156,22 +173,47 @@ namespace AUI_Test
         {
             public TreeNode tn;
 
-            public myContextMenuStrip() { }
+            public myContextMenuStrip()
+            {
+                
+            }
 
             protected override void OnItemClicked(ToolStripItemClickedEventArgs e)
             {
                 base.OnItemClicked(e);
-
-                ToolStripMenuItem ADD = new ToolStripMenuItem("Add");
-                ToolStripMenuItem Del = new ToolStripMenuItem("Delete");
+                
                 if (e.ClickedItem.Text == "Add")
                 {
+                    
                     MessageBox.Show("Thanh Cong");
                 }
                 if (e.ClickedItem.Text == "Delete")
                 {
                     MessageBox.Show("Del Thanh Cong");
                 }
+            }
+        }
+
+
+        public class ContextMenuStripnew : ContextMenuStrip
+        {
+            public TreeNode tn;
+
+            public ContextMenuStripnew()
+            {
+
+            }
+
+            protected override void OnItemClicked(ToolStripItemClickedEventArgs e)
+            {
+                base.OnItemClicked(e);
+
+                if (e.ClickedItem.Text == "Add")
+                {
+
+                    MessageBox.Show("Thanh Cong");
+                }
+               
             }
         }
 
