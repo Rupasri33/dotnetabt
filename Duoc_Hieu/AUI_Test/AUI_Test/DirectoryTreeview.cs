@@ -8,6 +8,7 @@ using System.IO;
 using System.Threading;
 using Telerik;
 using System.Drawing;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace AUI_Test
 {
@@ -28,6 +29,12 @@ namespace AUI_Test
                 path = value;
             }
         }
+
+
+        //---- Tao Mot Context menu
+        public myContextMenuStrip myMenu;
+
+
 
         public DirectoryTreeview()
         {
@@ -50,11 +57,17 @@ namespace AUI_Test
             // Set the TreeView control's default image and selected image indexes.
             ImageIndex = 0;
             SelectedImageIndex = 1;
-            
-            
 
             
-            //----------------------------------------------------------
+            
+            //---------Dua Con Text Menu Vao -----------------------------------
+            myMenu = new myContextMenuStrip();
+            myMenu.Items.Add("Add");
+            myMenu.Items.Add("Delete");
+            ContextMenuStrip = myMenu;
+
+            
+           
         }
 
         // chạy lại một lần nữa khi mình tạo new với đường dẫn mới.
@@ -79,6 +92,13 @@ namespace AUI_Test
             // Set the TreeView control's default image and selected image indexes.
             ImageIndex = 0;
             SelectedImageIndex = 1;
+
+
+            //---------Dua Con Text Menu Vao -----------------------------------
+            myMenu = new myContextMenuStrip();
+            myMenu.Items.Add("Add");
+            myMenu.Items.Add("Delete");
+            ContextMenuStrip = myMenu;
             
         }
 
@@ -94,7 +114,7 @@ namespace AUI_Test
                 if (!dir.Exists)
                     throw new DirectoryNotFoundException
                         ("directory does not exist:" + drv);
-                this.AfterSelect += new TreeViewEventHandler(this.TreeAfterSelect);
+                //this.AfterSelect += new TreeViewEventHandler(this.TreeAfterSelect);
                 this.NodeMouseClick += new TreeNodeMouseClickEventHandler(this.rightclick);
                 foreach (DirectoryInfo di in dir.GetDirectories())
                 {
@@ -120,57 +140,106 @@ namespace AUI_Test
 
 
 
-        // Mình sẽ sử lý sự kiện sau khi select node
-
-        private void TreeAfterSelect(object sender, TreeViewEventArgs e)
-        {
-            try
-            {
-                if (e.Action == TreeViewAction.ByMouse)
-                {
-
-                    string duongdan = e.Node.FullPath;
-                    if (duongdan.Contains("Root"))
-                    {
-                        string da = duongdan.Remove(0, 5);
-                        da = "\\" + da;
-                        string FPath = PathTree + da;
-
-
-
-
-                    }
-
-                }
-
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("" + ex);
-            }
-
-        }
-        //-----------------------
-
         private void rightclick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            try
+           
+            if (e.Button == MouseButtons.Right)
             {
-
-                if (e.Button == MouseButtons.Right)
-                {
-                }
-            }
-            catch
-            {
+                TreeNode tn = GetNodeAt(e.Location);
+                myMenu.tn = tn;
             }
         }
 
 
 
+        public class myContextMenuStrip : ContextMenuStrip
+        {
+            public TreeNode tn;
 
+            public myContextMenuStrip() { }
+
+            protected override void OnItemClicked(ToolStripItemClickedEventArgs e)
+            {
+                base.OnItemClicked(e);
+
+                ToolStripMenuItem ADD = new ToolStripMenuItem("Add");
+                ToolStripMenuItem Del = new ToolStripMenuItem("Delete");
+                if (e.ClickedItem.Text == "Add")
+                {
+                    MessageBox.Show("Thanh Cong");
+                }
+                if (e.ClickedItem.Text == "Delete")
+                {
+                    MessageBox.Show("Del Thanh Cong");
+                }
+            }
+        }
+
+        // Mình sẽ sử lý sự kiện sau khi select node
+
+        //private void TreeAfterSelect(object sender, TreeViewEventArgs e)
+        //{
+        //    try
+        //    {
+
+        //        //if (e.Action == TreeViewAction.ByMouse)
+        //        //{
+
+        //        //    string duongdan = e.Node.FullPath;
+        //        //    if (duongdan.Contains("Root"))
+        //        //    {
+        //        //        string da = duongdan.Remove(0, 5);
+        //        //        da = "\\" + da;
+        //        //        string FPath = PathTree + da;
+
+
+        //       if (SelectedNode.Text == Nodes[0].Nodes[0].Text)
+        //        {
+        //            //addFileToolStripMenuItem.Visible = true;
+                   
+        //        }
+        //        else if (SelectedNode.Text ==Nodes[0].Nodes[1].Text)
+        //        {
+        //           // addFileToolStripMenuItem.Visible = true;
+                    
+        //        }
+        //        else if (SelectedNode.Text == Nodes[0].Nodes[2].Text)
+        //        {
+        //            //addFileToolStripMenuItem.Visible = true;
+                   
+        //        }
+
+        //        else if (SelectedNode.Text == Nodes[0].Nodes[0].Nodes[0].Text)
+        //        {
+                    
+        //           // deleteToolStripMenuItem.Visible = true;
+                   
+        //        }
+        //        else if (SelectedNode.Text == Nodes[0].Nodes[1].Nodes[0].Text)
+        //        {
+                    
+        //           // deleteToolStripMenuItem.Visible = true;
+                    
+        //        }
+        //        else if (SelectedNode.Text == Nodes[0].Nodes[2].Nodes[0].Text)
+        //        {
+        //           // deleteToolStripMenuItem.Visible = true;
+        //            //runToolStripMenuItem1.Visible = true;
+        //         //  runToolStripMenuItem.Enabled = true;
+        //        }
+
+
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("" + ex);
+        //    }
+
+        //}
+        
+        
+       
 
 
 

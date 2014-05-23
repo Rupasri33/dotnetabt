@@ -602,7 +602,7 @@
             this.Automation_Bar.Name = "Automation_Bar";
             this.Automation_Bar.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
             this.commandBarRowElementChinh});
-            this.Automation_Bar.Size = new System.Drawing.Size(971, 30);
+            this.Automation_Bar.Size = new System.Drawing.Size(971, 55);
             this.Automation_Bar.TabIndex = 2;
             this.Automation_Bar.Text = "Automation Test";
             this.Automation_Bar.ThemeName = "Aqua";
@@ -675,7 +675,7 @@
             this.commandBarButtonOpenFile.AccessibleDescription = "Open File";
             this.commandBarButtonOpenFile.AccessibleName = "Open File";
             this.commandBarButtonOpenFile.DisplayName = "Open File";
-            this.commandBarButtonOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("commandBarButtonOpenFile.Image")));
+            this.commandBarButtonOpenFile.Image = null;
             this.commandBarButtonOpenFile.Name = "commandBarButtonOpenFile";
             this.commandBarButtonOpenFile.Text = "";
             this.commandBarButtonOpenFile.Visibility = Telerik.WinControls.ElementVisibility.Visible;
@@ -794,14 +794,14 @@
             this.radDock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radDock.DocumentManager.DocumentInsertOrder = Telerik.WinControls.UI.Docking.DockWindowInsertOrder.InFront;
             this.radDock.IsCleanUpTarget = true;
-            this.radDock.Location = new System.Drawing.Point(0, 51);
+            this.radDock.Location = new System.Drawing.Point(0, 76);
             this.radDock.MainDocumentContainer = this.Document;
             this.radDock.Name = "radDock";
             // 
             // 
             // 
             this.radDock.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.radDock.Size = new System.Drawing.Size(971, 438);
+            this.radDock.Size = new System.Drawing.Size(971, 413);
             this.radDock.TabIndex = 3;
             this.radDock.TabStop = false;
             this.radDock.Text = "radDock1";
@@ -818,7 +818,7 @@
             // 
             this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
             this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(213, 438);
+            this.toolTabStrip1.Size = new System.Drawing.Size(213, 413);
             this.toolTabStrip1.SizeInfo.AbsoluteSize = new System.Drawing.Size(213, 200);
             this.toolTabStrip1.SizeInfo.SplitterCorrection = new System.Drawing.Size(56, 0);
             this.toolTabStrip1.TabIndex = 1;
@@ -835,7 +835,7 @@
             this.Solution_Explorer.Location = new System.Drawing.Point(4, 23);
             this.Solution_Explorer.Name = "Solution_Explorer";
             this.Solution_Explorer.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.Solution_Explorer.Size = new System.Drawing.Size(205, 411);
+            this.Solution_Explorer.Size = new System.Drawing.Size(205, 386);
             this.Solution_Explorer.Text = "Solution Explorer";
             this.Solution_Explorer.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
@@ -866,7 +866,7 @@
             // 
             // 
             this.Document.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.Document.Size = new System.Drawing.Size(755, 438);
+            this.Document.Size = new System.Drawing.Size(755, 413);
             this.Document.SizeInfo.AbsoluteSize = new System.Drawing.Size(758, 200);
             this.Document.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
             this.Document.SizeInfo.SplitterCorrection = new System.Drawing.Size(-434, 0);
@@ -887,7 +887,7 @@
             // 
             this.documentTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
             this.documentTabStrip1.SelectedIndex = 1;
-            this.documentTabStrip1.Size = new System.Drawing.Size(755, 438);
+            this.documentTabStrip1.Size = new System.Drawing.Size(755, 413);
             this.documentTabStrip1.TabIndex = 0;
             this.documentTabStrip1.TabStop = false;
             this.documentTabStrip1.ThemeName = "Aqua";
@@ -919,7 +919,7 @@
             this.documentWindowDoc.Location = new System.Drawing.Point(4, 27);
             this.documentWindowDoc.Name = "documentWindowDoc";
             this.documentWindowDoc.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.documentWindowDoc.Size = new System.Drawing.Size(747, 407);
+            this.documentWindowDoc.Size = new System.Drawing.Size(747, 382);
             this.documentWindowDoc.Text = "Document";
             // 
             // tabControl
