@@ -125,21 +125,36 @@ namespace AUI_Test
 
         }
 
+        //---- New Project
         private void radMenuItem11_Click(object sender, EventArgs e)
         {
             NewProject _newproject = new NewProject();
             _newproject.ShowDialog();
-
             DirectoryTreeview NewDir = treeView as DirectoryTreeview;
             radTextBoxduongdanproject.Text = NewDir.PathTree = _newproject.duongdanproject;
             string Pathproject = radTextBoxduongdanproject.Text;
-
             DirectoryTreeview Tree = treeView as DirectoryTreeview;
             Tree.PathTree = Pathproject;
             Tree.Runother();
             IFileParser WorkDir = new IFileParser();
             WorkDir.WorkingDir = radTextBoxduongdanproject.Text;
            
+        }
+
+        //--- Open Project 
+        private void radMenuItemOpenProject_Click(object sender, EventArgs e)
+        {
+            string duongdan;
+            FolderBrowserDialog Chonduongdan = new FolderBrowserDialog();
+            Chonduongdan.RootFolder = Environment.SpecialFolder.MyComputer;
+            if (Chonduongdan.ShowDialog() == DialogResult.OK)
+            {
+                duongdan = Chonduongdan.SelectedPath;
+                DirectoryTreeview NewTree = treeView as DirectoryTreeview;
+                NewTree.PathTree = duongdan;
+                radTextBoxduongdanproject.Text = duongdan;
+                NewTree.Runother();
+            }
         }
     }
 }
