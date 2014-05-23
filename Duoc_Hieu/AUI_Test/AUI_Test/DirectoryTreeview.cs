@@ -61,14 +61,24 @@ namespace AUI_Test
         public void Runother()
         {
             Nodes.Clear();
-            string drives = Path.Combine(Environment.CurrentDirectory, PathTree);
+            string drives = Path.Combine(Environment.CurrentDirectory, path);
             string RootNameDirection = "Root";
             TreeNode node = new TreeNode();
             node.Text = RootNameDirection;
             Nodes.Add(node);
             FillDirectory(drives, node, 0);
 
+            System.Windows.Forms.ImageList myImageList = new System.Windows.Forms.ImageList();
+            myImageList.Images.Add(Properties.Resources.iconsubtree);
+            myImageList.Images.Add(Properties.Resources.icontree);
 
+
+            // Assign the ImageList to the TreeView.
+            ImageList = myImageList;
+
+            // Set the TreeView control's default image and selected image indexes.
+            ImageIndex = 0;
+            SelectedImageIndex = 1;
             
         }
 

@@ -9,7 +9,6 @@ using ExcelLibrary.CompoundDocumentFormat;
 using ExcelLibrary.BinaryDrawingFormat;
 using ExcelLibrary.BinaryFileFormat;
 using ExcelLibrary.SpreadSheet;
-using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
 using System.Threading;
@@ -56,11 +55,9 @@ namespace AUI_Test
         public DirectoryTabcontrol()
         {
 
-            Run();            
-            Location = new System.Drawing.Point(6, 16);
-            SelectedIndex = 0;
-            Size = new System.Drawing.Size(694, 274);
-            TabIndex = 0;
+            Run();      
+            
+            
         }
     }
 }

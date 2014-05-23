@@ -53,6 +53,7 @@ namespace AUI_Test
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+
         }
 
         private void tileGroupElement1_Click(object sender, EventArgs e)
@@ -99,10 +100,8 @@ namespace AUI_Test
         {
             string file = FileSelector.BrowseFile(FileType.Excel97);
             //DirectoryTabcontrol RanString = tabControl as DirectoryTabcontrol;
-           // RanString.Dir = file;
-           // RanString.Run();
-
-           
+            //RanString.Dir = file;
+            //RanString.Run();          
           
             
         }
@@ -119,6 +118,28 @@ namespace AUI_Test
 
         private void documentWindow3_Click(object sender, EventArgs e)
         {
-                    }
+        }
+
+        private void radMenuItem23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radMenuItem11_Click(object sender, EventArgs e)
+        {
+            NewProject _newproject = new NewProject();
+            _newproject.ShowDialog();
+
+            DirectoryTreeview NewDir = treeView as DirectoryTreeview;
+            radTextBoxduongdanproject.Text = NewDir.PathTree = _newproject.duongdanproject;
+            string Pathproject = radTextBoxduongdanproject.Text;
+
+            DirectoryTreeview Tree = treeView as DirectoryTreeview;
+            Tree.PathTree = Pathproject;
+            Tree.Runother();
+            IFileParser WorkDir = new IFileParser();
+            WorkDir.WorkingDir = radTextBoxduongdanproject.Text;
+           
+        }
     }
 }

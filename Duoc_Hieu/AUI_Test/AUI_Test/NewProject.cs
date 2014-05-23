@@ -16,6 +16,24 @@ namespace AUI_Test
             InitializeComponent();
         }
 
+        string path;
+        string duongdan
+        {
+            set
+            {
+                path = value;
+            }
+        }
+
+        public string duongdanproject;
+        public string returnduongdanproject
+        {
+            set
+            {
+                duongdanproject = value;
+            }
+        }
+
         private void radLabel1_Click(object sender, EventArgs e)
         {
 
@@ -24,6 +42,32 @@ namespace AUI_Test
         private void NewProject_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void radButtonBrowse_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog Chonduongdan = new FolderBrowserDialog();
+            Chonduongdan.RootFolder = Environment.SpecialFolder.MyComputer;
+            if (Chonduongdan.ShowDialog() == DialogResult.OK)
+            {
+                duongdan = Chonduongdan.SelectedPath;
+                radTextBoxLocation.Text = path;
+            }
+           
+        }
+
+        private void radButtonOk_Click(object sender, EventArgs e)
+        {
+            DirectoryNew DN = new DirectoryNew();              
+            DN.PathProject = path;
+            DN.NameProject = radTextBoxNameProject.Text;
+            returnduongdanproject = DN.CreateDir();            
+            this.Close();
+        }
+
+        private void radButtonCancle_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

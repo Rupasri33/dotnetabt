@@ -31,19 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewProject));
             this.aquaTheme1 = new Telerik.WinControls.Themes.AquaTheme();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.radTextBox1 = new Telerik.WinControls.UI.RadTextBox();
+            this.radTextBoxNameProject = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
-            this.radTextBox2 = new Telerik.WinControls.UI.RadTextBox();
-            this.radButton1 = new Telerik.WinControls.UI.RadButton();
-            this.radButton2 = new Telerik.WinControls.UI.RadButton();
-            this.radButton3 = new Telerik.WinControls.UI.RadButton();
+            this.radTextBoxLocation = new Telerik.WinControls.UI.RadTextBox();
+            this.radButtonBrowse = new Telerik.WinControls.UI.RadButton();
+            this.radButtonOk = new Telerik.WinControls.UI.RadButton();
+            this.radButtonCancle = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radTextBoxNameProject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radTextBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radTextBoxLocation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButtonBrowse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButtonOk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButtonCancle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,14 +58,14 @@
             this.radLabel1.ThemeName = "Aqua";
             this.radLabel1.Click += new System.EventHandler(this.radLabel1_Click);
             // 
-            // radTextBox1
+            // radTextBoxNameProject
             // 
-            this.radTextBox1.Location = new System.Drawing.Point(142, 31);
-            this.radTextBox1.Name = "radTextBox1";
-            this.radTextBox1.Size = new System.Drawing.Size(245, 20);
-            this.radTextBox1.TabIndex = 1;
-            this.radTextBox1.TabStop = false;
-            this.radTextBox1.ThemeName = "Aqua";
+            this.radTextBoxNameProject.Location = new System.Drawing.Point(142, 31);
+            this.radTextBoxNameProject.Name = "radTextBoxNameProject";
+            this.radTextBoxNameProject.Size = new System.Drawing.Size(245, 20);
+            this.radTextBoxNameProject.TabIndex = 1;
+            this.radTextBoxNameProject.TabStop = false;
+            this.radTextBoxNameProject.ThemeName = "Aqua";
             // 
             // radLabel2
             // 
@@ -77,41 +77,44 @@
             this.radLabel2.TabIndex = 2;
             this.radLabel2.Text = "Location";
             // 
-            // radTextBox2
+            // radTextBoxLocation
             // 
-            this.radTextBox2.Location = new System.Drawing.Point(142, 70);
-            this.radTextBox2.Name = "radTextBox2";
-            this.radTextBox2.Size = new System.Drawing.Size(245, 20);
-            this.radTextBox2.TabIndex = 3;
-            this.radTextBox2.TabStop = false;
-            this.radTextBox2.ThemeName = "Aqua";
+            this.radTextBoxLocation.Location = new System.Drawing.Point(142, 70);
+            this.radTextBoxLocation.Name = "radTextBoxLocation";
+            this.radTextBoxLocation.Size = new System.Drawing.Size(245, 20);
+            this.radTextBoxLocation.TabIndex = 3;
+            this.radTextBoxLocation.TabStop = false;
+            this.radTextBoxLocation.ThemeName = "Aqua";
             // 
-            // radButton1
+            // radButtonBrowse
             // 
-            this.radButton1.Location = new System.Drawing.Point(407, 70);
-            this.radButton1.Name = "radButton1";
-            this.radButton1.Size = new System.Drawing.Size(100, 24);
-            this.radButton1.TabIndex = 4;
-            this.radButton1.Text = "Browse";
-            this.radButton1.ThemeName = "Aqua";
+            this.radButtonBrowse.Location = new System.Drawing.Point(407, 70);
+            this.radButtonBrowse.Name = "radButtonBrowse";
+            this.radButtonBrowse.Size = new System.Drawing.Size(100, 24);
+            this.radButtonBrowse.TabIndex = 4;
+            this.radButtonBrowse.Text = "Browse";
+            this.radButtonBrowse.ThemeName = "Aqua";
+            this.radButtonBrowse.Click += new System.EventHandler(this.radButtonBrowse_Click);
             // 
-            // radButton2
+            // radButtonOk
             // 
-            this.radButton2.Location = new System.Drawing.Point(182, 148);
-            this.radButton2.Name = "radButton2";
-            this.radButton2.Size = new System.Drawing.Size(95, 24);
-            this.radButton2.TabIndex = 5;
-            this.radButton2.Text = "OK";
-            this.radButton2.ThemeName = "Aqua";
+            this.radButtonOk.Location = new System.Drawing.Point(142, 111);
+            this.radButtonOk.Name = "radButtonOk";
+            this.radButtonOk.Size = new System.Drawing.Size(95, 24);
+            this.radButtonOk.TabIndex = 5;
+            this.radButtonOk.Text = "OK";
+            this.radButtonOk.ThemeName = "Aqua";
+            this.radButtonOk.Click += new System.EventHandler(this.radButtonOk_Click);
             // 
-            // radButton3
+            // radButtonCancle
             // 
-            this.radButton3.Location = new System.Drawing.Point(314, 148);
-            this.radButton3.Name = "radButton3";
-            this.radButton3.Size = new System.Drawing.Size(93, 24);
-            this.radButton3.TabIndex = 6;
-            this.radButton3.Text = "Cancel";
-            this.radButton3.ThemeName = "Aqua";
+            this.radButtonCancle.Location = new System.Drawing.Point(294, 111);
+            this.radButtonCancle.Name = "radButtonCancle";
+            this.radButtonCancle.Size = new System.Drawing.Size(93, 24);
+            this.radButtonCancle.TabIndex = 6;
+            this.radButtonCancle.Text = "Cancel";
+            this.radButtonCancle.ThemeName = "Aqua";
+            this.radButtonCancle.Click += new System.EventHandler(this.radButtonCancle_Click);
             // 
             // NewProject
             // 
@@ -119,31 +122,33 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(520, 203);
-            this.Controls.Add(this.radButton3);
-            this.Controls.Add(this.radButton2);
-            this.Controls.Add(this.radButton1);
-            this.Controls.Add(this.radTextBox2);
+            this.ClientSize = new System.Drawing.Size(541, 171);
+            this.Controls.Add(this.radButtonCancle);
+            this.Controls.Add(this.radButtonOk);
+            this.Controls.Add(this.radButtonBrowse);
+            this.Controls.Add(this.radTextBoxLocation);
             this.Controls.Add(this.radLabel2);
-            this.Controls.Add(this.radTextBox1);
+            this.Controls.Add(this.radTextBoxNameProject);
             this.Controls.Add(this.radLabel1);
-            this.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewProject";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Project";
             this.ThemeName = "Aqua";
             this.Load += new System.EventHandler(this.NewProject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radTextBoxNameProject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radTextBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radTextBoxLocation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButtonBrowse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButtonOk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButtonCancle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -154,11 +159,11 @@
 
         private Telerik.WinControls.Themes.AquaTheme aquaTheme1;
         private Telerik.WinControls.UI.RadLabel radLabel1;
-        private Telerik.WinControls.UI.RadTextBox radTextBox1;
+        private Telerik.WinControls.UI.RadTextBox radTextBoxNameProject;
         private Telerik.WinControls.UI.RadLabel radLabel2;
-        private Telerik.WinControls.UI.RadTextBox radTextBox2;
-        private Telerik.WinControls.UI.RadButton radButton1;
-        private Telerik.WinControls.UI.RadButton radButton2;
-        private Telerik.WinControls.UI.RadButton radButton3;
+        private Telerik.WinControls.UI.RadTextBox radTextBoxLocation;
+        private Telerik.WinControls.UI.RadButton radButtonBrowse;
+        private Telerik.WinControls.UI.RadButton radButtonOk;
+        private Telerik.WinControls.UI.RadButton radButtonCancle;
     }
 }
