@@ -24,7 +24,8 @@ namespace uia_gui.forms
 
             //iff.FileName
 
-            IAutomation automation = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()), @"D:\codes\dotnetabt\codeduiabt\sample");
+            IAutomation automation = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
+                @"C:\Users\datthong.nguyen\Documents\Visual Studio 2012\Projects\dotnetabt\codeduiabt\sample");
             UIAActionManager actionManager = new UIAActionManager(automation);
             IInterface iff = new Interface(automation.Parser.NewInstance);
             iff.FileName = "Calculator.xls";

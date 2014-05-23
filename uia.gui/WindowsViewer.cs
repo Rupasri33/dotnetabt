@@ -146,11 +146,11 @@ namespace uia_gui.components
                 if (matchedWindowNode == null && CurrentInterface != null && ActionManager.MatchWindow(window, CurrentInterface.Properties))
                 {
                     matchedWindowNode = node;
-                    treeView.SelectedNode = node;
                     node.ForeColor = Color.Green;
                     node.NodeFont = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
                     node.Text = node.Text;
                     node.ToolTipText = CurrentInterface.Name;
+                    treeView.SelectedNode = node;
                 }
             }
             return matchedWindowNode;
