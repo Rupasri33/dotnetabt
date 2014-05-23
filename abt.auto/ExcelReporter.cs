@@ -129,7 +129,7 @@ namespace abt.auto
         /// </summary>
         /// <param name="actLine">the error action line</param>
         /// <param name="why">the reason</param>
-        void WriteError(ActionLine actLine, string why)
+        public void WriteError(ActionLine actLine, string why)
         {
             SourceLine line = new SourceLine();
             for (int i = 0; i < Indent; i++)
