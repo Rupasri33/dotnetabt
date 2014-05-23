@@ -86,6 +86,9 @@ namespace uia_auto.auto
         /// <returns>true - if matched</returns>
         public bool MatchWindow(Window window, Dictionary<string, string> criteria)
         {
+            if (criteria.Count == 0)
+                return false;
+
             // for each critera, check the property of window
             foreach (string key in criteria.Keys)
             {
