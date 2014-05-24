@@ -37,6 +37,28 @@ namespace AUI_Test
             
         }
 
+
+        // Khi bam open ben tree vi no truyen duong dan qua va thuc hien runtabcontrolben nay
+        public string duongdan;
+        public string duongdantabcontrol
+        {
+            set
+            {
+                duongdan = value;
+                
+            }
+        }
+
+        // 
+        public void RunTabConTrol()
+        {
+            DirectoryTabcontrol RanString = tabControl as DirectoryTabcontrol;
+            RanString.Dir = duongdan;
+            RanString.Run();
+        }
+
+
+
         private void radMenuItem8_Click(object sender, EventArgs e)
         {
 

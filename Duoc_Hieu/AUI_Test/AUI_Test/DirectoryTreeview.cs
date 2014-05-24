@@ -201,9 +201,9 @@ namespace AUI_Test
                 if (e.ClickedItem.Text == "Open")
                 {
 
-                    DirectoryTabcontrol RanString = new DirectoryTabcontrol();
-                    RanString.Dir = @"C:\Users\10110_000\Desktop\Duoc\Script\s1.xls";
-                    RanString.Run(); 
+                    MainForm _mainf = new MainForm();
+                    _mainf.duongdantabcontrol = @"C:\Users\10110_000\Desktop\Duoc\Script\s1.xls";
+                    _mainf.RunTabConTrol();
                 }
             }
         }
