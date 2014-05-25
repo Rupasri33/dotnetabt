@@ -16,7 +16,8 @@ namespace gd
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormViewer());
+            //Application.Run(new FormViewer());
+            Application.Run(new main());
         }
     }
 }
