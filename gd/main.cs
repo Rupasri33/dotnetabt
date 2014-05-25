@@ -36,6 +36,7 @@ using UITimer = System.Windows.Forms.Timer;
 using System.Management;
 using con = System.Windows.Condition;
 using Excel = Microsoft.Office.Interop.Excel;
+using gd;
 //using Automation_Test; 
 
 
@@ -54,49 +55,75 @@ namespace gd
         White.Core.Application _application;
         White.Core.UIItems.WindowItems.Window _mainWindow;
         DataGridView dgvCells;
+       
 
-        //void test()
-        //{
-        //    CompoundDocument mydoc = CompoundDocument.Create(@"E:\Test1.xls");
-        //    byte[] bookdata = mydoc.GetStreamData("Workbook");
+        void test()
+        {
+            //create new xls file
+            string file = "F:\\newdoc.xls";
+            Workbook workbook = new Workbook();
+            Worksheet worksheet = new Worksheet("First Sheet");
+            //worksheet.Cells[0, 1] = new Cell((short)1);
+            //worksheet.Cells[2, 0] = new Cell(9999999);
+            //worksheet.Cells[3, 3] = new Cell((decimal)3.45);
+            //worksheet.Cells[2, 2] = new Cell("Text string");
+            //worksheet.Cells[2, 4] = new Cell("Second string");
+            //worksheet.Cells[4, 0] = new Cell(32764.5, "#,##0.00");
+            //worksheet.Cells[5, 1] = new Cell(DateTime.Now, @"YYYY\-MM\-DD");
+            //worksheet.Cells.ColumnWidth[0, 1] = 3000;
+            workbook.Worksheets.Add(worksheet);
+            workbook.Save(file);
+            doc = CompoundDocument.Open(file);
+            //IsOpened = true;
+            //PopulateTreeview(file);
 
-        //    Workbook wb;
-        //    if (bookdata != null)
-        //        wb = WorkbookDecoder.Decode(new MemoryStream(bookdata));
-        //    else wb = new Workbook();
+            // open xls file
+            Workbook book = Workbook.Load(file);
+            Worksheet sheet = book.Worksheets[0];
 
-        //    wb.Worksheets.Add(new Worksheet("My alibaba"));
-        //   // wb.Worksheets[0].Cells.CreateCell(0, 0, "1", 0);
-        //    //wb.Worksheets[0].Cells[0, 0] = new Cell("1");
-            
-        //    MemoryStream memstream = new MemoryStream();
-        //    WorkbookEncoder.Encode(wb, memstream);
-        //    bookdata = memstream.GetBuffer();
-            
-        //    //mydoc.WriteStreamData(new string[] {"Workbook"}, bookdata);
-        //    //mydoc = CompoundDocument.CreateFromStream(memstream);
-        //    mydoc.Save();
+            // traverse cells
+            foreach (Pair<Pair<int, int>, Cell> cell in sheet.Cells)
+            {
+                dgvCells[cell.Left.Right, cell.Left.Left].Value = cell.Right.Value;
+                if (cell.Right.Style.BackColor != Color.White)
+                {
+                    dgvCells[cell.Left.Right, cell.Left.Left].Style.BackColor = cell.Right.Style.BackColor;
+                }
+            }
 
-        //    //WorkbookEncoder.Encode(book, memstream);
-        //    //doc.WriteStreamData("Workbook", memstream.GetBuffer());
-
-        //    //book.Worksheets[0].Cells[
-        //}
+            // traverse rows by Index
+            for (int rowIndex = sheet.Cells.FirstRowIndex;
+                   rowIndex <= sheet.Cells.LastRowIndex; rowIndex++)
+            {
+                Row row = sheet.Cells.GetRow(rowIndex);
+                for (int colIndex = row.FirstColIndex;
+                   colIndex <= row.LastColIndex; colIndex++)
+                {
+                    Cell cell = row.GetCell(colIndex);
+                }
+            }
+        }
 
         public void LoadExcelSheets()
         {
-            byte[] bookdata = doc.GetStreamData("Workbook"); // Doc Theo Byte
+            byte[] bookdata = doc.GetStreamData("Workbook");
             if (bookdata == null) return;
             Workbook book = WorkbookDecoder.Decode(new MemoryStream(bookdata));
 
+            //ExtractImages(book, @"C:\Images");
+
+            
+
             foreach (Worksheet sheet in book.Worksheets)
             {
-                TabPage sheetPage = new TabPage(sheet.Name); // Tên Sheet
-                dgvCells = new DataGridView(); // Tao Moi Datagridview
+                TabPage sheetPage = new TabPage(sheet.Name);
+                
+                DataGridView dgvCells = new DataGridView();
                 dgvCells.Dock = DockStyle.Fill;
+                //dgvCells.RowCount = sheet.Cells.LastRowIndex + 1;
+                //dgvCells.ColumnCount = sheet.Cells.LastColIndex + 1;
                 dgvCells.RowCount = 500;
                 dgvCells.ColumnCount = 500;
-
                 // tranverse cells
                 foreach (Pair<Pair<int, int>, Cell> cell in sheet.Cells)
                 {
@@ -117,7 +144,6 @@ namespace gd
                     }
                 }
                 // tranvers rows directly
-
                 foreach (KeyValuePair<int, Row> row in sheet.Cells.Rows)
                 {
                     foreach (KeyValuePair<int, Cell> cell in row.Value)
@@ -125,8 +151,25 @@ namespace gd
                     }
                 }
 
+
+                foreach (KeyValuePair<Pair<int, int>, Picture> cell in sheet.Pictures)
+                {
+                    int rowIndex = cell.Key.Left;
+                    int colIndex = cell.Key.Right;
+                    if (dgvCells.RowCount < rowIndex + 1)
+                    {
+                        dgvCells.RowCount = rowIndex + 1;
+                    }
+                    if (dgvCells.ColumnCount < colIndex + 1)
+                    {
+                        dgvCells.ColumnCount = colIndex + 1;
+                    }
+                    dgvCells[colIndex, rowIndex].Value = String.Format("<Image,{0}>", cell.Value.Image.FileExtension);
+                }
+
                 sheetPage.Controls.Add(dgvCells);
                 tabControl1.TabPages.Add(sheetPage);
+             
             }
         }
 
@@ -134,22 +177,18 @@ namespace gd
 
         private void main_Load(object sender, EventArgs e)
         {
-           // test();
 
-            //Right click tabControl1
-            this.tabControl1.MouseClick += new MouseEventHandler(tabControl1_MouseClick);
+            //test();
+            ////Right click tabControl1
+            //this.tabControl1.MouseClick += new MouseEventHandler(tabControl1_MouseClick);
         }
-
-
-
-
-      
 
 
         /////////// xu li nut new
         private void buttonItem2_Click(object sender, EventArgs e)
         {
-            
+            treeViewproject.Nodes.Clear();
+            tabControl1.TabPages.Clear();
             @new @new = new @new();
             @new.ShowDialog();
             if (@new.DialogResult == System.Windows.Forms.DialogResult.Yes)
@@ -197,6 +236,7 @@ namespace gd
                                     }
                                 }
                             }
+                            treeViewproject.ExpandAll();
                         }
                         
                      
@@ -217,14 +257,6 @@ namespace gd
         {
             System.Windows.Forms.Application.Exit();
         }
-
-
-
-
-
-        
-
-
 
 
 
@@ -276,23 +308,26 @@ namespace gd
                     if (xlWorkSheet != null)
                         releaseObject(xlWorkSheet);
                 }
-                if (System.IO.File.Exists(fName))
-                {
-                    if (System.Windows.Forms.MessageBox.Show("Would you like to open the excel file?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        try
-                        {
-                            System.Diagnostics.Process.Start(fName);
-                        }
-                        catch (Exception ex)
-                        {
-                            System.Windows.Forms.MessageBox.Show("Error opening the excel file." + Environment.NewLine +
-                              ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                doc = CompoundDocument.Open(fName);
+                //if (System.IO.File.Exists(fName))
+                //{
+                //    if (System.Windows.Forms.MessageBox.Show("Would you like to open the excel file?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //    {
+                //        try
+                //        {
+                //            System.Diagnostics.Process.Start(fName);
+                //        }
+                //        catch (Exception ex)
+                //        {
+                //            System.Windows.Forms.MessageBox.Show("Error opening the excel file." + Environment.NewLine +
+                //              ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //        }
+                //    }
+                //}
+
+                
+                
                
+                doc = CompoundDocument.Open(fName);
             }
 
         }
@@ -321,38 +356,47 @@ namespace gd
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //nếu node đang chọn là thư mục thì cho phép tạo tập tin và thư mục, cũng cho delete luôn
-            if (treeViewproject.SelectedNode.Name == "Folder")
+            if (treeViewproject.SelectedNode == treeViewproject.Nodes[0].Nodes[1].Nodes[0])
             {
-                addNewFileToolStripMenuItem.Enabled = true;
-                //.Enabled = true;
-                deleteToolStripMenuItem.Enabled = true;
-
-                treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
+                buttonItem2.Enabled = true;
+            }
+            else
+            {
+                buttonItem2.Enabled = false;
             }
 
-            //nếu node đang chọn là file thì không cho phép tạo gì cả, chỉ cho delete thôi
-            else if (treeViewproject.SelectedNode.Name == "File")
-            {
-                addNewFileToolStripMenuItem.Enabled = false;
-               // addNewFolderToolStripMenuItem.Enabled = false;
-                deleteToolStripMenuItem.Enabled = true;
+            ////nếu node đang chọn là thư mục thì cho phép tạo tập tin và thư mục, cũng cho delete luôn
+            //if (treeViewproject.SelectedNode.Name == "Folder")
+            //{
+            //    addNewFileToolStripMenuItem.Enabled = true;
+            //    //addNewFolderToolStripMenuItem.Enabled = true;
+            //    deleteToolStripMenuItem.Enabled = true;
 
-                treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
-            }
+            //    treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
+            //}
 
-            //nếu node đang chọn là thư mục gốc, thì không cho phép xoá
-            else if (treeViewproject.SelectedNode.Text == "RootDirectory")
-            {
-                addNewFileToolStripMenuItem.Enabled = true;
-               // addNewFolderToolStripMenuItem.Enabled = true;
-                deleteToolStripMenuItem.Enabled = false;
+            ////nếu node đang chọn là file thì không cho phép tạo gì cả, chỉ cho delete thôi
+            //else if (treeViewproject.SelectedNode.Name == "File")
+            //{
+            //    addNewFileToolStripMenuItem.Enabled = true;
+            //    //addNewFolderToolStripMenuItem.Enabled = false;
+            //    deleteToolStripMenuItem.Enabled = true;
 
-                //image của node đang chọn 
-                treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
-            }
+            //    treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
+            //}
 
-            //mo file excel tren cay
+            ////nếu node đang chọn là thư mục gốc, thì không cho phép xoá
+            //else if (treeViewproject.SelectedNode.Text == "RootDirectory")
+            //{
+            //    addNewFileToolStripMenuItem.Enabled = true;
+            //   // addNewFolderToolStripMenuItem.Enabled = true;
+            //    deleteToolStripMenuItem.Enabled = false;
+
+            //    //image của node đang chọn 
+            //    treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
+            //}
+
+            ////mo file excel tren cay
           
 
             
@@ -360,17 +404,10 @@ namespace gd
 
 
 
-
-
         private string[] ConvertToStringArray(Array myvalues)
         {
             throw new NotImplementedException();
         }
-
-
-
-
-
 
         //duong dan mo file
         public string getopen()
@@ -392,6 +429,9 @@ namespace gd
         ///////////////////xu li nut open
         private void buttonItem3_Click(object sender, EventArgs e)
         {
+
+            treeViewproject.Nodes.Clear();
+            tabControl1.TabPages.Clear();
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowNewFolderButton = false;
             fbd.Description = "Mời bạn chọn thư mục";
@@ -401,7 +441,8 @@ namespace gd
             {
                 TreeNode treenode;
                 string path = fbd.SelectedPath;
-                //doc1 = CompoundDocument.Open(path);
+                //string path1 = fbd.SelectedPath + treeViewproject.SelectedNode.Tag;
+                //doc = CompoundDocument.Open(path);
                 DirectoryInfo dir = new DirectoryInfo(path);
 
                 if (dir.Exists)
@@ -409,8 +450,8 @@ namespace gd
                     treenode = new TreeNode(dir.Name);
                     treenode.Tag = dir;
                     treenode.Name = "Folder";
-                    treenode.ImageIndex = 1;
                     //treenode.ImageIndex = 0;
+                    treenode.ImageIndex = 1;
                     treenode.SelectedImageIndex = 1;
                     // GetDirectories(dir.GetDirectories(), treenode);
                     treeViewproject.Nodes.Add(treenode);
@@ -441,13 +482,15 @@ namespace gd
 
                                         treenode.ImageIndex = 1;
                                         node.ImageIndex = node.SelectedImageIndex = 1;
-                                        treenode.Name = "File";
-
+                                        //treenode.Name = "Folder"
+                                       
                                     }
 
                                 }
                                 
                             }
+                            treeViewproject.ExpandAll();
+                            
                         }
 
 
@@ -466,8 +509,6 @@ namespace gd
 
 
         //close tab
-       
-
         private void tabControl1_MouseDown_1(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < this.tabControl1.TabPages.Count; i++)
@@ -487,9 +528,6 @@ namespace gd
 
 
 
-
-
-
         private void tabControl1_DrawItem_1(object sender, DrawItemEventArgs e)
         {
             Font closefont = new Font(e.Font.FontFamily, e.Font.Size);
@@ -497,33 +535,6 @@ namespace gd
             e.Graphics.DrawString("X", closefont, Brushes.Red, e.Bounds.Right - 10, e.Bounds.Top + 5);
             e.Graphics.DrawString(this.tabControl1.TabPages[e.Index].Text, titlefont, Brushes.Black, e.Bounds.Left, e.Bounds.Top + 5);
 
-        }
-
-
-
-
-
-
-        private void buttonItem17_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                Window window = new Window
-                {
-                    Title = "Spy Interface",
-                    //Content = new Spy(),
-                    Height = 278,
-                    Width = 900,
-                    
-                };
-
-                window.ShowDialog();
-            }
-            catch
-            {
-
-            }
         }
 
         private void treeViewproject_DoubleClick(object sender, EventArgs e)
@@ -541,8 +552,10 @@ namespace gd
                 {
                     doc = CompoundDocument.Open(path);
                     LoadExcelSheets();
+                    
                 }
                 catch { }
+
                 if (treeViewproject.SelectedNode.Text == treeViewproject.SelectedNode.Text)
                 {
                     try
@@ -551,85 +564,74 @@ namespace gd
                         LoadExcelSheets();
                     }
                     catch { }
+                    if (treeViewproject.SelectedNode.Text == treeViewproject.SelectedNode.Text)
+                    {
+                        try
+                        {
+                            doc = CompoundDocument.Open(path2);
+                            LoadExcelSheets();
+                        }
+                        catch { }
+                        if (treeViewproject.SelectedNode.Name == "File")
+                        {
+                            LoadExcelSheets();
+                        }
+                    }
                 }
 
-                if (treeViewproject.SelectedNode.Text == treeViewproject.SelectedNode.Text)
-                {
-                    try
-                    {
-                        doc = CompoundDocument.Open(path2);
-                        LoadExcelSheets();
-                    }
-                    catch { }
-                }
+               
+            
+                
             }
            
         }
 
-
-
-        public static string ListAllProcesses()
-        {
-            StringBuilder sb = new StringBuilder();
-
-            // list out all processes and write them into a stringbuilder
-            ManagementClass MgmtClass = new ManagementClass("Win32_Process");
-
-            foreach (ManagementObject mo in MgmtClass.GetInstances())
-            {
-                sb.Append("Name:\t" + mo["Name"] + Environment.NewLine);
-                sb.Append("ID:\t" + mo["ProcessId"] + Environment.NewLine);
-                sb.Append(Environment.NewLine);
-            }
-
-            return sb.ToString();
-        }
-
-        private void buttonItem18_Click(object sender, EventArgs e)
-        {
-            
-            //textBox1.Text = ListAllProcesses();
-        }
-
-
-
-
-
-
-
-        
+        //SAVE        
         private void buttonItem5_Click(object sender, EventArgs e)
         {
-
-            //if (openFileDialog1.FileName == "openFileDialog1")
-            //{
-            //    saveFileDialog1.DefaultExt = "*.xls";
-            //    saveFileDialog1.OverwritePrompt = true;
-            //    saveFileDialog1.Filter = "Rich text(*.xls)|*.xls";
-            //    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            //    {
-            //        rtb.SaveFile(saveFileDialog1.FileName);
-            //    }
-            //}
-            //else
-            //{
-            //    saveFileDialog1.DefaultExt = "xls";
-            //    saveFileDialog1.OverwritePrompt = true;
-            //    rtb.SaveFile(openFileDialog1.FileName);
-            //}
+            if (doc != null)
+            {
+                doc.Save();
+            }
+            
         }
 
+        //SAVE AS
+        Workbook workbook;
         private void buttonItem7_Click(object sender, EventArgs e)
         {
+            if (doc == null) return;
+            string file = FileSelector.BrowseFileForSave(FileType.All);
+            if (file == null) return;
 
-            //saveFileDialog1.OverwritePrompt = true;
-            //saveFileDialog1.DefaultExt = "*.xls";
-            //saveFileDialog1.Filter = "Rich text(*.xls)|*.xls";
-            //if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            //{
-            //    LoadExcelSheets1();
-            //    rtb.SaveFile(saveFileDialog1.FileName);
-            //}
+            using (CompoundDocument newDoc = CompoundDocument.Create(file))
+            {
+                foreach (string streamName in doc.RootStorage.Members.Keys)
+                {
+                    newDoc.WriteStreamData(new string[] { streamName }, doc.GetStreamData(streamName));
+                }
+
+                byte[] bookdata = doc.GetStreamData("Workbook");
+                if (bookdata != null)
+                {
+                    if (workbook == null)
+                    {
+                        workbook = WorkbookDecoder.Decode(new MemoryStream(bookdata));
+                    }
+                    MemoryStream stream = new MemoryStream();
+                    //WorkbookEncoder.Encode(workbook, stream);
+
+                    BinaryWriter writer = new BinaryWriter(stream);
+                    foreach (Record record in workbook.Records)
+                    {
+                        record.Write(writer);
+                    }
+                    writer.Close();
+                    newDoc.WriteStreamData(new string[] { "Workbook" }, stream.ToArray());
+                }
+                newDoc.Save();
+            }
+           
         }
 
 
@@ -670,7 +672,64 @@ namespace gd
 
          private void buttonItem14_Click(object sender, EventArgs e)
          {
-            
+
+         }
+
+         #region tabControl1_MouseDown
+         private void tabControl1_MouseDown(object sender, MouseEventArgs e)
+         {
+             for (int i = 0; i < this.tabControl1.TabPages.Count; i++)
+             {
+                 Rectangle rPage = tabControl1.GetTabRect(i);
+                 Rectangle closeButton = new Rectangle(rPage.Right - 10, rPage.Top + 5, 10, 10);
+                 if (closeButton.Contains(e.Location))
+                 {
+                     if (System.Windows.Forms.MessageBox.Show("Close this Tab?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                     {
+                         this.tabControl1.TabPages.RemoveAt(i);
+                         break;
+                     }
+                 }
+
+             }
+
+
+
+         }
+         #endregion
+
+         private void bar1_ItemClick(object sender, EventArgs e)
+         {
+
+         }
+
+         private void ribbonBar3_ItemClick(object sender, EventArgs e)
+         {
+
+         }
+
+         private void pictureBox1_Click(object sender, EventArgs e)
+         {
+
+         }
+
+         private void buttonItem2_Click_1(object sender, EventArgs e)
+         {
+             
+             FormViewer s = new FormViewer();
+             s.ShowDialog();
+         }
+
+        //XỬ LÍ NÚT RUN
+         private void buttonItem15_Click(object sender, EventArgs e)
+         {
+             frun f = new frun();
+             f.ShowDialog();
+         }
+
+         private void _Edit_Click(object sender, EventArgs e)
+         {
+
          }
     } 
 }

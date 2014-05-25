@@ -56,6 +56,9 @@
     <Reference Include="ExcelLibrary">
       <HintPath>..\..\..\..\..\Desktop\luanvan\dll\ExcelLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="JacksonSoft.CustomTabControl">
+      <HintPath>ext_lib\JacksonSoft.CustomTabControl.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\..\..\..\..\Desktop\luanvan\dll\log4net.dll</HintPath>
     </Reference>
@@ -113,6 +116,12 @@
     <Compile Include="FormViewer.Designer.cs">
       <DependentUpon>FormViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frun.designer.cs">
+      <DependentUpon>frun.cs</DependentUpon>
+    </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormViewer.resx">
       <DependentUpon>FormViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frun.resx">
+      <DependentUpon>frun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
