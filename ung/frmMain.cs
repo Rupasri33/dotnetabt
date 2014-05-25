@@ -397,7 +397,7 @@ namespace ung
         #region Button Exit
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
         #endregion
 

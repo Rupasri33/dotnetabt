@@ -89,10 +89,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.bar1 = new DevComponents.DotNetBar.Bar();
-            this.panelDockContainer1 = new DevComponents.DotNetBar.PanelDockContainer();
-            this._treeViewProjectExplore = new System.Windows.Forms.TreeView();
-            this.dockContainerItem1 = new DevComponents.DotNetBar.DockContainerItem();
             this.tabControl1X = new System.Windows.Forms.TabControl();
             this.tabPageHex = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -128,15 +124,16 @@
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.tabPageExcell = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.CustomTabControl();
+            this.bar1 = new DevComponents.DotNetBar.Bar();
+            this.panelDockContainer1 = new DevComponents.DotNetBar.PanelDockContainer();
+            this._treeViewProjectExplore = new System.Windows.Forms.TreeView();
+            this.dockContainerItem1 = new DevComponents.DotNetBar.DockContainerItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStripTreeView.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
-            this.bar1.SuspendLayout();
-            this.panelDockContainer1.SuspendLayout();
             this.tabControl1X.SuspendLayout();
             this.tabPageHex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -149,6 +146,9 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tabPageExcell.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
+            this.bar1.SuspendLayout();
+            this.panelDockContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -186,6 +186,7 @@
             // 
             // strDangNhap
             // 
+            this.strDangNhap.BackColor = System.Drawing.SystemColors.Control;
             this.strDangNhap.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projectToolStripNewProject});
             this.strDangNhap.ForeColor = System.Drawing.Color.Black;
@@ -775,63 +776,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(845, 378);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // bar1
-            // 
-            this.bar1.AccessibleDescription = "DotNetBar Bar (bar1)";
-            this.bar1.AccessibleName = "DotNetBar Bar";
-            this.bar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-            this.bar1.CloseSingleTab = true;
-            this.bar1.Controls.Add(this.panelDockContainer1);
-            this.bar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bar1.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.bar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bar1.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.Caption;
-            this.bar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.dockContainerItem1});
-            this.bar1.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
-            this.bar1.Location = new System.Drawing.Point(3, 3);
-            this.bar1.Name = "bar1";
-            this.bar1.Size = new System.Drawing.Size(163, 372);
-            this.bar1.Stretch = true;
-            this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
-            this.bar1.TabIndex = 26;
-            this.bar1.TabStop = false;
-            this.bar1.Text = "Solution Explore";
-            // 
-            // panelDockContainer1
-            // 
-            this.panelDockContainer1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
-            this.panelDockContainer1.Controls.Add(this._treeViewProjectExplore);
-            this.panelDockContainer1.Location = new System.Drawing.Point(3, 23);
-            this.panelDockContainer1.Name = "panelDockContainer1";
-            this.panelDockContainer1.Size = new System.Drawing.Size(157, 346);
-            this.panelDockContainer1.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelDockContainer1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.panelDockContainer1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.panelDockContainer1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
-            this.panelDockContainer1.Style.GradientAngle = 90;
-            this.panelDockContainer1.TabIndex = 0;
-            // 
-            // _treeViewProjectExplore
-            // 
-            this._treeViewProjectExplore.ContextMenuStrip = this.contextMenuStripTreeView;
-            this._treeViewProjectExplore.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._treeViewProjectExplore.ImageIndex = 0;
-            this._treeViewProjectExplore.ImageList = this.imageListTrV;
-            this._treeViewProjectExplore.Location = new System.Drawing.Point(0, 0);
-            this._treeViewProjectExplore.Name = "_treeViewProjectExplore";
-            this._treeViewProjectExplore.SelectedImageIndex = 1;
-            this._treeViewProjectExplore.Size = new System.Drawing.Size(157, 346);
-            this._treeViewProjectExplore.TabIndex = 0;
-            this._treeViewProjectExplore.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this._treeViewProjectExplore_AfterSelect);
-            this._treeViewProjectExplore.DoubleClick += new System.EventHandler(this._treeViewProjectExplore_DoubleClick);
-            // 
-            // dockContainerItem1
-            // 
-            this.dockContainerItem1.Control = this.panelDockContainer1;
-            this.dockContainerItem1.Name = "dockContainerItem1";
-            this.dockContainerItem1.Text = "dockContainerItem1";
-            // 
             // tabControl1X
             // 
             this.tabControl1X.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
@@ -1384,6 +1328,61 @@
             this.tabControl1.Size = new System.Drawing.Size(656, 337);
             this.tabControl1.TabIndex = 6;
             // 
+            // bar1
+            // 
+            this.bar1.AccessibleDescription = "DotNetBar Bar (bar1)";
+            this.bar1.AccessibleName = "DotNetBar Bar";
+            this.bar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
+            this.bar1.CloseSingleTab = true;
+            this.bar1.Controls.Add(this.panelDockContainer1);
+            this.bar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bar1.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar1.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.Caption;
+            this.bar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.dockContainerItem1});
+            this.bar1.LayoutType = DevComponents.DotNetBar.eLayoutType.DockContainer;
+            this.bar1.Location = new System.Drawing.Point(3, 3);
+            this.bar1.Name = "bar1";
+            this.bar1.Size = new System.Drawing.Size(163, 372);
+            this.bar1.Stretch = true;
+            this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
+            this.bar1.TabIndex = 27;
+            this.bar1.TabStop = false;
+            this.bar1.Text = "Solution Explore";
+            // 
+            // panelDockContainer1
+            // 
+            this.panelDockContainer1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.VS2005;
+            this.panelDockContainer1.Controls.Add(this._treeViewProjectExplore);
+            this.panelDockContainer1.Location = new System.Drawing.Point(3, 23);
+            this.panelDockContainer1.Name = "panelDockContainer1";
+            this.panelDockContainer1.Size = new System.Drawing.Size(157, 346);
+            this.panelDockContainer1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelDockContainer1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.panelDockContainer1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.panelDockContainer1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.panelDockContainer1.Style.GradientAngle = 90;
+            this.panelDockContainer1.TabIndex = 0;
+            // 
+            // _treeViewProjectExplore
+            // 
+            this._treeViewProjectExplore.ContextMenuStrip = this.contextMenuStripTreeView;
+            this._treeViewProjectExplore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._treeViewProjectExplore.ImageIndex = 1;
+            this._treeViewProjectExplore.ImageList = this.imageListTrV;
+            this._treeViewProjectExplore.Location = new System.Drawing.Point(0, 0);
+            this._treeViewProjectExplore.Name = "_treeViewProjectExplore";
+            this._treeViewProjectExplore.SelectedImageIndex = 1;
+            this._treeViewProjectExplore.Size = new System.Drawing.Size(157, 346);
+            this._treeViewProjectExplore.TabIndex = 0;
+            // 
+            // dockContainerItem1
+            // 
+            this.dockContainerItem1.Control = this.panelDockContainer1;
+            this.dockContainerItem1.Name = "dockContainerItem1";
+            this.dockContainerItem1.Text = "dockContainerItem1";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1415,9 +1414,6 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
-            this.bar1.ResumeLayout(false);
-            this.panelDockContainer1.ResumeLayout(false);
             this.tabControl1X.ResumeLayout(false);
             this.tabPageHex.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1430,6 +1426,9 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tabPageExcell.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
+            this.bar1.ResumeLayout(false);
+            this.panelDockContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1496,10 +1495,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private DevComponents.DotNetBar.Bar bar1;
-        private DevComponents.DotNetBar.PanelDockContainer panelDockContainer1;
-        private System.Windows.Forms.TreeView _treeViewProjectExplore;
-        private DevComponents.DotNetBar.DockContainerItem dockContainerItem1;
         private System.Windows.Forms.TabControl tabControl1X;
         private System.Windows.Forms.TabPage tabPageHex;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -1535,5 +1530,9 @@
         private DevComponents.DotNetBar.LabelX labelX1;
         private System.Windows.Forms.TabPage tabPageExcell;
         private System.Windows.Forms.CustomTabControl tabControl1;
+        private DevComponents.DotNetBar.Bar bar1;
+        private DevComponents.DotNetBar.PanelDockContainer panelDockContainer1;
+        private System.Windows.Forms.TreeView _treeViewProjectExplore;
+        private DevComponents.DotNetBar.DockContainerItem dockContainerItem1;
     }
 }
