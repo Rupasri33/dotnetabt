@@ -30,9 +30,16 @@ namespace uia_gui.components
             public TreeNodeGroup(string text) : base(text) { }
         }
 
-        class TreeNodeMatched : TreeNode
+        class WindowTreeNode : TreeNode
         {
-            public TreeNodeMatched(string text) : base(text) { }
+            public WindowTreeNode(string text) : base(text) { }
+
+            public string MatchedName { get; set; }
+        }
+
+        class ControlTreeNode : TreeNode
+        {
+            public ControlTreeNode(string text) : base(text) { }
 
             public string MatchedName { get; set; }
         }
@@ -70,8 +77,8 @@ namespace uia_gui.components
 
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (SelectedItemChanged != null)
-                SelectedItemChanged(e.Node.Tag as UIItem, e.Node.ToolTipText);
+            if (e.Node is ControlTreeNode && SelectedItemChanged != null)
+                SelectedItemChanged(e.Node.Tag as UIItem, (e.Node as ControlTreeNode).MatchedName);
         }
 
         public UIAActionManager ActionManager { get; set; }
@@ -140,7 +147,7 @@ namespace uia_gui.components
                 if (window.Title == @"Program Manager" && window.AutomationElement.Current.ProcessId == appExplorer.Process.Id)
                     continue;
 
-                TreeNode node = treeView.Nodes.Add(window.Name);
+                ControlTreeNode node = new ControlTreeNode(window.Name);
                 node.Tag = window;
                 node.Nodes.Add("");
                 if (matchedWindowNode == null && CurrentInterface != null && ActionManager.MatchWindow(window, CurrentInterface.Properties))
@@ -149,10 +156,12 @@ namespace uia_gui.components
                     node.ForeColor = Color.Green;
                     node.NodeFont = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
                     node.Text = node.Text;
-                    node.ToolTipText = CurrentInterface.Name;
+                    node.MatchedName = CurrentInterface.Name;
                     treeView.SelectedNode = node;
                 }
+                treeView.Nodes.Add(node);
             }
+
             return matchedWindowNode;
         }
 
@@ -160,7 +169,7 @@ namespace uia_gui.components
         {
             foreach (TreeNode node in parent.Nodes)
             {
-                if (node.ToolTipText == name)
+                if (node is ControlTreeNode && (node as ControlTreeNode).MatchedName == name)
                 {
                     treeView.Focus();
                     node.EnsureVisible();
@@ -179,7 +188,12 @@ namespace uia_gui.components
 
         private int CompareItem(IUIItem item1, IUIItem item2)
         {
-            return item1.AutomationElement.Current.AutomationId.CompareTo(item2.AutomationElement.Current.AutomationId);
+            if (item1 == null)
+                return -1;
+            else if (item2 == null)
+                return 1;
+            else
+                return item1.AutomationElement.Current.AutomationId.CompareTo(item2.AutomationElement.Current.AutomationId);
         }
 
         private void ShowGroupControl(TreeNode node, string groupName, IUIItem[] items)
@@ -196,7 +210,7 @@ namespace uia_gui.components
             {
                 string name = item.Name.Trim();
                 if (name.Length == 0) name = "{No name}";
-                TreeNode itemnode = group.Nodes.Add(name);
+                ControlTreeNode itemnode = new ControlTreeNode(name);
                 itemnode.Tag = item;
 
                 foreach (string ctrlName in matchedControls.Keys)
@@ -206,9 +220,10 @@ namespace uia_gui.components
                         itemnode.NodeFont = new Font(SystemFonts.DefaultFont, FontStyle.Bold);
                         itemnode.ForeColor = Color.Green;
                         itemnode.Text = itemnode.Text;
-                        itemnode.ToolTipText = ctrlName;
+                        itemnode.MatchedName = ctrlName;
                     }
                 }
+                group.Nodes.Add(itemnode);
             }
             treeView.EndUpdate();
         }

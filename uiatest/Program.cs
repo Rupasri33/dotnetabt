@@ -29,11 +29,11 @@ namespace uiatest
             at.StartScript = startScript;
             at.Start();
 
-            //System.Threading.Thread.Sleep(3000);
-            //at.Pause();
+            System.Threading.Thread.Sleep(3000);
+            at.Pause();
 
-            //System.Threading.Thread.Sleep(10000);
-            //at.Resume();
+            System.Threading.Thread.Sleep(10000);
+            at.Resume();
 
             //Automation at = new Automation(new ExcelFileParser(), new ExcelReporter(), @"D:\codes\dotnetabt\seleniumabt\sample");
             //SeleniumActionManager am = new SeleniumActionManager(at, SeleniumActionManager.Browser.Chrome);

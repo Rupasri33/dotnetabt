@@ -89,6 +89,7 @@ namespace uia_auto.auto
             if (criteria.Count == 0)
                 return false;
 
+            //window.AutomationElement.c
             // for each critera, check the property of window
             foreach (string key in criteria.Keys)
             {
@@ -175,25 +176,55 @@ namespace uia_auto.auto
             {
                 switch (key.ToLower())
                 {
-                    case Constants.PropertyNames.ControlType:
-                        crit = crit.AndControlType(GetTypeByName(criteria[key]));
-                        break;
+                    //case Constants.PropertyNames.ControlType:
+                    //    crit = crit.AndControlType(GetTypeByName(criteria[key]));
+                    //    break;
                     case Constants.PropertyNames.AutomationId:
                         crit = crit.AndAutomationId(criteria[key]);
                         break;
                     case Constants.PropertyNames.Text:
                         crit = crit.AndByText(criteria[key]);
                         break;
+                    case Constants.PropertyNames.ClassName:
+                        crit = crit.AndByClassName(criteria[key]);
+                        break;
+                    case Constants.PropertyNames.Index:
+                        crit = crit.AndIndex(int.Parse(criteria[key]));
+                        break;
                     default:
+                        {
+                            bool bNativeFound = false;
+                            AutomationProperty[] props = window.AutomationElement.GetSupportedProperties();
+                            foreach (AutomationProperty prop in props)
+                            {
+                                string propName = prop.ProgrammaticName.Substring(prop.ProgrammaticName.IndexOf('.') + 1);
+                                propName = propName.Substring(0, propName.IndexOf("Property"));
+                                if (propName.Equals(key, StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    crit.AndNativeProperty(prop, criteria[key]);
+                                    bNativeFound = true;
+                                    break;
+                                }
+                            }
+                            if (bNativeFound)
+                                break; ;
+                        }
                         return null;
                 };
             }
 
-            // search for control with 'crit'
-            IUIItem item = window.Get(crit, WaitTime);
+            try
+            {
+                // search for control with 'crit'
+                IUIItem item = window.Get(crit, WaitTime);
 
-            // return the found control
-            return item;
+                // return the found control
+                return item;
+            }
+            catch(Exception)
+            {
+                return null;
+            }
         }
     }
 }
