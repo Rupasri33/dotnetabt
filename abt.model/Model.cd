@@ -59,7 +59,7 @@
   <Interface Name="abt.model.IReporter" Collapsed="true">
     <Position X="9.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIQAAAAAAIAECAAAAAAAhAAAAAAAEAAACAAAI=</HashCode>
+      <HashCode>AAAAAAAIQAAAAAAIQECAAAAAAAhAAAAAAAEAAACAAAI=</HashCode>
       <FileName>IReporter.cs</FileName>
     </TypeIdentifier>
   </Interface>

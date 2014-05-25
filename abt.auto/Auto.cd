@@ -50,7 +50,7 @@
   <Class Name="abt.auto.ExcelReporter" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="11" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAIQAAAAAAIAECAAAAAAAhAAAAAAAEAAACAAAI=</HashCode>
+      <HashCode>AAAAAAAIQAAEAAAIQECAAAAAAAhAAAAAAAEAAACAAAI=</HashCode>
       <FileName>ExcelReporter.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
