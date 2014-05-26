@@ -136,9 +136,13 @@ namespace selenium_auto.auto
             IWebElement targetControl = null;
 
             if (!Actions.ContainsKey(actLine.ActionName))
-                throw new Exception(Constants.Messages.Error_Executing_NoAction);
+                return null;
+
+            if (actLine.WindowName != null && !Parent.Interfaces.ContainsKey(actLine.WindowName))
+                throw new Exception(Constants.Messages.Error_Matching_Window_NoDefinition);
             if (actLine.WindowName != null && !CheckWindow(actLine.WindowName))
-                throw new Exception(Constants.Messages.Error_Matching_Control_NoDefinition);
+                throw new Exception(Constants.Messages.Error_Matching_Window_NotFound);
+
             if (actLine.ControlName != null && !Parent.Interfaces[actLine.WindowName].Controls.ContainsKey(actLine.ControlName))
                 throw new Exception(Constants.Messages.Error_Matching_Control_NoDefinition);
 
