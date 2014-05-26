@@ -19,12 +19,14 @@ namespace uiatest
         static void Main(string[] args)
         {
             IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
-                @"D:\codes\dotnetabt\codeduiabt\sample");
+                @"C:\Users\datthong.nguyen\Documents\Visual Studio 2012\Projects\dotnetabt\codeduiabt\sample");
             UIAActionManager am = new UIAActionManager(at);
 
             Script startScript = new Script(at.Parser.NewInstance);
             startScript.FileName = "Script.xls";
 
+            at.Name = "Regression 1";
+            at.Data = new Data(at.Parser.NewInstance);
             at.Speed = 10;
             at.StartScript = startScript;
             at.Start();

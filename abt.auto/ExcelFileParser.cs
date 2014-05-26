@@ -15,6 +15,7 @@ namespace abt.auto
     public class ExcelFileParser : IFileParser
     {
         private string m_FileName;
+        private string m_WorksheetName;
 
         /// <summary>
         /// default constructor
@@ -22,6 +23,7 @@ namespace abt.auto
         public ExcelFileParser()
         {
             Lines = new List<SourceLine>();
+            m_WorksheetName = @"No name";
         }
 
         /// <summary>
@@ -78,6 +80,7 @@ namespace abt.auto
                     throw new InvalidOperationException(Constants.Messages.Error_ExcelFileNoWorksheet);
 
                 Worksheet sheet = workbook.Worksheets[0];
+                m_WorksheetName = sheet.Name;
                 for (int rowIndex = sheet.Cells.FirstRowIndex; rowIndex <= sheet.Cells.LastRowIndex; rowIndex++)
                 {
                     SourceLine line = new SourceLine();
@@ -126,14 +129,14 @@ namespace abt.auto
         /// <summary>
         /// save data back to file
         /// </summary>
-        public void Save()
+        public void Save(string worksheetName = null)
         {
             try
             {
                 //CompoundDocument doc = CompoundDocument.Create(WorkingDir + FileName + FileExtension);
 
                 Workbook workbook = new Workbook();
-                Worksheet worksheet = new Worksheet(@"report");
+                Worksheet worksheet = new Worksheet(worksheetName == null ? m_WorksheetName : worksheetName);
 
                 for (int i = 0; i < Lines.Count; i++)
                 {
@@ -148,7 +151,7 @@ namespace abt.auto
                 workbook.Worksheets.Add(worksheet);
                 workbook.Save(WorkingDir + FileName + FileExtension);
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
         }

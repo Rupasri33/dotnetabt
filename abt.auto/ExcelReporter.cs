@@ -30,7 +30,7 @@ namespace abt.auto
         public void BeginReport(string name, string datasetName)
         {
             Name = name;
-            Parser.FileName = name + DateTime.Now.ToString("YYYY-MM-DD.hh-mm");
+            Parser.FileName = @"Report - " + DateTime.Now.ToString("yyyy-MM-dd.hh-mm");
 
             SourceLine line = new SourceLine();
             line.Columns.Add(@"REPORT");
@@ -57,7 +57,7 @@ namespace abt.auto
             line.Columns.Add(Name);
 
             Lines.Add(line);
-            Parser.Save();
+            Parser.Save(Name);
         }
 
         /// <summary>
@@ -76,8 +76,6 @@ namespace abt.auto
             line.Columns.Add(scriptName);
 
             Lines.Add(line);
-
-            Indent++;
         }
 
         /// <summary>
@@ -96,8 +94,6 @@ namespace abt.auto
             line.Columns.Add(scriptName);
 
             Lines.Add(line);
-
-            Indent--;
         }
 
         /// <summary>
@@ -108,7 +104,7 @@ namespace abt.auto
         public void WriteLine(ActionLine actLine, ActionResult result)
         {
             SourceLine line = new SourceLine();
-            for (int i = 0; i < Indent; i++)
+            for (int i = 0; i < Indent + 1; i++)
                 line.Columns.Add(@"");
 
             line.Columns.Add(actLine.ActionName);
@@ -132,7 +128,7 @@ namespace abt.auto
         public void WriteError(ActionLine actLine, string why)
         {
             SourceLine line = new SourceLine();
-            for (int i = 0; i < Indent; i++)
+            for (int i = 0; i < Indent + 1; i++)
                 line.Columns.Add(@"");
 
             line.Columns.Add(actLine.ActionName);
@@ -159,7 +155,6 @@ namespace abt.auto
             }
         }
 
-
         /// <summary>
         /// begin new section 'data row' in current report
         /// </summary>
@@ -176,8 +171,6 @@ namespace abt.auto
             line.Columns.Add(id.ToString());
 
             Lines.Add(line);
-
-            Indent++;
         }
 
         /// <summary>
@@ -186,7 +179,7 @@ namespace abt.auto
         /// <param name="id">row id</param>
         public void EndDataRow(int id)
         {
-            Indent++;
+            Indent--;
 
             SourceLine line = new SourceLine();
             for (int i = 0; i < Indent; i++)
@@ -196,8 +189,6 @@ namespace abt.auto
             line.Columns.Add(id.ToString());
 
             Lines.Add(line);
-
-            Indent++;
         }
 
         /// <summary>

@@ -20,6 +20,7 @@ namespace abt.auto
 
             WorkingDir = workingDir;
             Speed = 10;
+            Name = @"No name";
         }
 
         /// <summary>
@@ -51,6 +52,8 @@ namespace abt.auto
 
             return action;
         }
+
+        #region Run Automation
 
         /// <summary>
         /// check if the automation is in 'paused' state
@@ -109,7 +112,7 @@ namespace abt.auto
             {
                 // create new report
                 IReporter reporter = Reporter.NewInstance;
-                reporter.BeginReport(@"runName", Data.Name);
+                reporter.BeginReport(Name, Data.Name);
 
                 while (Data.MoveNext())
                 {
@@ -121,12 +124,14 @@ namespace abt.auto
 
                     reporter.EndDataRow(Data.CurrentRowId);
                 }
+
+                reporter.EndReport();
             }
             else
             {
                 // create new report
                 IReporter reporter = Reporter.NewInstance;
-                reporter.BeginReport(@"runName" + @" - No data set", null);
+                reporter.BeginReport(Name + @" - No data set", null);
 
                 StartScript.Restart();
                 Scripts.Push(StartScript);
@@ -163,14 +168,21 @@ namespace abt.auto
                     CheckPaused();
 
                     // get a action line from script
-                    ActionLine actLine = CurrentScript.Next();
+                    ActionLine actLineRaw = CurrentScript.Next();
+
+                    // manipulate action line with DataSet
+                    ActionLine actLine = ManipulateData(actLineRaw);
 
                     // the action is 'use interface'
                     if (actLine.ActionName == Constants.ActionUseInterface)
                     {
-                        IInterface newInterface = new Interface(Parser.NewInstance);
-                        newInterface.FileName = actLine.Arguments[Constants.KeywordInterface] + Parser.FileExtension;
-                        Interfaces.Add(newInterface.Name, newInterface);
+                        if (!Interfaces.ContainsKey(actLine.Arguments[Constants.KeywordInterface].ToLower()))
+                        {
+                            IInterface newInterface = new Interface(Parser.NewInstance);
+                            newInterface.FileName = actLine.Arguments[Constants.KeywordInterface] + Parser.FileExtension;
+                            Interfaces.Add(newInterface.Name, newInterface);
+                        }
+                        
                     }
                     // the action is 'run script'
                     else if (actLine.ActionName == Constants.ActionStartScript)
@@ -227,6 +239,54 @@ namespace abt.auto
         }
 
         /// <summary>
+        /// check for string 'input' if it contains a variable, then replace the variables with DataSet
+        /// </summary>
+        /// <param name="input">the input string</param>
+        /// <returns>the result string</returns>
+        private string CheckForVariable(string input)
+        {
+            if (input == null)
+                return null;
+
+            while (true)
+            {
+                int idx = input.IndexOf(@"$(");
+                if (idx < 0)
+                    return input;
+                int idx2 = input.IndexOf(@")", idx);
+                if (idx2 < 0)
+                    return input;
+
+                string variable = input.Substring(idx, idx2 - idx + 1);
+                string varName = input.Substring(idx + 2, idx2 - idx - 2);
+
+                input = input.Replace(variable, Data[varName]);
+            }
+        }
+
+        /// <summary>
+        /// manipulate action line with data from DataSet
+        /// </summary>
+        /// <param name="actLine">the raw action line</param>
+        /// <returns>the manipulated action line</returns>
+        private ActionLine ManipulateData(ActionLine actLine)
+        {
+            ActionLine newLine = new ActionLine();
+            newLine.ActionName = actLine.ActionName;
+            newLine.WindowName = CheckForVariable(actLine.WindowName);
+            newLine.ControlName = CheckForVariable(actLine.ControlName);
+
+            foreach (string key in actLine.Arguments.Keys)
+                newLine.Arguments[key] = CheckForVariable(actLine.Arguments[key]);
+
+            return newLine;
+        }
+
+        #endregion Run Automation
+
+        #region Controlling the Automation
+
+        /// <summary>
         /// process delaying based on the automation speed
         /// </summary>
         private void ProcessSpeed()
@@ -275,6 +335,15 @@ namespace abt.auto
         {
             IsPaused = false;
         }
+
+        #endregion Controlling the Automation
+
+        #region Properties
+
+        /// <summary>
+        /// name of this run
+        /// </summary>
+        public string Name { get; set; }
 
         /// <summary>
         /// the starting script, used with data set
@@ -385,5 +454,7 @@ namespace abt.auto
         /// the automation is being stopped
         /// </summary>
         private bool IsStopping { get; set; }
+
+        #endregion
     }
 }

@@ -12,6 +12,11 @@ namespace abt.model
     public interface IAutomation
     {
         /// <summary>
+        /// name of this running
+        /// </summary>
+        string Name { get; set; }
+
+        /// <summary>
         /// starting script
         /// </summary>
         IScript StartScript { get; set; }
@@ -24,7 +29,7 @@ namespace abt.model
         /// <summary>
         /// current data table
         /// </summary>
-        IData Data { get; }
+        IData Data { get; set; }
 
         /// <summary>
         /// the action manager

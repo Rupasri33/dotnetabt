@@ -40,6 +40,6 @@ namespace abt.model
         /// <summary>
         /// save data (source lines) back to file
         /// </summary>
-        void Save();
+        void Save(string worksheetName = null);
     }
 }
