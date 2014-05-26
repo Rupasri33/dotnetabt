@@ -41,15 +41,23 @@ namespace uia_auto.auto
             IUIItem targetControl = null;
 
             if (!Actions.ContainsKey(actLine.ActionName))
-                throw new Exception(Constants.Messages.Error_Executing_NoAction);
+                return null;
             if (actLine.WindowName != null && !Parent.Interfaces.ContainsKey(actLine.WindowName))
                 throw new Exception(Constants.Messages.Error_Matching_Window_NoDefinition);
 
             // search for the target control
             if (actLine.WindowName != null)
+            {
                 targetWindow = FindWindow(Parent.Interfaces[actLine.WindowName].Properties);
+                if (targetWindow == null)
+                    throw new Exception(Constants.Messages.Error_Matching_Window_NotFound);
+            }
             if (actLine.ControlName != null)
+            {
                 targetControl = FindControl(targetWindow, Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName]);
+                if (targetControl == null)
+                    throw new Exception(Constants.Messages.Error_Matching_Control_NotFound);
+            }
 
             // prepare the action
             UIAAction action = Actions[actLine.ActionName] as UIAAction;
@@ -151,10 +159,8 @@ namespace uia_auto.auto
             }
 
             // check for error
-            if (foundWindows.Count > 1)
-                throw new Exception(Constants.Messages.Error_Matching_Window_NoUniqueWindow);
-            else if (foundWindows.Count == 0)
-                throw new Exception(Constants.Messages.Error_Matching_Window_NotFound);
+            if (foundWindows.Count != 1)
+                return null;
 
             // found the window
             return foundWindows[0];

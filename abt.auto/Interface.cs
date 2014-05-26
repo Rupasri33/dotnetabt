@@ -42,35 +42,46 @@ namespace abt.auto
         {
             base.ProcessLoadedData();
 
-            // process each source line: build up an 'interface'
-            foreach (SourceLine line in Parser.Lines)
+            try
             {
-                if (line.ColumnCount > 0)
+                // process each source line: build up an 'interface'
+                foreach (SourceLine line in Parser.Lines)
                 {
-                    if (Constants.KeywordWindow.Equals(line.Columns[0], StringComparison.CurrentCultureIgnoreCase))
+                    if (line.ColumnCount > 0)
                     {
-                        this.Name = line.Columns[1].ToLower();
-                        for (int i = 2; i < line.ColumnCount; i++)
+                        if (Constants.KeywordWindow.Equals(line.Columns[0], StringComparison.CurrentCultureIgnoreCase))
                         {
-                            string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
-                            if (pairs.Length != 2)
-                                throw new FormatException(Constants.Messages.Error_Parsing_Interface_InvalidWindow);
-                            Properties[pairs[0].ToLower()] = pairs[1];
+                            this.Name = line.Columns[1].ToLower();
+                            for (int i = 2; i < line.ColumnCount; i++)
+                            {
+                                string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
+                                if (pairs.Length != 2)
+                                    throw new FormatException(Constants.Messages.Error_Parsing_Interface_InvalidWindow);
+                                Properties[pairs[0].ToLower()] = pairs[1];
+                            }
                         }
-                    }
-                    else if (Constants.KeywordControl.Equals(line.Columns[0], StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        string controlName = line.Columns[1].ToLower();
-                        for (int i = 2; i < line.ColumnCount; i++)
+                        else if (Constants.KeywordControl.Equals(line.Columns[0], StringComparison.CurrentCultureIgnoreCase))
                         {
-                            string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
-                            if (pairs.Length != 2)
-                                throw new FormatException(Constants.Messages.Error_Parsing_Interface_InvalidControl);
-                            Controls[controlName] = new Dictionary<string, string>();
-                            Controls[controlName][pairs[0].ToLower()] = pairs[1];
+                            string controlName = line.Columns[1].ToLower();
+                            for (int i = 2; i < line.ColumnCount; i++)
+                            {
+                                string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
+                                if (pairs.Length != 2)
+                                    throw new FormatException(Constants.Messages.Error_Parsing_Interface_InvalidControl);
+                                Controls[controlName] = new Dictionary<string, string>();
+                                Controls[controlName][pairs[0].ToLower()] = pairs[1];
+                            }
                         }
                     }
                 }
+            }
+            catch
+            {
+                Name = null;
+                Properties.Clear();
+                Controls.Clear();
+
+                throw;
             }
         }
     }

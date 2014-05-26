@@ -15,7 +15,7 @@ namespace abt.model
         /// <summary>
         /// close current report and save to file
         /// </summary>
-        void EndReport();
+        bool EndReport();
 
         /// <summary>
         /// begin new section 'data row' in current report

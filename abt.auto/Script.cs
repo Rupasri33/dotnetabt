@@ -27,27 +27,36 @@ namespace abt.auto
         {
             base.ProcessLoadedData();
 
-            // process each source line: convert it to action line
-            foreach (SourceLine line in Parser.Lines)
+            try
             {
-                if (line.ColumnCount > 0)
+                // process each source line: convert it to action line
+                foreach (SourceLine line in Parser.Lines)
                 {
-                    ActionLine actLine = new ActionLine();
-                    actLine.ActionName = line.Columns[0].ToLower();
-                    for (int i = 1; i < line.ColumnCount; i++)
+                    if (line.ColumnCount > 0)
                     {
-                        string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
-                        if (pairs.Length != 2)
-                            throw new FormatException(Constants.Messages.Error_Parsing_Script);
-                        if (Constants.KeywordWindow.Equals(pairs[0], StringComparison.CurrentCultureIgnoreCase))
-                            actLine.WindowName = pairs[1].ToLower();
-                        else if (Constants.KeywordControl.Equals(pairs[0], StringComparison.CurrentCultureIgnoreCase))
-                            actLine.ControlName = pairs[1].ToLower();
-                        else
-                            actLine.Arguments[pairs[0].ToLower()] = pairs[1];
+                        ActionLine actLine = new ActionLine();
+                        actLine.ActionName = line.Columns[0].ToLower();
+                        for (int i = 1; i < line.ColumnCount; i++)
+                        {
+                            string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
+                            if (pairs.Length != 2)
+                                throw new FormatException(Constants.Messages.Error_Parsing_Script);
+                            if (Constants.KeywordWindow.Equals(pairs[0], StringComparison.CurrentCultureIgnoreCase))
+                                actLine.WindowName = pairs[1].ToLower();
+                            else if (Constants.KeywordControl.Equals(pairs[0], StringComparison.CurrentCultureIgnoreCase))
+                                actLine.ControlName = pairs[1].ToLower();
+                            else
+                                actLine.Arguments[pairs[0].ToLower()] = pairs[1];
+                        }
+                        ActionLines.Add(actLine);
                     }
-                    ActionLines.Add(actLine);
                 }
+            }
+            catch
+            {
+                ActionLines.Clear();
+
+                throw;
             }
         }
 

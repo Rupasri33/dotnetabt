@@ -41,5 +41,11 @@ namespace abt.model
         /// save data (source lines) back to file
         /// </summary>
         void Save(string worksheetName = null);
+
+        /// <summary>
+        /// create a new file
+        /// </summary>
+        /// <param name="fileName">the file name</param>
+        void Create(string fileName);
     }
 }

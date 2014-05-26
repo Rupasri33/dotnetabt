@@ -62,6 +62,11 @@ namespace abt.model
         int Speed { get; set; }
 
         /// <summary>
+        /// error message in running Automation
+        /// </summary>
+        string ErrorMessage { get; }
+
+        /// <summary>
         /// the automation has just started
         /// </summary>
         event StartedHandler Started;

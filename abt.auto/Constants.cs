@@ -22,15 +22,13 @@ namespace abt.auto
             public const string Error_Parsing_Interface_InvalidWindow = @"Interface file parsing error: invalid window line";
             public const string Error_Parsing_Interface_InvalidControl = @"Interface file parsing error: invalid control line";
 
-            public const string Error_Matching_Window_NoDefinition = @"";
-            public const string Error_Matching_Window_NotFound = @"";
-            public const string Error_Matching_Window_NoUniqueWindow = @"";
+            public const string Error_Matching_Window_NoDefinition = @"No definition for window";
+            public const string Error_Matching_Window_NotFound = @"Window not found, or not unique";
 
-            public const string Error_Matching_Control_NoDefinition = @"";
-            public const string Error_Matching_Control_NotFound = @"";
-            public const string Error_Matching_Control_NoUniqueWindow = @"";
+            public const string Error_Matching_Control_NoDefinition = @"No definition for control";
+            public const string Error_Matching_Control_NotFound = @"Control not found, or not unique";
 
-            public const string Error_Executing_NoAction = @"";
+            public const string Error_Executing_NoAction = @"Action not found";
 
             public const string Error_ExcelFileNotFound = @"File not found or invalid format.";
             public const string Error_ExcelFileNoWorkbook = @"No workbook";

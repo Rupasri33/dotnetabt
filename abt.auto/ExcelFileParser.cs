@@ -99,7 +99,7 @@ namespace abt.auto
             catch
             {
                 Lines.Clear();
-                return false;
+                throw;
             }
             finally
             {
@@ -133,8 +133,6 @@ namespace abt.auto
         {
             try
             {
-                //CompoundDocument doc = CompoundDocument.Create(WorkingDir + FileName + FileExtension);
-
                 Workbook workbook = new Workbook();
                 Worksheet worksheet = new Worksheet(worksheetName == null ? m_WorksheetName : worksheetName);
 
@@ -151,9 +149,22 @@ namespace abt.auto
                 workbook.Worksheets.Add(worksheet);
                 workbook.Save(WorkingDir + FileName + FileExtension);
             }
-            catch (Exception)
+            catch
             {
+                throw;
             }
+        }
+
+        /// <summary>
+        /// create a new file
+        /// </summary>
+        /// <param name="fileName">the file name</param>
+        public void Create(string fileName)
+        {
+            m_FileName = fileName;
+
+            if (FileParsed != null)
+                FileParsed();
         }
     }
 }

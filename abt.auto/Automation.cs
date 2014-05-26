@@ -67,7 +67,7 @@ namespace abt.auto
                 if (Paused != null)
                     Paused(this);
             }
-            while (IsPaused)
+            while (IsPaused && !IsStopping)
                 Thread.Sleep(100);
 
             CheckResumed();
@@ -91,16 +91,17 @@ namespace abt.auto
         /// <summary>
         /// check if the automation is in 'stopped' state
         /// </summary>
-        private void CheckStopped()
+        private bool CheckStopped()
         {
             if (IsStopping)
             {
                 IsStopping = false;
                 IsStopped = true;
 
-                if (Interupted != null)
-                    Interupted(this);
+                return true;
             }
+
+            return false;
         }
 
         /// <summary>
@@ -114,7 +115,7 @@ namespace abt.auto
                 IReporter reporter = Reporter.NewInstance;
                 reporter.BeginReport(Name, Data.Name);
 
-                while (Data.MoveNext())
+                while (Data.MoveNext() && !IsStopped)
                 {
                     reporter.BeginDataRow(Data.CurrentRowId);
 
@@ -140,6 +141,9 @@ namespace abt.auto
                 reporter.EndReport();
             }
 
+            if (IsStopped && Interupted != null)
+                Interupted(this);
+
             if (Ended != null)
                 Ended(this);
         }
@@ -149,11 +153,8 @@ namespace abt.auto
         /// </summary>
         private void Run(IReporter reporter)
         {
-            while (Scripts.Count > 0 && !IsStopping)
+            while (Scripts.Count > 0 && !IsStopped)
             {
-                // if the automation is paused, just sleep
-                CheckPaused();
-
                 // pop a script from stack
                 CurrentScript = Scripts.Pop();
 
@@ -162,11 +163,8 @@ namespace abt.auto
                     reporter.BeginScript(CurrentScript.Name);
 
                 // loop for each line of current script
-                while (CurrentScript.HasNextLine && !IsStopping)
+                while (CurrentScript.HasNextLine && !IsStopped)
                 {
-                    // if the automation is paused, just sleep
-                    CheckPaused();
-
                     // get a action line from script
                     ActionLine actLineRaw = CurrentScript.Next();
 
@@ -199,32 +197,41 @@ namespace abt.auto
                     }
                     else
                     {
-                        IAction action = getAction(actLine);
-                        if (action == null)
+                        try
                         {
-                            reporter.WriteError(actLine, @"Action not found");
-                            Interupt();
-                            continue;
+                            IAction action = getAction(actLine);
+                            if (action == null)
+                                throw new Exception(Constants.Messages.Error_Executing_NoAction);
+
+                            if (!action.IsValid())
+                                throw new Exception(@"Invalid action arguments");
+
+                            // execute the action
+                            int ret = action.Execute();
+
+                            // write result of executing to report
+                            reporter.WriteLine(actLine, action.Result);
+
+                            // reset the action state
+                            action.Reset();
                         }
-                        if (!action.IsValid())
+                        catch (Exception e)
                         {
-                            reporter.WriteError(actLine, @"Invalid action arguments");
-                            Interupt();
-                            continue;
+                            reporter.WriteError(actLine, e.Message);
+                            InteruptWithError(e.Message);
                         }
-
-                        // execute the action
-                        int ret = action.Execute();
-
-                        // write result of executing to report
-                        reporter.WriteLine(actLine, action.Result);
-
-                        // reset the action state
-                        action.Reset();
                     }
 
-                    ProcessSpeed();
+                    // if the automation is paused, just sleep
+                    CheckPaused();
+
+                    // check if user interupt the automation
+                    if (!CheckStopped())
+                        ProcessSpeed();
                 }
+
+                // if the automation is paused, just sleep
+                CheckPaused();
 
                 // check if user interupt the automation
                 CheckStopped();
@@ -233,9 +240,6 @@ namespace abt.auto
                 if (CurrentScript.CurrentLineNumber > 0)
                     reporter.EndScript(CurrentScript.Name);
             }
-
-            // check if user interupt the automation
-            CheckStopped();
         }
 
         /// <summary>
@@ -305,6 +309,7 @@ namespace abt.auto
             if (CurrentThread != null && CurrentThread.IsAlive)
                 return;
 
+            ErrorMessage = null;
             CurrentThread = new Thread(RunAll);
             CurrentThread.Start();
 
@@ -317,7 +322,21 @@ namespace abt.auto
         /// </summary>
         public void Interupt()
         {
-            IsStopped = true;
+            IsStopping = true;
+        }
+
+        /// <summary>
+        /// interupt the automation with an error
+        /// </summary>
+        /// <param name="errorMsg"></param>
+        public void InteruptWithError(string errorMsg)
+        {
+            if (ErrorMessage == null)
+                ErrorMessage = errorMsg;
+            else
+                ErrorMessage += "\n" + errorMsg;
+
+            Interupt();
         }
 
         /// <summary>
@@ -325,7 +344,7 @@ namespace abt.auto
         /// </summary>
         public void Pause()
         {
-            IsPaused = true;
+            IsPausing = true;
         }
 
         /// <summary>
@@ -333,6 +352,7 @@ namespace abt.auto
         /// </summary>
         public void Resume()
         {
+            IsResuming = true;
             IsPaused = false;
         }
 
@@ -394,6 +414,11 @@ namespace abt.auto
         /// speed of running automation, from 1 to 10
         /// </summary>
         public int Speed { get; set; }
+
+        /// <summary>
+        /// error message in running Automation
+        /// </summary>
+        public string ErrorMessage { get; protected set; }
 
         /// <summary>
         /// the automation has just started

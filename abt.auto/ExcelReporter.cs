@@ -30,7 +30,7 @@ namespace abt.auto
         public void BeginReport(string name, string datasetName)
         {
             Name = name;
-            Parser.FileName = @"Report - " + DateTime.Now.ToString("yyyy-MM-dd.hh-mm");
+            Parser.Create(@"Report - " + DateTime.Now.ToString("yyyy-MM-dd.hh-mm"));
 
             SourceLine line = new SourceLine();
             line.Columns.Add(@"REPORT");
@@ -50,14 +50,22 @@ namespace abt.auto
         /// <summary>
         /// close current report and save to file
         /// </summary>
-        public void EndReport()
+        public bool EndReport()
         {
             SourceLine line = new SourceLine();
             line.Columns.Add(@"END REPORT");
             line.Columns.Add(Name);
 
             Lines.Add(line);
-            Parser.Save(Name);
+            try
+            {
+                Parser.Save(Name);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         /// <summary>
