@@ -75,13 +75,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="sample\data\DataSet1.xls" />
     <None Include="sample\interface\Calculator.xls" />
     <None Include="sample\script\Script.xls" />
+    <None Include="sample\script\Script2.xls" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="excel\ExcelLibrary.dll" />
     <Content Include="white-0.12.0\Castle.Core.dll" />
     <Content Include="white-0.12.0\TestStack.White.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="sample\report\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
