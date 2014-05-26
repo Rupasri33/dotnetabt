@@ -23,11 +23,14 @@ namespace uiatest
             UIAActionManager am = new UIAActionManager(at);
 
             Script startScript = new Script(at.Parser.NewInstance);
-            startScript.FileName = "Script.xls";
+            startScript.FileName = "Script2.xls";
+
+            Data data = new Data(at.Parser.NewInstance);
+            data.FileName = "DataSet1.xls";
 
             at.Name = "Regression 1";
-            at.Data = new Data(at.Parser.NewInstance);
             at.Speed = 10;
+            at.Data = data;
             at.StartScript = startScript;
             at.Start();
 

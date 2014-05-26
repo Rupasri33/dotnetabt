@@ -23,7 +23,7 @@ namespace uia_gui.forms
             InitializeComponent();
 
             IAutomation automation = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
-                @"D:\codes\dotnetabt\codeduiabt\sample");
+                @"C:\Users\datthong.nguyen\Documents\Visual Studio 2012\Projects\dotnetabt\codeduiabt\sample");
             UIAActionManager actionManager = new UIAActionManager(automation);
             actionManager.WaitTime = new TimeSpan(0, 0, 1);
 
