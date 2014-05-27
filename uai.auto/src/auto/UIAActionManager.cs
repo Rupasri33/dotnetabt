@@ -51,12 +51,16 @@ namespace uia_auto.auto
                 targetWindow = FindWindow(Parent.Interfaces[actLine.WindowName].Properties);
                 if (targetWindow == null)
                     throw new Exception(Constants.Messages.Error_Matching_Window_NotFound);
-            }
-            if (actLine.ControlName != null)
-            {
-                targetControl = FindControl(targetWindow, Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName]);
-                if (targetControl == null)
-                    throw new Exception(Constants.Messages.Error_Matching_Control_NotFound);
+
+                if (actLine.ControlName != null)
+                {
+                    if (!Parent.Interfaces[actLine.WindowName].Controls.ContainsKey(actLine.ControlName))
+                        throw new Exception(Constants.Messages.Error_Matching_Control_NoDefinition);
+
+                    targetControl = FindControl(targetWindow, Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName]);
+                    if (targetControl == null)
+                        throw new Exception(Constants.Messages.Error_Matching_Control_NotFound);
+                }
             }
 
             // prepare the action

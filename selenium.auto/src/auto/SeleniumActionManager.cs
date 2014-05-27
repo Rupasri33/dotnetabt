@@ -138,16 +138,21 @@ namespace selenium_auto.auto
             if (!Actions.ContainsKey(actLine.ActionName))
                 return null;
 
-            if (actLine.WindowName != null && !Parent.Interfaces.ContainsKey(actLine.WindowName))
-                throw new Exception(Constants.Messages.Error_Matching_Window_NoDefinition);
-            if (actLine.WindowName != null && !CheckWindow(actLine.WindowName))
-                throw new Exception(Constants.Messages.Error_Matching_Window_NotFound);
+            if (actLine.WindowName != null)
+            {
+                if (!CheckWindow(actLine.WindowName))
+                    throw new Exception(Constants.Messages.Error_Matching_Window_NotFound);
 
-            if (actLine.ControlName != null && !Parent.Interfaces[actLine.WindowName].Controls.ContainsKey(actLine.ControlName))
+                if (actLine.ControlName != null)
+                {
+                    if (!Parent.Interfaces[actLine.WindowName].Controls.ContainsKey(actLine.ControlName))
                 throw new Exception(Constants.Messages.Error_Matching_Control_NoDefinition);
 
-            if (actLine.WindowName != null && actLine.ControlName != null)
                 targetControl = FindControl(Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName]);
+                    if (targetControl == null)
+                        throw new Exception(Constants.Messages.Error_Matching_Control_NotFound);
+                }
+            }
 
             // prepare the action
             SeleniumAction action = Actions[actLine.ActionName] as SeleniumAction;
