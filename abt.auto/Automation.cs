@@ -171,6 +171,19 @@ namespace abt.auto
                     // manipulate action line with DataSet
                     ActionLine actLine = ManipulateData(actLineRaw);
 
+                    // notify about action that is going to be performed
+                    if (ActionPerforming != null)
+                    {
+                        string summary = actLine.ActionName;
+                        if (actLine.WindowName != null)
+                            summary += "\t[window:" + actLine.WindowName + "]";
+                        if (actLine.ControlName != null)
+                            summary += "\t[control:" + actLine.ControlName + "]";
+                        foreach (string key in actLine.Arguments.Keys)
+                            summary += "\t[" + key + ":" + actLine.Arguments[key] + "]";
+                        ActionPerforming(summary);
+                    }
+
                     // the action is 'use interface'
                     if (actLine.ActionName == Constants.ActionUseInterface)
                     {
@@ -444,6 +457,11 @@ namespace abt.auto
         /// the automation has just resumed
         /// </summary>
         public event ResumedHandler Resumed;
+
+        /// <summary>
+        /// the automation is going to perform an action
+        /// </summary>
+        public event ActionPerfomingNotificationHandler ActionPerforming;
 
         /// <summary>
         /// current automation thread

@@ -8,6 +8,7 @@ namespace abt.model
     public delegate void InteruptedHandler(IAutomation at);
     public delegate void PausedHandler(IAutomation at);
     public delegate void ResumedHandler(IAutomation at);
+    public delegate void ActionPerfomingNotificationHandler(string summary);
 
     public interface IAutomation
     {
@@ -90,6 +91,11 @@ namespace abt.model
         /// the automation has just resumed
         /// </summary>
         event ResumedHandler Resumed;
+
+        /// <summary>
+        /// the automation is going to perform an action
+        /// </summary>
+        event ActionPerfomingNotificationHandler ActionPerforming;
 
         /// <summary>
         /// start running automation

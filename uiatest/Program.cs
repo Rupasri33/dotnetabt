@@ -40,6 +40,7 @@ namespace uiatest
                 at.Resumed += at_Resumed;
                 at.Interupted += at_Interupted;
                 at.Ended += at_Ended;
+                at.ActionPerforming += at_ActionPerforming;
 
                 System.Threading.Thread.Sleep(3000);
                 at.Pause();
@@ -57,7 +58,7 @@ namespace uiatest
             finally
             {
                 //at.Interupt();
-                Console.ReadLine();
+                //Console.ReadLine();
             }
 
             //Automation at = new Automation(new ExcelFileParser(), new ExcelReporter(), @"D:\codes\dotnetabt\seleniumabt\sample");
@@ -74,6 +75,12 @@ namespace uiatest
 
 
 
+        }
+
+        static void at_ActionPerforming(string s)
+        {
+ 	        //throw new NotImplementedException();
+            Console.WriteLine(s);
         }
 
         static void at_Ended(IAutomation at)
