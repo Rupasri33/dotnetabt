@@ -1068,7 +1068,7 @@
             // addNewFileToolStripMenuItem
             // 
             this.addNewFileToolStripMenuItem.Name = "addNewFileToolStripMenuItem";
-            this.addNewFileToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.addNewFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addNewFileToolStripMenuItem.Text = "Add New File";
             this.addNewFileToolStripMenuItem.Click += new System.EventHandler(this.addNewFileToolStripMenuItem_Click);
             // 

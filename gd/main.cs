@@ -369,20 +369,34 @@ namespace gd
             //}
 
             ////nếu node đang chọn là thư mục thì cho phép tạo tập tin và thư mục, cũng cho delete luôn
-            if (treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[0].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[1].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[2].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[3].Tag)
+            if (treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Tag)
             {
-                addNewFileToolStripMenuItem.Enabled = true;
+                addNewFileToolStripMenuItem.Enabled = false;
                 deleteToolStripMenuItem.Enabled = false;
-                runToolStripMenuItem.Enabled = false;                
+                runToolStripMenuItem.Enabled = false;
             }
-
-            ////nếu node đang chọn là file thì không cho phép tạo gì cả, chỉ cho delete thôi
             else
-            {                
+            {
+
+                if (treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[0].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[1].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[2].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[3].Tag)
+                {
+                    addNewFileToolStripMenuItem.Enabled = true;
+                    deleteToolStripMenuItem.Enabled = false;
+                    runToolStripMenuItem.Enabled = false;
+
+                }
+
+                else
+                {
                     addNewFileToolStripMenuItem.Enabled = false;
                     deleteToolStripMenuItem.Enabled = true;
-                    runToolStripMenuItem.Enabled = true;                   
-            }        
+                    runToolStripMenuItem.Enabled = true;
+                }
+            }
+            
+
+            ////nếu node đang chọn là file thì không cho phép tạo gì cả, chỉ cho delete thôi
+                   
         }
 
 
