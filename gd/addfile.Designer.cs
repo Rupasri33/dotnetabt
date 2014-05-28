@@ -48,9 +48,10 @@
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX1.Location = new System.Drawing.Point(175, 180);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(75, 23);
+            this.buttonX1.Size = new System.Drawing.Size(92, 33);
             this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX1.TabIndex = 3;
             this.buttonX1.Text = "Add";
@@ -60,9 +61,10 @@
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonX2.Location = new System.Drawing.Point(282, 180);
             this.buttonX2.Name = "buttonX2";
-            this.buttonX2.Size = new System.Drawing.Size(75, 23);
+            this.buttonX2.Size = new System.Drawing.Size(92, 33);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 4;
             this.buttonX2.Text = "Cancle";
@@ -106,7 +108,7 @@
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX3.Location = new System.Drawing.Point(5, 1);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(513, 36);
+            this.labelX3.Size = new System.Drawing.Size(500, 36);
             this.labelX3.TabIndex = 7;
             this.labelX3.Text = "<div align=\"center\">Add File</div>";
             // 
@@ -126,15 +128,15 @@
             this.textBoxName.AcceptsTab = true;
             this.textBoxName.Location = new System.Drawing.Point(149, 80);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(256, 20);
+            this.textBoxName.Size = new System.Drawing.Size(291, 20);
             this.textBoxName.TabIndex = 10;
             // 
             // addfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(523, 272);
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(510, 270);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.comboBoxType);
             this.Controls.Add(this.labelX3);

@@ -31,11 +31,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this._btRun = new System.Windows.Forms.Button();
             this._cboData = new System.Windows.Forms.ComboBox();
             this._txtScript = new System.Windows.Forms.TextBox();
-            this._btCancel = new System.Windows.Forms.Button();
-            this.lbTieuDe = new DevComponents.DotNetBar.Controls.ReflectionLabel();
+            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.SuspendLayout();
             // 
             // label3
@@ -65,22 +65,10 @@
             this.label1.TabIndex = 52;
             this.label1.Text = "Script";
             // 
-            // _btRun
-            // 
-            this._btRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this._btRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btRun.Location = new System.Drawing.Point(133, 184);
-            this._btRun.Name = "_btRun";
-            this._btRun.Size = new System.Drawing.Size(100, 44);
-            this._btRun.TabIndex = 44;
-            this._btRun.Text = "Run";
-            this._btRun.UseVisualStyleBackColor = false;
-            // 
             // _cboData
             // 
             this._cboData.FormattingEnabled = true;
-            this._cboData.Location = new System.Drawing.Point(78, 142);
+            this._cboData.Location = new System.Drawing.Point(78, 115);
             this._cboData.Name = "_cboData";
             this._cboData.Size = new System.Drawing.Size(332, 21);
             this._cboData.TabIndex = 57;
@@ -89,53 +77,65 @@
             // 
             this._txtScript.BackColor = System.Drawing.SystemColors.Window;
             this._txtScript.Enabled = false;
-            this._txtScript.Location = new System.Drawing.Point(78, 98);
+            this._txtScript.Location = new System.Drawing.Point(78, 75);
             this._txtScript.Name = "_txtScript";
             this._txtScript.Size = new System.Drawing.Size(332, 20);
             this._txtScript.TabIndex = 55;
             // 
-            // _btCancel
+            // buttonX1
             // 
-            this._btCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this._btCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btCancel.Location = new System.Drawing.Point(264, 184);
-            this._btCancel.Name = "_btCancel";
-            this._btCancel.Size = new System.Drawing.Size(95, 44);
-            this._btCancel.TabIndex = 48;
-            this._btCancel.Text = "Cancel";
-            this._btCancel.UseVisualStyleBackColor = false;
-            this._btCancel.Click += new System.EventHandler(this._btCancel_Click_1);
+            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX1.Location = new System.Drawing.Point(120, 162);
+            this.buttonX1.Name = "buttonX1";
+            this.buttonX1.Size = new System.Drawing.Size(92, 33);
+            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX1.TabIndex = 58;
+            this.buttonX1.Text = "Run";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
-            // lbTieuDe
+            // buttonX2
             // 
-            this.lbTieuDe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX2.Location = new System.Drawing.Point(259, 162);
+            this.buttonX2.Name = "buttonX2";
+            this.buttonX2.Size = new System.Drawing.Size(92, 33);
+            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX2.TabIndex = 59;
+            this.buttonX2.Text = "Cancle";
+            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
+            // 
+            // labelX1
+            // 
+            this.labelX1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             // 
             // 
             // 
-            this.lbTieuDe.BackgroundStyle.Class = "";
-            this.lbTieuDe.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbTieuDe.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbTieuDe.Font = new System.Drawing.Font("Lucida Sans Typewriter", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTieuDe.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lbTieuDe.Location = new System.Drawing.Point(5, 1);
-            this.lbTieuDe.Margin = new System.Windows.Forms.Padding(4);
-            this.lbTieuDe.Name = "lbTieuDe";
-            this.lbTieuDe.Size = new System.Drawing.Size(483, 51);
-            this.lbTieuDe.TabIndex = 51;
-            this.lbTieuDe.Text = "<div align=\"center\">Run Test</div>";
+            this.labelX1.BackgroundStyle.Class = "";
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.Location = new System.Drawing.Point(5, 1);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(483, 38);
+            this.labelX1.TabIndex = 60;
+            this.labelX1.Text = "<div align=\"center\">Run Test</div>";
             // 
             // frun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(493, 238);
-            this.Controls.Add(this._btCancel);
-            this.Controls.Add(this._btRun);
+            this.Controls.Add(this.labelX1);
+            this.Controls.Add(this.buttonX2);
+            this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbTieuDe);
             this.Controls.Add(this._cboData);
             this.Controls.Add(this._txtScript);
             this.Name = "frun";
@@ -151,10 +151,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button _btRun;
         public System.Windows.Forms.ComboBox _cboData;
         public System.Windows.Forms.TextBox _txtScript;
-        private System.Windows.Forms.Button _btCancel;
-        private DevComponents.DotNetBar.Controls.ReflectionLabel lbTieuDe;
+        private DevComponents.DotNetBar.ButtonX buttonX1;
+        private DevComponents.DotNetBar.ButtonX buttonX2;
+        private DevComponents.DotNetBar.LabelX labelX1;
     }
 }

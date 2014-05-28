@@ -14,7 +14,7 @@
       <FileName>SourceLine.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="abt.model.IAction" Collapsed="true">
+  <Interface Name="abt.model.IAction">
     <Position X="7.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAABAQAAAgAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -35,7 +35,7 @@
       <FileName>IAutomation.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="abt.model.IData" Collapsed="true">
+  <Interface Name="abt.model.IData">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAACAAAAAAAAAAAAAAAIAAAAAAAACA=</HashCode>

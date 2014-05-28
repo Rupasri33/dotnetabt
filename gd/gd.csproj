@@ -216,12 +216,21 @@
     <Content Include="ext_lib\Castle.DynamicProxy2.dll" />
     <Content Include="ext_lib\DevComponents.DotNetBar2.dll" />
     <Content Include="ext_lib\ExcelLibrary.dll" />
+    <Content Include="ext_lib\JacksonSoft.CustomTabControl.dll" />
     <Content Include="ext_lib\log4net.dll" />
     <Content Include="ext_lib\Microsoft.Office.Tools.Excel.v4.0.Utilities.dll" />
     <Content Include="ext_lib\TestStack.White.dll" />
     <Content Include="ext_lib\White.Core.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\abt.auto\abt.auto.csproj">
+      <Project>{266518fb-d954-4d7b-9f09-b80578b10614}</Project>
+      <Name>abt.auto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abt.model\abt.model.csproj">
+      <Project>{c89bbc50-6fb7-4398-bb93-9f7e5310b04e}</Project>
+      <Name>abt.model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\abt\abt.csproj">
       <Project>{fce61c59-28c2-42d3-a473-6acfe1e95ae2}</Project>
       <Name>abt</Name>
@@ -229,6 +238,10 @@
     <ProjectReference Include="..\codeduiabt\codeduiabt.csproj">
       <Project>{c635e61f-38ea-40c1-a55b-2050fddeb720}</Project>
       <Name>codeduiabt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\uai.auto\uai.auto.csproj">
+      <Project>{a83a88ed-dde3-4e26-be75-9638334fdd15}</Project>
+      <Name>uai.auto</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,8 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using abt;
-using codeduiabt;
+//using abt;
+//using codeduiabt;
+using abt.model;
+using abt.auto;
+using uia_auto.auto;
 
 namespace gd
 {
@@ -20,26 +23,33 @@ namespace gd
             InitializeComponent();
         }
 
-        
-        private void _btRun_Click(object sender, EventArgs e)
-        {
-            //Automation at = new Automation(new ExcelFileParser());
-            //SeleniumActionManager am = new SeleniumActionManager(at);
-            //am.RegisterAction(new seleniumabt.ActionClick());
-
-            //Script startScript = new Script(at.Parser.NewInstance);
-            //startScript.FileName = "test.xls";
-
-            //at.Scripts.Push(startScript);
-            //at.Run();
-
-        }
-
-       
-
-        private void _btCancel_Click_1(object sender, EventArgs e)
+        private void buttonX2_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            Close();
+
+            IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
+                @"E:\demo_new\dotnetabt\codeduiabt\sample");
+            UIAActionManager am = new UIAActionManager(at);
+
+            Script startScript = new Script(at.Parser.NewInstance);
+            startScript.FileName = _txtScript.Text;
+
+            at.Speed = 10;
+            at.StartScript = startScript;
+            at.Start();
+        }
+
+        
+
+        
+       
+       
+
+       
     }
 }

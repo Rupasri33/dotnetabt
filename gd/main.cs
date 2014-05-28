@@ -116,7 +116,8 @@ namespace gd
 
             foreach (Worksheet sheet in book.Worksheets)
             {
-                TabPage sheetPage = new TabPage(sheet.Name);
+               // string Name=treeViewproject.SelectedNode.Text;
+                TabPage sheetPage = new TabPage(treeViewproject.SelectedNode.Text);
                 
                 DataGridView dgvCells = new DataGridView();
                 dgvCells.Dock = DockStyle.Fill;
@@ -177,7 +178,7 @@ namespace gd
 
         private void main_Load(object sender, EventArgs e)
         {
-
+            //Text="Automation Test";
             //test();
             ////Right click tabControl1
             //this.tabControl1.MouseClick += new MouseEventHandler(tabControl1_MouseClick);
@@ -237,6 +238,7 @@ namespace gd
                                 }
                             }
                             treeViewproject.ExpandAll();
+                            
                         }
                         
                      
@@ -246,6 +248,7 @@ namespace gd
                         System.Windows.Forms.MessageBox.Show(ex.Message);
 
                     }
+                    Text =treeViewproject.Nodes[0].Text+ " - "+Text;
                 } 
             }
         }
@@ -356,50 +359,30 @@ namespace gd
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (treeViewproject.SelectedNode == treeViewproject.Nodes[0].Nodes[1].Nodes[0])
-            {
-                buttonItem2.Enabled = true;
-            }
-            else
-            {
-                buttonItem2.Enabled = false;
-            }
+            //if (treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[2].)
+            //{
+            //    buttonItem15.Enabled = true;
+            //}
+            //else
+            //{
+            //    buttonItem15.Enabled = false;
+            //}
 
             ////nếu node đang chọn là thư mục thì cho phép tạo tập tin và thư mục, cũng cho delete luôn
-            //if (treeViewproject.SelectedNode.Name == "Folder")
-            //{
-            //    addNewFileToolStripMenuItem.Enabled = true;
-            //    //addNewFolderToolStripMenuItem.Enabled = true;
-            //    deleteToolStripMenuItem.Enabled = true;
-
-            //    treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
-            //}
+            if (treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[0].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[1].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[2].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[3].Tag)
+            {
+                addNewFileToolStripMenuItem.Enabled = true;
+                deleteToolStripMenuItem.Enabled = false;
+                runToolStripMenuItem.Enabled = false;                
+            }
 
             ////nếu node đang chọn là file thì không cho phép tạo gì cả, chỉ cho delete thôi
-            //else if (treeViewproject.SelectedNode.Name == "File")
-            //{
-            //    addNewFileToolStripMenuItem.Enabled = true;
-            //    //addNewFolderToolStripMenuItem.Enabled = false;
-            //    deleteToolStripMenuItem.Enabled = true;
-
-            //    treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
-            //}
-
-            ////nếu node đang chọn là thư mục gốc, thì không cho phép xoá
-            //else if (treeViewproject.SelectedNode.Text == "RootDirectory")
-            //{
-            //    addNewFileToolStripMenuItem.Enabled = true;
-            //   // addNewFolderToolStripMenuItem.Enabled = true;
-            //    deleteToolStripMenuItem.Enabled = false;
-
-            //    //image của node đang chọn 
-            //    treeViewproject.SelectedImageIndex = treeViewproject.SelectedNode.ImageIndex;
-            //}
-
-            ////mo file excel tren cay
-          
-
-            
+            else
+            {                
+                    addNewFileToolStripMenuItem.Enabled = false;
+                    deleteToolStripMenuItem.Enabled = true;
+                    runToolStripMenuItem.Enabled = true;                   
+            }        
         }
 
 
@@ -500,6 +483,7 @@ namespace gd
                         System.Windows.Forms.MessageBox.Show(ex.Message);
 
                     }
+                    Text = treeViewproject.Nodes[0].Text + " - " + Text;
                 }
                
             }
@@ -723,13 +707,20 @@ namespace gd
         //XỬ LÍ NÚT RUN
          private void buttonItem15_Click(object sender, EventArgs e)
          {
+             //if (buttonItem15.Enabled == true)
+             //{
+             //    buttonItem15.Enabled = false;
+             //    buttonItem16.Enabled = true;
+             //    buttonItem4.Enabled = true;
+             //}
+            
              frun f = new frun();
+             f._txtScript.Text = treeViewproject.SelectedNode.Text;
              f.ShowDialog();
+            
+            
          }
 
-         private void _Edit_Click(object sender, EventArgs e)
-         {
-
-         }
+         
     } 
 }

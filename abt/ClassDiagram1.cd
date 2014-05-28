@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="abt.Action" Collapsed="true">
+  <Class Name="abt.Action">
     <Position X="2" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAABAQAAAgAAAQAAAAAAAAAAAAAAAAIAAA=</HashCode>
@@ -21,7 +21,7 @@
       <FileName>ActionManager.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="abt.Automation" Collapsed="true">
+  <Class Name="abt.Automation">
     <Position X="4.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAGAAAAGAQAAAAEgAAAIIABAAgAQABAiAAgI=</HashCode>
@@ -38,7 +38,7 @@
       <FileName>Constants.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="abt.Data" Collapsed="true">
+  <Class Name="abt.Data">
     <Position X="0.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
