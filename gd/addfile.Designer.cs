@@ -105,7 +105,7 @@
             this.labelX3.BackgroundStyle.Class = "";
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX3.Location = new System.Drawing.Point(5, 1);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(500, 36);
@@ -115,6 +115,7 @@
             // comboBoxType
             // 
             this.comboBoxType.BackColor = System.Drawing.Color.White;
+            this.comboBoxType.Enabled = false;
             this.comboBoxType.FormattingEnabled = true;
             this.comboBoxType.Items.AddRange(new object[] {
             " xls"});
@@ -160,8 +161,8 @@
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.LabelX labelX2;
-        private DevComponents.DotNetBar.LabelX labelX3;
         public System.Windows.Forms.TextBox textBoxName;
         public System.Windows.Forms.ComboBox comboBoxType;
+        public DevComponents.DotNetBar.LabelX labelX3;
     }
 }

@@ -55,6 +55,8 @@ namespace gd
         White.Core.Application _application;
         White.Core.UIItems.WindowItems.Window _mainWindow;
         DataGridView dgvCells;
+        StatusStrip status;
+        
        
 
         void test()
@@ -178,6 +180,14 @@ namespace gd
 
         private void main_Load(object sender, EventArgs e)
         {
+            
+            StatusStrip status = new StatusStrip();
+            ToolStripStatusLabel lb = new ToolStripStatusLabel();
+            
+            lb.Text = "Ready";
+            status.Items.Add(lb);
+            Controls.Add(status);
+            
             //Text="Automation Test";
             //test();
             ////Right click tabControl1
@@ -267,6 +277,8 @@ namespace gd
         private void addNewFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addfile newFile = new addfile();
+
+            //newFile.labelX3.Text = newFile.labelX3.Text + "-" + treeViewproject.SelectedNode.Text;
             newFile.ShowDialog();
             main main = new main();
 
@@ -541,9 +553,12 @@ namespace gd
             //{
             //    LoadExcelSheets();
             //}
+
+            //tabControl1.SelectedIndex =
             string path = treeViewproject.Nodes[0].Tag + @"\" + treeViewproject.Nodes[0].Nodes[0].Text + @"\" + treeViewproject.SelectedNode.Text;
             string path1 = treeViewproject.Nodes[0].Tag + @"\" + treeViewproject.Nodes[0].Nodes[1].Text + @"\" + treeViewproject.SelectedNode.Text;
             string path2 = treeViewproject.Nodes[0].Tag + @"\" + treeViewproject.Nodes[0].Nodes[2].Text + @"\" + treeViewproject.SelectedNode.Text;
+            string path3 = treeViewproject.Nodes[0].Tag + @"\" + treeViewproject.Nodes[0].Nodes[3].Text + @"\" + treeViewproject.SelectedNode.Text;
             if (treeViewproject.SelectedNode.Text == treeViewproject.SelectedNode.Text)
             {
                 try
@@ -570,9 +585,18 @@ namespace gd
                             LoadExcelSheets();
                         }
                         catch { }
-                        if (treeViewproject.SelectedNode.Name == "File")
+                        if (treeViewproject.SelectedNode.Text == treeViewproject.SelectedNode.Text)
                         {
-                            LoadExcelSheets();
+                            try
+                            {
+                                doc = CompoundDocument.Open(path3);
+                                LoadExcelSheets();
+                            }
+                            catch { }
+                            if (treeViewproject.SelectedNode.Name == "File")
+                            {
+                                LoadExcelSheets();
+                            }
                         }
                     }
                 }
@@ -696,20 +720,9 @@ namespace gd
          }
          #endregion
 
-         private void bar1_ItemClick(object sender, EventArgs e)
-         {
-
-         }
-
-         private void ribbonBar3_ItemClick(object sender, EventArgs e)
-         {
-
-         }
-
-         private void pictureBox1_Click(object sender, EventArgs e)
-         {
-
-         }
+        
+        
+        
 
          private void buttonItem2_Click_1(object sender, EventArgs e)
          {
@@ -731,8 +744,8 @@ namespace gd
              frun f = new frun();
              f._txtScript.Text = treeViewproject.SelectedNode.Text;
              f.ShowDialog();
-            
-            
+
+
          }
 
          

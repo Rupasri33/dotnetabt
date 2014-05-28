@@ -18,6 +18,7 @@ namespace gd
 
         private void addfile_Load(object sender, EventArgs e)
         {
+            
             textBoxName.Select();
             comboBoxType.SelectedIndex = 0;
         }

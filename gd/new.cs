@@ -86,6 +86,7 @@ namespace gd
 
         private void @new_Load(object sender, EventArgs e)
         {
+           
             textBoxX1.Select();
         }
 
