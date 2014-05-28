@@ -127,17 +127,23 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewProject.cs" />
+    <Compile Include="NewProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="NewProject.Designer.cs">
       <DependentUpon>NewProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RadRibbonForm1.cs" />
+    <Compile Include="RadRibbonForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RadRibbonForm1.Designer.cs">
       <DependentUpon>RadRibbonForm1.cs</DependentUpon>
     </Compile>
@@ -146,7 +152,9 @@
     <Compile Include="SourceLine.cs" />
     <Compile Include="UIAAction.cs" />
     <Compile Include="UIAActionManager.cs" />
-    <Compile Include="_ReadFile.cs" />
+    <Compile Include="_ReadFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="_ReadFile.Designer.cs">
       <DependentUpon>_ReadFile.cs</DependentUpon>
     </Compile>

@@ -105,7 +105,7 @@
             this.buttonX2.Size = new System.Drawing.Size(92, 33);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 59;
-            this.buttonX2.Text = "Cancle";
+            this.buttonX2.Text = "Cancel";
             this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // labelX1
@@ -120,7 +120,7 @@
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.Location = new System.Drawing.Point(5, 1);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(483, 38);
+            this.labelX1.Size = new System.Drawing.Size(453, 38);
             this.labelX1.TabIndex = 60;
             this.labelX1.Text = "<div align=\"center\">Run Test</div>";
             // 
@@ -128,8 +128,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(493, 238);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(463, 223);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);

@@ -432,7 +432,7 @@
             this.buttonX3.Size = new System.Drawing.Size(92, 33);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 5;
-            this.buttonX3.Text = "Cancle";
+            this.buttonX3.Text = "Cancel";
             this.buttonX3.Click += new System.EventHandler(this.buttonX3_Click);
             // 
             // labelX2
@@ -465,8 +465,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(595, 286);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(595, 251);
             this.Controls.Add(this.labelX3);
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.buttonX3);

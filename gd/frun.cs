@@ -31,7 +31,7 @@ namespace gd
         private void buttonX1_Click(object sender, EventArgs e)
         {
             Close();
-
+           
             IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
                 @"E:\demo_new\dotnetabt\codeduiabt\sample");
             UIAActionManager am = new UIAActionManager(at);

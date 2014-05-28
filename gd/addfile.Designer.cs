@@ -67,7 +67,7 @@
             this.buttonX2.Size = new System.Drawing.Size(92, 33);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 4;
-            this.buttonX2.Text = "Cancle";
+            this.buttonX2.Text = "Cancel";
             this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // labelX1
@@ -108,7 +108,7 @@
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX3.Location = new System.Drawing.Point(5, 1);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(500, 36);
+            this.labelX3.Size = new System.Drawing.Size(474, 36);
             this.labelX3.TabIndex = 7;
             this.labelX3.Text = "<div align=\"center\">Add File</div>";
             // 
@@ -136,8 +136,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(510, 270);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(484, 241);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.comboBoxType);
             this.Controls.Add(this.labelX3);

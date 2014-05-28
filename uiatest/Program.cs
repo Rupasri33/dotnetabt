@@ -19,7 +19,7 @@ namespace uiatest
         static void Main(string[] args)
         {
             IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
-                @"C:\Users\datthong.nguyen\Documents\Visual Studio 2012\Projects\dotnetabt\codeduiabt\sample");
+                @"E:\demo_new\dotnetabt\codeduiabt\sample");
             UIAActionManager am = new UIAActionManager(at);
 
             try

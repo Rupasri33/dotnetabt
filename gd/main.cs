@@ -371,21 +371,13 @@ namespace gd
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //if (treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[2].)
-            //{
-            //    buttonItem15.Enabled = true;
-            //}
-            //else
-            //{
-            //    buttonItem15.Enabled = false;
-            //}
-
-            ////nếu node đang chọn là thư mục thì cho phép tạo tập tin và thư mục, cũng cho delete luôn
+           
             if (treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Tag)
             {
                 addNewFileToolStripMenuItem.Enabled = false;
                 deleteToolStripMenuItem.Enabled = false;
                 runToolStripMenuItem.Enabled = false;
+                spyToolStripMenuItem.Enabled = false;
             }
             else
             {
@@ -395,14 +387,43 @@ namespace gd
                     addNewFileToolStripMenuItem.Enabled = true;
                     deleteToolStripMenuItem.Enabled = false;
                     runToolStripMenuItem.Enabled = false;
-
+                    spyToolStripMenuItem.Enabled = false;
+                    buttonItem2.Enabled = false;
+                    buttonItem15.Enabled = false;
                 }
 
                 else
                 {
-                    addNewFileToolStripMenuItem.Enabled = false;
-                    deleteToolStripMenuItem.Enabled = true;
-                    runToolStripMenuItem.Enabled = true;
+                    if (treeViewproject.SelectedNode.Parent == treeViewproject.Nodes[0].Nodes[3])
+                    {
+                        addNewFileToolStripMenuItem.Enabled = false;
+                        deleteToolStripMenuItem.Enabled = true;
+                        runToolStripMenuItem.Enabled = true;
+                        spyToolStripMenuItem.Enabled = false;
+                        buttonItem2.Enabled = false;
+                        buttonItem15.Enabled = true;
+                    }
+                    else
+                    {
+                        if (treeViewproject.SelectedNode.Parent == treeViewproject.Nodes[0].Nodes[1])
+                        {
+                            addNewFileToolStripMenuItem.Enabled = false;
+                            deleteToolStripMenuItem.Enabled = true;
+                            runToolStripMenuItem.Enabled = false;
+                            spyToolStripMenuItem.Enabled = true;
+                            buttonItem2.Enabled = true;
+                            buttonItem15.Enabled = false;
+                        }
+                        else
+                        {
+                            addNewFileToolStripMenuItem.Enabled = false;
+                            deleteToolStripMenuItem.Enabled = true;
+                            runToolStripMenuItem.Enabled = false;
+                            spyToolStripMenuItem.Enabled = false;
+                            buttonItem2.Enabled = false;
+                            buttonItem15.Enabled = false;
+                        }
+                    }
                 }
             }
             
@@ -723,7 +744,7 @@ namespace gd
         
         
         
-
+        //SPY
          private void buttonItem2_Click_1(object sender, EventArgs e)
          {
              
@@ -740,11 +761,36 @@ namespace gd
              //    buttonItem16.Enabled = true;
              //    buttonItem4.Enabled = true;
              //}
-            
+             buttonItem15.Enabled = false;
+             runToolStripMenuItem.Enabled = false;
+             buttonItem16.Enabled = true;
+             buttonItem4.Enabled = true;
              frun f = new frun();
              f._txtScript.Text = treeViewproject.SelectedNode.Text;
              f.ShowDialog();
 
+
+         }
+
+         private void runToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+             buttonItem15.Enabled = false;
+             runToolStripMenuItem.Enabled = false;
+             buttonItem16.Enabled = true;
+             buttonItem4.Enabled = true;
+             frun f = new frun();
+             f._txtScript.Text = treeViewproject.SelectedNode.Text;
+             f.ShowDialog();
+         }
+
+         private void spyToolStripMenuItem_Click_1(object sender, EventArgs e)
+         {
+             FormViewer s = new FormViewer();
+             s.ShowDialog();
+         }
+
+         private void buttonItem16_Click(object sender, EventArgs e)
+         {
 
          }
 
