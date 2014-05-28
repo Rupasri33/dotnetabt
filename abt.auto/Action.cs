@@ -20,6 +20,11 @@ namespace abt.auto
         public ActionResult Result { get; protected set; }
 
         /// <summary>
+        /// more information about the result
+        /// </summary>
+        public string MoreDetailAboutResult { get; protected set; }
+
+        /// <summary>
         /// parameters of the action
         /// </summary>
         public virtual Dictionary<string, string> Params

@@ -20,8 +20,8 @@ namespace uia_auto.actions
         public override bool IsValid()
         {
             if (Window == null)
-                return false;
-                        
+                throw new Exception(Constants.Messages.Error_Matching_Window_NotFound);
+
             return true;
         }
 

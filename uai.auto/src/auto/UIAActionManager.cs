@@ -26,7 +26,7 @@ namespace uia_auto.auto
             RegisterAction(new ActionClick());
             RegisterAction(new ActionStartProgram());
             RegisterAction(new ActionCloseWindow());
-            RegisterAction(new ActionCheckProperty());
+            RegisterAction(new ActionCheckControlProperty());
             RegisterAction(new ActionCheckControlExist());
         }
 
@@ -49,17 +49,12 @@ namespace uia_auto.auto
             if (actLine.WindowName != null)
             {
                 targetWindow = FindWindow(Parent.Interfaces[actLine.WindowName].Properties);
-                if (targetWindow == null)
-                    throw new Exception(Constants.Messages.Error_Matching_Window_NotFound);
-
-                if (actLine.ControlName != null)
+                if (targetWindow != null && actLine.ControlName != null)
                 {
                     if (!Parent.Interfaces[actLine.WindowName].Controls.ContainsKey(actLine.ControlName))
                         throw new Exception(Constants.Messages.Error_Matching_Control_NoDefinition);
 
                     targetControl = FindControl(targetWindow, Parent.Interfaces[actLine.WindowName].Controls[actLine.ControlName]);
-                    if (targetControl == null)
-                        throw new Exception(Constants.Messages.Error_Matching_Control_NotFound);
                 }
             }
 

@@ -52,10 +52,14 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\actions\ActionCheckControlExist.cs" />
-    <Compile Include="src\actions\ActionCheckProperty.cs" />
+    <Compile Include="src\actions\ActionCheckControlProperty.cs" />
+    <Compile Include="src\actions\ActionCheckWindowProperty.cs" />
     <Compile Include="src\actions\ActionClick.cs" />
     <Compile Include="src\actions\ActionCloseWindow.cs" />
+    <Compile Include="src\actions\ActionEnter.cs" />
+    <Compile Include="src\actions\ActionSet.cs" />
     <Compile Include="src\actions\ActionStartProgram.cs" />
+    <Compile Include="src\actions\ActionCheckWindowExist.cs" />
     <Compile Include="src\actions\UIAAction.cs" />
     <Compile Include="src\auto\UIAActionManager.cs" />
     <Compile Include="src\Constants.cs" />

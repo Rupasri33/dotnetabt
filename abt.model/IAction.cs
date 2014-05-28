@@ -25,6 +25,11 @@ namespace abt.model
         ActionResult Result { get; }
 
         /// <summary>
+        /// more information about the result
+        /// </summary>
+        string MoreDetailAboutResult { get; }
+
+        /// <summary>
         /// parameters of the action
         /// </summary>
         Dictionary<string, string> Params { get; set; }

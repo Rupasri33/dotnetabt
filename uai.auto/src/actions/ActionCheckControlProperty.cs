@@ -6,7 +6,7 @@ using uia_auto;
 
 namespace uia_auto.actions
 {
-    class ActionCheckProperty : UIAAction
+    class ActionCheckControlProperty : UIAAction
     {
         /// <summary>
         /// name of property to be checked
@@ -18,9 +18,12 @@ namespace uia_auto.actions
         /// </summary>
         private string PropertyValue { get; set; }
 
-        public ActionCheckProperty()
+        /// <summary>
+        /// constructor
+        /// </summary>
+        public ActionCheckControlProperty()
         {
-            Name = @"check property";
+            Name = @"check control property";
         }
 
         /// <summary>
@@ -45,9 +48,11 @@ namespace uia_auto.actions
         /// <returns>true - if params are valid</returns>
         public override bool IsValid()
         {
-            // the UIA control exists
+            if (Window == null)
+                throw new Exception(Constants.Messages.Error_Matching_Window_NotFound);
+
             if (Control == null)
-                return false;
+                throw new Exception(Constants.Messages.Error_Matching_Control_NotFound);
 
             // the coordinate is specified
             if (PropertyName == null || PropertyValue == null)
