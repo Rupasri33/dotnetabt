@@ -41,9 +41,9 @@ namespace abt.auto
                             string[] pairs = line.Columns[i].Split(Constants.PropertyDelimeter.ToCharArray(), 2);
                             if (pairs.Length != 2)
                                 throw new FormatException(Constants.Messages.Error_Parsing_Script);
-                            if (Constants.KeywordWindow.Equals(pairs[0], StringComparison.CurrentCultureIgnoreCase))
+                            if (Constants.Keywords.KeywordWindow.Equals(pairs[0], StringComparison.CurrentCultureIgnoreCase))
                                 actLine.WindowName = pairs[1].ToLower();
-                            else if (Constants.KeywordControl.Equals(pairs[0], StringComparison.CurrentCultureIgnoreCase))
+                            else if (Constants.Keywords.KeywordControl.Equals(pairs[0], StringComparison.CurrentCultureIgnoreCase))
                                 actLine.ControlName = pairs[1].ToLower();
                             else
                                 actLine.Arguments[pairs[0].ToLower()] = pairs[1];

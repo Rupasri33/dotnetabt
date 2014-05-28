@@ -30,10 +30,10 @@ namespace abt.auto
         public void BeginReport(string name, string datasetName)
         {
             Name = name;
-            Parser.Create(@"Report - " + DateTime.Now.ToString("yyyy-MM-dd.hh-mm"));
+            Parser.Create(Constants.ReportText.ReportNamePrefix + DateTime.Now.ToString(Constants.ReportText.ReportDateFormat));
 
             SourceLine line = new SourceLine();
-            line.Columns.Add(@"REPORT");
+            line.Columns.Add(Constants.ReportText.BeginReport);
             line.Columns.Add(name);
 
             Lines.Add(line);
@@ -41,7 +41,7 @@ namespace abt.auto
             if (datasetName != null)
             {
                 line = new SourceLine();
-                line.Columns.Add(@"DATASET");
+                line.Columns.Add(Constants.ReportText.BeginDataSet);
                 line.Columns.Add(datasetName);
                 Lines.Add(line);
             }
@@ -53,7 +53,7 @@ namespace abt.auto
         public bool EndReport()
         {
             SourceLine line = new SourceLine();
-            line.Columns.Add(@"END REPORT");
+            line.Columns.Add(Constants.ReportText.EndReport);
             line.Columns.Add(Name);
 
             Lines.Add(line);
@@ -78,9 +78,9 @@ namespace abt.auto
 
             SourceLine line = new SourceLine();
             for (int i=0; i<Indent; i++)
-                line.Columns.Add(@"");
+                line.Columns.Add(string.Empty);
 
-            line.Columns.Add(@"begin script");
+            line.Columns.Add(Constants.ReportText.BeginScript);
             line.Columns.Add(scriptName);
 
             Lines.Add(line);
@@ -92,16 +92,16 @@ namespace abt.auto
         /// <param name="scriptName">name of the script</param>
         public void EndScript(string scriptName)
         {
-            Indent--;
-
             SourceLine line = new SourceLine();
             for (int i = 0; i < Indent; i++)
-                line.Columns.Add(@"");
+                line.Columns.Add(string.Empty);
 
-            line.Columns.Add(@"end script");
+            line.Columns.Add(Constants.ReportText.EndScript);
             line.Columns.Add(scriptName);
 
             Lines.Add(line);
+
+            Indent--;
         }
 
         /// <summary>
@@ -113,17 +113,17 @@ namespace abt.auto
         {
             SourceLine line = new SourceLine();
             for (int i = 0; i < Indent + 1; i++)
-                line.Columns.Add(@"");
+                line.Columns.Add(string.Empty);
 
             line.Columns.Add(actLine.ActionName);
             if (actLine.WindowName != null || actLine.ControlName != null)
             {
-                line.Columns.Add(actLine.WindowName != null ? actLine.WindowName : @"");
-                line.Columns.Add(actLine.ControlName != null ? actLine.ControlName : @"");
+                line.Columns.Add(actLine.WindowName != null ? actLine.WindowName : string.Empty);
+                line.Columns.Add(actLine.ControlName != null ? actLine.ControlName : string.Empty);
             }
             foreach (string key in actLine.Arguments.Keys)
-                line.Columns.Add(key + @":" + actLine.Arguments[key]);
-            line.Columns.Add(result != ActionResult.NORET ? result.ToString() : @"");
+                line.Columns.Add(key + Constants.PropertyDelimeter + actLine.Arguments[key]);
+            line.Columns.Add(result != ActionResult.NORET ? result.ToString() : string.Empty);
 
             Lines.Add(line);
         }
@@ -137,17 +137,17 @@ namespace abt.auto
         {
             SourceLine line = new SourceLine();
             for (int i = 0; i < Indent + 1; i++)
-                line.Columns.Add(@"");
+                line.Columns.Add(string.Empty);
 
             line.Columns.Add(actLine.ActionName);
             if (actLine.WindowName != null || actLine.ControlName != null)
             {
-                line.Columns.Add(actLine.WindowName != null ? actLine.WindowName : @"");
-                line.Columns.Add(actLine.ControlName != null ? actLine.ControlName : @"");
+                line.Columns.Add(actLine.WindowName != null ? actLine.WindowName : string.Empty);
+                line.Columns.Add(actLine.ControlName != null ? actLine.ControlName : string.Empty);
             }
             foreach (string key in actLine.Arguments.Keys)
-                line.Columns.Add(key + @":" + actLine.Arguments[key]);
-            line.Columns.Add(@"ERROR: " + why);
+                line.Columns.Add(key + Constants.PropertyDelimeter + actLine.Arguments[key]);
+            line.Columns.Add(Constants.ReportText.ErrorLinePrefix + why);
 
             Lines.Add(line);
         }
@@ -173,9 +173,9 @@ namespace abt.auto
 
             SourceLine line = new SourceLine();
             for (int i = 0; i < Indent; i++)
-                line.Columns.Add(@"");
+                line.Columns.Add(string.Empty);
 
-            line.Columns.Add(@"DATA ROW");
+            line.Columns.Add(Constants.ReportText.BeginDataRow);
             line.Columns.Add(id.ToString());
 
             Lines.Add(line);
@@ -187,16 +187,16 @@ namespace abt.auto
         /// <param name="id">row id</param>
         public void EndDataRow(int id)
         {
-            Indent--;
-
             SourceLine line = new SourceLine();
             for (int i = 0; i < Indent; i++)
-                line.Columns.Add(@"");
+                line.Columns.Add(string.Empty);
 
-            line.Columns.Add(@"END DATA ROW");
+            line.Columns.Add(Constants.ReportText.EndDataRow);
             line.Columns.Add(id.ToString());
 
             Lines.Add(line);
+
+            Indent--;
         }
 
         /// <summary>

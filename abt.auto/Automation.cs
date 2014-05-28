@@ -20,7 +20,7 @@ namespace abt.auto
 
             WorkingDir = workingDir;
             Speed = 10;
-            Name = @"No name";
+            Name = Constants.DefaultName;
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace abt.auto
             {
                 // create new report
                 IReporter reporter = Reporter.NewInstance;
-                reporter.BeginReport(Name + @" - No data set", null);
+                reporter.BeginReport(Name + Constants.ReportText.ReportNameSuffix, null);
 
                 StartScript.Restart();
                 Scripts.Push(StartScript);
@@ -185,21 +185,21 @@ namespace abt.auto
                     }
 
                     // the action is 'use interface'
-                    if (actLine.ActionName == Constants.ActionUseInterface)
+                    if (actLine.ActionName == Constants.Keywords.ActionUseInterface)
                     {
-                        if (!Interfaces.ContainsKey(actLine.Arguments[Constants.KeywordInterface].ToLower()))
+                        if (!Interfaces.ContainsKey(actLine.Arguments[Constants.Keywords.KeywordInterface].ToLower()))
                         {
                             IInterface newInterface = new Interface(Parser.NewInstance);
-                            newInterface.FileName = actLine.Arguments[Constants.KeywordInterface] + Parser.FileExtension;
+                            newInterface.FileName = actLine.Arguments[Constants.Keywords.KeywordInterface] + Parser.FileExtension;
                             Interfaces.Add(newInterface.Name, newInterface);
                         }
                         
                     }
                     // the action is 'run script'
-                    else if (actLine.ActionName == Constants.ActionStartScript)
+                    else if (actLine.ActionName == Constants.Keywords.ActionStartScript)
                     {
                         Script newScript = new Script(Parser.NewInstance);
-                        newScript.FileName = actLine.Arguments[Constants.KeywordScript] + Parser.FileExtension;
+                        newScript.FileName = actLine.Arguments[Constants.Keywords.KeywordScript] + Parser.FileExtension;
 
                         // push current script to stack and run new script
                         Scripts.Push(CurrentScript);
@@ -217,7 +217,7 @@ namespace abt.auto
                                 throw new Exception(Constants.Messages.Error_Executing_NoAction);
 
                             if (!action.IsValid())
-                                throw new Exception(@"Invalid action arguments");
+                                throw new Exception(Constants.Messages.Error_Executing_InvalidArg);
 
                             // execute the action
                             int ret = action.Execute();
@@ -267,10 +267,10 @@ namespace abt.auto
 
             while (true)
             {
-                int idx = input.IndexOf(@"$(");
+                int idx = input.IndexOf(Constants.Keywords.VariableNamePrefix);
                 if (idx < 0)
                     return input;
-                int idx2 = input.IndexOf(@")", idx);
+                int idx2 = input.IndexOf(Constants.Keywords.VariableNameSuffix, idx);
                 if (idx2 < 0)
                     return input;
 

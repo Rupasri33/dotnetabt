@@ -23,7 +23,7 @@ namespace abt.auto
         public ExcelFileParser()
         {
             Lines = new List<SourceLine>();
-            m_WorksheetName = @"No name";
+            m_WorksheetName = Constants.DefaultName;
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace abt.auto
 
                 int workaround = 100 - Lines.Count;
                 for (int i = 0; i < workaround; i++)
-                    worksheet.Cells[Lines.Count + i, 0] = new Cell(@"");
+                    worksheet.Cells[Lines.Count + i, 0] = new Cell(string.Empty);
 
                 workbook.Worksheets.Add(worksheet);
                 workbook.Save(WorkingDir + FileName + FileExtension);

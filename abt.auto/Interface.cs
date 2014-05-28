@@ -49,7 +49,7 @@ namespace abt.auto
                 {
                     if (line.ColumnCount > 0)
                     {
-                        if (Constants.KeywordWindow.Equals(line.Columns[0], StringComparison.CurrentCultureIgnoreCase))
+                        if (Constants.Keywords.KeywordWindow.Equals(line.Columns[0], StringComparison.CurrentCultureIgnoreCase))
                         {
                             this.Name = line.Columns[1].ToLower();
                             for (int i = 2; i < line.ColumnCount; i++)
@@ -60,7 +60,7 @@ namespace abt.auto
                                 Properties[pairs[0].ToLower()] = pairs[1];
                             }
                         }
-                        else if (Constants.KeywordControl.Equals(line.Columns[0], StringComparison.CurrentCultureIgnoreCase))
+                        else if (Constants.Keywords.KeywordControl.Equals(line.Columns[0], StringComparison.CurrentCultureIgnoreCase))
                         {
                             string controlName = line.Columns[1].ToLower();
                             for (int i = 2; i < line.ColumnCount; i++)

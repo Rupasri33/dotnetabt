@@ -42,14 +42,14 @@ namespace uiatest
                 at.Ended += at_Ended;
                 at.ActionPerforming += at_ActionPerforming;
 
-                System.Threading.Thread.Sleep(3000);
-                at.Pause();
+                //System.Threading.Thread.Sleep(3000);
+                //at.Pause();
 
-                System.Threading.Thread.Sleep(10000);
-                at.Resume();
+                //System.Threading.Thread.Sleep(10000);
+                //at.Resume();
 
-                System.Threading.Thread.Sleep(3000);
-                at.Interupt();
+                //System.Threading.Thread.Sleep(3000);
+                //at.Interupt();
             }
             catch (Exception e)
             {

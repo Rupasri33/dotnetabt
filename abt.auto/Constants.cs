@@ -8,13 +8,21 @@ namespace abt.auto
     public class Constants
     {
         public const string PropertyDelimeter = @":";
-        public const string KeywordWindow = @"window";
-        public const string KeywordControl = @"control";
+        public const string DefaultName = @"No name";
 
-        public const string KeywordInterface = @"interface";
-        public const string KeywordScript = @"script";
-        public const string ActionUseInterface = @"use interface";
-        public const string ActionStartScript = @"start script";
+        public class Keywords
+        {
+            public const string KeywordWindow = @"window";
+            public const string KeywordControl = @"control";
+
+            public const string KeywordInterface = @"interface";
+            public const string KeywordScript = @"script";
+            public const string ActionUseInterface = @"use interface";
+            public const string ActionStartScript = @"start script";
+
+            public const string VariableNamePrefix = @"$(";
+            public const string VariableNameSuffix = @")";
+        }
 
         public class Messages
         {
@@ -29,6 +37,7 @@ namespace abt.auto
             public const string Error_Matching_Control_NotFound = @"Control not found, or not unique";
 
             public const string Error_Executing_NoAction = @"Action not found";
+            public const string Error_Executing_InvalidArg = @"Invalid action arguments";
 
             public const string Error_ExcelFileNotFound = @"File not found or invalid format.";
             public const string Error_ExcelFileNoWorkbook = @"No workbook";
@@ -47,6 +56,23 @@ namespace abt.auto
             public const string ScriptDir = @"\Script\";
             public const string DataDir = @"\Data\";
             public const string ReportDir = @"\Report\";
+        }
+
+        public class ReportText
+        {
+            public const string ReportNamePrefix = @"Report - ";
+            public const string ReportNameSuffix = @" - No data set";
+            public const string ReportDateFormat = @"yyyy-MM-dd.hh-mm";
+
+            public const string BeginReport = @"REPORT";
+            public const string EndReport = @"END REPORT";
+            public const string BeginDataSet = @"DATASET";
+
+            public const string BeginScript = @"begin script";
+            public const string EndScript = @"end script";
+            public const string BeginDataRow = @"DATA ROW";
+            public const string EndDataRow = @"DATA ROW";
+            public const string ErrorLinePrefix = @"ERROR: ";
         }
     }
 }
