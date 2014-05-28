@@ -57,6 +57,7 @@
     <Compile Include="src\actions\ActionClick.cs" />
     <Compile Include="src\actions\ActionCloseWindow.cs" />
     <Compile Include="src\actions\ActionEnter.cs" />
+    <Compile Include="src\actions\ActionSelectMenuItem.cs" />
     <Compile Include="src\actions\ActionSet.cs" />
     <Compile Include="src\actions\ActionStartProgram.cs" />
     <Compile Include="src\actions\ActionCheckWindowExist.cs" />

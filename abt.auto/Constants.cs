@@ -62,7 +62,7 @@ namespace abt.auto
         {
             public const string ReportNamePrefix = @"Report - ";
             public const string ReportNameSuffix = @" - No data set";
-            public const string ReportDateFormat = @"yyyy-MM-dd.hh-mm";
+            public const string ReportDateFormat = @"yyyy-MM-dd.HH-mm";
 
             public const string BeginReport = @"REPORT";
             public const string EndReport = @"END REPORT";
@@ -73,6 +73,11 @@ namespace abt.auto
             public const string BeginDataRow = @"DATA ROW";
             public const string EndDataRow = @"DATA ROW";
             public const string ErrorLinePrefix = @"ERROR: ";
+
+            public const string SummaryReport = @"SUMMARY";
+            public const string TotalCheck = @"Checks: ";
+            public const string TotalPassed = @"Passed: ";
+            public const string TotalWarning = @"Warning: ";
         }
     }
 }

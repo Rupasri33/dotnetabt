@@ -124,5 +124,15 @@ namespace uia_auto.actions
 
             return 0;
         }
+
+        /// <summary>
+        /// reset action after executing
+        /// </summary>
+        public override void Reset()
+        {
+            base.Reset();
+            X = Y = null;
+            LeftClick = DoubleClick = null;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Automation;
 
 using abt.model;
 using uia_auto;
@@ -76,8 +77,31 @@ namespace uia_auto.actions
                 Result = Window.Name == PropertyValue ? ActionResult.PASSED : ActionResult.FAILED;
             else if (Constants.PropertyNames.Title.Equals(PropertyName, StringComparison.CurrentCultureIgnoreCase))
                 Result = Window.Name == PropertyValue ? ActionResult.PASSED : ActionResult.FAILED;
-
+            else
+            {
+                AutomationProperty[] props = Window.AutomationElement.GetSupportedProperties();
+                foreach (AutomationProperty prop in props)
+                {
+                    string propName = prop.ProgrammaticName.Substring(prop.ProgrammaticName.IndexOf('.') + 1);
+                    propName = propName.Substring(0, propName.IndexOf("Property"));
+                    if (propName.Equals(PropertyName, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        if (Window.AutomationElement.GetCurrentPropertyValue(prop).ToString().Equals(PropertyValue, StringComparison.CurrentCultureIgnoreCase))
+                            Result = ActionResult.PASSED;
+                        break;
+                    }
+                }
+            }
             return 0;
+        }
+
+        /// <summary>
+        /// reset action after executing
+        /// </summary>
+        public override void Reset()
+        {
+            base.Reset();
+            PropertyName = PropertyValue = null;
         }
     }
 }

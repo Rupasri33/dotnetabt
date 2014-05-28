@@ -18,6 +18,21 @@ namespace abt.auto
         { }
 
         /// <summary>
+        /// total number of check
+        /// </summary>
+        private int TotalCheck { get; set; }
+
+        /// <summary>
+        /// total number of 'passed'
+        /// </summary>
+        private int TotalPassed { get; set; }
+
+        /// <summary>
+        /// total number of warnings
+        /// </summary>
+        private int TotalWarning { get; set; }
+
+        /// <summary>
         /// current indent of the report
         /// </summary>
         private int Indent { get; set; }
@@ -57,6 +72,14 @@ namespace abt.auto
             line.Columns.Add(Name);
 
             Lines.Add(line);
+
+            line = new SourceLine();
+            line.Columns.Add(Constants.ReportText.SummaryReport);
+            line.Columns.Add(Constants.ReportText.TotalCheck + TotalCheck.ToString());
+            line.Columns.Add(Constants.ReportText.TotalPassed + TotalPassed.ToString());
+            line.Columns.Add(Constants.ReportText.TotalWarning + TotalWarning.ToString());
+            Lines.Insert(1, line);
+
             try
             {
                 Parser.Save(Name);
@@ -124,6 +147,15 @@ namespace abt.auto
             foreach (string key in actLine.Arguments.Keys)
                 line.Columns.Add(key + Constants.PropertyDelimeter + actLine.Arguments[key]);
             line.Columns.Add(result != ActionResult.NORET ? result.ToString() : string.Empty);
+
+            if (result == ActionResult.PASSED || result == ActionResult.FAILED)
+            {
+                TotalCheck++;
+                if (result == ActionResult.PASSED)
+                    TotalPassed++;
+            }
+            else if (result == ActionResult.WARNING)
+                TotalWarning++;
 
             Lines.Add(line);
         }

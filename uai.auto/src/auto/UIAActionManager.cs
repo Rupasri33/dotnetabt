@@ -24,10 +24,17 @@ namespace uia_auto.auto
             : base(parent)
         {
             RegisterAction(new ActionClick());
+            RegisterAction(new ActionEnter());
+            RegisterAction(new ActionSet());
             RegisterAction(new ActionStartProgram());
             RegisterAction(new ActionCloseWindow());
+
+            RegisterAction(new ActionCheckWindowProperty());
+            RegisterAction(new ActionCheckWindowExist());
             RegisterAction(new ActionCheckControlProperty());
             RegisterAction(new ActionCheckControlExist());
+
+            RegisterAction(new ActionSelectMenuItem());
         }
 
         /// <summary>
