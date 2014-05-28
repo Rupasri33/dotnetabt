@@ -1,4 +1,4 @@
-﻿namespace gd
+﻿namespace uia_gui.components
 {
     partial class PropertiesViewer
     {
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.listView = new System.Windows.Forms.ListView();
-            this.groupBox = new System.Windows.Forms.GroupBox();
             this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox = new System.Windows.Forms.GroupBox();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,18 @@
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listView_ItemCheck);
+            this.listView.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView_ItemChecked);
+            // 
+            // columnName
+            // 
+            this.columnName.Text = "Name";
+            this.columnName.Width = 150;
+            // 
+            // columnValue
+            // 
+            this.columnValue.Text = "Value";
+            this.columnValue.Width = 200;
             // 
             // groupBox
             // 
@@ -61,15 +73,6 @@
             this.groupBox.TabIndex = 1;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Properties";
-            // 
-            // columnName
-            // 
-            this.columnName.Text = "Name";
-            // 
-            // columnValue
-            // 
-            this.columnValue.Text = "Value";
-            this.columnValue.Width = 120;
             // 
             // PropertiesViewer
             // 

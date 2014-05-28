@@ -1,4 +1,4 @@
-﻿namespace gd
+﻿namespace uia_gui.components
 {
     partial class WindowsViewer
     {

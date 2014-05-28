@@ -37,6 +37,10 @@ using System.Management;
 using con = System.Windows.Condition;
 using Excel = Microsoft.Office.Interop.Excel;
 using gd;
+using uia_auto.auto;
+using abt.model;
+using abt.auto;
+using uia_gui.forms;
 //using Automation_Test; 
 
 
@@ -325,18 +329,18 @@ namespace gd
                 }
                 //if (System.IO.File.Exists(fName))
                 //{
-                //    if (System.Windows.Forms.MessageBox.Show("Would you like to open the excel file?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                //    {
-                //        try
-                //        {
-                //            System.Diagnostics.Process.Start(fName);
-                //        }
-                //        catch (Exception ex)
-                //        {
-                //            System.Windows.Forms.MessageBox.Show("Error opening the excel file." + Environment.NewLine +
-                //              ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //        }
-                //    }
+                //    //if (System.Windows.Forms.MessageBox.Show("Would you like to open the excel file?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //    //{
+                //        //try
+                //        //{
+                //        //    System.Diagnostics.Process.Start(fName);
+                //        //}
+                //        //catch (Exception ex)
+                //        //{
+                //        //    System.Windows.Forms.MessageBox.Show("Error opening the excel file." + Environment.NewLine +
+                //        //      ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //        //}
+                //    //}
                 //}
 
                 
@@ -791,7 +795,18 @@ namespace gd
 
          private void buttonItem16_Click(object sender, EventArgs e)
          {
+             buttonItem16.Enabled = false;
+             buttonItem15.Enabled = true;
+             runToolStripMenuItem.Enabled = true;
+             buttonItem4.Enabled = false;
+         }
 
+         private void buttonItem4_Click(object sender, EventArgs e)
+         {
+             buttonItem16.Enabled = false;
+             buttonItem15.Enabled = true;
+             runToolStripMenuItem.Enabled = true;
+             buttonItem4.Enabled = false;
          }
 
          
