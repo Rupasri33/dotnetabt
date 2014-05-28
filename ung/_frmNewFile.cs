@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ung
 {
-    public partial class _frmNewFile : DevComponents.DotNetBar.Office2007RibbonForm
+    public partial class _frmNewFile : Telerik.WinControls.UI.RadForm
     {
         public _frmNewFile()
         {
@@ -23,9 +23,8 @@ namespace ung
             comboBoxType.SelectedIndex = 0;
         }
 
-        private void _btAdd_Click_1(object sender, EventArgs e)
+        private void _btAdd_Click(object sender, EventArgs e)
         {
-
             if (textBoxName.Text == "")
                 MessageBox.Show("Enter folder name!");
             else
@@ -34,7 +33,7 @@ namespace ung
             }
         }
 
-        private void _btCancal_Click(object sender, EventArgs e)
+        private void _btCancel_Click(object sender, EventArgs e)
         {
             Close();
         }

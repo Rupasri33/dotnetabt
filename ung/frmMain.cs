@@ -16,11 +16,12 @@ using ExcelLibrary.BinaryDrawingFormat;
 using ExcelLibrary.BinaryFileFormat;
 using ExcelLibrary.SpreadSheet;
 using Excel = Microsoft.Office.Interop.Excel;
+using Telerik.WinControls.UI.Docking;
 #endregion
 
 namespace ung
 {
-    public partial class frmMain : DevComponents.DotNetBar.Office2007RibbonForm
+    public partial class frmMain : Telerik.WinControls.UI.RadForm
     {
         public frmMain()
         {
@@ -623,6 +624,11 @@ namespace ung
             run.ShowDialog();
         }
         #endregion         
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
 
        
 

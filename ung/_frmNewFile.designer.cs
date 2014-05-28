@@ -35,9 +35,13 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.lbTieuDe = new DevComponents.DotNetBar.Controls.ReflectionLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this._btAdd = new System.Windows.Forms.Button();
-            this._btCancal = new System.Windows.Forms.Button();
+            this.aquaTheme1 = new Telerik.WinControls.Themes.AquaTheme();
+            this._btAdd = new Telerik.WinControls.UI.RadButton();
+            this._btCancel = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._btAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._btCancel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // labelX1
@@ -118,31 +122,23 @@
             // 
             // _btAdd
             // 
-            this._btAdd.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this._btAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btAdd.ForeColor = System.Drawing.Color.White;
-            this._btAdd.Location = new System.Drawing.Point(232, 172);
+            this._btAdd.Location = new System.Drawing.Point(232, 173);
             this._btAdd.Name = "_btAdd";
-            this._btAdd.Size = new System.Drawing.Size(127, 23);
+            this._btAdd.Size = new System.Drawing.Size(106, 24);
             this._btAdd.TabIndex = 41;
             this._btAdd.Text = "Add";
-            this._btAdd.UseVisualStyleBackColor = false;
-            this._btAdd.Click += new System.EventHandler(this._btAdd_Click_1);
+            this._btAdd.ThemeName = "Aqua";
+            this._btAdd.Click += new System.EventHandler(this._btAdd_Click);
             // 
-            // _btCancal
+            // _btCancel
             // 
-            this._btCancal.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this._btCancal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._btCancal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._btCancal.ForeColor = System.Drawing.Color.White;
-            this._btCancal.Location = new System.Drawing.Point(365, 172);
-            this._btCancal.Name = "_btCancal";
-            this._btCancal.Size = new System.Drawing.Size(112, 23);
-            this._btCancal.TabIndex = 42;
-            this._btCancal.Text = "Cancel";
-            this._btCancal.UseVisualStyleBackColor = false;
-            this._btCancal.Click += new System.EventHandler(this._btCancal_Click);
+            this._btCancel.Location = new System.Drawing.Point(375, 173);
+            this._btCancel.Name = "_btCancel";
+            this._btCancel.Size = new System.Drawing.Size(102, 24);
+            this._btCancel.TabIndex = 42;
+            this._btCancel.Text = "Cancel";
+            this._btCancel.ThemeName = "Aqua";
+            this._btCancel.Click += new System.EventHandler(this._btCancel_Click);
             // 
             // _frmNewFile
             // 
@@ -150,8 +146,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(502, 209);
-            this.Controls.Add(this._btCancal);
+            this.ClientSize = new System.Drawing.Size(502, 206);
+            this.Controls.Add(this._btCancel);
             this.Controls.Add(this._btAdd);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbTieuDe);
@@ -159,12 +155,21 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.labelX1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "_frmNewFile";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "New File";
+            this.ThemeName = "Aqua";
             this.Load += new System.EventHandler(this._frmNewFile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._btAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._btCancel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,7 +183,8 @@
         public System.Windows.Forms.ComboBox comboBoxType;
         private DevComponents.DotNetBar.Controls.ReflectionLabel lbTieuDe;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button _btAdd;
-        private System.Windows.Forms.Button _btCancal;
+        private Telerik.WinControls.Themes.AquaTheme aquaTheme1;
+        private Telerik.WinControls.UI.RadButton _btAdd;
+        private Telerik.WinControls.UI.RadButton _btCancel;
     }
 }

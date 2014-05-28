@@ -13,21 +13,19 @@ using seleniumabt;
 
 namespace ung
 {
-    public partial class frmRun : DevComponents.DotNetBar.Office2007RibbonForm
+    public partial class frmRun : Telerik.WinControls.UI.RadForm
     {
         public frmRun()
         {
             InitializeComponent();
         }
 
-        private void frmRun_Load(object sender, EventArgs e)
+        private void btCancel_Click(object sender, EventArgs e)
         {
-            //frmMain main = new frmMain();
-            //_txtScript.Text = main._treeViewProjectExplore.SelectedNode.Text;
-            _cboBrowser.SelectedIndex = 0;
+            Close();
         }
 
-        private void _btRun_Click(object sender, EventArgs e)
+        private void btRun_Click(object sender, EventArgs e)
         {
             //Automation at = new Automation(new ExcelFileParser());
             //SeleniumActionManager am = new SeleniumActionManager(at);
@@ -38,12 +36,28 @@ namespace ung
 
             //at.Scripts.Push(startScript);
             //at.Run();
-           
-        }
 
-        private void _btCancel_Click(object sender, EventArgs e)
-        {
-            Close();
+            Automation at = new Automation(new ExcelFileParser(), new ExcelReporter(), @"D:\VAIO\dotnetabt\seleniumabt\sample");
+            if (radRadioChrome.IsChecked)
+            {
+                SeleniumActionManager am = new SeleniumActionManager(at, SeleniumActionManager.Browser.Chrome);
+            }
+            else if (radRadioFireFox.IsChecked)
+            {
+                SeleniumActionManager am = new SeleniumActionManager(at, SeleniumActionManager.Browser.FireFox);
+            }
+            else if (radRadioIE.IsChecked)
+            {
+                SeleniumActionManager am = new SeleniumActionManager(at, SeleniumActionManager.Browser.IE);
+            }
+
+            Script startScript = new Script(at.Parser.NewInstance);
+            startScript.FileName = _txtScript.Text;
+
+            at.Scripts.Push(startScript);
+            at.Start();
+            this.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.Close();
         }
     }
 }
