@@ -218,6 +218,34 @@
     <None Include="Resources\openfile.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Lib Telerik\RadControlSpy.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.ChartView.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.GridView.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.PivotGrid.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.RadChart.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.RadDock.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.RadMarkupEditor.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.RichTextBox.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Scheduler.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.SpellChecker.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.Aqua.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.Breeze.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.Desert.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.HighContrastBlack.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.Office2007Black.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.Office2007Silver.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.Office2010Black.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.Office2010Blue.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.Office2010Silver.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.TelerikMetro.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.TelerikMetroBlue.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.Themes.Windows7.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.UI.Design.dll" />
+    <Content Include="Lib Telerik\Telerik.WinControls.UI.dll" />
+    <Content Include="Lib Telerik\TelerikCommon.dll" />
+    <Content Include="Lib Telerik\TelerikData.dll" />
+    <Content Include="Lib Telerik\VisualStyleBuilder.Design.dll" />
     <Content Include="Lib\Bricks.dll" />
     <Content Include="Lib\Bricks.RuntimeFramework.dll" />
     <Content Include="Lib\Castle.Core.dll" />
