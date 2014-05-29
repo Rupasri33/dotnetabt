@@ -60,9 +60,17 @@ namespace AUI_Test
 
         public string getopen(string path)
         {
-            string file = path;
-            doc = CompoundDocument.Open(file);
-            return file;
+            try
+            {
+                string file = path;
+                doc = CompoundDocument.Open(file);
+                return file;
+            }
+            catch(Exception e)
+            {
+                return "";
+                MessageBox.Show(""+ e);
+            }
 
         }
 
@@ -116,46 +124,53 @@ namespace AUI_Test
         public DataGridView loadexcel()
         {
 
-            byte[] bookdata = doc.GetStreamData("Workbook"); // Doc Theo Byte
-            if (bookdata == null) return null;
-            Workbook book = WorkbookDecoder.Decode(new MemoryStream(bookdata));
-            Worksheet sheet = book.Worksheets[0];
-            TabPage sheetPage = new TabPage(); // Tên Sheet
-            dgvCells = new DataGridView(); // Tao Moi Datagridview
-            dgvCells.Dock = DockStyle.Fill;
-            dgvCells.RowCount = sheet.Cells.LastRowIndex + 1;
-            dgvCells.ColumnCount = sheet.Cells.LastColIndex + 1;
-
-            // tranverse cells
-            foreach (Pair<Pair<int, int>, Cell> cell in sheet.Cells)
+            try
             {
-                dgvCells[cell.Left.Right, cell.Left.Left].Value = cell.Right.Value;
-                if (cell.Right.Style.BackColor != Color.White)
-                {
-                    dgvCells[cell.Left.Right, cell.Left.Left].Style.BackColor = cell.Right.Style.BackColor;
-                }
-            }
+                byte[] bookdata = doc.GetStreamData("Workbook"); // Doc Theo Byte
+                if (bookdata == null) return null;
+                Workbook book = WorkbookDecoder.Decode(new MemoryStream(bookdata));
+                Worksheet sheet = book.Worksheets[0];
+                TabPage sheetPage = new TabPage(); // Tên Sheet
+                dgvCells = new DataGridView(); // Tao Moi Datagridview
+                dgvCells.Dock = DockStyle.Fill;
+                dgvCells.RowCount = sheet.Cells.LastRowIndex + 1;
+                dgvCells.ColumnCount = sheet.Cells.LastColIndex + 1;
 
-            // tranvers rows by Index
-            for (int rowIndex = sheet.Cells.FirstRowIndex; rowIndex <= sheet.Cells.LastRowIndex; rowIndex++)
+                // tranverse cells
+                foreach (Pair<Pair<int, int>, Cell> cell in sheet.Cells)
+                {
+                    dgvCells[cell.Left.Right, cell.Left.Left].Value = cell.Right.Value;
+                    if (cell.Right.Style.BackColor != Color.White)
+                    {
+                        dgvCells[cell.Left.Right, cell.Left.Left].Style.BackColor = cell.Right.Style.BackColor;
+                    }
+                }
+
+                // tranvers rows by Index
+                for (int rowIndex = sheet.Cells.FirstRowIndex; rowIndex <= sheet.Cells.LastRowIndex; rowIndex++)
+                {
+                    Row row = sheet.Cells.GetRow(rowIndex);
+                    for (int colIndex = row.FirstColIndex; colIndex <= row.LastColIndex; colIndex++)
+                    {
+                        Cell cell = row.GetCell(colIndex);
+                    }
+                }
+                // tranvers rows directly
+
+                foreach (KeyValuePair<int, Row> row in sheet.Cells.Rows)
+                {
+                    foreach (KeyValuePair<int, Cell> cell in row.Value)
+                    {
+                    }
+                }
+
+                doc.Close();
+                return dgvCells;
+            }
+            catch
             {
-                Row row = sheet.Cells.GetRow(rowIndex);
-                for (int colIndex = row.FirstColIndex; colIndex <= row.LastColIndex; colIndex++)
-                {
-                    Cell cell = row.GetCell(colIndex);
-                }
+                return null;
             }
-            // tranvers rows directly
-
-            foreach (KeyValuePair<int, Row> row in sheet.Cells.Rows)
-            {
-                foreach (KeyValuePair<int, Cell> cell in row.Value)
-                {
-                }
-            }
-
-            doc.Close();
-            return dgvCells;
 
         }
 

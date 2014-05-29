@@ -54,9 +54,8 @@ namespace AUI_Test
 
         public DirectoryTabcontrol()
         {
-
-            Run();      
-            
+            Run();
+            Dock = DockStyle.Fill;           
             
         }
     }

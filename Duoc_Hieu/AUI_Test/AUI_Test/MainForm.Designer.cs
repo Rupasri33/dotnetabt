@@ -37,16 +37,25 @@
             this.aquaTheme1 = new Telerik.WinControls.Themes.AquaTheme();
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem7 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItemNewProject = new Telerik.WinControls.UI.RadMenuItem();
+            this._New_Project = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem8 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItemOpenProject = new Telerik.WinControls.UI.RadMenuItem();
+            this._Open_Project = new Telerik.WinControls.UI.RadMenuItem();
             this.Open_File = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem9 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem10 = new Telerik.WinControls.UI.RadMenuItem();
+            this._M_Save = new Telerik.WinControls.UI.RadMenuItem();
+            this._M_Close = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem2 = new Telerik.WinControls.UI.RadMenuItem();
+            this._M_Undo = new Telerik.WinControls.UI.RadMenuItem();
+            this._M_Redo = new Telerik.WinControls.UI.RadMenuItem();
+            this._M_Cut = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem19 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem20 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
             this.view_soutionexplorer = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem6 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem15 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem16 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem17 = new Telerik.WinControls.UI.RadMenuItem();
             this.telerikMetroTheme1 = new Telerik.WinControls.Themes.TelerikMetroTheme();
             this.office2010BlackTheme1 = new Telerik.WinControls.Themes.Office2010BlackTheme();
             this.office2010BlueTheme1 = new Telerik.WinControls.Themes.Office2010BlueTheme();
@@ -55,10 +64,8 @@
             this.radTileElement2 = new Telerik.WinControls.UI.RadTileElement();
             this.radTileElement12 = new Telerik.WinControls.UI.RadTileElement();
             this.radMenuItem5 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem6 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem21 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem22 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
             this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.documentWindow1 = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.object_33e842d7_5c20_44e4_849f_47be975b335a = new Telerik.WinControls.RootRadElement();
@@ -79,63 +86,59 @@
             this.Automation_Bar = new Telerik.WinControls.UI.RadCommandBar();
             this.commandBarRowElementChinh = new Telerik.WinControls.UI.CommandBarRowElement();
             this.commandBarStripElementProject = new Telerik.WinControls.UI.CommandBarStripElement();
+            this._OpenProject = new Telerik.WinControls.UI.CommandBarButton();
+            this._NewProject = new Telerik.WinControls.UI.CommandBarButton();
+            this._Save = new Telerik.WinControls.UI.CommandBarButton();
             this.commandBarStripElementFile = new Telerik.WinControls.UI.CommandBarStripElement();
-            this.commandBarButtonOpenFile = new Telerik.WinControls.UI.CommandBarButton();
+            this._Undo = new Telerik.WinControls.UI.CommandBarButton();
+            this._Redo = new Telerik.WinControls.UI.CommandBarButton();
+            this._Cut = new Telerik.WinControls.UI.CommandBarButton();
+            this._Copy = new Telerik.WinControls.UI.CommandBarButton();
+            this._Paste = new Telerik.WinControls.UI.CommandBarButton();
             this.commandBarStripElementExcute = new Telerik.WinControls.UI.CommandBarStripElement();
-            this.commandBarButtonRun = new Telerik.WinControls.UI.CommandBarButton();
+            this._Run = new Telerik.WinControls.UI.CommandBarButton();
+            this._Pause = new Telerik.WinControls.UI.CommandBarButton();
+            this._Stop = new Telerik.WinControls.UI.CommandBarButton();
             this.commandBarStripElementSpy = new Telerik.WinControls.UI.CommandBarStripElement();
+            this._Spy = new Telerik.WinControls.UI.CommandBarButton();
             this.commandBarStripElement1 = new Telerik.WinControls.UI.CommandBarStripElement();
+            this._Help = new Telerik.WinControls.UI.CommandBarButton();
             this.aquaTheme2 = new Telerik.WinControls.Themes.AquaTheme();
             this.commandBarRowElement1 = new Telerik.WinControls.UI.CommandBarRowElement();
             this.radDock3 = new Telerik.WinControls.UI.Docking.RadDock();
             this.documentContainer3 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.radDock = new Telerik.WinControls.UI.Docking.RadDock();
+            this.documentWindowDoc = new Telerik.WinControls.UI.Docking.DocumentWindow();
+            this.tabControl = new AUI_Test.DirectoryTabcontrol();
             this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.Solution_Explorer = new Telerik.WinControls.UI.Docking.ToolWindow();
             this.panelsolution = new System.Windows.Forms.Panel();
-            this.radTextBoxduongdanproject = new Telerik.WinControls.UI.RadTextBox();
+            this.treeView = new AUI_Test.DirectoryTreeview();
             this.Document = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
+            this.documentWindowintroduction = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.myImageList = new System.Windows.Forms.ImageList(this.components);
             this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.documentWindowintroduction = new Telerik.WinControls.UI.Docking.DocumentWindow();
-            this.commandBarButtonOpenProject = new Telerik.WinControls.UI.CommandBarButton();
-            this.commandBarButtonNewProject = new Telerik.WinControls.UI.CommandBarButton();
-            this.commandBarButtonSave = new Telerik.WinControls.UI.CommandBarButton();
-            this.commandBarButtonPause = new Telerik.WinControls.UI.CommandBarButton();
-            this.commandBarButtonStop = new Telerik.WinControls.UI.CommandBarButton();
-            this.commandBarButtonSpy = new Telerik.WinControls.UI.CommandBarButton();
-            this.radMenuItem13 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem14 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem18 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem19 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem20 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem15 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem16 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem17 = new Telerik.WinControls.UI.RadMenuItem();
-            this.documentWindowDoc = new Telerik.WinControls.UI.Docking.DocumentWindow();
-            this.tabControl = new AUI_Test.DirectoryTabcontrol();
-            this.treeView = new AUI_Test.DirectoryTreeview();
+            this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
             ((System.ComponentModel.ISupportInitialize)(this.radDock2)).BeginInit();
             this.radDock2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Automation_Bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDock3)).BeginInit();
             this.radDock3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDock)).BeginInit();
             this.radDock.SuspendLayout();
+            this.documentWindowDoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
             this.toolTabStrip1.SuspendLayout();
             this.Solution_Explorer.SuspendLayout();
             this.panelsolution.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radTextBoxduongdanproject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Document)).BeginInit();
             this.Document.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
-            this.documentWindowDoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,8 +149,8 @@
             this.radMenuItem1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radMenuItem7,
             this.radMenuItem8,
-            this.radMenuItem9,
-            this.radMenuItem10});
+            this._M_Save,
+            this._M_Close});
             this.radMenuItem1.Name = "radMenuItem1";
             this.radMenuItem1.Text = "File";
             this.radMenuItem1.Visibility = Telerik.WinControls.ElementVisibility.Visible;
@@ -157,92 +160,144 @@
             this.radMenuItem7.AccessibleDescription = "New";
             this.radMenuItem7.AccessibleName = "New";
             this.radMenuItem7.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItemNewProject});
+            this._New_Project});
             this.radMenuItem7.Name = "radMenuItem7";
             this.radMenuItem7.Text = "New";
             this.radMenuItem7.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             this.radMenuItem7.Click += new System.EventHandler(this.radMenuItem7_Click);
             // 
-            // radMenuItemNewProject
+            // _New_Project
             // 
-            this.radMenuItemNewProject.AccessibleDescription = "Project";
-            this.radMenuItemNewProject.AccessibleName = "Project";
-            this.radMenuItemNewProject.Image = null;
-            this.radMenuItemNewProject.Name = "radMenuItemNewProject";
-            this.radMenuItemNewProject.Text = "Project";
-            this.radMenuItemNewProject.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.radMenuItemNewProject.Click += new System.EventHandler(this.radMenuItem11_Click);
+            this._New_Project.AccessibleDescription = "New Project";
+            this._New_Project.AccessibleName = "New Project";
+            this._New_Project.Image = null;
+            this._New_Project.Name = "_New_Project";
+            this._New_Project.Text = "Project";
+            this._New_Project.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this._New_Project.Click += new System.EventHandler(this.radMenuItem11_Click);
             // 
             // radMenuItem8
             // 
             this.radMenuItem8.AccessibleDescription = "Open";
             this.radMenuItem8.AccessibleName = "Open";
             this.radMenuItem8.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItemOpenProject,
+            this._Open_Project,
             this.Open_File});
             this.radMenuItem8.Name = "radMenuItem8";
             this.radMenuItem8.Text = "Open";
             this.radMenuItem8.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             this.radMenuItem8.Click += new System.EventHandler(this.radMenuItem8_Click);
             // 
-            // radMenuItemOpenProject
+            // _Open_Project
             // 
-            this.radMenuItemOpenProject.AccessibleDescription = "Project";
-            this.radMenuItemOpenProject.AccessibleName = "Project";
-            this.radMenuItemOpenProject.Image = null;
-            this.radMenuItemOpenProject.Name = "radMenuItemOpenProject";
-            this.radMenuItemOpenProject.Text = "Project";
-            this.radMenuItemOpenProject.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.radMenuItemOpenProject.Click += new System.EventHandler(this.radMenuItemOpenProject_Click);
+            this._Open_Project.AccessibleDescription = "Open Project";
+            this._Open_Project.AccessibleName = "Open Project";
+            this._Open_Project.Image = ((System.Drawing.Image)(resources.GetObject("_Open_Project.Image")));
+            this._Open_Project.Name = "_Open_Project";
+            this._Open_Project.Text = "Project";
+            this._Open_Project.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this._Open_Project.Click += new System.EventHandler(this.radMenuItemOpenProject_Click);
             // 
             // Open_File
             // 
             this.Open_File.AccessibleDescription = "Open File";
             this.Open_File.AccessibleName = "Open File";
+            this.Open_File.Image = ((System.Drawing.Image)(resources.GetObject("Open_File.Image")));
             this.Open_File.Name = "Open_File";
             this.Open_File.Text = " File";
             this.Open_File.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             this.Open_File.Click += new System.EventHandler(this.Open_File_Click);
             // 
-            // radMenuItem9
+            // _M_Save
             // 
-            this.radMenuItem9.AccessibleDescription = "Exit";
-            this.radMenuItem9.AccessibleName = "Exit";
-            this.radMenuItem9.Image = null;
-            this.radMenuItem9.Name = "radMenuItem9";
-            this.radMenuItem9.Text = "Save  Ctr+S";
-            this.radMenuItem9.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this._M_Save.AccessibleDescription = "Save";
+            this._M_Save.AccessibleName = "Save";
+            this._M_Save.Image = ((System.Drawing.Image)(resources.GetObject("_M_Save.Image")));
+            this._M_Save.Name = "_M_Save";
+            this._M_Save.Text = "Save  Ctr+S";
+            this._M_Save.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
-            // radMenuItem10
+            // _M_Close
             // 
-            this.radMenuItem10.AccessibleDescription = "Close";
-            this.radMenuItem10.AccessibleName = "Close";
-            this.radMenuItem10.Image = null;
-            this.radMenuItem10.Name = "radMenuItem10";
-            this.radMenuItem10.Text = "Close  Atl+F4";
-            this.radMenuItem10.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.radMenuItem10.Click += new System.EventHandler(this.radMenuItem10_Click);
+            this._M_Close.AccessibleDescription = "Close";
+            this._M_Close.AccessibleName = "Close";
+            this._M_Close.Image = ((System.Drawing.Image)(resources.GetObject("_M_Close.Image")));
+            this._M_Close.Name = "_M_Close";
+            this._M_Close.Text = "Close  Atl+F4";
+            this._M_Close.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this._M_Close.Click += new System.EventHandler(this.radMenuItem10_Click);
             // 
             // radMenuItem2
             // 
             this.radMenuItem2.AccessibleDescription = "Edit";
             this.radMenuItem2.AccessibleName = "Edit";
             this.radMenuItem2.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem13,
-            this.radMenuItem14,
-            this.radMenuItem18,
+            this._M_Undo,
+            this._M_Redo,
+            this._M_Cut,
             this.radMenuItem19,
             this.radMenuItem20});
             this.radMenuItem2.Name = "radMenuItem2";
             this.radMenuItem2.Text = "Edit";
             this.radMenuItem2.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
+            // _M_Undo
+            // 
+            this._M_Undo.AccessibleDescription = "Undo";
+            this._M_Undo.AccessibleName = "Undo";
+            this._M_Undo.Image = ((System.Drawing.Image)(resources.GetObject("_M_Undo.Image")));
+            this._M_Undo.Name = "_M_Undo";
+            this._M_Undo.Text = "Undo   Ctr+Z";
+            this._M_Undo.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this._M_Undo.Click += new System.EventHandler(this.radMenuItem13_Click);
+            // 
+            // _M_Redo
+            // 
+            this._M_Redo.AccessibleDescription = "Redo";
+            this._M_Redo.AccessibleName = "Redo";
+            this._M_Redo.Image = ((System.Drawing.Image)(resources.GetObject("_M_Redo.Image")));
+            this._M_Redo.Name = "_M_Redo";
+            this._M_Redo.Text = "Redo   Ctr+Y";
+            this._M_Redo.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this._M_Redo.Click += new System.EventHandler(this.radMenuItem14_Click);
+            // 
+            // _M_Cut
+            // 
+            this._M_Cut.AccessibleDescription = "Cut     Ctr+X";
+            this._M_Cut.AccessibleName = "Cut     Ctr+X";
+            this._M_Cut.Image = ((System.Drawing.Image)(resources.GetObject("_M_Cut.Image")));
+            this._M_Cut.Name = "_M_Cut";
+            this._M_Cut.Text = "Cut     Ctr+X";
+            this._M_Cut.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this._M_Cut.Click += new System.EventHandler(this.radMenuItem18_Click);
+            // 
+            // radMenuItem19
+            // 
+            this.radMenuItem19.AccessibleDescription = "Copy   Ctr+C";
+            this.radMenuItem19.AccessibleName = "Copy   Ctr+C";
+            this.radMenuItem19.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem19.Image")));
+            this.radMenuItem19.Name = "radMenuItem19";
+            this.radMenuItem19.Text = "Copy   Ctr+C";
+            this.radMenuItem19.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.radMenuItem19.Click += new System.EventHandler(this.radMenuItem19_Click);
+            // 
+            // radMenuItem20
+            // 
+            this.radMenuItem20.AccessibleDescription = "Paste  Ctr+V";
+            this.radMenuItem20.AccessibleName = "Paste  Ctr+V";
+            this.radMenuItem20.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem20.Image")));
+            this.radMenuItem20.Name = "radMenuItem20";
+            this.radMenuItem20.Text = "Paste  Ctr+V";
+            this.radMenuItem20.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.radMenuItem20.Click += new System.EventHandler(this.radMenuItem20_Click);
+            // 
             // radMenuItem3
             // 
             this.radMenuItem3.AccessibleDescription = "View";
             this.radMenuItem3.AccessibleName = "View";
             this.radMenuItem3.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.view_soutionexplorer});
+            this.view_soutionexplorer,
+            this.radMenuItem6});
             this.radMenuItem3.Name = "radMenuItem3";
             this.radMenuItem3.Text = "View";
             this.radMenuItem3.Visibility = Telerik.WinControls.ElementVisibility.Visible;
@@ -251,10 +306,20 @@
             // 
             this.view_soutionexplorer.AccessibleDescription = "Solution Explorer";
             this.view_soutionexplorer.AccessibleName = "Solution Explorer";
+            this.view_soutionexplorer.Image = ((System.Drawing.Image)(resources.GetObject("view_soutionexplorer.Image")));
             this.view_soutionexplorer.Name = "view_soutionexplorer";
             this.view_soutionexplorer.Text = "Solution Explorer";
             this.view_soutionexplorer.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             this.view_soutionexplorer.Click += new System.EventHandler(this.radMenuItem23_Click);
+            // 
+            // radMenuItem6
+            // 
+            this.radMenuItem6.AccessibleDescription = "Spy";
+            this.radMenuItem6.AccessibleName = "Spy";
+            this.radMenuItem6.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem6.Image")));
+            this.radMenuItem6.Name = "radMenuItem6";
+            this.radMenuItem6.Text = "Spy";
+            this.radMenuItem6.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
             // radMenuItem4
             // 
@@ -267,6 +332,34 @@
             this.radMenuItem4.Name = "radMenuItem4";
             this.radMenuItem4.Text = "Execution";
             this.radMenuItem4.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radMenuItem15
+            // 
+            this.radMenuItem15.AccessibleDescription = "Run";
+            this.radMenuItem15.AccessibleName = "Run";
+            this.radMenuItem15.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem15.Image")));
+            this.radMenuItem15.Name = "radMenuItem15";
+            this.radMenuItem15.Text = "Run    F5";
+            this.radMenuItem15.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.radMenuItem15.Click += new System.EventHandler(this.radMenuItem15_Click);
+            // 
+            // radMenuItem16
+            // 
+            this.radMenuItem16.AccessibleDescription = "Pause";
+            this.radMenuItem16.AccessibleName = "Pause";
+            this.radMenuItem16.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem16.Image")));
+            this.radMenuItem16.Name = "radMenuItem16";
+            this.radMenuItem16.Text = "Pause";
+            this.radMenuItem16.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radMenuItem17
+            // 
+            this.radMenuItem17.AccessibleDescription = "Stop";
+            this.radMenuItem17.AccessibleName = "Stop";
+            this.radMenuItem17.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem17.Image")));
+            this.radMenuItem17.Name = "radMenuItem17";
+            this.radMenuItem17.Text = "Stop";
+            this.radMenuItem17.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
             // radDock2
             // 
@@ -298,7 +391,6 @@
             this.documentContainer2.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
             this.documentContainer2.TabIndex = 0;
             this.documentContainer2.TabStop = false;
-            this.documentContainer2.ThemeName = "Aqua";
             // 
             // radTileElement2
             // 
@@ -327,14 +419,6 @@
             this.radMenuItem5.Text = "Tool";
             this.radMenuItem5.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
-            // radMenuItem6
-            // 
-            this.radMenuItem6.AccessibleDescription = "Spy";
-            this.radMenuItem6.AccessibleName = "Spy";
-            this.radMenuItem6.Name = "radMenuItem6";
-            this.radMenuItem6.Text = "Spy";
-            this.radMenuItem6.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
             // radMenuItem21
             // 
             this.radMenuItem21.AccessibleDescription = "About";
@@ -350,24 +434,6 @@
             this.radMenuItem22.Name = "radMenuItem22";
             this.radMenuItem22.Text = "Help";
             this.radMenuItem22.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radMenu1
-            // 
-            this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem1,
-            this.radMenuItem2,
-            this.radMenuItem3,
-            this.radMenuItem4,
-            this.radMenuItem5,
-            this.radMenuItem6,
-            this.radMenuItem21,
-            this.radMenuItem22});
-            this.radMenu1.Location = new System.Drawing.Point(0, 0);
-            this.radMenu1.Name = "radMenu1";
-            this.radMenu1.Size = new System.Drawing.Size(971, 21);
-            this.radMenu1.TabIndex = 0;
-            this.radMenu1.Text = "radMenu1";
-            this.radMenu1.ThemeName = "Aqua";
             // 
             // documentWindow1
             // 
@@ -524,7 +590,7 @@
             this.Automation_Bar.Name = "Automation_Bar";
             this.Automation_Bar.Rows.AddRange(new Telerik.WinControls.UI.CommandBarRowElement[] {
             this.commandBarRowElementChinh});
-            this.Automation_Bar.Size = new System.Drawing.Size(971, 30);
+            this.Automation_Bar.Size = new System.Drawing.Size(971, 40);
             this.Automation_Bar.TabIndex = 2;
             this.Automation_Bar.Text = "Automation Test";
             this.Automation_Bar.ThemeName = "Aqua";
@@ -547,67 +613,183 @@
             this.commandBarStripElementProject.DisplayName = "commandBarStripElementProject";
             this.commandBarStripElementProject.FloatingForm = null;
             this.commandBarStripElementProject.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
-            this.commandBarButtonOpenProject,
-            this.commandBarButtonNewProject,
-            this.commandBarButtonSave});
+            this._OpenProject,
+            this._NewProject,
+            this._Save});
             this.commandBarStripElementProject.Name = "commandBarStripElement1";
             this.commandBarStripElementProject.Text = "";
+            // 
+            // _OpenProject
+            // 
+            this._OpenProject.AccessibleDescription = "Open Project";
+            this._OpenProject.AccessibleName = "Open Project";
+            this._OpenProject.DisplayName = "Open Project";
+            this._OpenProject.Image = ((System.Drawing.Image)(resources.GetObject("_OpenProject.Image")));
+            this._OpenProject.Name = "_OpenProject";
+            this._OpenProject.Text = "";
+            this._OpenProject.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // _NewProject
+            // 
+            this._NewProject.AccessibleDescription = "New Project";
+            this._NewProject.AccessibleName = "New Project";
+            this._NewProject.DisplayName = "New Project";
+            this._NewProject.Image = ((System.Drawing.Image)(resources.GetObject("_NewProject.Image")));
+            this._NewProject.Name = "_NewProject";
+            this._NewProject.Text = "";
+            this._NewProject.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // _Save
+            // 
+            this._Save.AccessibleDescription = "Save";
+            this._Save.AccessibleName = "Save";
+            this._Save.DisplayName = "Save";
+            this._Save.Image = ((System.Drawing.Image)(resources.GetObject("_Save.Image")));
+            this._Save.Name = "_Save";
+            this._Save.Text = "";
+            this._Save.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
             // commandBarStripElementFile
             // 
             this.commandBarStripElementFile.DisplayName = "commandBarStripElementFile";
             this.commandBarStripElementFile.FloatingForm = null;
             this.commandBarStripElementFile.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
-            this.commandBarButtonOpenFile});
+            this._Undo,
+            this._Redo,
+            this._Cut,
+            this._Copy,
+            this._Paste});
             this.commandBarStripElementFile.Name = "commandBarStripElement1";
             this.commandBarStripElementFile.Text = "";
             // 
-            // commandBarButtonOpenFile
+            // _Undo
             // 
-            this.commandBarButtonOpenFile.AccessibleDescription = "Open File";
-            this.commandBarButtonOpenFile.AccessibleName = "Open File";
-            this.commandBarButtonOpenFile.DisplayName = "Open File";
-            this.commandBarButtonOpenFile.Image = null;
-            this.commandBarButtonOpenFile.Name = "commandBarButtonOpenFile";
-            this.commandBarButtonOpenFile.Text = "";
-            this.commandBarButtonOpenFile.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this._Undo.AccessibleDescription = "Undo";
+            this._Undo.AccessibleName = "Undo";
+            this._Undo.DisplayName = "commandBarButton2";
+            this._Undo.Image = ((System.Drawing.Image)(resources.GetObject("_Undo.Image")));
+            this._Undo.Name = "_Undo";
+            this._Undo.Text = "undo";
+            this._Undo.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // _Redo
+            // 
+            this._Redo.AccessibleDescription = "Redo";
+            this._Redo.AccessibleName = "Redo";
+            this._Redo.DisplayName = "commandBarButton3";
+            this._Redo.Image = ((System.Drawing.Image)(resources.GetObject("_Redo.Image")));
+            this._Redo.Name = "_Redo";
+            this._Redo.Text = "redo";
+            this._Redo.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // _Cut
+            // 
+            this._Cut.AccessibleDescription = "Cut";
+            this._Cut.AccessibleName = "Cut";
+            this._Cut.DisplayName = "commandBarButton4";
+            this._Cut.Image = ((System.Drawing.Image)(resources.GetObject("_Cut.Image")));
+            this._Cut.Name = "_Cut";
+            this._Cut.Text = "cut";
+            this._Cut.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // _Copy
+            // 
+            this._Copy.AccessibleDescription = "Copy";
+            this._Copy.AccessibleName = "Copy";
+            this._Copy.DisplayName = "commandBarButton5";
+            this._Copy.Image = ((System.Drawing.Image)(resources.GetObject("_Copy.Image")));
+            this._Copy.Name = "_Copy";
+            this._Copy.Text = "copy";
+            this._Copy.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // _Paste
+            // 
+            this._Paste.AccessibleDescription = "Paste";
+            this._Paste.AccessibleName = "Paste";
+            this._Paste.DisplayName = "commandBarButton6";
+            this._Paste.Image = ((System.Drawing.Image)(resources.GetObject("_Paste.Image")));
+            this._Paste.Name = "_Paste";
+            this._Paste.Text = "paste";
+            this._Paste.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
             // commandBarStripElementExcute
             // 
             this.commandBarStripElementExcute.DisplayName = "commandBarStripElementExcute";
             this.commandBarStripElementExcute.FloatingForm = null;
             this.commandBarStripElementExcute.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
-            this.commandBarButtonRun,
-            this.commandBarButtonPause,
-            this.commandBarButtonStop});
+            this._Run,
+            this._Pause,
+            this._Stop});
             this.commandBarStripElementExcute.Name = "commandBarStripElement1";
             this.commandBarStripElementExcute.Text = "";
             // 
-            // commandBarButtonRun
+            // _Run
             // 
-            this.commandBarButtonRun.AccessibleDescription = "Run";
-            this.commandBarButtonRun.AccessibleName = "Run";
-            this.commandBarButtonRun.DisplayName = "Run";
-            this.commandBarButtonRun.Image = null;
-            this.commandBarButtonRun.Name = "commandBarButtonRun";
-            this.commandBarButtonRun.Text = "commandBarButton1";
-            this.commandBarButtonRun.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this._Run.AccessibleDescription = "Run";
+            this._Run.AccessibleName = "Run";
+            this._Run.DisplayName = "Pause";
+            this._Run.Image = ((System.Drawing.Image)(resources.GetObject("_Run.Image")));
+            this._Run.Name = "_Run";
+            this._Run.Text = "run";
+            this._Run.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // _Pause
+            // 
+            this._Pause.AccessibleDescription = "Pause";
+            this._Pause.AccessibleName = "Pause";
+            this._Pause.DisplayName = "commandBarButton1";
+            this._Pause.Image = ((System.Drawing.Image)(resources.GetObject("_Pause.Image")));
+            this._Pause.Name = "_Pause";
+            this._Pause.Text = "pause";
+            this._Pause.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // _Stop
+            // 
+            this._Stop.AccessibleDescription = "Stop";
+            this._Stop.AccessibleName = "Stop";
+            this._Stop.DisplayName = "commandBarButton7";
+            this._Stop.Image = ((System.Drawing.Image)(resources.GetObject("_Stop.Image")));
+            this._Stop.Name = "_Stop";
+            this._Stop.Text = "stop";
+            this._Stop.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
             // commandBarStripElementSpy
             // 
             this.commandBarStripElementSpy.DisplayName = "commandBarStripElement1";
             this.commandBarStripElementSpy.FloatingForm = null;
             this.commandBarStripElementSpy.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
-            this.commandBarButtonSpy});
+            this._Spy});
             this.commandBarStripElementSpy.Name = "commandBarStripElement1";
             this.commandBarStripElementSpy.Text = "";
+            // 
+            // _Spy
+            // 
+            this._Spy.AccessibleDescription = "Spy";
+            this._Spy.AccessibleName = "Spy";
+            this._Spy.DisplayName = "commandBarButton8";
+            this._Spy.Image = ((System.Drawing.Image)(resources.GetObject("_Spy.Image")));
+            this._Spy.Name = "_Spy";
+            this._Spy.Text = "spy";
+            this._Spy.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
             // commandBarStripElement1
             // 
             this.commandBarStripElement1.DisplayName = "commandBarStripElement1";
             this.commandBarStripElement1.FloatingForm = null;
+            this.commandBarStripElement1.Items.AddRange(new Telerik.WinControls.UI.RadCommandBarBaseItem[] {
+            this._Help});
             this.commandBarStripElement1.Name = "commandBarStripElement1";
             this.commandBarStripElement1.Text = "";
+            // 
+            // _Help
+            // 
+            this._Help.AccessibleDescription = "Help";
+            this._Help.AccessibleName = "Help";
+            this._Help.DisplayName = "commandBarButton9";
+            this._Help.Image = ((System.Drawing.Image)(resources.GetObject("_Help.Image")));
+            this._Help.Name = "_Help";
+            this._Help.Text = "help";
+            this._Help.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
             // commandBarRowElement1
             // 
@@ -645,7 +827,6 @@
             this.documentContainer3.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
             this.documentContainer3.TabIndex = 0;
             this.documentContainer3.TabStop = false;
-            this.documentContainer3.ThemeName = "Aqua";
             // 
             // radDock
             // 
@@ -656,18 +837,37 @@
             this.radDock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radDock.DocumentManager.DocumentInsertOrder = Telerik.WinControls.UI.Docking.DockWindowInsertOrder.InFront;
             this.radDock.IsCleanUpTarget = true;
-            this.radDock.Location = new System.Drawing.Point(0, 51);
+            this.radDock.Location = new System.Drawing.Point(0, 61);
             this.radDock.MainDocumentContainer = this.Document;
             this.radDock.Name = "radDock";
             // 
             // 
             // 
             this.radDock.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.radDock.Size = new System.Drawing.Size(971, 438);
+            this.radDock.Size = new System.Drawing.Size(971, 441);
             this.radDock.TabIndex = 3;
             this.radDock.TabStop = false;
             this.radDock.Text = "radDock1";
             this.radDock.ThemeName = "Aqua";
+            // 
+            // documentWindowDoc
+            // 
+            this.documentWindowDoc.Controls.Add(this.tabControl);
+            this.documentWindowDoc.Location = new System.Drawing.Point(4, 31);
+            this.documentWindowDoc.Name = "documentWindowDoc";
+            this.documentWindowDoc.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
+            this.documentWindowDoc.Size = new System.Drawing.Size(747, 406);
+            this.documentWindowDoc.Text = "Document";
+            // 
+            // tabControl
+            // 
+            this.tabControl.Dir = null;
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(747, 406);
+            this.tabControl.TabIndex = 0;
             // 
             // toolTabStrip1
             // 
@@ -680,7 +880,7 @@
             // 
             this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
             this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(213, 438);
+            this.toolTabStrip1.Size = new System.Drawing.Size(213, 441);
             this.toolTabStrip1.SizeInfo.AbsoluteSize = new System.Drawing.Size(213, 200);
             this.toolTabStrip1.SizeInfo.SplitterCorrection = new System.Drawing.Size(56, 0);
             this.toolTabStrip1.TabIndex = 1;
@@ -693,29 +893,34 @@
             this.Solution_Explorer.AccessibleName = "Solution Explorer";
             this.Solution_Explorer.Caption = null;
             this.Solution_Explorer.Controls.Add(this.panelsolution);
-            this.Solution_Explorer.Controls.Add(this.radTextBoxduongdanproject);
             this.Solution_Explorer.Location = new System.Drawing.Point(4, 23);
             this.Solution_Explorer.Name = "Solution_Explorer";
             this.Solution_Explorer.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.Solution_Explorer.Size = new System.Drawing.Size(205, 411);
+            this.Solution_Explorer.Size = new System.Drawing.Size(205, 414);
             this.Solution_Explorer.Text = "Solution Explorer";
             this.Solution_Explorer.ToolCaptionButtons = Telerik.WinControls.UI.Docking.ToolStripCaptionButtons.AutoHide;
             // 
             // panelsolution
             // 
             this.panelsolution.Controls.Add(this.treeView);
-            this.panelsolution.Location = new System.Drawing.Point(-4, -2);
+            this.panelsolution.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelsolution.Location = new System.Drawing.Point(0, 0);
             this.panelsolution.Name = "panelsolution";
-            this.panelsolution.Size = new System.Drawing.Size(214, 420);
+            this.panelsolution.Size = new System.Drawing.Size(205, 414);
             this.panelsolution.TabIndex = 0;
             // 
-            // radTextBoxduongdanproject
+            // treeView
             // 
-            this.radTextBoxduongdanproject.Location = new System.Drawing.Point(1, 398);
-            this.radTextBoxduongdanproject.Name = "radTextBoxduongdanproject";
-            this.radTextBoxduongdanproject.Size = new System.Drawing.Size(204, 20);
-            this.radTextBoxduongdanproject.TabIndex = 1;
-            this.radTextBoxduongdanproject.TabStop = false;
+            this.treeView.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.treeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView.ImageIndex = 0;
+            this.treeView.Location = new System.Drawing.Point(0, 0);
+            this.treeView.Name = "treeView";
+            this.treeView.PathTree = ".\\";
+            this.treeView.SelectedImageIndex = 1;
+            this.treeView.Size = new System.Drawing.Size(205, 414);
+            this.treeView.TabIndex = 0;
             // 
             // Document
             // 
@@ -728,7 +933,7 @@
             // 
             // 
             this.Document.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.Document.Size = new System.Drawing.Size(755, 438);
+            this.Document.Size = new System.Drawing.Size(755, 441);
             this.Document.SizeInfo.AbsoluteSize = new System.Drawing.Size(758, 200);
             this.Document.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
             this.Document.SizeInfo.SplitterCorrection = new System.Drawing.Size(-434, 0);
@@ -749,10 +954,20 @@
             // 
             this.documentTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
             this.documentTabStrip1.SelectedIndex = 1;
-            this.documentTabStrip1.Size = new System.Drawing.Size(755, 438);
+            this.documentTabStrip1.Size = new System.Drawing.Size(755, 441);
             this.documentTabStrip1.TabIndex = 0;
             this.documentTabStrip1.TabStop = false;
             this.documentTabStrip1.ThemeName = "Aqua";
+            // 
+            // documentWindowintroduction
+            // 
+            this.documentWindowintroduction.BackgroundImage = global::AUI_Test.Properties.Resources.introduce;
+            this.documentWindowintroduction.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.documentWindowintroduction.Location = new System.Drawing.Point(4, 29);
+            this.documentWindowintroduction.Name = "documentWindowintroduction";
+            this.documentWindowintroduction.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
+            this.documentWindowintroduction.Size = new System.Drawing.Size(747, 408);
+            this.documentWindowintroduction.Text = "Introduction";
             // 
             // myImageList
             // 
@@ -766,189 +981,29 @@
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList.Images.SetKeyName(0, "introduction.jpg");
             // 
-            // documentWindowintroduction
+            // radMenu1
             // 
-            this.documentWindowintroduction.BackgroundImage = global::AUI_Test.Properties.Resources.introduce;
-            this.documentWindowintroduction.Location = new System.Drawing.Point(4, 27);
-            this.documentWindowintroduction.Name = "documentWindowintroduction";
-            this.documentWindowintroduction.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.documentWindowintroduction.Size = new System.Drawing.Size(747, 407);
-            this.documentWindowintroduction.Text = "Introduction";
-            // 
-            // commandBarButtonOpenProject
-            // 
-            this.commandBarButtonOpenProject.AccessibleDescription = "Open Project";
-            this.commandBarButtonOpenProject.AccessibleName = "Open Project";
-            this.commandBarButtonOpenProject.DisplayName = "Open Project";
-            this.commandBarButtonOpenProject.Image = ((System.Drawing.Image)(resources.GetObject("commandBarButtonOpenProject.Image")));
-            this.commandBarButtonOpenProject.Name = "commandBarButtonOpenProject";
-            this.commandBarButtonOpenProject.Text = "";
-            this.commandBarButtonOpenProject.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // commandBarButtonNewProject
-            // 
-            this.commandBarButtonNewProject.AccessibleDescription = "New Project";
-            this.commandBarButtonNewProject.AccessibleName = "New Project";
-            this.commandBarButtonNewProject.DisplayName = "New Project";
-            this.commandBarButtonNewProject.Image = ((System.Drawing.Image)(resources.GetObject("commandBarButtonNewProject.Image")));
-            this.commandBarButtonNewProject.Name = "commandBarButtonNewProject";
-            this.commandBarButtonNewProject.Text = "";
-            this.commandBarButtonNewProject.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // commandBarButtonSave
-            // 
-            this.commandBarButtonSave.AccessibleDescription = "Save";
-            this.commandBarButtonSave.AccessibleName = "Save";
-            this.commandBarButtonSave.DisplayName = "Save";
-            this.commandBarButtonSave.Image = ((System.Drawing.Image)(resources.GetObject("commandBarButtonSave.Image")));
-            this.commandBarButtonSave.Name = "commandBarButtonSave";
-            this.commandBarButtonSave.Text = "";
-            this.commandBarButtonSave.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // commandBarButtonPause
-            // 
-            this.commandBarButtonPause.AccessibleDescription = "Pause";
-            this.commandBarButtonPause.AccessibleName = "Pause";
-            this.commandBarButtonPause.DisplayName = "Pause";
-            this.commandBarButtonPause.Image = ((System.Drawing.Image)(resources.GetObject("commandBarButtonPause.Image")));
-            this.commandBarButtonPause.Name = "commandBarButtonPause";
-            this.commandBarButtonPause.Text = "commandBarButton1";
-            this.commandBarButtonPause.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // commandBarButtonStop
-            // 
-            this.commandBarButtonStop.AccessibleDescription = "Stop";
-            this.commandBarButtonStop.AccessibleName = "Stop";
-            this.commandBarButtonStop.DisplayName = "commandBarButton1";
-            this.commandBarButtonStop.Image = ((System.Drawing.Image)(resources.GetObject("commandBarButtonStop.Image")));
-            this.commandBarButtonStop.Name = "commandBarButtonStop";
-            this.commandBarButtonStop.Text = "Stop";
-            this.commandBarButtonStop.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // commandBarButtonSpy
-            // 
-            this.commandBarButtonSpy.AccessibleDescription = "Spy";
-            this.commandBarButtonSpy.AccessibleName = "Spy";
-            this.commandBarButtonSpy.DisplayName = "Spy";
-            this.commandBarButtonSpy.Image = ((System.Drawing.Image)(resources.GetObject("commandBarButtonSpy.Image")));
-            this.commandBarButtonSpy.Name = "commandBarButtonSpy";
-            this.commandBarButtonSpy.Text = "";
-            this.commandBarButtonSpy.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radMenuItem13
-            // 
-            this.radMenuItem13.AccessibleDescription = "undo";
-            this.radMenuItem13.AccessibleName = "undo";
-            this.radMenuItem13.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem13.Image")));
-            this.radMenuItem13.Name = "radMenuItem13";
-            this.radMenuItem13.Text = "Undo   Ctr+Z";
-            this.radMenuItem13.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.radMenuItem13.Click += new System.EventHandler(this.radMenuItem13_Click);
-            // 
-            // radMenuItem14
-            // 
-            this.radMenuItem14.AccessibleDescription = "redo";
-            this.radMenuItem14.AccessibleName = "redo";
-            this.radMenuItem14.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem14.Image")));
-            this.radMenuItem14.Name = "radMenuItem14";
-            this.radMenuItem14.Text = "Redo   Ctr+Y";
-            this.radMenuItem14.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.radMenuItem14.Click += new System.EventHandler(this.radMenuItem14_Click);
-            // 
-            // radMenuItem18
-            // 
-            this.radMenuItem18.AccessibleDescription = "Cut     Ctr+X";
-            this.radMenuItem18.AccessibleName = "Cut     Ctr+X";
-            this.radMenuItem18.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem18.Image")));
-            this.radMenuItem18.Name = "radMenuItem18";
-            this.radMenuItem18.Text = "Cut     Ctr+X";
-            this.radMenuItem18.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.radMenuItem18.Click += new System.EventHandler(this.radMenuItem18_Click);
-            // 
-            // radMenuItem19
-            // 
-            this.radMenuItem19.AccessibleDescription = "Copy   Ctr+C";
-            this.radMenuItem19.AccessibleName = "Copy   Ctr+C";
-            this.radMenuItem19.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem19.Image")));
-            this.radMenuItem19.Name = "radMenuItem19";
-            this.radMenuItem19.Text = "Copy   Ctr+C";
-            this.radMenuItem19.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.radMenuItem19.Click += new System.EventHandler(this.radMenuItem19_Click);
-            // 
-            // radMenuItem20
-            // 
-            this.radMenuItem20.AccessibleDescription = "Paste  Ctr+V";
-            this.radMenuItem20.AccessibleName = "Paste  Ctr+V";
-            this.radMenuItem20.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem20.Image")));
-            this.radMenuItem20.Name = "radMenuItem20";
-            this.radMenuItem20.Text = "Paste  Ctr+V";
-            this.radMenuItem20.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.radMenuItem20.Click += new System.EventHandler(this.radMenuItem20_Click);
-            // 
-            // radMenuItem15
-            // 
-            this.radMenuItem15.AccessibleDescription = "Run";
-            this.radMenuItem15.AccessibleName = "Run";
-            this.radMenuItem15.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem15.Image")));
-            this.radMenuItem15.Name = "radMenuItem15";
-            this.radMenuItem15.Text = "Run    F5";
-            this.radMenuItem15.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.radMenuItem15.Click += new System.EventHandler(this.radMenuItem15_Click);
-            // 
-            // radMenuItem16
-            // 
-            this.radMenuItem16.AccessibleDescription = "Pause";
-            this.radMenuItem16.AccessibleName = "Pause";
-            this.radMenuItem16.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem16.Image")));
-            this.radMenuItem16.Name = "radMenuItem16";
-            this.radMenuItem16.Text = "Pause";
-            this.radMenuItem16.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radMenuItem17
-            // 
-            this.radMenuItem17.AccessibleDescription = "Stop";
-            this.radMenuItem17.AccessibleName = "Stop";
-            this.radMenuItem17.Image = ((System.Drawing.Image)(resources.GetObject("radMenuItem17.Image")));
-            this.radMenuItem17.Name = "radMenuItem17";
-            this.radMenuItem17.Text = "Stop";
-            this.radMenuItem17.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // documentWindowDoc
-            // 
-            this.documentWindowDoc.Controls.Add(this.tabControl);
-            this.documentWindowDoc.Location = new System.Drawing.Point(4, 27);
-            this.documentWindowDoc.Name = "documentWindowDoc";
-            this.documentWindowDoc.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.documentWindowDoc.Size = new System.Drawing.Size(747, 407);
-            this.documentWindowDoc.Text = "Document";
-            // 
-            // tabControl
-            // 
-            this.tabControl.Dir = null;
-            this.tabControl.Location = new System.Drawing.Point(-5, -6);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(756, 416);
-            this.tabControl.TabIndex = 0;
-            // 
-            // treeView
-            // 
-            this.treeView.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.treeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeView.ImageIndex = 0;
-            this.treeView.Location = new System.Drawing.Point(3, 2);
-            this.treeView.Name = "treeView";
-            this.treeView.PathTree = ".\\";
-            this.treeView.SelectedImageIndex = 1;
-            this.treeView.Size = new System.Drawing.Size(208, 415);
-            this.treeView.TabIndex = 0;
+            this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem1,
+            this.radMenuItem2,
+            this.radMenuItem3,
+            this.radMenuItem4,
+            this.radMenuItem5,
+            this.radMenuItem21,
+            this.radMenuItem22});
+            this.radMenu1.Location = new System.Drawing.Point(0, 0);
+            this.radMenu1.Name = "radMenu1";
+            this.radMenu1.Size = new System.Drawing.Size(971, 21);
+            this.radMenu1.TabIndex = 0;
+            this.radMenu1.Text = "radMenu1";
+            this.radMenu1.ThemeName = "Aqua";
             // 
             // MainForm
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 489);
+            this.ClientSize = new System.Drawing.Size(971, 502);
             this.Controls.Add(this.radDock);
             this.Controls.Add(this.Automation_Bar);
             this.Controls.Add(this.radMenu1);
@@ -967,24 +1022,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.radDock2)).EndInit();
             this.radDock2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Automation_Bar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDock3)).EndInit();
             this.radDock3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDock)).EndInit();
             this.radDock.ResumeLayout(false);
+            this.documentWindowDoc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
             this.toolTabStrip1.ResumeLayout(false);
             this.Solution_Explorer.ResumeLayout(false);
-            this.Solution_Explorer.PerformLayout();
             this.panelsolution.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radTextBoxduongdanproject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Document)).EndInit();
             this.Document.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
-            this.documentWindowDoc.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1001,15 +1054,15 @@
         private Telerik.WinControls.UI.RadMenuItem radMenuItem1;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem7;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem8;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem9;
+        private Telerik.WinControls.UI.RadMenuItem _M_Save;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem2;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem4;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem10;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItemNewProject;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItemOpenProject;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem13;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem14;
+        private Telerik.WinControls.UI.RadMenuItem _M_Close;
+        private Telerik.WinControls.UI.RadMenuItem _New_Project;
+        private Telerik.WinControls.UI.RadMenuItem _Open_Project;
+        private Telerik.WinControls.UI.RadMenuItem _M_Undo;
+        private Telerik.WinControls.UI.RadMenuItem _M_Redo;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem15;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem16;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem17;
@@ -1020,14 +1073,12 @@
         private Telerik.WinControls.UI.Docking.DocumentContainer documentContainer2;
         private Telerik.WinControls.UI.RadTileElement radTileElement2;
         private Telerik.WinControls.UI.RadTileElement radTileElement12;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem18;
+        private Telerik.WinControls.UI.RadMenuItem _M_Cut;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem19;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem20;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem5;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem6;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem21;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem22;
-        private Telerik.WinControls.UI.RadMenu radMenu1;
         private Telerik.WinControls.RadThemeManager radThemeManager1;
         private Telerik.WinControls.UI.Docking.DocumentWindow documentWindow1;
         private Telerik.WinControls.RootRadElement object_33e842d7_5c20_44e4_849f_47be975b335a;
@@ -1064,21 +1115,27 @@
         private Telerik.WinControls.UI.Docking.DocumentTabStrip documentTabStrip1;
         private Telerik.WinControls.UI.Docking.DocumentWindow documentWindowintroduction;
         private Telerik.WinControls.UI.RadMenuItem view_soutionexplorer;
-        private Telerik.WinControls.UI.CommandBarButton commandBarButtonOpenProject;
-        private Telerik.WinControls.UI.CommandBarButton commandBarButtonNewProject;
-        private Telerik.WinControls.UI.CommandBarButton commandBarButtonSave;
+        private Telerik.WinControls.UI.CommandBarButton _OpenProject;
+        private Telerik.WinControls.UI.CommandBarButton _NewProject;
+        private Telerik.WinControls.UI.CommandBarButton _Save;
         private Telerik.WinControls.UI.CommandBarStripElement commandBarStripElementFile;
-        private Telerik.WinControls.UI.CommandBarButton commandBarButtonOpenFile;
         private Telerik.WinControls.UI.CommandBarStripElement commandBarStripElementExcute;
-        private Telerik.WinControls.UI.CommandBarButton commandBarButtonRun;
-        private Telerik.WinControls.UI.CommandBarButton commandBarButtonPause;
-        private Telerik.WinControls.UI.CommandBarButton commandBarButtonStop;
+        private Telerik.WinControls.UI.CommandBarButton _Run;
+        private Telerik.WinControls.UI.CommandBarButton _Pause;
         private Telerik.WinControls.UI.CommandBarStripElement commandBarStripElementSpy;
-        private Telerik.WinControls.UI.CommandBarButton commandBarButtonSpy;
         private Telerik.WinControls.UI.CommandBarStripElement commandBarStripElement1;
-        private Telerik.WinControls.UI.RadTextBox radTextBoxduongdanproject;
         private System.Windows.Forms.ImageList imageList;
         private Telerik.WinControls.UI.Docking.DocumentWindow documentWindowDoc;
+        private Telerik.WinControls.UI.CommandBarButton _Undo;
+        private Telerik.WinControls.UI.CommandBarButton _Redo;
+        private Telerik.WinControls.UI.CommandBarButton _Cut;
+        private Telerik.WinControls.UI.CommandBarButton _Copy;
+        private Telerik.WinControls.UI.CommandBarButton _Paste;
+        private Telerik.WinControls.UI.CommandBarButton _Stop;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem6;
+        private Telerik.WinControls.UI.CommandBarButton _Spy;
+        private Telerik.WinControls.UI.CommandBarButton _Help;
+        private Telerik.WinControls.UI.RadMenu radMenu1;
         private DirectoryTabcontrol tabControl;
     }
 }

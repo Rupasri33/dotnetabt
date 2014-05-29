@@ -34,6 +34,16 @@ namespace AUI_Test
             }
         }
 
+
+        public string _nameproject;
+        public string nameproject
+        {
+            set
+            {
+                _nameproject = value;
+            }
+        }
+
         private void radLabel1_Click(object sender, EventArgs e)
         {
 
@@ -61,7 +71,8 @@ namespace AUI_Test
             DirectoryNew DN = new DirectoryNew();              
             DN.PathProject = path;
             DN.NameProject = radTextBoxNameProject.Text;
-            returnduongdanproject = DN.CreateDir();            
+            returnduongdanproject = DN.CreateDir();
+            nameproject = radTextBoxNameProject.Text;
             this.Close();
         }
 

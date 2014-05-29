@@ -50,7 +50,7 @@
             // radLabel1
             // 
             this.radLabel1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel1.Location = new System.Drawing.Point(32, 29);
+            this.radLabel1.Location = new System.Drawing.Point(21, 17);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(112, 22);
             this.radLabel1.TabIndex = 0;
@@ -60,7 +60,7 @@
             // 
             // radTextBoxNameProject
             // 
-            this.radTextBoxNameProject.Location = new System.Drawing.Point(142, 31);
+            this.radTextBoxNameProject.Location = new System.Drawing.Point(131, 19);
             this.radTextBoxNameProject.Name = "radTextBoxNameProject";
             this.radTextBoxNameProject.Size = new System.Drawing.Size(245, 20);
             this.radTextBoxNameProject.TabIndex = 1;
@@ -71,7 +71,7 @@
             // 
             this.radLabel2.BackColor = System.Drawing.Color.Transparent;
             this.radLabel2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(64, 68);
+            this.radLabel2.Location = new System.Drawing.Point(53, 56);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(72, 22);
             this.radLabel2.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             // radTextBoxLocation
             // 
-            this.radTextBoxLocation.Location = new System.Drawing.Point(142, 70);
+            this.radTextBoxLocation.Location = new System.Drawing.Point(131, 58);
             this.radTextBoxLocation.Name = "radTextBoxLocation";
             this.radTextBoxLocation.Size = new System.Drawing.Size(245, 20);
             this.radTextBoxLocation.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             // radButtonBrowse
             // 
-            this.radButtonBrowse.Location = new System.Drawing.Point(407, 70);
+            this.radButtonBrowse.Location = new System.Drawing.Point(394, 58);
             this.radButtonBrowse.Name = "radButtonBrowse";
             this.radButtonBrowse.Size = new System.Drawing.Size(100, 24);
             this.radButtonBrowse.TabIndex = 4;
@@ -98,7 +98,7 @@
             // 
             // radButtonOk
             // 
-            this.radButtonOk.Location = new System.Drawing.Point(142, 111);
+            this.radButtonOk.Location = new System.Drawing.Point(148, 99);
             this.radButtonOk.Name = "radButtonOk";
             this.radButtonOk.Size = new System.Drawing.Size(95, 24);
             this.radButtonOk.TabIndex = 5;
@@ -108,7 +108,7 @@
             // 
             // radButtonCancle
             // 
-            this.radButtonCancle.Location = new System.Drawing.Point(294, 111);
+            this.radButtonCancle.Location = new System.Drawing.Point(283, 99);
             this.radButtonCancle.Name = "radButtonCancle";
             this.radButtonCancle.Size = new System.Drawing.Size(93, 24);
             this.radButtonCancle.TabIndex = 6;
@@ -122,7 +122,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(541, 171);
+            this.ClientSize = new System.Drawing.Size(504, 130);
             this.Controls.Add(this.radButtonCancle);
             this.Controls.Add(this.radButtonOk);
             this.Controls.Add(this.radButtonBrowse);
