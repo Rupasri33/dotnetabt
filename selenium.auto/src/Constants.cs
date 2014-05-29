@@ -20,5 +20,10 @@ namespace selenium_auto
         {
 
         }
+
+        public class WarningMessages
+        {
+            public const string Warning_NotSetControl = @"The control cannot be set.";
+        }
     }
 }

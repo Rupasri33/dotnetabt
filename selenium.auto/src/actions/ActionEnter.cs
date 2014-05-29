@@ -44,7 +44,7 @@ namespace selenium_auto.actions
                 return false;
 
             if (Control == null)
-                return false;
+                throw new Exception(Constants.Messages.Error_Matching_Control_NotFound);
 
             return true;
         }

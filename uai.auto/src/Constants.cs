@@ -28,7 +28,7 @@ namespace uia_auto
 
         public class WarningMessages
         {
-            public const string ReadOnly_TextBox = @"Textbox is read-only";
+            public const string Warning_ReadOnly_TextBox = @"Textbox is read-only";
         }
     }
 }

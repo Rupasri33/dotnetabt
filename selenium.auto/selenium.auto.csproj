@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\actions\ActionCheckControlProperty.cs" />
+    <Compile Include="src\actions\ActionSet.cs" />
     <Compile Include="src\actions\SeleniumAction.cs" />
     <Compile Include="src\actions\ActionClick.cs" />
     <Compile Include="src\actions\ActionEnter.cs" />

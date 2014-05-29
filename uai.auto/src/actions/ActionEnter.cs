@@ -71,7 +71,7 @@ namespace uia_auto.actions
             if (txt.IsReadOnly)
             {
                 Result = ActionResult.WARNING;
-                MoreDetailAboutResult = Constants.WarningMessages.ReadOnly_TextBox;
+                MoreDetailAboutResult = Constants.WarningMessages.Warning_ReadOnly_TextBox;
             }
 
             txt.Text = Text;

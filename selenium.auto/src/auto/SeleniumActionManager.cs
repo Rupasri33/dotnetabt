@@ -63,6 +63,9 @@ namespace selenium_auto.auto
             RegisterAction(new ActionRefresh(WebDriver));
             RegisterAction(new ActionGoBack(WebDriver));
             RegisterAction(new ActionEnter(WebDriver));
+
+            RegisterAction(new ActionCheckControlProperty(WebDriver));
+            RegisterAction(new ActionSet(WebDriver));
         }
 
         /// <summary>

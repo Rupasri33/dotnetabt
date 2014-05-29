@@ -25,10 +25,10 @@ namespace selenium_auto.actions
         /// <returns></returns>
         public override bool IsValid()
         {
-            if (Control != null)
-                return true;
+            if (Control == null)
+                throw new Exception(Constants.Messages.Error_Matching_Control_NotFound);
 
-            return false;
+            return base.IsValid();
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace selenium_auto.actions
         {
             Control.Click();
 
-            return 0;
+            return base.Execute();
         }
     }
 }
