@@ -85,6 +85,23 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization" />
+    <Reference Include="Telerik.WinControls, Version=2012.2.912.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.RadDock, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Breeze, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Desert, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.HighContrastBlack, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2007Black, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2007Silver, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2010Black, Version=2012.2.912.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2010Blue, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2010Silver, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2012.2.912.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2012.2.912.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2012.2.912.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI.Design, Version=2012.2.912.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2012.2.912.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="TestStack.White">
       <HintPath>..\..\..\..\..\Desktop\luanvan\dll\TestStack.White.dll</HintPath>
     </Reference>
@@ -98,11 +115,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addfile.cs">
+    <Compile Include="AddFile1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="addfile.Designer.cs">
-      <DependentUpon>addfile.cs</DependentUpon>
+    <Compile Include="AddFile1.Designer.cs">
+      <DependentUpon>AddFile1.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -116,12 +133,6 @@
     <Compile Include="FormViewer.Designer.cs">
       <DependentUpon>FormViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="frun.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frun.designer.cs">
-      <DependentUpon>frun.cs</DependentUpon>
-    </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,11 +145,11 @@
     <Compile Include="MatchesViewer.Designer.cs">
       <DependentUpon>MatchesViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="new.cs">
+    <Compile Include="NewProject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="new.Designer.cs">
-      <DependentUpon>new.cs</DependentUpon>
+    <Compile Include="NewProject.Designer.cs">
+      <DependentUpon>NewProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="PropertiesViewer.cs">
@@ -148,6 +159,12 @@
       <DependentUpon>PropertiesViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Run.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Run.Designer.cs">
+      <DependentUpon>Run.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,14 +177,11 @@
     <Compile Include="WindowsViewer.Designer.cs">
       <DependentUpon>WindowsViewer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="addfile.resx">
-      <DependentUpon>addfile.cs</DependentUpon>
+    <EmbeddedResource Include="AddFile1.resx">
+      <DependentUpon>AddFile1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViewer.resx">
       <DependentUpon>FormViewer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frun.resx">
-      <DependentUpon>frun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
@@ -175,8 +189,8 @@
     <EmbeddedResource Include="MatchesViewer.resx">
       <DependentUpon>MatchesViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="new.resx">
-      <DependentUpon>new.cs</DependentUpon>
+    <EmbeddedResource Include="NewProject.resx">
+      <DependentUpon>NewProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PropertiesViewer.resx">
       <DependentUpon>PropertiesViewer.cs</DependentUpon>
@@ -190,6 +204,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Run.resx">
+      <DependentUpon>Run.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Spy.resx">
       <DependentUpon>Spy.cs</DependentUpon>
     </EmbeddedResource>

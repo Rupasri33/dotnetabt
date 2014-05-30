@@ -204,11 +204,11 @@ namespace gd
         {
             treeViewproject.Nodes.Clear();
             tabControl1.TabPages.Clear();
-            @new @new = new @new();
-            @new.ShowDialog();
-            if (@new.DialogResult == System.Windows.Forms.DialogResult.Yes)
+            NewProject n = new NewProject();
+            n.ShowDialog();
+            if (n.DialogResult == System.Windows.Forms.DialogResult.Yes)
             {
-                string path = @new.ProjectPath;
+                string path = n.ProjectPath;
                 // lấy path ra ở đây... 
                 TreeNode treenode;
                 
@@ -280,7 +280,7 @@ namespace gd
 
         private void addNewFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            addfile newFile = new addfile();
+            AddFile1 newFile = new AddFile1();
 
             //newFile.labelX3.Text = newFile.labelX3.Text + "-" + treeViewproject.SelectedNode.Text;
             newFile.ShowDialog();
@@ -291,12 +291,12 @@ namespace gd
             Excel.Worksheet xlWorkSheet = default(Excel.Worksheet);
 
             TreeNode treeNode = new TreeNode();
-            treeNode.Text = newFile.textBoxName.Text + "." + newFile.comboBoxType.Text;
+            treeNode.Text = newFile.txtName.Text + "." + newFile.cboType.Text;
             treeNode.Tag = treeNode.Text;
             treeNode.Name = "File";
-            treeNode.ImageIndex = newFile.comboBoxType.SelectedIndex;
+            treeNode.ImageIndex = newFile.cboType.SelectedIndex;
             newFile.Close();
-            if (newFile.textBoxName.Text != "")
+            if (newFile.txtName.Text != "")
             {
                 treeViewproject.SelectedNode.Nodes.Add(treeNode);
                 treeViewproject.SelectedNode.ExpandAll();
@@ -386,7 +386,7 @@ namespace gd
             else
             {
 
-                if (treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[0].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[1].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[2].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[3].Tag)
+                if (treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[0].Tag || treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[1].Tag ||  treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[3].Tag)
                 {
                     addNewFileToolStripMenuItem.Enabled = true;
                     deleteToolStripMenuItem.Enabled = false;
@@ -420,12 +420,24 @@ namespace gd
                         }
                         else
                         {
-                            addNewFileToolStripMenuItem.Enabled = false;
-                            deleteToolStripMenuItem.Enabled = true;
-                            runToolStripMenuItem.Enabled = false;
-                            spyToolStripMenuItem.Enabled = false;
-                            buttonItem2.Enabled = false;
-                            buttonItem15.Enabled = false;
+                            if (treeViewproject.SelectedNode.Tag == treeViewproject.Nodes[0].Nodes[2].Tag)
+                            {
+                                addNewFileToolStripMenuItem.Enabled = false;
+                                deleteToolStripMenuItem.Enabled = false;
+                                runToolStripMenuItem.Enabled = false;
+                                spyToolStripMenuItem.Enabled = false;
+                                buttonItem2.Enabled = false;
+                                buttonItem15.Enabled = false;
+                            }
+                            else
+                            {
+                                addNewFileToolStripMenuItem.Enabled = false;
+                                deleteToolStripMenuItem.Enabled = true;
+                                runToolStripMenuItem.Enabled = false;
+                                spyToolStripMenuItem.Enabled = false;
+                                buttonItem2.Enabled = false;
+                                buttonItem15.Enabled = false;
+                            }
                         }
                     }
                 }
@@ -759,21 +771,17 @@ namespace gd
         //XỬ LÍ NÚT RUN
          private void buttonItem15_Click(object sender, EventArgs e)
          {
-             //if (buttonItem15.Enabled == true)
-             //{
-             //    buttonItem15.Enabled = false;
-             //    buttonItem16.Enabled = true;
-             //    buttonItem4.Enabled = true;
-             //}
              buttonItem15.Enabled = false;
              runToolStripMenuItem.Enabled = false;
              buttonItem16.Enabled = true;
              buttonItem4.Enabled = true;
-             frun f = new frun();
+             Run f = new Run();
              f._txtScript.Text = treeViewproject.SelectedNode.Text;
+             TreeNode currnode = treeViewproject.Nodes[0].Nodes[0];
+             //List<DirectoryInfo> dirlist = Duyetthumuccon((String)currnode.Tag);
+             f._cboData.DataSource = Duyetfile((String)currnode.Tag);
              f.ShowDialog();
-
-
+             f.ShowDialog();
          }
 
          private void runToolStripMenuItem_Click(object sender, EventArgs e)
@@ -782,9 +790,36 @@ namespace gd
              runToolStripMenuItem.Enabled = false;
              buttonItem16.Enabled = true;
              buttonItem4.Enabled = true;
-             frun f = new frun();
+             Run f = new Run();
              f._txtScript.Text = treeViewproject.SelectedNode.Text;
+             TreeNode currnode = treeViewproject.Nodes[0].Nodes[0];
+             //List<DirectoryInfo> dirlist = Duyetthumuccon((String)currnode.Tag);
+             f._cboData.DataSource = Duyetfile((String)currnode.Tag);
              f.ShowDialog();
+         }
+
+         //List<DirectoryInfo> Duyetthumuccon(String path1)
+         //{
+         //    @new n=new @new();
+         //    //string aa = @"E:\aa\test\Data";
+            
+         //    string aa = a + @"\" + b + @"\Data"; 
+         //    DirectoryInfo dirinfo = new DirectoryInfo(aa);
+         //    List<DirectoryInfo> listchilddir = new List<DirectoryInfo>();
+         //    foreach (DirectoryInfo dir in dirinfo.GetDirectories())
+         //    {
+         //        listchilddir.Add(dir);
+         //    }
+         //    return listchilddir;
+         //}
+         FileInfo[] Duyetfile(String path1)
+         {
+            
+             String aa = @"E:\aaaa\"+treeViewproject.Nodes[0].Text+ @"\Data";
+             //string aa = n.ProjectPath1;
+             DirectoryInfo dirinfo = new DirectoryInfo(aa);
+             FileInfo[] fileinfolist = dirinfo.GetFiles();
+             return fileinfolist;
          }
 
          private void spyToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -809,6 +844,7 @@ namespace gd
              buttonItem4.Enabled = false;
          }
 
+         
          
     } 
 }

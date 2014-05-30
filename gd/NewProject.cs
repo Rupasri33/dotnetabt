@@ -3,25 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Telerik.WinControls;
 
 namespace gd
 {
-    public partial class @new : DevComponents.DotNetBar.Office2007RibbonForm
+    public partial class NewProject : Telerik.WinControls.UI.RadForm
     {
-        public @new()
+        public NewProject()
         {
             InitializeComponent();
         }
 
-        private void buttonX3_Click(object sender, EventArgs e)
-        {
-           this.Close();
-        }
-
-        private void buttonX1_Click(object sender, EventArgs e)
+        private void radButton1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowNewFolderButton = false;
@@ -29,32 +24,30 @@ namespace gd
             fbd.RootFolder = Environment.SpecialFolder.MyComputer;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                textBoxX2.Text = fbd.SelectedPath;
+                txtBrowse.Text = fbd.SelectedPath;
 
             }
         }
         public string ProjectPath { get; private set; }
-
-        private void buttonX2_Click(object sender, EventArgs e)
+        public string ProjectPath1 { get; private set; }
+        private void btRun_Click(object sender, EventArgs e)
         {
-            
-           
             try
             {
                 main m = new main();
-                 
-               // main main = new main();
+
+                // main main = new main();
                 //main.GetFirstValue = ProjectPath;
                 this.DialogResult = System.Windows.Forms.DialogResult.No;
                 // Bước 1: tạo biến để lưu thư mục cần tạo, tên thư mục cần tạo là "StoredFiles"
-                string path = textBoxX2.Text;
-                string directoryPath = textBoxX1.Text; 
+                string path = txtBrowse.Text;
+                string directoryPath = txtName.Text;
                 // Bước 2: kiểm tra nếu thư mục "StoredFiles" chưa tồn tại thì tạo mới
                 if (!System.IO.Directory.Exists(directoryPath))
                     System.IO.Directory.CreateDirectory(directoryPath);
                 // Bước 4: tạo tập tin "EmployeeList.txt" trong thư mục "StoredFiles"
                 ProjectPath = path + @"\" + directoryPath;
-
+                ProjectPath1 = path + @"\" + directoryPath + @"\Data";
                 string filePath = path + @"\" + directoryPath + @"\Script";
                 string filePath1 = path + @"\" + directoryPath + @"\Data";
                 string filePath2 = path + @"\" + directoryPath + @"\Interface";
@@ -72,24 +65,23 @@ namespace gd
                 //MessageBox.Show(mesage, "Thông báo");
                 this.DialogResult = System.Windows.Forms.DialogResult.Yes;
                 this.Close();
-               
+
 
             }
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show(ex.InnerException.ToString());
             }
-           
-
-            
         }
 
-        private void @new_Load(object sender, EventArgs e)
+        private void btCancel_Click(object sender, EventArgs e)
         {
-           
-            textBoxX1.Select();
+            Close();
         }
 
-        
+        private void NewProject_Load(object sender, EventArgs e)
+        {
+            txtName.Select();
+        }
     }
 }

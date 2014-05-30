@@ -3,32 +3,23 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-//using abt;
-//using codeduiabt;
+using Telerik.WinControls;
 using abt.model;
 using abt.auto;
 using uia_auto.auto;
 
 namespace gd
 {
-    public partial class frun : DevComponents.DotNetBar.Office2007RibbonForm
+    public partial class Run : Telerik.WinControls.UI.RadForm
     {
-        public frun()
+        public Run()
         {
             InitializeComponent();
         }
 
-        private void buttonX2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void buttonX1_Click(object sender, EventArgs e)
+        private void btAdd_Click(object sender, EventArgs e)
         {
             Close();
             main m = new main();
@@ -43,9 +34,9 @@ namespace gd
             //at.Speed = 10;
             //at.StartScript = startScript;
             //at.Start();
-            string path= m.treeViewproject.Nodes[0].Text;
+            //string path= m.treeViewproject.Nodes[0].Text;
             IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
-                @"E:\aa" + @"\" +path);
+                @"E:\aa\test");
             UIAActionManager am = new UIAActionManager(at);
 
             try
@@ -97,13 +88,8 @@ namespace gd
             //at.Start();
 
 
-
-
-
-
         }
-
-        static void at_ActionPerforming(string s)
+         static void at_ActionPerforming(string s)
         {
  	        //throw new NotImplementedException();
             Console.WriteLine(s);
@@ -131,12 +117,13 @@ namespace gd
         {
             //throw new NotImplementedException();
             Console.WriteLine("Automation paused");
-
-
-
-
-
-
         }
+
+        private void btCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
     }
 }
