@@ -19,8 +19,8 @@ namespace ung
 
         private void _frmNewFile_Load(object sender, EventArgs e)
         {
-            textBoxName.Select();
-            comboBoxType.SelectedIndex = 0;
+            //textBoxName.Select();
+            comboBoxType.SelectedIndex = 1;
         }
 
         private void _btAdd_Click(object sender, EventArgs e)

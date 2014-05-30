@@ -38,6 +38,7 @@ namespace ung
             //at.Run();
 
             Automation at = new Automation(new ExcelFileParser(), new ExcelReporter(), @"D:\VAIO\dotnetabt\seleniumabt\sample");
+
             if (radRadioChrome.IsChecked)
             {
                 SeleniumActionManager am = new SeleniumActionManager(at, SeleniumActionManager.Browser.Chrome);
@@ -58,6 +59,11 @@ namespace ung
             at.Start();
             this.DialogResult = System.Windows.Forms.DialogResult.No;
             this.Close();
+        }
+
+        private void frmRun_Load(object sender, EventArgs e)
+        {
+            _cboData.SelectedIndex = 0;
         }
     }
 }

@@ -32,22 +32,25 @@
             this.aquaTheme1 = new Telerik.WinControls.Themes.AquaTheme();
             this.reflectionLabel1 = new DevComponents.DotNetBar.Controls.ReflectionLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btOK = new Telerik.WinControls.UI.RadButton();
             this.btCancel = new Telerik.WinControls.UI.RadButton();
             this.btBrowse = new Telerik.WinControls.UI.RadButton();
+            this.txtName = new Telerik.WinControls.UI.RadTextBox();
+            this.cboLocation = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btOK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btBrowse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboLocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // reflectionLabel1
             // 
+            this.reflectionLabel1.BackColor = System.Drawing.Color.White;
             // 
             // 
             // 
@@ -72,29 +75,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 40;
             this.pictureBox1.TabStop = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(273, 158);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(215, 21);
-            this.comboBox1.TabIndex = 44;
-            // 
-            // textBoxX1
-            // 
-            this.textBoxX1.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.ForeColor = System.Drawing.Color.Black;
-            this.textBoxX1.Location = new System.Drawing.Point(272, 123);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(216, 20);
-            this.textBoxX1.TabIndex = 43;
             // 
             // label1
             // 
@@ -150,16 +130,39 @@
             this.btBrowse.ThemeName = "Aqua";
             this.btBrowse.Click += new System.EventHandler(this.btBrowse_Click);
             // 
+            // txtName
+            // 
+            this.txtName.AutoCompleteCustomSource.AddRange(new string[] {
+            "zzzz"});
+            this.txtName.Location = new System.Drawing.Point(273, 120);
+            this.txtName.Name = "txtName";
+            this.txtName.NullText = "Enter Project Name ...";
+            this.txtName.Size = new System.Drawing.Size(215, 20);
+            this.txtName.TabIndex = 48;
+            this.txtName.TabStop = false;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            // 
+            // cboLocation
+            // 
+            this.cboLocation.AutoCompleteCustomSource.AddRange(new string[] {
+            "zzzz"});
+            this.cboLocation.Location = new System.Drawing.Point(273, 159);
+            this.cboLocation.Name = "cboLocation";
+            this.cboLocation.NullText = "Browse location save project...";
+            this.cboLocation.Size = new System.Drawing.Size(215, 20);
+            this.cboLocation.TabIndex = 49;
+            this.cboLocation.TabStop = false;
+            // 
             // NewProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 254);
+            this.Controls.Add(this.cboLocation);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.btBrowse);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btOK);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBoxX1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
@@ -174,10 +177,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "";
             this.ThemeName = "Aqua";
+            this.Load += new System.EventHandler(this.NewProject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btOK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btBrowse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboLocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -189,12 +195,12 @@
         private Telerik.WinControls.Themes.AquaTheme aquaTheme1;
         private DevComponents.DotNetBar.Controls.ReflectionLabel reflectionLabel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private Telerik.WinControls.UI.RadButton btOK;
         private Telerik.WinControls.UI.RadButton btCancel;
         private Telerik.WinControls.UI.RadButton btBrowse;
+        public Telerik.WinControls.UI.RadTextBox txtName;
+        public Telerik.WinControls.UI.RadTextBox cboLocation;
     }
 }

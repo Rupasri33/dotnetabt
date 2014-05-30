@@ -20,9 +20,9 @@ using Telerik.WinControls.UI.Docking;
 
 namespace ung
 {
-    public partial class Form1 : Telerik.WinControls.UI.RadForm
+    public partial class Automation_Test_With_Selenium : Telerik.WinControls.UI.RadForm
     {
-        public Form1()
+        public Automation_Test_With_Selenium()
         {
             InitializeComponent();
         }
@@ -30,6 +30,7 @@ namespace ung
         #region Tao New Project
         private void projectToolStripNewProject_Click(object sender, EventArgs e)
         {
+            Text = "";
             _treeViewProjectExplore.Nodes.Clear();
             tabControl1.TabPages.Clear();
             NewProject newpj = new NewProject();
@@ -66,15 +67,14 @@ namespace ung
                                     treenode = new TreeNode(file.Name);
                                     treenode.Tag = file;
                                     treenode.Name = "File";
-                                    treenode.ImageIndex = treenode.SelectedImageIndex = 0; ;
-                                    treenode.SelectedImageIndex = 0;
+                                     treenode.ImageIndex = 0;
+                                    treenode.SelectedImageIndex = 0; ;
                                     _treeViewProjectExplore.Nodes.Add(treenode);
 
                                     if (file.Exists)
                                     {
                                         TreeNode nodes = _treeViewProjectExplore.Nodes[0].Nodes[node.Index].Nodes.Add(file.Name);
-                                        treenode.ImageIndex = 0;
-                                        node.ImageIndex = node.SelectedImageIndex = 0;
+                                        treenode.ImageIndex = 0; ;
                                     }
                                 }
                             }
@@ -88,7 +88,7 @@ namespace ung
                         System.Windows.Forms.MessageBox.Show(ex.Message);
 
                     }
-                    Text = _treeViewProjectExplore.Nodes[0].Text + " - " + Text;
+                    Text = _treeViewProjectExplore.Nodes[0].Text + " - " + "Automation Test With Selenium";
                 }
             }
         }
@@ -96,6 +96,7 @@ namespace ung
         //new project phim tat
         private void newToolStripButton_Click(object sender, EventArgs e)
         {
+            Text = "";
             _treeViewProjectExplore.Nodes.Clear();
             tabControl1.TabPages.Clear();
             NewProject newpj = new NewProject();
@@ -154,7 +155,7 @@ namespace ung
                         System.Windows.Forms.MessageBox.Show(ex.Message);
 
                     }
-                    Text = _treeViewProjectExplore.Nodes[0].Text + " - " + Text;
+                    Text = _treeViewProjectExplore.Nodes[0].Text + " - " + "Automation Test With Selenium";
                 }
             }
         }
@@ -163,6 +164,7 @@ namespace ung
         #region Open Project
         private void projectToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Text = "";
             _treeViewProjectExplore.Nodes.Clear();
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowNewFolderButton = false;
@@ -212,6 +214,7 @@ namespace ung
                                     }
                                 }
                             }
+                            _treeViewProjectExplore.ExpandAll();
                         }
 
 
@@ -220,7 +223,8 @@ namespace ung
                     {
                         System.Windows.Forms.MessageBox.Show(ex.Message);
                     }
-                    Text = _treeViewProjectExplore.Nodes[0].Text + " - " + Text;
+                    Text = _treeViewProjectExplore.Nodes[0].Text + " - " + "Automation Test With Selenium";
+                    
                 }
             }    
         }
@@ -228,6 +232,7 @@ namespace ung
         //open phim tat
         private void openToolStripButton_Click(object sender, EventArgs e)
         {
+            Text = "";
             _treeViewProjectExplore.Nodes.Clear();
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowNewFolderButton = false;
@@ -239,7 +244,6 @@ namespace ung
 
                 TreeNode treenode;
                 string path = fbd.SelectedPath;
-                //doc = CompoundDocument.Open(path);
                 DirectoryInfo dir = new DirectoryInfo(path);
 
                 if (dir.Exists)
@@ -263,12 +267,6 @@ namespace ung
                                 node.ImageIndex = node.SelectedImageIndex = 0;
                                 foreach (FileInfo file in directory.GetFiles())
                                 {
-                                    //treenode = new TreeNode(file.Name);
-                                    //treenode.Tag = file;
-                                    //treenode.Name = "File";
-                                    //treenode.ImageIndex = 0;
-                                    //treenode.ImageIndex = treenode.SelectedImageIndex = 1;
-                                    // _treeViewProjectExplore.Nodes.Add(treenode);
                                     if (file.Exists)
                                     {
                                         TreeNode nodes = _treeViewProjectExplore.Nodes[0].Nodes[node.Index].Nodes.Add(file.Name);
@@ -285,7 +283,7 @@ namespace ung
                     {
                         System.Windows.Forms.MessageBox.Show(ex.Message);
                     }
-                    Text = _treeViewProjectExplore.Nodes[0].Text + " - " + Text;
+                    Text = _treeViewProjectExplore.Nodes[0].Text + " - " + "Automation Test With Selenium";
                 }
             }    
         }
@@ -414,11 +412,25 @@ namespace ung
         #region Run Contax
         private void runToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            
             frmRun run = new frmRun();
             run._txtScript.Text = _treeViewProjectExplore.SelectedNode.Text;
-            run._cboData.Text = _treeViewProjectExplore.Nodes[0].Nodes[0].Nodes[0].Text;
             run.Text = _treeViewProjectExplore.Nodes[0].Text + " - " + run.Text;
+            TreeNode currnode = _treeViewProjectExplore.Nodes[0].Nodes[0];
+            run._cboData.DataSource = Duyetfile((String)currnode.Tag);
             run.ShowDialog();
+        }
+
+        FileInfo[] Duyetfile(String a)
+        {
+            NewProject newproject = new NewProject();
+            string directoryPath = newproject.txtName.Text;
+            string pathabc = @"D:\Automation Test\" + _treeViewProjectExplore.Nodes[0].Text + @"\Data";
+            DirectoryInfo dirinfo = new DirectoryInfo(pathabc);
+            FileInfo[] fileinfolist = dirinfo.GetFiles();
+            return fileinfolist;
+
+           
         }
         #endregion
 
@@ -495,7 +507,7 @@ namespace ung
         #region TreeViewProjectExplore_DoubleClick
         private void _treeViewProjectExplore_DoubleClick_1(object sender, EventArgs e)
         {
-            radDock1.Show();
+            Editor.Select();
             if (_treeViewProjectExplore.SelectedNode.Name == "File")
             {
                 try
@@ -573,16 +585,28 @@ namespace ung
                 runToolStripMenuItem1.Visible = false;
                 addFileToolStripMenuItem.Visible = false;
                 deleteToolStripMenuItem.Visible = false;
+                runToolStripMenuItem.Enabled = false;
+                pauseToolStripMenuItem.Enabled = false;
+                stopToolStripMenuItem.Enabled = false;
+                toolStripButtonRun.Enabled = false;
+                toolStripButtonPause.Enabled = false;
+                toolStripButtonStop.Enabled = false;
             }
             else
             {
                 if (_treeViewProjectExplore.SelectedNode.Tag == _treeViewProjectExplore.Nodes[0].Nodes[0].Tag ||
-                    _treeViewProjectExplore.SelectedNode.Tag == _treeViewProjectExplore.Nodes[0].Nodes[1].Tag || 
-                    _treeViewProjectExplore.SelectedNode.Tag == _treeViewProjectExplore.Nodes[0].Nodes[2].Tag)
+                    _treeViewProjectExplore.SelectedNode.Tag == _treeViewProjectExplore.Nodes[0].Nodes[1].Tag ||
+                    _treeViewProjectExplore.SelectedNode.Tag == _treeViewProjectExplore.Nodes[0].Nodes[3].Tag)
                 {
                     runToolStripMenuItem1.Visible = false;
                     addFileToolStripMenuItem.Visible = true;
                     deleteToolStripMenuItem.Visible = false;
+                    runToolStripMenuItem.Enabled = false;
+                    pauseToolStripMenuItem.Enabled = false;
+                    stopToolStripMenuItem.Enabled = false;
+                    toolStripButtonRun.Enabled = false;
+                    toolStripButtonPause.Enabled = false;
+                    toolStripButtonStop.Enabled = false;
                 }
                 else
                 {
@@ -591,12 +615,39 @@ namespace ung
                         runToolStripMenuItem1.Visible = true;
                         addFileToolStripMenuItem.Visible = false;
                         deleteToolStripMenuItem.Visible = true;
+                        runToolStripMenuItem.Enabled = true;
+                        pauseToolStripMenuItem.Enabled = false;
+                        stopToolStripMenuItem.Enabled = false;
+                        toolStripButtonRun.Enabled = true;
+                        toolStripButtonPause.Enabled = false;
+                        toolStripButtonStop.Enabled = false;
                     }
-                    else
-                    {
-                        runToolStripMenuItem1.Visible = false;
-                        addFileToolStripMenuItem.Visible = false;
-                        deleteToolStripMenuItem.Visible = true;
+                        else
+                        {
+                            if (_treeViewProjectExplore.SelectedNode.Tag == _treeViewProjectExplore.Nodes[0].Nodes[2].Tag)
+                            {
+                                runToolStripMenuItem1.Visible = false;
+                                addFileToolStripMenuItem.Visible = false;
+                                deleteToolStripMenuItem.Visible = false;
+                                runToolStripMenuItem.Enabled = false;
+                                pauseToolStripMenuItem.Enabled = false;
+                                stopToolStripMenuItem.Enabled = false;
+                                toolStripButtonRun.Enabled = false;
+                                toolStripButtonPause.Enabled = false;
+                                toolStripButtonStop.Enabled = false;
+                            }
+                            else
+                            {
+                                runToolStripMenuItem1.Visible = false;
+                                addFileToolStripMenuItem.Visible = false;
+                                deleteToolStripMenuItem.Visible = true;
+                                runToolStripMenuItem.Enabled = false;
+                                pauseToolStripMenuItem.Enabled = false;
+                                stopToolStripMenuItem.Enabled = false;
+                                toolStripButtonRun.Enabled = false;
+                                toolStripButtonPause.Enabled = false;
+                                toolStripButtonStop.Enabled = false;
+                            }
                     }
                 }
             }

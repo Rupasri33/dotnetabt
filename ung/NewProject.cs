@@ -24,21 +24,21 @@ namespace ung
             fbd.RootFolder = Environment.SpecialFolder.MyComputer;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                comboBox1.Text = fbd.SelectedPath;
+                cboLocation.Text = fbd.SelectedPath;
             }
         }
 
         public string ProjectPath { get; private set; }
         private void btOK_Click(object sender, EventArgs e)
         {
-            if (textBoxX1.Text.Trim() == "")
+            if (txtName.Text.Trim() == "")
             {
                 MessageBox.Show("Tên Project không được bỏ trống!");
-                textBoxX1.Focus();
+                txtName.Focus();
             }
             else
             {
-                if (comboBox1.Text.Trim() == "")
+                if (cboLocation.Text.Trim() == "")
                 {
                     MessageBox.Show("Vui lòng chọn đường dẫn lưu tập tin");
                 }
@@ -48,8 +48,8 @@ namespace ung
                     {
                         this.DialogResult = System.Windows.Forms.DialogResult.No;
                         // tạo biến để lưu thư mục cần tạo, tên thư mục cần tạo là "StoredFiles"
-                        string path = comboBox1.Text;
-                        string directoryPath = textBoxX1.Text;
+                        string path = cboLocation.Text;
+                        string directoryPath = txtName.Text;
                         //kiểm tra nếu thư mục "StoredFiles" chưa tồn tại thì tạo mới
                         if (!System.IO.Directory.Exists(directoryPath))
                             System.IO.Directory.CreateDirectory(directoryPath);
@@ -82,6 +82,16 @@ namespace ung
         private void btCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void NewProject_Load(object sender, EventArgs e)
+        {
+            //txtName.Select();
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

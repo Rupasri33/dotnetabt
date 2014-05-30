@@ -64,7 +64,7 @@
             this.lbTieuDe.Location = new System.Drawing.Point(103, 13);
             this.lbTieuDe.Margin = new System.Windows.Forms.Padding(4);
             this.lbTieuDe.Name = "lbTieuDe";
-            this.lbTieuDe.Size = new System.Drawing.Size(388, 68);
+            this.lbTieuDe.Size = new System.Drawing.Size(360, 68);
             this.lbTieuDe.TabIndex = 40;
             this.lbTieuDe.Text = "<b><font size=\'26\' color=\'#00B7EF\'>Run Test Automation\r\n</font></b>";
             // 
@@ -211,6 +211,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Run";
             this.ThemeName = "Aqua";
+            this.Load += new System.EventHandler(this.frmRun_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radRadioFireFox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radRadioIE)).EndInit();

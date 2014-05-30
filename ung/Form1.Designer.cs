@@ -1,6 +1,6 @@
 ﻿namespace ung
 {
-    partial class Form1
+    partial class Automation_Test_With_Selenium
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Automation_Test_With_Selenium));
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.radLabelElement1 = new Telerik.WinControls.UI.RadLabelElement();
             this.toolWindow1 = new Telerik.WinControls.UI.Docking.ToolWindow();
@@ -80,31 +80,31 @@
             this.addFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radDock1 = new Telerik.WinControls.UI.Docking.RadDock();
+            this.Editor = new Telerik.WinControls.UI.Docking.DocumentWindow();
+            this.tabControl1 = new System.Windows.Forms.CustomTabControl();
+            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.toolWindow3 = new Telerik.WinControls.UI.Docking.ToolWindow();
             this._treeViewProjectExplore = new System.Windows.Forms.TreeView();
-            this.toolTabStrip1 = new Telerik.WinControls.UI.Docking.ToolTabStrip();
             this.documentContainer1 = new Telerik.WinControls.UI.Docking.DocumentContainer();
             this.documentTabStrip1 = new Telerik.WinControls.UI.Docking.DocumentTabStrip();
             this.MainWindow = new Telerik.WinControls.UI.Docking.DocumentWindow();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Editor = new Telerik.WinControls.UI.Docking.DocumentWindow();
-            this.tabControl1 = new System.Windows.Forms.CustomTabControl();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.contextMenuStripTreeView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radDock1)).BeginInit();
             this.radDock1.SuspendLayout();
-            this.toolWindow3.SuspendLayout();
+            this.Editor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).BeginInit();
             this.toolTabStrip1.SuspendLayout();
+            this.toolWindow3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).BeginInit();
             this.documentContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).BeginInit();
             this.documentTabStrip1.SuspendLayout();
             this.MainWindow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.Editor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -295,6 +295,7 @@
             // 
             // runToolStripMenuItem
             // 
+            this.runToolStripMenuItem.Enabled = false;
             this.runToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.runToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("runToolStripMenuItem.Image")));
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
@@ -305,6 +306,7 @@
             // 
             // pauseToolStripMenuItem
             // 
+            this.pauseToolStripMenuItem.Enabled = false;
             this.pauseToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.pauseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pauseToolStripMenuItem.Image")));
             this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
@@ -314,6 +316,7 @@
             // 
             // stopToolStripMenuItem
             // 
+            this.stopToolStripMenuItem.Enabled = false;
             this.stopToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.stopToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("stopToolStripMenuItem.Image")));
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
@@ -412,6 +415,7 @@
             // toolStripButtonRun
             // 
             this.toolStripButtonRun.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonRun.Enabled = false;
             this.toolStripButtonRun.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRun.Image")));
             this.toolStripButtonRun.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRun.Name = "toolStripButtonRun";
@@ -421,6 +425,7 @@
             // toolStripButtonPause
             // 
             this.toolStripButtonPause.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPause.Enabled = false;
             this.toolStripButtonPause.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPause.Image")));
             this.toolStripButtonPause.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPause.Name = "toolStripButtonPause";
@@ -430,6 +435,7 @@
             // toolStripButtonStop
             // 
             this.toolStripButtonStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonStop.Enabled = false;
             this.toolStripButtonStop.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStop.Image")));
             this.toolStripButtonStop.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStop.Name = "toolStripButtonStop";
@@ -519,8 +525,10 @@
             // 
             this.imageListTrV.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTrV.ImageStream")));
             this.imageListTrV.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListTrV.Images.SetKeyName(0, "Folder_3.png");
-            this.imageListTrV.Images.SetKeyName(1, "excel-26.png");
+            this.imageListTrV.Images.SetKeyName(0, "icon_folder_red.png");
+            this.imageListTrV.Images.SetKeyName(1, "excel.jpg");
+            this.imageListTrV.Images.SetKeyName(2, "xls.png");
+            this.imageListTrV.Images.SetKeyName(3, "folder.png");
             // 
             // contextMenuStripTreeView
             // 
@@ -553,11 +561,12 @@
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Visible = false;
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // radDock1
             // 
-            this.radDock1.ActiveWindow = this.Editor;
+            this.radDock1.ActiveWindow = this.MainWindow;
             this.radDock1.Controls.Add(this.toolTabStrip1);
             this.radDock1.Controls.Add(this.documentContainer1);
             this.radDock1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -575,98 +584,6 @@
             this.radDock1.TabStop = false;
             this.radDock1.Text = "radDock1";
             this.radDock1.ThemeName = "Office2010Blue";
-            // 
-            // toolWindow3
-            // 
-            this.toolWindow3.Caption = null;
-            this.toolWindow3.Controls.Add(this._treeViewProjectExplore);
-            this.toolWindow3.Location = new System.Drawing.Point(1, 22);
-            this.toolWindow3.Name = "toolWindow3";
-            this.toolWindow3.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
-            this.toolWindow3.Size = new System.Drawing.Size(198, 352);
-            this.toolWindow3.Text = "Solution Explore";
-            // 
-            // _treeViewProjectExplore
-            // 
-            this._treeViewProjectExplore.ContextMenuStrip = this.contextMenuStripTreeView;
-            this._treeViewProjectExplore.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._treeViewProjectExplore.ImageIndex = 1;
-            this._treeViewProjectExplore.ImageList = this.imageListTrV;
-            this._treeViewProjectExplore.Location = new System.Drawing.Point(0, 0);
-            this._treeViewProjectExplore.Name = "_treeViewProjectExplore";
-            this._treeViewProjectExplore.SelectedImageIndex = 1;
-            this._treeViewProjectExplore.Size = new System.Drawing.Size(198, 352);
-            this._treeViewProjectExplore.TabIndex = 0;
-            this._treeViewProjectExplore.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this._treeViewProjectExplore_AfterSelect);
-            this._treeViewProjectExplore.DoubleClick += new System.EventHandler(this._treeViewProjectExplore_DoubleClick_1);
-            // 
-            // toolTabStrip1
-            // 
-            this.toolTabStrip1.CanUpdateChildIndex = true;
-            this.toolTabStrip1.Controls.Add(this.toolWindow3);
-            this.toolTabStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolTabStrip1.Name = "toolTabStrip1";
-            // 
-            // 
-            // 
-            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.toolTabStrip1.SelectedIndex = 0;
-            this.toolTabStrip1.Size = new System.Drawing.Size(200, 376);
-            this.toolTabStrip1.TabIndex = 1;
-            this.toolTabStrip1.TabStop = false;
-            this.toolTabStrip1.ThemeName = "Office2010Blue";
-            // 
-            // documentContainer1
-            // 
-            this.documentContainer1.Controls.Add(this.documentTabStrip1);
-            this.documentContainer1.Location = new System.Drawing.Point(203, 0);
-            this.documentContainer1.Name = "documentContainer1";
-            // 
-            // 
-            // 
-            this.documentContainer1.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.documentContainer1.Size = new System.Drawing.Size(627, 376);
-            this.documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
-            this.documentContainer1.TabIndex = 0;
-            this.documentContainer1.TabStop = false;
-            this.documentContainer1.ThemeName = "Office2010Blue";
-            // 
-            // documentTabStrip1
-            // 
-            this.documentTabStrip1.CanUpdateChildIndex = true;
-            this.documentTabStrip1.Controls.Add(this.MainWindow);
-            this.documentTabStrip1.Controls.Add(this.Editor);
-            this.documentTabStrip1.Location = new System.Drawing.Point(0, 0);
-            this.documentTabStrip1.Name = "documentTabStrip1";
-            // 
-            // 
-            // 
-            this.documentTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
-            this.documentTabStrip1.SelectedIndex = 1;
-            this.documentTabStrip1.Size = new System.Drawing.Size(627, 376);
-            this.documentTabStrip1.TabIndex = 0;
-            this.documentTabStrip1.TabStop = false;
-            this.documentTabStrip1.ThemeName = "Office2010Blue";
-            // 
-            // MainWindow
-            // 
-            this.MainWindow.Controls.Add(this.pictureBox1);
-            this.MainWindow.Location = new System.Drawing.Point(6, 30);
-            this.MainWindow.Name = "MainWindow";
-            this.MainWindow.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
-            this.MainWindow.Size = new System.Drawing.Size(615, 340);
-            this.MainWindow.Text = "Main Window";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(615, 340);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // Editor
             // 
@@ -708,7 +625,99 @@
             this.tabControl1.Size = new System.Drawing.Size(615, 340);
             this.tabControl1.TabIndex = 7;
             // 
-            // Form1
+            // toolTabStrip1
+            // 
+            this.toolTabStrip1.CanUpdateChildIndex = true;
+            this.toolTabStrip1.Controls.Add(this.toolWindow3);
+            this.toolTabStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolTabStrip1.Name = "toolTabStrip1";
+            // 
+            // 
+            // 
+            this.toolTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.toolTabStrip1.SelectedIndex = 0;
+            this.toolTabStrip1.Size = new System.Drawing.Size(200, 376);
+            this.toolTabStrip1.TabIndex = 1;
+            this.toolTabStrip1.TabStop = false;
+            this.toolTabStrip1.ThemeName = "Office2010Blue";
+            // 
+            // toolWindow3
+            // 
+            this.toolWindow3.Caption = null;
+            this.toolWindow3.Controls.Add(this._treeViewProjectExplore);
+            this.toolWindow3.Location = new System.Drawing.Point(1, 22);
+            this.toolWindow3.Name = "toolWindow3";
+            this.toolWindow3.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.Docked;
+            this.toolWindow3.Size = new System.Drawing.Size(198, 352);
+            this.toolWindow3.Text = "Solution Explore";
+            // 
+            // _treeViewProjectExplore
+            // 
+            this._treeViewProjectExplore.ContextMenuStrip = this.contextMenuStripTreeView;
+            this._treeViewProjectExplore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._treeViewProjectExplore.ImageIndex = 1;
+            this._treeViewProjectExplore.ImageList = this.imageListTrV;
+            this._treeViewProjectExplore.Location = new System.Drawing.Point(0, 0);
+            this._treeViewProjectExplore.Name = "_treeViewProjectExplore";
+            this._treeViewProjectExplore.SelectedImageIndex = 1;
+            this._treeViewProjectExplore.Size = new System.Drawing.Size(198, 352);
+            this._treeViewProjectExplore.TabIndex = 0;
+            this._treeViewProjectExplore.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this._treeViewProjectExplore_AfterSelect);
+            this._treeViewProjectExplore.DoubleClick += new System.EventHandler(this._treeViewProjectExplore_DoubleClick_1);
+            // 
+            // documentContainer1
+            // 
+            this.documentContainer1.Controls.Add(this.documentTabStrip1);
+            this.documentContainer1.Location = new System.Drawing.Point(203, 0);
+            this.documentContainer1.Name = "documentContainer1";
+            // 
+            // 
+            // 
+            this.documentContainer1.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.documentContainer1.Size = new System.Drawing.Size(627, 376);
+            this.documentContainer1.SizeInfo.SizeMode = Telerik.WinControls.UI.Docking.SplitPanelSizeMode.Fill;
+            this.documentContainer1.TabIndex = 0;
+            this.documentContainer1.TabStop = false;
+            this.documentContainer1.ThemeName = "Office2010Blue";
+            // 
+            // documentTabStrip1
+            // 
+            this.documentTabStrip1.CanUpdateChildIndex = true;
+            this.documentTabStrip1.Controls.Add(this.MainWindow);
+            this.documentTabStrip1.Controls.Add(this.Editor);
+            this.documentTabStrip1.Location = new System.Drawing.Point(0, 0);
+            this.documentTabStrip1.Name = "documentTabStrip1";
+            // 
+            // 
+            // 
+            this.documentTabStrip1.RootElement.MinSize = new System.Drawing.Size(25, 25);
+            this.documentTabStrip1.SelectedIndex = 0;
+            this.documentTabStrip1.Size = new System.Drawing.Size(627, 376);
+            this.documentTabStrip1.TabIndex = 0;
+            this.documentTabStrip1.TabStop = false;
+            this.documentTabStrip1.ThemeName = "Office2010Blue";
+            // 
+            // MainWindow
+            // 
+            this.MainWindow.Controls.Add(this.pictureBox1);
+            this.MainWindow.Location = new System.Drawing.Point(6, 30);
+            this.MainWindow.Name = "MainWindow";
+            this.MainWindow.PreviousDockState = Telerik.WinControls.UI.Docking.DockState.TabbedDocument;
+            this.MainWindow.Size = new System.Drawing.Size(615, 340);
+            this.MainWindow.Text = "Main Window";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(615, 340);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Automation_Test_With_Selenium
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -718,7 +727,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.radStatusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "Automation_Test_With_Selenium";
             // 
             // 
             // 
@@ -734,16 +743,16 @@
             this.contextMenuStripTreeView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radDock1)).EndInit();
             this.radDock1.ResumeLayout(false);
-            this.toolWindow3.ResumeLayout(false);
+            this.Editor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toolTabStrip1)).EndInit();
             this.toolTabStrip1.ResumeLayout(false);
+            this.toolWindow3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentContainer1)).EndInit();
             this.documentContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.documentTabStrip1)).EndInit();
             this.documentTabStrip1.ResumeLayout(false);
             this.MainWindow.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.Editor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -803,7 +812,6 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private Telerik.WinControls.UI.Docking.RadDock radDock1;
         private Telerik.WinControls.UI.Docking.ToolWindow toolWindow3;
-        private System.Windows.Forms.TreeView _treeViewProjectExplore;
         private Telerik.WinControls.UI.Docking.ToolTabStrip toolTabStrip1;
         private Telerik.WinControls.UI.Docking.DocumentContainer documentContainer1;
         private Telerik.WinControls.UI.Docking.DocumentWindow MainWindow;
@@ -811,6 +819,7 @@
         private Telerik.WinControls.UI.Docking.DocumentWindow Editor;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CustomTabControl tabControl1;
+        public System.Windows.Forms.TreeView _treeViewProjectExplore;
 
 
 

@@ -31,16 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_frmNewFile));
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.textBoxName = new System.Windows.Forms.TextBox();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.lbTieuDe = new DevComponents.DotNetBar.Controls.ReflectionLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.aquaTheme1 = new Telerik.WinControls.Themes.AquaTheme();
             this._btAdd = new Telerik.WinControls.UI.RadButton();
             this._btCancel = new Telerik.WinControls.UI.RadButton();
+            this.textBoxName = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._btAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._btCancel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,14 +75,6 @@
             this.labelX2.TabIndex = 1;
             this.labelX2.Text = "Type";
             // 
-            // textBoxName
-            // 
-            this.textBoxName.AcceptsTab = true;
-            this.textBoxName.Location = new System.Drawing.Point(232, 111);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(245, 20);
-            this.textBoxName.TabIndex = 10;
-            // 
             // comboBoxType
             // 
             this.comboBoxType.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -89,8 +82,8 @@
             this.comboBoxType.Enabled = false;
             this.comboBoxType.FormattingEnabled = true;
             this.comboBoxType.Items.AddRange(new object[] {
-            "xls",
-            "txt"});
+            "txt",
+            "xls"});
             this.comboBoxType.Location = new System.Drawing.Point(234, 143);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(126, 21);
@@ -140,6 +133,15 @@
             this._btCancel.ThemeName = "Aqua";
             this._btCancel.Click += new System.EventHandler(this._btCancel_Click);
             // 
+            // textBoxName
+            // 
+            this.textBoxName.Location = new System.Drawing.Point(234, 105);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.NullText = "Enter File Name ...";
+            this.textBoxName.Size = new System.Drawing.Size(243, 20);
+            this.textBoxName.TabIndex = 43;
+            this.textBoxName.TabStop = false;
+            // 
             // _frmNewFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,12 +149,12 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(502, 206);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this._btCancel);
             this.Controls.Add(this._btAdd);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbTieuDe);
             this.Controls.Add(this.comboBoxType);
-            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelX2);
             this.Controls.Add(this.labelX1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -169,6 +171,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._btAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._btCancel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -179,12 +182,12 @@
 
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.LabelX labelX2;
-        public System.Windows.Forms.TextBox textBoxName;
         public System.Windows.Forms.ComboBox comboBoxType;
         private DevComponents.DotNetBar.Controls.ReflectionLabel lbTieuDe;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Telerik.WinControls.Themes.AquaTheme aquaTheme1;
         private Telerik.WinControls.UI.RadButton _btAdd;
         private Telerik.WinControls.UI.RadButton _btCancel;
+        public Telerik.WinControls.UI.RadTextBox textBoxName;
     }
 }
