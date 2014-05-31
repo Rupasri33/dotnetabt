@@ -118,9 +118,16 @@
     </Compile>
     <Compile Include="ExcelFileParser.cs" />
     <Compile Include="ExcelReporter.cs" />
+    <Compile Include="IAction.cs" />
+    <Compile Include="IActionManager.cs" />
+    <Compile Include="IAutomation.cs" />
+    <Compile Include="IData.cs" />
     <Compile Include="IFileParser.cs" />
+    <Compile Include="IInterface.cs" />
     <Compile Include="Interface.cs" />
     <Compile Include="IReporter.cs" />
+    <Compile Include="IScript.cs" />
+    <Compile Include="ISourceFile.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
