@@ -85,12 +85,16 @@ namespace abt.auto
                 {
                     SourceLine line = new SourceLine();
                     Row row = sheet.Cells.GetRow(rowIndex);
+                    bool bBlank = true;
                     for (int colIndex = row.FirstColIndex; colIndex <= row.LastColIndex; colIndex++)
                     {
                         Cell cell = row.GetCell(colIndex);
                         line.Columns.Add(cell.StringValue);
+                        if (cell.StringValue != null && cell.StringValue.Length > 0)
+                            bBlank = false;
                     }
-                    Lines.Add(line);
+                    if (!bBlank)
+                        Lines.Add(line);
                 }
 
                 doc.Close();
