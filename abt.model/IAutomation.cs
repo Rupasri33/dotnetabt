@@ -28,6 +28,11 @@ namespace abt.model
         IScript CurrentScript { get; }
 
         /// <summary>
+        /// executing scripts stack
+        /// </summary>
+        Stack<IScript> Scripts { get; }
+
+        /// <summary>
         /// current data table
         /// </summary>
         IData Data { get; set; }
