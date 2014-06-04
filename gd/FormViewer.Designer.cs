@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormViewer));
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.windowsViewer1 = new uia_gui.components.WindowsViewer();
             this.splitContainerSub = new System.Windows.Forms.SplitContainer();
-            this.propertiesViewer1 = new uia_gui.components.PropertiesViewer();
-            this.matchesViewer1 = new uia_gui.components.MatchesViewer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolstripBtnRefresh = new System.Windows.Forms.ToolStripButton();
+            this.windowsViewer1 = new uia_gui.components.WindowsViewer();
+            this.propertiesViewer1 = new uia_gui.components.PropertiesViewer();
+            this.matchesViewer1 = new uia_gui.components.MatchesViewer();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -66,19 +66,6 @@
             this.splitContainerMain.SplitterDistance = 245;
             this.splitContainerMain.TabIndex = 0;
             // 
-            // windowsViewer1
-            // 
-            this.windowsViewer1.ActionManager = null;
-            this.windowsViewer1.CurrentInterface = null;
-            this.windowsViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windowsViewer1.Location = new System.Drawing.Point(0, 0);
-            this.windowsViewer1.Margin = new System.Windows.Forms.Padding(5);
-            this.windowsViewer1.Name = "windowsViewer1";
-            this.windowsViewer1.Padding = new System.Windows.Forms.Padding(5);
-            this.windowsViewer1.Size = new System.Drawing.Size(245, 422);
-            this.windowsViewer1.TabIndex = 0;
-            this.windowsViewer1.SelectedItemChanged += new uia_gui.components.SelectedItemChangedHandler(this.windowsViewer1_SelectedItemChanged);
-            // 
             // splitContainerSub
             // 
             this.splitContainerSub.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -95,30 +82,6 @@
             this.splitContainerSub.Size = new System.Drawing.Size(555, 422);
             this.splitContainerSub.SplitterDistance = 354;
             this.splitContainerSub.TabIndex = 0;
-            // 
-            // propertiesViewer1
-            // 
-            this.propertiesViewer1.ActionManager = null;
-            this.propertiesViewer1.CurrentInterface = null;
-            this.propertiesViewer1.CurrentName = null;
-            this.propertiesViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertiesViewer1.Location = new System.Drawing.Point(0, 0);
-            this.propertiesViewer1.Name = "propertiesViewer1";
-            this.propertiesViewer1.Object = null;
-            this.propertiesViewer1.Padding = new System.Windows.Forms.Padding(5);
-            this.propertiesViewer1.Size = new System.Drawing.Size(354, 422);
-            this.propertiesViewer1.TabIndex = 0;
-            this.propertiesViewer1.InvalidItemSelected += new uia_gui.components.InvalidItemHandler(this.propertiesViewer1_InvalidItemSelected);
-            // 
-            // matchesViewer1
-            // 
-            this.matchesViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.matchesViewer1.Location = new System.Drawing.Point(0, 0);
-            this.matchesViewer1.Name = "matchesViewer1";
-            this.matchesViewer1.Padding = new System.Windows.Forms.Padding(5);
-            this.matchesViewer1.Size = new System.Drawing.Size(197, 422);
-            this.matchesViewer1.TabIndex = 0;
-            this.matchesViewer1.ControlSelected += new uia_gui.components.ControlSelectedHandler(this.matchesViewer1_ControlSelected);
             // 
             // statusStrip1
             // 
@@ -148,13 +111,49 @@
             // 
             // toolstripBtnRefresh
             // 
-            this.toolstripBtnRefresh.Enabled = false;
             this.toolstripBtnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("toolstripBtnRefresh.Image")));
             this.toolstripBtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolstripBtnRefresh.Name = "toolstripBtnRefresh";
             this.toolstripBtnRefresh.Size = new System.Drawing.Size(66, 22);
             this.toolstripBtnRefresh.Text = "Refresh";
             this.toolstripBtnRefresh.Click += new System.EventHandler(this.toolstripBtnRefresh_Click);
+            // 
+            // windowsViewer1
+            // 
+            this.windowsViewer1.ActionManager = null;
+            this.windowsViewer1.CurrentInterface = null;
+            this.windowsViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.windowsViewer1.Location = new System.Drawing.Point(0, 0);
+            this.windowsViewer1.Margin = new System.Windows.Forms.Padding(5);
+            this.windowsViewer1.Name = "windowsViewer1";
+            this.windowsViewer1.Padding = new System.Windows.Forms.Padding(5);
+            this.windowsViewer1.Size = new System.Drawing.Size(245, 422);
+            this.windowsViewer1.TabIndex = 0;
+            this.windowsViewer1.SelectedItemChanged += new uia_gui.components.SelectedItemChangedHandler(this.windowsViewer1_SelectedItemChanged);
+            // 
+            // propertiesViewer1
+            // 
+            this.propertiesViewer1.ActionManager = null;
+            this.propertiesViewer1.CurrentInterface = null;
+            this.propertiesViewer1.CurrentName = null;
+            this.propertiesViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertiesViewer1.Location = new System.Drawing.Point(0, 0);
+            this.propertiesViewer1.Name = "propertiesViewer1";
+            this.propertiesViewer1.Object = null;
+            this.propertiesViewer1.Padding = new System.Windows.Forms.Padding(5);
+            this.propertiesViewer1.Size = new System.Drawing.Size(354, 422);
+            this.propertiesViewer1.TabIndex = 0;
+            this.propertiesViewer1.InvalidItemSelected += new uia_gui.components.InvalidItemHandler(this.propertiesViewer1_InvalidItemSelected);
+            // 
+            // matchesViewer1
+            // 
+            this.matchesViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.matchesViewer1.Location = new System.Drawing.Point(0, 0);
+            this.matchesViewer1.Name = "matchesViewer1";
+            this.matchesViewer1.Padding = new System.Windows.Forms.Padding(5);
+            this.matchesViewer1.Size = new System.Drawing.Size(197, 422);
+            this.matchesViewer1.TabIndex = 0;
+            this.matchesViewer1.ControlSelected += new uia_gui.components.ControlSelectedHandler(this.matchesViewer1_ControlSelected);
             // 
             // FormViewer
             // 
@@ -167,7 +166,7 @@
             this.Name = "FormViewer";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Viewer";
+            this.Text = "Spy Interface";
             this.Load += new System.EventHandler(this.FormViewer_Load);
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel2.ResumeLayout(false);

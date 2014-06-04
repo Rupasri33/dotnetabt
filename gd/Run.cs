@@ -18,46 +18,43 @@ namespace gd
         {
             InitializeComponent();
         }
-
+        public string CurrentProjectPath { get; set; }
+        public IAutomation CurrenrtAutomation { get; set; }
         private void btAdd_Click(object sender, EventArgs e)
         {
             Close();
             main m = new main();
-            ////IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
-            ////    @"E:\demo_new\dotnetabt\codeduiabt\sample");
-            //IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()), @"E:\aa\test" );
-            //UIAActionManager am = new UIAActionManager(at);
-
-            //Script startScript = new Script(at.Parser.NewInstance);
-            //startScript.FileName = _txtScript.Text;
-
-            //at.Speed = 10;
-            //at.StartScript = startScript;
-            //at.Start();
-            //string path= m.treeViewproject.Nodes[0].Text;
-            IAutomation at = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
-                @"E:\aa\test");
-            UIAActionManager am = new UIAActionManager(at);
+            //string path = m.CurrentProjectPath;
+        
+            CurrenrtAutomation = new Automation(new ExcelFileParser(), new ExcelReporter(new ExcelFileParser()),
+               CurrentProjectPath);
+            UIAActionManager am = new UIAActionManager(CurrenrtAutomation);
 
             try
             {
-                Script startScript = new Script(at.Parser.NewInstance);
+                Script startScript = new Script(CurrenrtAutomation.Parser.NewInstance);
                 startScript.FileName = _txtScript.Text;
+                string dataset = _cboData.SelectedItem.ToString();
+                if (dataset != @"[None]")
+                {
+                    Data data = new Data(CurrenrtAutomation.Parser.NewInstance);
+                    data.FileName = dataset;
+                    CurrenrtAutomation.Data = data;
+ 
+                }
+               
 
-                Data data = new Data(at.Parser.NewInstance);
-                data.FileName = "DataSet1.xls";
+                CurrenrtAutomation.Name = "Regression 1";
+                CurrenrtAutomation.Speed = 10;
+                CurrenrtAutomation.StartScript = startScript;
+                CurrenrtAutomation.Start();
+                
 
-                at.Name = "Regression 1";
-                at.Speed = 10;
-                at.Data = data;
-                at.StartScript = startScript;
-                at.Start();
-
-                at.Paused += at_Paused;
-                at.Resumed += at_Resumed;
-                at.Interupted += at_Interupted;
-                at.Ended += at_Ended;
-                at.ActionPerforming += at_ActionPerforming;
+                //CurrenrtAutomation.Paused += at_Paused;
+                //CurrenrtAutomation.Resumed += at_Resumed;
+                //CurrenrtAutomation.Interupted += at_Interupted;
+                //CurrenrtAutomation.Ended += at_Ended;
+                //CurrenrtAutomation.ActionPerforming += at_ActionPerforming;
 
                 //System.Threading.Thread.Sleep(3000);
                 //at.Pause();
@@ -89,35 +86,42 @@ namespace gd
 
 
         }
-         static void at_ActionPerforming(string s)
-        {
- 	        //throw new NotImplementedException();
-            Console.WriteLine(s);
-        }
 
-        static void at_Ended(IAutomation at)
-        {
-            //throw new NotImplementedException();
-            Console.WriteLine("Automation ended");
-        }
+        //private void at_ActionPerforming(string summary)
+        //{
+        //    //throw new NotImplementedException();
+        //    main m = new main();
+            
+        //}
+        //// static void at_ActionPerforming(string s)
+        ////{
+        ////    //throw new NotImplementedException();
+        ////    Console.WriteLine(s);
+        ////}
 
-        static void at_Interupted(IAutomation at)
-        {
-            //throw new NotImplementedException();
-            Console.WriteLine("Automation stopped. Error: " + at.ErrorMessage);
-        }
+        ////static void at_Ended(IAutomation at)
+        ////{
+        ////    //throw new NotImplementedException();
+        ////    Console.WriteLine("Automation ended");
+        ////}
 
-        static void at_Resumed(IAutomation at)
-        {
-            //throw new NotImplementedException();
-            Console.WriteLine("Automation resumed");
-        }
+        ////static void at_Interupted(IAutomation at)
+        ////{
+        ////    //throw new NotImplementedException();
+        ////    Console.WriteLine("Automation stopped. Error: " + at.ErrorMessage);
+        ////}
 
-        static void at_Paused(IAutomation at)
-        {
-            //throw new NotImplementedException();
-            Console.WriteLine("Automation paused");
-        }
+        ////static void at_Resumed(IAutomation at)
+        ////{
+        ////    //throw new NotImplementedException();
+        ////    Console.WriteLine("Automation resumed");
+        ////}
+
+        ////static void at_Paused(IAutomation at)
+        ////{
+        ////    //throw new NotImplementedException();
+        ////    Console.WriteLine("Automation paused");
+        ////}
 
         private void btCancel_Click(object sender, EventArgs e)
         {

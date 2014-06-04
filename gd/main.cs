@@ -60,127 +60,25 @@ namespace gd
         White.Core.UIItems.WindowItems.Window _mainWindow;
         DataGridView dgvCells;
         StatusStrip status;
+        private string filepath;
         
-       
+        public string CurrentProjectPath {get; set;}
+        class FolderTreeNode : TreeNode { }
+        class FileTreeNode : TreeNode { }
 
-        void test()
+        private void dgvCells_KeyUp(object sender, KeyEventArgs e)
         {
-            //create new xls file
-            string file = "F:\\newdoc.xls";
-            Workbook workbook = new Workbook();
-            Worksheet worksheet = new Worksheet("First Sheet");
-            //worksheet.Cells[0, 1] = new Cell((short)1);
-            //worksheet.Cells[2, 0] = new Cell(9999999);
-            //worksheet.Cells[3, 3] = new Cell((decimal)3.45);
-            //worksheet.Cells[2, 2] = new Cell("Text string");
-            //worksheet.Cells[2, 4] = new Cell("Second string");
-            //worksheet.Cells[4, 0] = new Cell(32764.5, "#,##0.00");
-            //worksheet.Cells[5, 1] = new Cell(DateTime.Now, @"YYYY\-MM\-DD");
-            //worksheet.Cells.ColumnWidth[0, 1] = 3000;
-            workbook.Worksheets.Add(worksheet);
-            workbook.Save(file);
-            doc = CompoundDocument.Open(file);
-            //IsOpened = true;
-            //PopulateTreeview(file);
-
-            // open xls file
-            Workbook book = Workbook.Load(file);
-            Worksheet sheet = book.Worksheets[0];
-
-            // traverse cells
-            foreach (Pair<Pair<int, int>, Cell> cell in sheet.Cells)
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.I && e.Control)
             {
-                dgvCells[cell.Left.Right, cell.Left.Left].Value = cell.Right.Value;
-                if (cell.Right.Style.BackColor != Color.White)
+                DataGridView dataView=sender as DataGridView;
+                if (dataView.SelectedCells.Count == 1)
                 {
-                    dgvCells[cell.Left.Right, cell.Left.Left].Style.BackColor = cell.Right.Style.BackColor;
-                }
-            }
-
-            // traverse rows by Index
-            for (int rowIndex = sheet.Cells.FirstRowIndex;
-                   rowIndex <= sheet.Cells.LastRowIndex; rowIndex++)
-            {
-                Row row = sheet.Cells.GetRow(rowIndex);
-                for (int colIndex = row.FirstColIndex;
-                   colIndex <= row.LastColIndex; colIndex++)
-                {
-                    Cell cell = row.GetCell(colIndex);
+                    int curRow = dataView.SelectedCells[0].RowIndex;
+                    dataView.Rows.Insert(curRow, 1);
                 }
             }
         }
-
-        public void LoadExcelSheets()
-        {
-            byte[] bookdata = doc.GetStreamData("Workbook");
-            if (bookdata == null) return;
-            Workbook book = WorkbookDecoder.Decode(new MemoryStream(bookdata));
-
-            //ExtractImages(book, @"C:\Images");
-
-            
-
-            foreach (Worksheet sheet in book.Worksheets)
-            {
-               // string Name=treeViewproject.SelectedNode.Text;
-                TabPage sheetPage = new TabPage(treeViewproject.SelectedNode.Text);
-                
-                DataGridView dgvCells = new DataGridView();
-                dgvCells.Dock = DockStyle.Fill;
-                //dgvCells.RowCount = sheet.Cells.LastRowIndex + 1;
-                //dgvCells.ColumnCount = sheet.Cells.LastColIndex + 1;
-                dgvCells.RowCount = 500;
-                dgvCells.ColumnCount = 500;
-                // tranverse cells
-                foreach (Pair<Pair<int, int>, Cell> cell in sheet.Cells)
-                {
-                    dgvCells[cell.Left.Right, cell.Left.Left].Value = cell.Right.Value;
-                    if (cell.Right.Style.BackColor != Color.White)
-                    {
-                        dgvCells[cell.Left.Right, cell.Left.Left].Style.BackColor = cell.Right.Style.BackColor;
-                    }
-                }
-
-                // tranvers rows by Index
-                for (int rowIndex = sheet.Cells.FirstRowIndex; rowIndex <= sheet.Cells.LastRowIndex; rowIndex++)
-                {
-                    Row row = sheet.Cells.GetRow(rowIndex);
-                    for (int colIndex = row.FirstColIndex; colIndex <= row.LastColIndex; colIndex++)
-                    {
-                        Cell cell = row.GetCell(colIndex);
-                    }
-                }
-                // tranvers rows directly
-                foreach (KeyValuePair<int, Row> row in sheet.Cells.Rows)
-                {
-                    foreach (KeyValuePair<int, Cell> cell in row.Value)
-                    {
-                    }
-                }
-
-
-                foreach (KeyValuePair<Pair<int, int>, Picture> cell in sheet.Pictures)
-                {
-                    int rowIndex = cell.Key.Left;
-                    int colIndex = cell.Key.Right;
-                    if (dgvCells.RowCount < rowIndex + 1)
-                    {
-                        dgvCells.RowCount = rowIndex + 1;
-                    }
-                    if (dgvCells.ColumnCount < colIndex + 1)
-                    {
-                        dgvCells.ColumnCount = colIndex + 1;
-                    }
-                    dgvCells[colIndex, rowIndex].Value = String.Format("<Image,{0}>", cell.Value.Image.FileExtension);
-                }
-
-                sheetPage.Controls.Add(dgvCells);
-                tabControl1.TabPages.Add(sheetPage);
-             
-            }
-        }
-
-        
 
         private void main_Load(object sender, EventArgs e)
         {
@@ -191,13 +89,7 @@ namespace gd
             lb.Text = "Ready";
             status.Items.Add(lb);
             Controls.Add(status);
-            
-            //Text="Automation Test";
-            //test();
-            ////Right click tabControl1
-            //this.tabControl1.MouseClick += new MouseEventHandler(tabControl1_MouseClick);
         }
-
 
         /////////// xu li nut new
         private void buttonItem2_Click(object sender, EventArgs e)
@@ -208,11 +100,11 @@ namespace gd
             n.ShowDialog();
             if (n.DialogResult == System.Windows.Forms.DialogResult.Yes)
             {
-                string path = n.ProjectPath;
+               CurrentProjectPath = n.ProjectPath;
                 // lấy path ra ở đây... 
                 TreeNode treenode;
-                
-                DirectoryInfo dir = new DirectoryInfo(path);
+
+                DirectoryInfo dir = new DirectoryInfo(CurrentProjectPath);
                 if (dir.Exists)
                 {
                     treenode = new TreeNode(dir.Name);
@@ -262,21 +154,16 @@ namespace gd
                         System.Windows.Forms.MessageBox.Show(ex.Message);
 
                     }
-                    Text =treeViewproject.Nodes[0].Text+ " - "+Text;
+                    Text =treeViewproject.Nodes[0].Text+ " - "+ "Automation";
                 } 
             }
         }
 
-
-
-        //xu ly nut exit
+        //Refresh
         private void buttonItem6_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            LoadTreeView();
         }
-
-
-
 
         private void addNewFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -290,9 +177,9 @@ namespace gd
             Excel.Workbook xlWorkBook = default(Excel.Workbook);
             Excel.Worksheet xlWorkSheet = default(Excel.Worksheet);
 
-            TreeNode treeNode = new TreeNode();
+            FileTreeNode treeNode = new FileTreeNode();
             treeNode.Text = newFile.txtName.Text + "." + newFile.cboType.Text;
-            treeNode.Tag = treeNode.Text;
+            treeNode.Tag = CurrentProjectPath + @"\" + treeViewproject.SelectedNode.Text + @"\" + treeNode.Text;
             treeNode.Name = "File";
             treeNode.ImageIndex = newFile.cboType.SelectedIndex;
             newFile.Close();
@@ -303,7 +190,7 @@ namespace gd
                 //@new new1 = new @new();
                 //string path = new1.ProjectPath;
                 //string fName = path + @"\" + treeViewproject.SelectedNode.Tag + @"\" + treeNode.Tag;
-                string fName = treeViewproject.Nodes[0].Tag + @"\" + treeViewproject.SelectedNode.Tag + @"\" + treeNode.Tag;
+                string fName = treeViewproject.Nodes[0].Tag + @"\" + treeViewproject.SelectedNode.Text + @"\" + treeNode.Text;
                  //const string fName =@"F:\abc.xls";
                 try
                 {
@@ -346,12 +233,10 @@ namespace gd
                 
                 
                
-                doc = CompoundDocument.Open(fName);
+               //CompoundDocument _doc = CompoundDocument.Open(fName);
             }
 
         }
-
-
 
         private void releaseObject(object obj)
         {
@@ -363,10 +248,6 @@ namespace gd
             }
             catch { }
         }
-
-
-
-
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -382,6 +263,7 @@ namespace gd
                 deleteToolStripMenuItem.Enabled = false;
                 runToolStripMenuItem.Enabled = false;
                 spyToolStripMenuItem.Enabled = false;
+                buttonItem5.Enabled = false;
             }
             else
             {
@@ -392,8 +274,9 @@ namespace gd
                     deleteToolStripMenuItem.Enabled = false;
                     runToolStripMenuItem.Enabled = false;
                     spyToolStripMenuItem.Enabled = false;
-                    buttonItem2.Enabled = false;
+                    buttonItem4.Enabled = false;
                     buttonItem15.Enabled = false;
+                    buttonItem5.Enabled = false;
                 }
 
                 else
@@ -404,8 +287,9 @@ namespace gd
                         deleteToolStripMenuItem.Enabled = true;
                         runToolStripMenuItem.Enabled = true;
                         spyToolStripMenuItem.Enabled = false;
-                        buttonItem2.Enabled = false;
+                        buttonItem4.Enabled = false;
                         buttonItem15.Enabled = true;
+                        buttonItem5.Enabled = false;
                     }
                     else
                     {
@@ -415,7 +299,8 @@ namespace gd
                             deleteToolStripMenuItem.Enabled = true;
                             runToolStripMenuItem.Enabled = false;
                             spyToolStripMenuItem.Enabled = true;
-                            buttonItem2.Enabled = true;
+                            buttonItem4.Enabled = false;
+                            buttonItem5.Enabled = true;
                             buttonItem15.Enabled = false;
                         }
                         else
@@ -426,8 +311,9 @@ namespace gd
                                 deleteToolStripMenuItem.Enabled = false;
                                 runToolStripMenuItem.Enabled = false;
                                 spyToolStripMenuItem.Enabled = false;
-                                buttonItem2.Enabled = false;
+                                buttonItem4.Enabled = false;
                                 buttonItem15.Enabled = false;
+                                buttonItem5.Enabled = false;
                             }
                             else
                             {
@@ -435,8 +321,9 @@ namespace gd
                                 deleteToolStripMenuItem.Enabled = true;
                                 runToolStripMenuItem.Enabled = false;
                                 spyToolStripMenuItem.Enabled = false;
-                                buttonItem2.Enabled = false;
+                                buttonItem4.Enabled = false;
                                 buttonItem15.Enabled = false;
+                                buttonItem5.Enabled = false;
                             }
                         }
                     }
@@ -448,34 +335,14 @@ namespace gd
                    
         }
 
-
-
         private string[] ConvertToStringArray(Array myvalues)
         {
             throw new NotImplementedException();
         }
 
-        //duong dan mo file
-        public string getopen()
+
+        private void OpenProject()
         {
-        
-            string file = FileSelector.BrowseFile(FileType.All);
-            if (file == null)
-                return null;
-            doc = CompoundDocument.Open(file);
-            return file;
-
-        }
-
-
-
-
-
-
-        ///////////////////xu li nut open
-        private void buttonItem3_Click(object sender, EventArgs e)
-        {
-
             treeViewproject.Nodes.Clear();
             tabControl1.TabPages.Clear();
             FolderBrowserDialog fbd = new FolderBrowserDialog();
@@ -486,21 +353,22 @@ namespace gd
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 TreeNode treenode;
-                string path = fbd.SelectedPath;
+                CurrentProjectPath = fbd.SelectedPath;
                 //string path1 = fbd.SelectedPath + treeViewproject.SelectedNode.Tag;
                 //doc = CompoundDocument.Open(path);
-                DirectoryInfo dir = new DirectoryInfo(path);
+                DirectoryInfo dir = new DirectoryInfo(CurrentProjectPath);
 
                 if (dir.Exists)
                 {
-                    treenode = new TreeNode(dir.Name);
-                    treenode.Tag = dir;
-                    treenode.Name = "Folder";
+                    FolderTreeNode projectNode = new FolderTreeNode();
+                    projectNode.Text = dir.Name;
+                    projectNode.Tag = dir;
+                    //projectNode.Name = "Folder";
                     //treenode.ImageIndex = 0;
-                    treenode.ImageIndex = 1;
-                    treenode.SelectedImageIndex = 1;
+                    projectNode.ImageIndex = 1;
+                    projectNode.SelectedImageIndex = 1;
                     // GetDirectories(dir.GetDirectories(), treenode);
-                    treeViewproject.Nodes.Add(treenode);
+                    treeViewproject.Nodes.Add(projectNode);
 
                     try
                     {
@@ -509,34 +377,31 @@ namespace gd
                         {
                             foreach (DirectoryInfo directory in directories)
                             {
-                                TreeNode node = treenode.Nodes.Add(directory.Name);
-                                node.Tag = directory.Name;
-
-                                node.ImageIndex = node.SelectedImageIndex = 1;
+                                FolderTreeNode folderNode =new FolderTreeNode();
+                                folderNode.Text = directory.Name;
+                                folderNode.Tag = directory.Name;
+                                projectNode.Nodes.Add(folderNode);
+                                folderNode.ImageIndex = folderNode.SelectedImageIndex = 1;
                                 foreach (FileInfo file in directory.GetFiles())
                                 {
-                                    //treenode = new TreeNode(file.Name);
-                                    //treenode.Tag = file;
-                                    //treenode.Name = "File";
-                                    //treenode.ImageIndex = 1;
-                                    //treenode.SelectedImageIndex = 1;
-                                    //treeViewproject.Nodes.Add(treenode);
+                                    
 
                                     if (file.Exists)
                                     {
-                                        TreeNode nodes = treeViewproject.Nodes[0].Nodes[node.Index].Nodes.Add(file.Name);
-
-                                        treenode.ImageIndex = 1;
-                                        node.ImageIndex = node.SelectedImageIndex = 1;
+                                        FileTreeNode fileNode = new FileTreeNode();
+                                        fileNode.Text = file.Name;
+                                        fileNode.Tag = file.FullName;
+                                        folderNode.Nodes.Add(fileNode);                                        
+                                        fileNode.ImageIndex = fileNode.SelectedImageIndex = 0;
                                         //treenode.Name = "Folder"
-                                       
+
                                     }
 
                                 }
-                                
+
                             }
                             treeViewproject.ExpandAll();
-                            
+
                         }
 
 
@@ -546,14 +411,26 @@ namespace gd
                         System.Windows.Forms.MessageBox.Show(ex.Message);
 
                     }
-                    Text = treeViewproject.Nodes[0].Text + " - " + Text;
+                    Text = treeViewproject.Nodes[0].Text + " - " + "Automation";
                 }
-               
+
             }
             
+ 
         }
 
+        ///////////////////xu li nut open
+        private void buttonItem3_Click(object sender, EventArgs e)
+        {
 
+            OpenProject();
+        }
+
+        class ExcelTabPage : TabPage
+        {
+            public ExcelTabPage(string name) : base(name) { }
+            public string FileName { get; set; }
+        }
 
         //close tab
         private void tabControl1_MouseDown_1(object sender, MouseEventArgs e)
@@ -573,8 +450,6 @@ namespace gd
             }
         }
 
-
-
         private void tabControl1_DrawItem_1(object sender, DrawItemEventArgs e)
         {
             Font closefont = new Font(e.Font.FontFamily, e.Font.Size);
@@ -586,113 +461,96 @@ namespace gd
 
         private void treeViewproject_DoubleClick(object sender, EventArgs e)
         {
-            //if (treeViewproject.SelectedNode.Name=="File")
-            //{
-            //    LoadExcelSheets();
-            //}
-
-            //tabControl1.SelectedIndex =
-            string path = treeViewproject.Nodes[0].Tag + @"\" + treeViewproject.Nodes[0].Nodes[0].Text + @"\" + treeViewproject.SelectedNode.Text;
-            string path1 = treeViewproject.Nodes[0].Tag + @"\" + treeViewproject.Nodes[0].Nodes[1].Text + @"\" + treeViewproject.SelectedNode.Text;
-            string path2 = treeViewproject.Nodes[0].Tag + @"\" + treeViewproject.Nodes[0].Nodes[2].Text + @"\" + treeViewproject.SelectedNode.Text;
-            string path3 = treeViewproject.Nodes[0].Tag + @"\" + treeViewproject.Nodes[0].Nodes[3].Text + @"\" + treeViewproject.SelectedNode.Text;
-            if (treeViewproject.SelectedNode.Text == treeViewproject.SelectedNode.Text)
+            FileTreeNode node = treeViewproject.SelectedNode as FileTreeNode;
+            if (node != null)
             {
-                try
-                {
-                    doc = CompoundDocument.Open(path);
-                    LoadExcelSheets();
-                    
-                }
-                catch { }
-
-                if (treeViewproject.SelectedNode.Text == treeViewproject.SelectedNode.Text)
-                {
-                    try
-                    {
-                        doc = CompoundDocument.Open(path1);
-                        LoadExcelSheets();
-                    }
-                    catch { }
-                    if (treeViewproject.SelectedNode.Text == treeViewproject.SelectedNode.Text)
-                    {
-                        try
-                        {
-                            doc = CompoundDocument.Open(path2);
-                            LoadExcelSheets();
-                        }
-                        catch { }
-                        if (treeViewproject.SelectedNode.Text == treeViewproject.SelectedNode.Text)
-                        {
-                            try
-                            {
-                                doc = CompoundDocument.Open(path3);
-                                LoadExcelSheets();
-                            }
-                            catch { }
-                            if (treeViewproject.SelectedNode.Name == "File")
-                            {
-                                LoadExcelSheets();
-                            }
-                        }
-                    }
-                }
-
-               
-            
-                
+                LoadExcelSheets(node.Tag.ToString());
             }
            
+        }
+
+        public void LoadExcelSheets(string filepath)
+        {
+            CompoundDocument _doc = CompoundDocument.Open(filepath);
+
+            byte[] bookdata = _doc.GetStreamData("Workbook"); // Doc Theo Byte
+            if (bookdata == null) return;
+            Workbook book = WorkbookDecoder.Decode(new MemoryStream(bookdata));
+
+
+            foreach (Worksheet sheet in book.Worksheets)
+            {
+                ExcelTabPage sheetPage = new ExcelTabPage(sheet.Name); // Tên Sheet
+                sheetPage.FileName = filepath;
+                dgvCells = new DataGridView(); // Tao Moi Datagridview
+                dgvCells.Dock = DockStyle.Fill;
+                //dgvCells.RowCount = sheet.Cells.LastRowIndex + 1;
+                //dgvCells.ColumnCount = sheet.Cells.LastColIndex + 1;
+                dgvCells.RowCount = 500;
+                dgvCells.ColumnCount = 500;
+                dgvCells.KeyUp += dgvCells_KeyUp;
+
+                // tranverse cells
+                foreach (Pair<Pair<int, int>, Cell> cell in sheet.Cells)
+                {
+                    dgvCells[cell.Left.Right, cell.Left.Left].Value = cell.Right.Value;
+                    if (cell.Right.Style.BackColor != Color.White)
+                    {
+                        dgvCells[cell.Left.Right, cell.Left.Left].Style.BackColor = cell.Right.Style.BackColor;
+                    }
+                }
+
+                // tranvers rows by Index
+                for (int rowIndex = sheet.Cells.FirstRowIndex; rowIndex <= sheet.Cells.LastRowIndex; rowIndex++)
+                {
+                    Row row = sheet.Cells.GetRow(rowIndex);
+                    for (int colIndex = row.FirstColIndex; colIndex <= row.LastColIndex; colIndex++)
+                    {
+                        Cell cell = row.GetCell(colIndex);
+                    }
+                }
+                // tranvers rows directly
+
+                foreach (KeyValuePair<int, Row> row in sheet.Cells.Rows)
+                {
+                    foreach (KeyValuePair<int, Cell> cell in row.Value)
+                    {
+                    }
+                }
+
+                _doc.Close();
+                sheetPage.Controls.Add(dgvCells);
+                tabControl1.TabPages.Add(sheetPage);
+                tabControl1.SelectedTab = sheetPage;
+                
+            }
         }
 
         //SAVE        
         private void buttonItem5_Click(object sender, EventArgs e)
         {
-            if (doc != null)
-            {
-                doc.Save();
-            }
-            
+            Save();
         }
-
-        //SAVE AS
-        Workbook workbook;
-        private void buttonItem7_Click(object sender, EventArgs e)
+        private void Save()
         {
-            if (doc == null) return;
-            string file = FileSelector.BrowseFileForSave(FileType.All);
-            if (file == null) return;
-
-            using (CompoundDocument newDoc = CompoundDocument.Create(file))
+            ExcelTabPage page = tabControl1.SelectedTab as ExcelTabPage;
+            Workbook workbook = new Workbook();
+            Worksheet worksheet = new Worksheet(page.Text);
+            DataGridView dataView = page.Controls[0] as DataGridView;
+            for (int i = 0; i < 100; i++)
+                worksheet.Cells[i, 0] = new Cell(string.Empty);
+            for (int i = 0; i < dataView.RowCount; i++)
             {
-                foreach (string streamName in doc.RootStorage.Members.Keys)
+                for (int j = 0; j < dataView.ColumnCount; j++)
                 {
-                    newDoc.WriteStreamData(new string[] { streamName }, doc.GetStreamData(streamName));
+                    if (dataView[j, i].Value != null)
+                        worksheet.Cells[i, j] = new Cell(dataView[j, i].Value);
                 }
-
-                byte[] bookdata = doc.GetStreamData("Workbook");
-                if (bookdata != null)
-                {
-                    if (workbook == null)
-                    {
-                        workbook = WorkbookDecoder.Decode(new MemoryStream(bookdata));
-                    }
-                    MemoryStream stream = new MemoryStream();
-                    //WorkbookEncoder.Encode(workbook, stream);
-
-                    BinaryWriter writer = new BinaryWriter(stream);
-                    foreach (Record record in workbook.Records)
-                    {
-                        record.Write(writer);
-                    }
-                    writer.Close();
-                    newDoc.WriteStreamData(new string[] { "Workbook" }, stream.ToArray());
-                }
-                newDoc.Save();
             }
-           
-        }
+            workbook.Worksheets.Add(worksheet);
+            workbook.Save(page.FileName);
 
+        }
 
         //right click tabcontrol
         private void tabControl1_MouseClick(object sender, MouseEventArgs e)
@@ -702,8 +560,6 @@ namespace gd
                 this.contextMenuStrip1.Show(this.tabControl1, e.Location);
             }
         }
-
-       
 
         private void closeTabToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -717,23 +573,6 @@ namespace gd
             
         }
 
-        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-
-         
-         private void buttonItem12_Click(object sender, EventArgs e)
-         {
-            
-         }
-
-         private void buttonItem14_Click(object sender, EventArgs e)
-         {
-
-         }
-
          #region tabControl1_MouseDown
          private void tabControl1_MouseDown(object sender, MouseEventArgs e)
          {
@@ -743,11 +582,20 @@ namespace gd
                  Rectangle closeButton = new Rectangle(rPage.Right - 10, rPage.Top + 5, 10, 10);
                  if (closeButton.Contains(e.Location))
                  {
-                     if (System.Windows.Forms.MessageBox.Show("Close this Tab?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                     if (System.Windows.Forms.MessageBox.Show("Want to save your changes?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                      {
+                         Save();
                          this.tabControl1.TabPages.RemoveAt(i);
                          break;
                      }
+                     else
+                     {
+                         this.tabControl1.TabPages.RemoveAt(i);
+                         break;
+                         //else if (System.Windows.Forms.MessageBox.Show("Want to save your changes?", "Confirm", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                         //{}
+                     }
+
                  }
 
              }
@@ -757,93 +605,202 @@ namespace gd
          }
          #endregion
 
-        
-        
-        
-        //SPY
+        //RESUM
          private void buttonItem2_Click_1(object sender, EventArgs e)
          {
-             
-             FormViewer s = new FormViewer();
-             s.ShowDialog();
+             if (CurrentAutomation != null)
+             {
+                 buttonItem2.Enabled = false;
+                 buttonItem15.Enabled = false;
+                 runToolStripMenuItem.Enabled = false;
+                 buttonItem4.Enabled = true;
+                 buttonItem16.Enabled = true;
+                 CurrentAutomation.Resume();
+             }
+            
+         }
+
+         private IAutomation CurrentAutomation { get; set; }
+
+         private void Run()
+         {
+                 buttonItem15.Enabled = false;
+                 runToolStripMenuItem.Enabled = false;
+                 buttonItem16.Enabled = true;
+                 buttonItem4.Enabled = true;
+                 buttonItem2.Enabled = false;
+                 Run f = new Run();
+                 f._txtScript.Text = treeViewproject.SelectedNode.Text;
+                 TreeNode currnode = treeViewproject.Nodes[0].Nodes[0];
+                 //List<DirectoryInfo> dirlist = Duyetthumuccon((String)currnode.Tag);
+                 List<string> dataList = Duyetfile((String)currnode.Tag);
+                 dataList.Insert(0, @"[None]");
+                 f._cboData.DataSource = dataList;
+                 f.CurrentProjectPath = CurrentProjectPath;
+                 f.ShowDialog();
+                 CurrentAutomation = f.CurrenrtAutomation;
+                 CurrentAutomation.Ended += CurrentAutomation_Ended;
          }
 
         //XỬ LÍ NÚT RUN
          private void buttonItem15_Click(object sender, EventArgs e)
          {
-             buttonItem15.Enabled = false;
-             runToolStripMenuItem.Enabled = false;
-             buttonItem16.Enabled = true;
-             buttonItem4.Enabled = true;
-             Run f = new Run();
-             f._txtScript.Text = treeViewproject.SelectedNode.Text;
-             TreeNode currnode = treeViewproject.Nodes[0].Nodes[0];
-             //List<DirectoryInfo> dirlist = Duyetthumuccon((String)currnode.Tag);
-             f._cboData.DataSource = Duyetfile((String)currnode.Tag);
-             f.ShowDialog();
-             f.ShowDialog();
+             Run();
+         }
+        
+        //LOAD CAY
+        private void LoadTreeView()
+         {
+             treeViewproject.Nodes.Clear();
+             DirectoryInfo dir = new DirectoryInfo(CurrentProjectPath);
+
+             if (dir.Exists)
+             {
+                 FolderTreeNode projectNode = new FolderTreeNode();
+                 projectNode.Text = dir.Name;
+                 projectNode.Tag = dir;
+                 //projectNode.Name = "Folder";
+                 //treenode.ImageIndex = 0;
+                 projectNode.ImageIndex = 1;
+                 projectNode.SelectedImageIndex = 1;
+                 // GetDirectories(dir.GetDirectories(), treenode);
+                 treeViewproject.Nodes.Add(projectNode);
+
+                 try
+                 {
+                     DirectoryInfo[] directories = dir.GetDirectories();
+                     if (directories.Length > 0)
+                     {
+                         foreach (DirectoryInfo directory in directories)
+                         {
+                             FolderTreeNode folderNode = new FolderTreeNode();
+                             folderNode.Text = directory.Name;
+                             folderNode.Tag = directory.Name;
+                             projectNode.Nodes.Add(folderNode);
+                             folderNode.ImageIndex = folderNode.SelectedImageIndex = 1;
+                             foreach (FileInfo file in directory.GetFiles())
+                             {
+
+
+                                 if (file.Exists)
+                                 {
+                                     FileTreeNode fileNode = new FileTreeNode();
+                                     fileNode.Text = file.Name;
+                                     fileNode.Tag = file.FullName;
+                                     folderNode.Nodes.Add(fileNode);
+                                     fileNode.ImageIndex = fileNode.SelectedImageIndex = 0;
+                                     //treenode.Name = "Folder"
+
+                                 }
+
+                             }
+
+                         }
+                         treeViewproject.ExpandAll();
+
+                     }
+
+
+                 }
+                 catch (Exception ex)
+                 {
+                     System.Windows.Forms.MessageBox.Show(ex.Message);
+
+                 }
+                 Text = treeViewproject.Nodes[0].Text + " - " + "Automation";
+             }
+
+         }
+         void CurrentAutomation_Ended(IAutomation at)
+         {
+             //throw new NotImplementedException();
+             if (System.Windows.Forms.MessageBox.Show("Testing Finish... ", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+             {
+                 //LoadTreeView();
+             }
+             CurrentAutomation = null;
+
          }
 
-         private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        //RUN 
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
          {
-             buttonItem15.Enabled = false;
-             runToolStripMenuItem.Enabled = false;
-             buttonItem16.Enabled = true;
-             buttonItem4.Enabled = true;
-             Run f = new Run();
-             f._txtScript.Text = treeViewproject.SelectedNode.Text;
-             TreeNode currnode = treeViewproject.Nodes[0].Nodes[0];
-             //List<DirectoryInfo> dirlist = Duyetthumuccon((String)currnode.Tag);
-             f._cboData.DataSource = Duyetfile((String)currnode.Tag);
-             f.ShowDialog();
+             Run();
          }
 
-         //List<DirectoryInfo> Duyetthumuccon(String path1)
-         //{
-         //    @new n=new @new();
-         //    //string aa = @"E:\aa\test\Data";
-            
-         //    string aa = a + @"\" + b + @"\Data"; 
-         //    DirectoryInfo dirinfo = new DirectoryInfo(aa);
-         //    List<DirectoryInfo> listchilddir = new List<DirectoryInfo>();
-         //    foreach (DirectoryInfo dir in dirinfo.GetDirectories())
-         //    {
-         //        listchilddir.Add(dir);
-         //    }
-         //    return listchilddir;
-         //}
-         FileInfo[] Duyetfile(String path1)
+         
+         List<string> Duyetfile(String path)
          {
-            
-             String aa = @"E:\aaaa\"+treeViewproject.Nodes[0].Text+ @"\Data";
+
+             String aa = CurrentProjectPath + @"\" + path;
              //string aa = n.ProjectPath1;
              DirectoryInfo dirinfo = new DirectoryInfo(aa);
              FileInfo[] fileinfolist = dirinfo.GetFiles();
-             return fileinfolist;
+             List<string> ret = new List<string>();
+             foreach (FileInfo f in fileinfolist)
+                 ret.Add(f.Name);
+             return ret;
          }
 
-         private void spyToolStripMenuItem_Click_1(object sender, EventArgs e)
+        //SPY 
+        private void spyToolStripMenuItem_Click_1(object sender, EventArgs e)
          {
              FormViewer s = new FormViewer();
              s.ShowDialog();
          }
 
+        //PAUSE
          private void buttonItem16_Click(object sender, EventArgs e)
          {
-             buttonItem16.Enabled = false;
-             buttonItem15.Enabled = true;
-             runToolStripMenuItem.Enabled = true;
-             buttonItem4.Enabled = false;
+             if (CurrentAutomation != null)
+             {
+                 buttonItem16.Enabled = false;
+                 buttonItem15.Enabled = false;
+                 runToolStripMenuItem.Enabled = false;
+                 buttonItem4.Enabled = true;
+                 buttonItem2.Enabled = true;
+                 CurrentAutomation.Pause();
+             }
          }
 
+        //STOP
          private void buttonItem4_Click(object sender, EventArgs e)
          {
-             buttonItem16.Enabled = false;
-             buttonItem15.Enabled = true;
-             runToolStripMenuItem.Enabled = true;
-             buttonItem4.Enabled = false;
+             if (CurrentAutomation != null)
+             {
+                 buttonItem2.Enabled = false;
+                 buttonItem16.Enabled = false;
+                 buttonItem15.Enabled = true;
+                 runToolStripMenuItem.Enabled = true;
+                 buttonItem4.Enabled = false;
+                 CurrentAutomation.Interupt();
+                 CurrentAutomation = null;
+             }
          }
 
+         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+         {
+             LoadTreeView();
+         }
+
+         private void buttonItem5_Click_1(object sender, EventArgs e)
+         {
+             FormViewer s = new FormViewer();
+             s.ShowDialog();
+         }
+
+        //Refresh
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            LoadTreeView();
+        }
+        //XU LI EXIT         
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+       
          
          
     } 

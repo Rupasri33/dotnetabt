@@ -78,6 +78,7 @@
             // 
             // _cboData
             // 
+            this._cboData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cboData.FormattingEnabled = true;
             this._cboData.Items.AddRange(new object[] {
             "xls"});
