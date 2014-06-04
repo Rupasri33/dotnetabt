@@ -168,6 +168,9 @@ namespace abt.auto
                     // get a action line from script
                     ActionLine actLineRaw = CurrentScript.Next();
 
+                    if (actLineRaw.ActionName.Length == 0)
+                        continue;
+
                     // manipulate action line with DataSet
                     ActionLine actLine = ManipulateData(actLineRaw);
 
